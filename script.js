@@ -1,31 +1,90 @@
 const searchInput = document.getElementById("searchInput");
-const resultsDiv = document.getElementById("results");
+const dropdown = document.getElementById("dropdown");
+const errorMessage = document.getElementById("errorMessage");
 
-// Plaatsen die jij ondersteunt:
+const boatBtn = document.getElementById("boatBtn");
+const walkBtn = document.getElementById("walkBtn");
+
+// Stedenlijst
 const places = [
-    { name: "Leiden", link: "leiden.html" },
-    // later kun je hier meer steden toevoegen
+    { name: "Leiden", boat: "leiden-vaarroutes.html", walk: "leiden-wandelroutes.html" }
 ];
 
+let selectedPlace = null;
+
+/* ---------------- INPUT GEBEURTENIS ---------------- */
 searchInput.addEventListener("input", () => {
     const query = searchInput.value.toLowerCase();
-    resultsDiv.innerHTML = "";
+    dropdown.innerHTML = "";
+    errorMessage.textContent = "";
+    selectedPlace = null;
+    disableButtons();
 
-    if (query.length === 0) return;
+    if (query.length === 0) {
+        dropdown.style.display = "none";
+        return;
+    }
 
-    const filtered = places.filter(place =>
-        place.name.toLowerCase().includes(query)
+    const filtered = places.filter(p =>
+        p.name.toLowerCase().includes(query)
     );
 
-    filtered.forEach(place => {
-        const div = document.createElement("div");
-        div.className = "result-item";
-        div.textContent = place.name;
+    dropdown.style.display = filtered.length ? "block" : "none";
 
-        div.addEventListener("click", () => {
-            window.location.href = place.link;
+    filtered.forEach(place => {
+        const item = document.createElement("div");
+        item.className = "dropdown-item";
+        item.textContent = place.name;
+
+        item.addEventListener("click", () => {
+            selectPlace(place);
         });
 
-        resultsDiv.appendChild(div);
+        dropdown.appendChild(item);
     });
 });
+
+/* ---------------- SELECTIE ---------------- */
+function selectPlace(place) {
+    selectedPlace = place;
+    searchInput.value = place.name;
+    searchInput.style.color = "black"; // zwart
+    dropdown.style.display = "none";
+    errorMessage.textContent = "";
+    enableButtons();
+}
+
+/* ---------------- BUTTON CHECK ---------------- */
+boatBtn.addEventListener("click", () => {
+    if (!selectedPlace) {
+        showError();
+        return;
+    }
+    window.location.href = selectedPlace.boat;
+});
+
+walkBtn.addEventListener("click", () => {
+    if (!selectedPlace) {
+        showError();
+        return;
+    }
+    window.location.href = selectedPlace.walk;
+});
+
+/* ---------------- HULPFUNCTIES ---------------- */
+function disableButtons() {
+    boatBtn.disabled = true;
+    walkBtn.disabled = true;
+}
+
+function enableButtons() {
+    boatBtn.disabled = false;
+    walkBtn.disabled = false;
+}
+
+function showError() {
+    errorMessage.textContent = "Kies een plaats";
+}
+
+/* Bij laden: knoppen uit */
+disableButtons();
