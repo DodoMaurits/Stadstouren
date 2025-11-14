@@ -34,15 +34,21 @@ input::placeholder {
     color: #888;
 }
 
+.input-wrapper {
+    width: 150%;  /* 1,5x container */
+    max-width: 600px; /* optioneel */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #searchInput {
-    width: 100%;          /* volledige containerbreedte */
-    max-width: 600px;     /* maximaal 1,5x containerbreedte (afhankelijk van container) */
+    width: 100%;  /* vult nu de input-wrapper */
     padding: 14px;
     font-size: 18px;
     border-radius: 8px;
     border: none;
-    box-sizing: border-box; /* zodat padding netjes binnen max-width valt */
-    margin-top: 10px;
+    box-sizing: border-box;
 }
 
 /* Dropdown */
@@ -142,6 +148,7 @@ input::placeholder {
 .back-btn:hover {
     opacity: 1;
 }
+
 
 
 
