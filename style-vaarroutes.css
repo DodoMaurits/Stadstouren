@@ -1,4 +1,4 @@
-body {
+https://dodomaurits.github.io/Stadstouren/index.htmlbody {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -24,7 +24,7 @@ h1 {
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 kolommen */
-    gap: 15px;
+    gap: 8px;
     justify-content: center;   /* centrum van grid in container */
     justify-items: center;     /* centreer elk item in zijn cel */
 }
