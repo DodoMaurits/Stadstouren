@@ -1,90 +1,86 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: #80d4ff;  /* felle lichtblauw */
-  color: #0d1e3a;       /* donkerblauw */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  text-align: center;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #0d1e3a; /* donkerblauw */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
 }
 
 .container {
-  width: 90%;
-  max-width: 1000px;
+    width: 90%;
+    max-width: 900px;
 }
 
 h1 {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
-/* GRID */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-  justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* altijd 2 naast elkaar */
+    gap: 20px; /* ruimte tussen vierkanten */
+    justify-content: center;
 }
 
-/* GRID ITEM */
 .grid-item {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: transform 0.2s, background 0.2s;
-  aspect-ratio: 1 / 1;
-  width: 200px;
-  max-width: 200px;
-  padding: 20px;
-  box-sizing: border-box;
-  position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+
+    width: 200px;
+    aspect-ratio: 1 / 1;
+    padding: 15px;
+    box-sizing: border-box;
+    position: relative;
 }
 
 .grid-item:hover {
-  transform: scale(1.05);
-  background: rgba(0, 230, 118, 0.3);
+    transform: scale(1.05);
+    background: rgba(0, 230, 118, 0.2);
 }
 
 .number {
-  font-size: 50px;
-  font-weight: bold;
-  margin-bottom: 15px;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .title {
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  line-height: 1.2;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.2;
 }
 
+/* Scenario menu standaard verborgen */
 .scenario-menu {
-  display: none;
-  margin-top: 10px;
-  text-align: center;
+    display: none;
+    margin-top: 10px;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE VOOR MOBIEL */
 @media (max-width: 600px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-  .grid-item {
-    width: 140px;
-    max-width: 140px;
-    padding: 15px;
-  }
-  .number {
-    font-size: 35px;
-  }
-  .title {
-    font-size: 14px;
-  }
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .grid-item {
+        width: 140px;
+        padding: 10px;
+    }
+    .number {
+        font-size: 35px;
+    }
+    .title {
+        font-size: 14px;
+    }
 }
