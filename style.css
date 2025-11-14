@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: #0d2a5a;  /* iets lichtere blauw */
+    background: #0d1e3a;
     color: white;
     font-family: Arial, sans-serif;
 
@@ -80,7 +80,7 @@ input::placeholder {
 
 .route-btn {
     width: 160px;
-    padding: 25px;
+    padding: 15px 25px;
     background: #00e676;  /* fel groen */
     color: #071225;       /* donkerblauw */
     font-size: 18px;
@@ -115,6 +115,7 @@ input::placeholder {
 .back-btn:hover {
     opacity: 1;
 }
+
 
 
 
