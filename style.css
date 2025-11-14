@@ -23,7 +23,7 @@ body {
 
 /* INPUT WRAPPER */
 .input-wrapper {
-    width: 500px;
+    width: 400px;
     max-width: 90vw;        /* responsief op mobiel */
     display: flex;
     flex-direction: column;
@@ -117,6 +117,7 @@ input::placeholder {
 .back-btn:hover {
     opacity: 1;
 }
+
 
 
 
