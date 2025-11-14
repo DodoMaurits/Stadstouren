@@ -7,7 +7,6 @@ body {
 
     /* CENTREREN: */
     display: flex;
-    flex-direction: column;
     justify-content: center; /* verticaal centreren */
     align-items: center;     /* horizontaal centreren */
     min-height: 100vh;       /* volledige hoogte scherm */
@@ -87,8 +86,8 @@ input::placeholder {
 /* Container zodat knoppen samen gecentreerd staan */
 .button-container {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: center; /* horizontaal in het midden */
+    gap: 20px;               /* ruimte tussen knoppen */
     margin-top: 30px;
 }
 
@@ -129,5 +128,6 @@ input::placeholder {
 .back-btn:hover {
     opacity: 1;
 }
+
 
 
