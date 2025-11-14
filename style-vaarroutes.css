@@ -1,9 +1,10 @@
-https://dodomaurits.github.io/Stadstouren/index.htmlbody {
+/* BODY */
+body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: #0d1e3a;
-    color: white;
+    background: #a3d8f4;  /* fel lichtblauw */
+    color: #071225;        /* donkerblauw */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,11 +12,13 @@ https://dodomaurits.github.io/Stadstouren/index.htmlbody {
     text-align: center;
 }
 
+/* CONTAINER */
 .container {
     width: 90%;
-    max-width: 800px;
+    max-width: 900px;
 }
 
+/* TITEL */
 h1 {
     margin-bottom: 30px;
 }
@@ -24,14 +27,14 @@ h1 {
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 kolommen */
-    gap: 8px;
-    justify-content: center;   /* centrum van grid in container */
-    justify-items: center;     /* centreer elk item in zijn cel */
+    gap: 15px;                             /* ruimte tussen vierkanten */
+    justify-content: center;               /* centreer het hele raster */
+    justify-items: center;                 /* centreer elk item in zijn cel */
 }
 
-
+/* GRID ITEM (vierkanten) */
 .grid-item {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.2); /* lichte transparante achtergrond */
     border-radius: 12px;
     display: flex;
     flex-direction: column;
@@ -40,42 +43,47 @@ h1 {
     cursor: pointer;
     transition: transform 0.2s, background 0.2s;
 
-    aspect-ratio: 1 / 1;
-    width: 150px; /* vaste breedte zodat items niet te groot zijn */
-    max-width: 150px;
+    aspect-ratio: 1 / 1;  /* vierkant */
+    width: 200px;          /* groot op pc */
+    max-width: 200px;
 }
 
 .grid-item:hover {
     transform: scale(1.05);
-    background: rgba(0, 230, 118, 0.2);   /* felgroene hover */
+    background: rgba(0, 230, 118, 0.3); /* hover-effect */
 }
 
+/* NUMMER */
 .number {
-    font-size: 40px;
+    font-size: 60px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
+/* TITEL VAN ROUTE */
 .title {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
     text-align: center;
 }
 
-/* Responsive voor mobiel */
+/* RESPONSIVE VOOR MOBIEL */
 @media (max-width: 600px) {
     .grid {
-        grid-template-columns: repeat(2, 1fr);  /* 2 kolommen op mobiel */
-        gap: 10px;
+        grid-template-columns: repeat(2, 1fr); /* 2 kolommen op mobiel */
+        gap: 8px;                             /* kleinere ruimte */
     }
+
     .grid-item {
-        width: 120px;
+        width: 120px;                          /* kleiner op mobiel */
         max-width: 120px;
         padding: 15px;
     }
+
     .number {
-        font-size: 30px;
+        font-size: 35px;
     }
+
     .title {
         font-size: 12px;
     }
