@@ -48,6 +48,7 @@ h1 {
     aspect-ratio: 1 / 1;  /* vierkant */
     width: 200px;          /* groot op pc */
     max-width: 200px;
+    position: relative;
 }
 
 .grid-item:hover {
@@ -89,4 +90,10 @@ h1 {
     .title {
         font-size: 12px;
     }
+}
+
+.scenario-menu {
+    display: none;       /* standaard verborgen */
+    margin-top: 10px;
+    text-align: center;
 }
