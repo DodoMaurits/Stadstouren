@@ -89,6 +89,8 @@ function showError() {
 /* Bij laden: knoppen uit */
 disableButtons();
 
+-----
+
 // Selecteer alle vierkanten
 const gridItems = document.querySelectorAll('.grid-item');
 
@@ -105,4 +107,3 @@ gridItems.forEach(item => {
         }
     });
 });
-
