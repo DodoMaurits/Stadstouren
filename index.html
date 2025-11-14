@@ -8,20 +8,32 @@
 </head>
 <body>
     <div class="container">
-        <h1>Stadsroute Speurtochten</h1>
+
+        <h1>Stadsroute Speurtocht</h1>
         <p>Kies een plaats om te beginnen:</p>
 
-        <input 
-            type="text" 
-            id="searchInput" 
-            placeholder="Kies een plaats..."
-            autocomplete="off"
-        >
+        <!-- Plaats-invoer -->
+        <div class="input-wrapper">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Kies een plaats..." 
+                autocomplete="off"
+            >
+            <div id="dropdown" class="dropdown"></div>
+        </div>
 
-        <div id="results"></div>
+        <!-- Foutmelding -->
+        <p id="errorMessage" class="error"></p>
+
+        <!-- Route-knoppen -->
+        <div class="button-row">
+            <button id="boatBtn" class="route-btn">Vaarroutes</button>
+            <button id="walkBtn" class="route-btn">Wandelroutes</button>
+        </div>
+
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
