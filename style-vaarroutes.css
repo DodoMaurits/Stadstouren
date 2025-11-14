@@ -22,9 +22,11 @@ h1 {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* altijd 2 naast elkaar */
-    gap: 20px; /* ruimte tussen vierkanten */
-    justify-content: center;
+    grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) ); 
+    gap: 20px;
+    justify-content: center; /* centreert de hele grid */
+    max-width: 440px;        /* twee vierkanten van 200px + gap ertussen */
+    margin: 0 auto;          /* centreert grid in container */
 }
 
 .grid-item {
