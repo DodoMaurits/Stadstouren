@@ -24,11 +24,14 @@ h1 {
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 kolommen */
-    gap: 20px;                            /* ruimte tussen vierkanten */
+    gap: 15px;
+    justify-content: center;   /* centrum van grid in container */
+    justify-items: center;     /* centreer elk item in zijn cel */
 }
 
+
 .grid-item {
-    background: rgba(255, 255, 255, 0.1);  /* lichte transparante achtergrond */
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     display: flex;
     flex-direction: column;
@@ -38,8 +41,8 @@ h1 {
     transition: transform 0.2s, background 0.2s;
 
     aspect-ratio: 1 / 1;
+    width: 150px; /* vaste breedte zodat items niet te groot zijn */
     max-width: 150px;
-    margin: 0 auto;
 }
 
 .grid-item:hover {
@@ -63,8 +66,10 @@ h1 {
 @media (max-width: 600px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);  /* 2 kolommen op mobiel */
+        gap: 10px;
     }
     .grid-item {
+        width: 120px;
         max-width: 120px;
         padding: 15px;
     }
