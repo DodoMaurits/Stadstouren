@@ -76,3 +76,41 @@ input::placeholder {
     font-size: 16px;
     margin-top: 10px;
 }
+
+/* Lijsten met routes */
+.route-list {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.route-option {
+    display: block;
+    padding: 15px;
+    background: white;
+    color: #071225;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.route-option:hover {
+    background: #dce6ff;
+}
+
+/* Terug-knop */
+.back-btn {
+    display: inline-block;
+    margin-top: 35px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.back-btn:hover {
+    opacity: 1;
+}
