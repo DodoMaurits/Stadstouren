@@ -1,14 +1,13 @@
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background: #071225; /* diep donkerblauw */
+    background: #0d1e3a; /* iets lichter, helderder blauw */
     color: white;
+    margin: 0;
+    font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    font-family: sans-serif;
-    text-align: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .container {
@@ -77,28 +76,36 @@ input::placeholder {
     margin-top: 10px;
 }
 
-/* Lijsten met routes */
-.route-list {
-    margin-top: 25px;
+/* Container zodat knoppen samen gecentreerd staan */
+.button-container {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
 }
 
-.route-option {
-    display: block;
-    padding: 15px;
-    background: white;
-    color: #071225;
-    text-decoration: none;
-    border-radius: 8px;
+/* Knoppen */
+.route-btn {
+    padding: 15px 25px;
+    background: #00e676;  /* FEL GROEN */
+    color: #071225;       /* Donkerblauw voor contrast */
     font-size: 18px;
     font-weight: bold;
-    text-align: center;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease;
 }
 
-.route-option:hover {
-    background: #dce6ff;
+.route-btn:disabled {
+    background: #7aeebb;   /* lichtere groene disabled kleur */
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.route-btn:hover:not(:disabled) {
+    transform: scale(1.05);
+    background: #00ff85;  /* nog iets fellere hover */
 }
 
 /* Terug-knop */
