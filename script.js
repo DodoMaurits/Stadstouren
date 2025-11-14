@@ -88,3 +88,21 @@ function showError() {
 
 /* Bij laden: knoppen uit */
 disableButtons();
+
+// Selecteer alle vierkanten
+const gridItems = document.querySelectorAll('.grid-item');
+
+gridItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const menu = item.querySelector('.scenario-menu');
+        // toggle: laat menu zien/verberg
+        if(menu.style.display === 'block') {
+            menu.style.display = 'none';
+        } else {
+            // verberg alle andere menus eerst
+            document.querySelectorAll('.scenario-menu').forEach(m => m.style.display = 'none');
+            menu.style.display = 'block';
+        }
+    });
+});
+
