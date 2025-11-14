@@ -1,14 +1,19 @@
 body {
-    background: #0d1e3a; /* iets lichter, helderder blauw */
-    color: white;
     margin: 0;
+    padding: 0;
+    background: #0d1e3a;  /* jouw blauw */
+    color: white;
     font-family: Arial, sans-serif;
+
+    /* CENTREREN: */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    justify-content: center; /* verticaal centreren */
+    align-items: center;     /* horizontaal centreren */
+    min-height: 100vh;       /* volledige hoogte scherm */
+    text-align: center;      /* tekst centreren */
 }
+
 
 .container {
     width: 90%;
@@ -121,3 +126,4 @@ input::placeholder {
 .back-btn:hover {
     opacity: 1;
 }
+
