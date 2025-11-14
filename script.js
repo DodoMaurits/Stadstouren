@@ -93,9 +93,11 @@ disableButtons();
 
 // Selecteer alle vierkanten
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll('.grid-item').forEach(item => {
+  const gridItems = document.querySelectorAll('.grid-item');
+
+  gridItems.forEach(item => {
     item.addEventListener('click', (e) => {
-      // voorkom dat klikken op select het toggle event triggert
+      // voorkom toggle bij select
       if (e.target.tagName === 'SELECT') return;
 
       const menu = item.querySelector('.scenario-menu');
@@ -110,6 +112,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
-
-
