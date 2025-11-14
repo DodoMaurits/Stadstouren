@@ -22,13 +22,11 @@ h1 {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) ); 
-    gap: 20px;
-    justify-content: center; /* centreert de hele grid */
-    max-width: 440px;        /* twee vierkanten van 200px + gap ertussen */
-    margin: 0 auto;          /* centreert grid in container */
+    grid-template-columns: repeat(2, 200px); /* altijd twee vierkanten naast elkaar */
+    gap: 20px;                               /* ruimte tussen de vierkanten */
+    justify-content: center;                 /* centreert de grid */
+    margin: 0 auto;
 }
-
 .grid-item {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
@@ -39,13 +37,11 @@ h1 {
     cursor: pointer;
     transition: transform 0.2s, background 0.2s;
 
-    width: 200px;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1 / 1;  
     padding: 15px;
     box-sizing: border-box;
     position: relative;
 }
-
 .grid-item:hover {
     transform: scale(1.05);
     background: rgba(0, 230, 118, 0.2);
@@ -72,12 +68,10 @@ h1 {
 /* RESPONSIVE VOOR MOBIEL */
 @media (max-width: 600px) {
     .grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 140px); /* twee vierkanten mobiel */
         gap: 15px;
-        max-width: 300px;
     }
     .grid-item {
-        width: 140px;
         padding: 10px;
     }
     .number {
