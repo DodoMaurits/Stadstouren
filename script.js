@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     gridItems.forEach(item => {
         item.addEventListener('click', (e) => {
-            // voorkom toggle als je op select of option klikt
+            // voorkom toggle als je op select, option of label klikt
             if (['SELECT', 'OPTION', 'LABEL'].includes(e.target.tagName)) return;
 
             const menu = item.querySelector('.scenario-menu');
