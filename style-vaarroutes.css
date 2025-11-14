@@ -30,9 +30,14 @@ h1 {
 .grid-item {
     background: rgba(255, 255, 255, 0.1);  /* lichte transparante achtergrond */
     border-radius: 12px;
-    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     transition: transform 0.2s, background 0.2s;
+
+    aspect-ratio: 1 / 1;
 }
 
 .grid-item:hover {
@@ -43,12 +48,13 @@ h1 {
 .number {
     font-size: 60px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .title {
     font-size: 18px;
     font-weight: bold;
+    text-align: center;
 }
 
 /* Responsive voor mobiel */
@@ -56,8 +62,6 @@ h1 {
     .grid {
         grid-template-columns: 1fr;  /* 1 kolom op klein scherm */
     }
-    .grid-item {
-        padding: 30px 15px;
     }
     .number {
         font-size: 50px;
