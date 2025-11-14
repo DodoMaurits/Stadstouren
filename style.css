@@ -34,6 +34,17 @@ input::placeholder {
     color: #888;
 }
 
+#searchInput {
+    width: 100%;          /* volledige containerbreedte */
+    max-width: 600px;     /* maximaal 1,5x containerbreedte (afhankelijk van container) */
+    padding: 14px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    box-sizing: border-box; /* zodat padding netjes binnen max-width valt */
+    margin-top: 10px;
+}
+
 /* Dropdown */
 .dropdown {
     background: #0d1a33;
@@ -128,6 +139,7 @@ input::placeholder {
 .back-btn:hover {
     opacity: 1;
 }
+
 
 
 
