@@ -3,8 +3,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: #a3d8f4;  /* fel lichtblauw */
-    color: #071225;        /* donkerblauw */
+    background: #0d1e3a;  /* fel lichtblauw */
+    color: white;        /* donkerblauw */
     display: flex;
     justify-content: center;
     align-items: center;
