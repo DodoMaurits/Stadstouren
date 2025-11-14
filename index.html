@@ -8,11 +8,19 @@
 </head>
 <body>
     <div class="container">
-        <h1>Welkom bij de Stadsroute Speurtocht!</h1>
-        <p>Loop door de stad, los raadsels op bij elke stop en verzamel hints om het eindraadsel op te lossen.</p>
-        <p>Tip: Zorg dat je pen en papier bij de hand hebt voor de hints!</p>
+        <h1>Stadsroute Speurtocht</h1>
+        <p>Kies een plaats om te beginnen:</p>
 
-        <a href="stop1.html" class="btn">Start de route</a>
+        <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Kies een plaats..."
+            autocomplete="off"
+        >
+
+        <div id="results"></div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
