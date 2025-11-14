@@ -24,7 +24,7 @@ h1 {
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 kolommen */
-    gap: 50px;                            /* ruimte tussen vierkanten */
+    gap: 20px;                            /* ruimte tussen vierkanten */
 }
 
 .grid-item {
