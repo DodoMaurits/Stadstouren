@@ -12,18 +12,17 @@ body {
     text-align: center;
 }
 
-/* CONTAINER */
 .container {
     width: 90%;
-    max-width: 500px;       /* smaller dan input */
+    max-width: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* INPUT WRAPPER */
 .input-wrapper {
-    width: 60%;
+    width: 700%;
+    max-width: none;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,7 +32,6 @@ body {
 /* INPUT */
 #searchInput {
     width: 100%;
-    max-width: 300px;
     padding: 12px;
     font-size: 16px;
     border-radius: 8px;
@@ -117,6 +115,7 @@ input::placeholder {
 .back-btn:hover {
     opacity: 1;
 }
+
 
 
 
