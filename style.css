@@ -21,8 +21,8 @@ body {
 }
 
 .input-wrapper {
-    width: 90%;           /* wrapper vult container */
-    max-width: 500px;      /* wrapper beperkt breedte */
+    width: 85%;           /* wrapper vult container */
+    max-width: 480px;      /* wrapper beperkt breedte */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,8 +32,8 @@ body {
 
 /* INPUT */
 #searchInput {
-    width: 90%;           /* vul 100% van wrapper */
-    max-width: 500px;      /* maximaal 300px breed */
+    width: 85%;           /* vul 100% van wrapper */
+    max-width: 400px;      /* maximaal 300px breed */
     padding: 12px;
     font-size: 16px;
     border-radius: 8px;
@@ -47,8 +47,8 @@ input::placeholder {
 
 /* DROPDOWN */
 .dropdown {
-    width: 90%;
-    max-width: 500px;
+    width: 85%;
+    max-width: 400px;
     background: white;
     color: black;
     border-radius: 6px;
@@ -118,6 +118,7 @@ input::placeholder {
 .back-btn:hover {
     opacity: 1;
 }
+
 
 
 
