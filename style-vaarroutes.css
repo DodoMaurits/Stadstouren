@@ -26,10 +26,12 @@ h1 {
 /* GRID */
 .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 kolommen */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* items passen zich aan */
     gap: 15px;                             /* ruimte tussen vierkanten */
     justify-content: center;               /* centreer het hele raster */
     justify-items: center;                 /* centreer elk item in zijn cel */
+    max-width: 450px;
+    margin: 0 auto;
 }
 
 /* GRID ITEM (vierkanten) */
@@ -72,12 +74,12 @@ h1 {
     .grid {
         grid-template-columns: repeat(2, 1fr); /* 2 kolommen op mobiel */
         gap: 8px;                             /* kleinere ruimte */
+        max-width: 270px;
     }
 
     .grid-item {
         width: 120px;                          /* kleiner op mobiel */
         max-width: 120px;
-        padding: 15px;
     }
 
     .number {
