@@ -23,8 +23,7 @@ body {
 
 /* INPUT WRAPPER */
 .input-wrapper {
-    width: 80%;
-    max-width: 400px;        /* responsief op mobiel */
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,9 +32,10 @@ body {
 
 /* INPUT */
 #searchInput {
-    width: 300px;
-    padding: 14px;
-    font-size: 18px;
+    width: 70%;
+    max-width: 300px;
+    padding: 12px;
+    font-size: 16px;
     border-radius: 8px;
     border: none;
     box-sizing: border-box;
@@ -117,6 +117,7 @@ input::placeholder {
 .back-btn:hover {
     opacity: 1;
 }
+
 
 
 
