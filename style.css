@@ -21,17 +21,19 @@ body {
 }
 
 .input-wrapper {
-    width: 70%;
-    max-width: none;
+    width: 100%;           /* wrapper vult container */
+    max-width: 400px;      /* wrapper beperkt breedte */
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
 }
 
+
 /* INPUT */
 #searchInput {
-    width: 100%;
+    width: 100%;           /* vul 100% van wrapper */
+    max-width: 300px;      /* maximaal 300px breed */
     padding: 12px;
     font-size: 16px;
     border-radius: 8px;
@@ -115,6 +117,7 @@ input::placeholder {
 .back-btn:hover {
     opacity: 1;
 }
+
 
 
 
