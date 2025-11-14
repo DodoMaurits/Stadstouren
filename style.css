@@ -13,13 +13,12 @@ body {
     text-align: center;      /* tekst centreren */
 }
 
-
 .container {
     width: 90%;
-    max-width: 500px;
+    max-width: 400px;  /* kleiner dan de input wrapper */
     display: flex;
     flex-direction: column;
-    align-items: center; /* alles in container centreren */
+    align-items: center;
 }
 
 input {
@@ -35,15 +34,15 @@ input::placeholder {
 }
 
 .input-wrapper {
-    width: 150%;  /* 1,5x container */
-    max-width: 600px; /* optioneel */
+    width: 600px;  /* breder dan container */
+    max-width: 90vw; /* zorgt dat het mobiel niet te breed wordt */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 #searchInput {
-    width: 100%;  /* vult nu de input-wrapper */
+    width: 100%;  /* vult nu de input-wrapper volledig */
     padding: 14px;
     font-size: 18px;
     border-radius: 8px;
@@ -53,8 +52,7 @@ input::placeholder {
 
 /* Dropdown */
 .dropdown {
-    width: 100%;
-    max-width: 600px;  /*zelfde als input*/
+    width: 100%;   /* vult de wrapper */
     background: white;
     color: black;
     border-radius: 6px;
@@ -148,6 +146,7 @@ input::placeholder {
 .back-btn:hover {
     opacity: 1;
 }
+
 
 
 
