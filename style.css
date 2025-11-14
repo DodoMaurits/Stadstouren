@@ -47,10 +47,13 @@ input::placeholder {
 
 /* Dropdown */
 .dropdown {
-    background: #0d1a33;
+    width: 100%;
+    max-width: 600px;  /*zelfde als input*/
+    background: white;
+    color: black;
     border-radius: 6px;
     margin-top: 5px;
-    display: none;
+    text-align: left;
 }
 
 .dropdown-item {
@@ -139,6 +142,7 @@ input::placeholder {
 .back-btn:hover {
     opacity: 1;
 }
+
 
 
 
