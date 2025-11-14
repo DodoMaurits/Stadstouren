@@ -13,7 +13,7 @@ body {
 
 .container {
     width: 90%;
-    max-width: 400px;
+    max-width: 420px;
 }
 
 input {
@@ -22,26 +22,57 @@ input {
     font-size: 18px;
     border-radius: 8px;
     border: none;
-    margin-top: 10px;
 }
 
 input::placeholder {
     color: #888;
 }
 
-#results {
-    margin-top: 15px;
-    text-align: left;
-}
-
-.result-item {
-    padding: 12px;
+/* Dropdown */
+.dropdown {
     background: #0d1a33;
     border-radius: 6px;
-    margin-bottom: 8px;
+    margin-top: 5px;
+    display: none;
+}
+
+.dropdown-item {
+    padding: 12px;
     cursor: pointer;
 }
 
-.result-item:hover {
+.dropdown-item:hover {
     background: #102040;
+}
+
+/* Knoppen */
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.route-btn {
+    width: 48%;
+    padding: 15px;
+    background: white;
+    color: #071225;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.route-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Foutmelding */
+.error {
+    color: #ff6a6a;
+    font-style: italic;
+    font-size: 16px;
+    margin-top: 10px;
 }
