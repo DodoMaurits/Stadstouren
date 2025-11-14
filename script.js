@@ -90,20 +90,21 @@ function showError() {
 disableButtons();
 
 // Selecteer alle vierkanten
-document.querySelectorAll('.grid-item').forEach(item => {
-    item.addEventListener('click', (e) => {
-        // voorkom toggle als je op de select klikt
-        if(e.target.tagName === 'SELECT') return;
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.grid-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+            if(e.target.tagName === 'SELECT' || e.target.tagName === 'OPTION') return;
 
-        const menu = item.querySelector('.scenario-menu');
+            const menu = item.querySelector('.scenario-menu');
 
-        // verberg alle andere scenario-menus
-        document.querySelectorAll('.scenario-menu').forEach(m => {
-            if(m !== menu) m.style.display = 'none';
+            document.querySelectorAll('.scenario-menu').forEach(m => {
+                if(m !== menu) m.style.display = 'none';
+            });
+
+            const isVisible = getComputedStyle(menu).display === 'block';
+            menu.style.display = isVisible ? 'none' : 'block';
         });
-
-        // toggle huidige menu
-        menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
     });
 });
+
 
