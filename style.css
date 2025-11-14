@@ -22,7 +22,7 @@ body {
 
 .input-wrapper {
     width: 100%;           /* wrapper vult container */
-    max-width: 400px;      /* wrapper beperkt breedte */
+    max-width: 500px;      /* wrapper beperkt breedte */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -117,6 +117,7 @@ input::placeholder {
 .back-btn:hover {
     opacity: 1;
 }
+
 
 
 
