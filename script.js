@@ -94,16 +94,17 @@ disableButtons();
 // Selecteer alle vierkanten
 document.querySelectorAll('.grid-item').forEach(item => {
   item.addEventListener('click', (e) => {
-    if (e.target.tagName === 'SELECT') return; // klik op select negeren
+    // voorkom dat klikken op de select het toggle event triggert
+    if (e.target.tagName === 'SELECT') return;
 
     const menu = item.querySelector('.scenario-menu');
 
-    // Verberg alle andere menus
+    // verberg alle andere scenario-menus
     document.querySelectorAll('.scenario-menu').forEach(m => {
       if (m !== menu) m.style.display = 'none';
     });
 
-    // Toggle huidige menu
+    // toggle huidige menu
     menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
   });
 });
