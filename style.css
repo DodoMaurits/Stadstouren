@@ -1,48 +1,39 @@
 body {
     margin: 0;
     padding: 0;
-    background: #0d1e3a;  /* jouw blauw */
+    background: #0d2a5a;  /* iets lichtere blauw */
     color: white;
     font-family: Arial, sans-serif;
 
-    /* CENTREREN: */
     display: flex;
     justify-content: center; /* verticaal centreren */
     align-items: center;     /* horizontaal centreren */
     min-height: 100vh;       /* volledige hoogte scherm */
-    text-align: center;      /* tekst centreren */
+    text-align: center;
 }
 
+/* CONTAINER */
 .container {
     width: 90%;
-    max-width: 400px;  /* kleiner dan de input wrapper */
+    max-width: 400px;       /* smaller dan input */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-input {
-    width: 100%;
-    padding: 14px;
-    font-size: 18px;
-    border-radius: 8px;
-    border: none;
-}
-
-input::placeholder {
-    color: #888;
-}
-
+/* INPUT WRAPPER */
 .input-wrapper {
-    width: 600px;  /* breder dan container */
-    max-width: 90vw; /* zorgt dat het mobiel niet te breed wordt */
+    width: 600px;           /* 1,5x breder dan container */
+    max-width: 90vw;        /* responsief op mobiel */
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 10px;
 }
 
+/* INPUT */
 #searchInput {
-    width: 100%;  /* vult nu de input-wrapper volledig */
+    width: 100%;
     padding: 14px;
     font-size: 18px;
     border-radius: 8px;
@@ -50,9 +41,13 @@ input::placeholder {
     box-sizing: border-box;
 }
 
-/* Dropdown */
+input::placeholder {
+    color: #888;
+}
+
+/* DROPDOWN */
 .dropdown {
-    width: 100%;   /* vult de wrapper */
+    width: 100%;
     background: white;
     color: black;
     border-radius: 6px;
@@ -93,7 +88,7 @@ input::placeholder {
     cursor: not-allowed;
 }
 
-/* Foutmelding */
+/* FOUTMELDING */
 .error {
     color: #ff6a6a;
     font-style: italic;
@@ -101,19 +96,19 @@ input::placeholder {
     margin-top: 10px;
 }
 
-/* Container zodat knoppen samen gecentreerd staan */
+/* BUTTONS */
 .button-container {
     display: flex;
-    justify-content: center; /* horizontaal in het midden */
-    gap: 20px;               /* ruimte tussen knoppen */
+    justify-content: center; /* horizontaal gecentreerd */
+    gap: 20px;
     margin-top: 30px;
 }
 
-/* Knoppen */
 .route-btn {
-    padding: 15px 25px;
-    background: #00e676;  /* FEL GROEN */
-    color: #071225;       /* Donkerblauw voor contrast */
+    width: 140px;
+    padding: 15px;
+    background: #00e676;  /* fel groen */
+    color: #071225;       /* donkerblauw */
     font-size: 18px;
     font-weight: bold;
     border-radius: 10px;
@@ -123,14 +118,14 @@ input::placeholder {
 }
 
 .route-btn:disabled {
-    background: #7aeebb;   /* lichtere groene disabled kleur */
+    background: #7aeebb;
     cursor: not-allowed;
     opacity: 0.6;
 }
 
 .route-btn:hover:not(:disabled) {
     transform: scale(1.05);
-    background: #00ff85;  /* nog iets fellere hover */
+    background: #00ff85;
 }
 
 /* Terug-knop */
@@ -146,6 +141,7 @@ input::placeholder {
 .back-btn:hover {
     opacity: 1;
 }
+
 
 
 
