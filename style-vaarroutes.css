@@ -27,16 +27,15 @@ h1 {
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* items passen zich aan */
-    gap: 15px;                             /* ruimte tussen vierkanten */
+    gap: 25px;                             /* ruimte tussen vierkanten */
     justify-content: center;               /* centreer het hele raster */
     justify-items: center;                 /* centreer elk item in zijn cel */
-    max-width: 450px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
-/* GRID ITEM (vierkanten) */
 .grid-item {
-    background: rgba(255, 255, 255, 0.2); /* lichte transparante achtergrond */
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     display: flex;
     flex-direction: column;
@@ -45,9 +44,11 @@ h1 {
     cursor: pointer;
     transition: transform 0.2s, background 0.2s;
 
-    aspect-ratio: 1 / 1;  /* vierkant */
-    width: 200px;          /* groot op pc */
-    max-width: 200px;
+    aspect-ratio: 1 / 1;   
+    width: 220px;           /* iets groter op pc */
+    max-width: 220px;
+    padding: 20px;          /* voegt ruimte toe rondom de tekst */
+    box-sizing: border-box;  /* padding telt mee in breedte */
     position: relative;
 }
 
@@ -68,27 +69,29 @@ h1 {
     font-size: 18px;
     font-weight: bold;
     text-align: center;
+    line-height: 1.2;       /* zorgt dat tekst niet te dicht op elkaar staat */
 }
 
 /* RESPONSIVE VOOR MOBIEL */
 @media (max-width: 600px) {
     .grid {
         grid-template-columns: repeat(2, 1fr); /* 2 kolommen op mobiel */
-        gap: 8px;                             /* kleinere ruimte */
-        max-width: 270px;
+        gap: 15px;                             /* kleinere ruimte */
+        max-width: 300px;
     }
 
     .grid-item {
-        width: 120px;                          /* kleiner op mobiel */
-        max-width: 120px;
+        width: 150px;                          /* kleiner op mobiel */
+        max-width: 150px;
+        padding: 15px;
     }
 
     .number {
-        font-size: 35px;
+        font-size: 40px;
     }
 
     .title {
-        font-size: 12px;
+        font-size: 14px;
     }
 }
 
