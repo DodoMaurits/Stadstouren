@@ -89,15 +89,6 @@ function showError() {
 /* Bij laden: knoppen uit */
 disableButtons();
 
-// Selectie
-document.querySelectorAll('.grid-item').forEach(item => {
-    item.addEventListener('click', () => {
-        const url = item.dataset.url; // haalt de link op
-        if (url) {
-            window.location.href = url; // navigeert naar de nieuwe pagina
-        }
-    });
-});
 
 
 
