@@ -90,36 +90,16 @@ function showError() {
 disableButtons();
 
 // Selectie
-document.addEventListener('DOMContentLoaded', () => {
-    const overlay = document.getElementById('overlay');
-    const modalClose = document.getElementById('modalClose');
-    const opt1 = document.getElementById('opt1');
-    const opt2 = document.getElementById('opt2');
-    const opt3 = document.getElementById('opt3');
-
-    // Klik op een vierkant
-    document.querySelectorAll('.grid-item').forEach(item => {
-        item.addEventListener('click', () => {
-            // Haal de data-opt attributen op
-            opt1.href = item.dataset.opt1;
-            opt2.href = item.dataset.opt2;
-            opt3.href = item.dataset.opt3;
-
-            // Toon de modal
-            overlay.classList.add('show');
-        });
-    });
-
-    // Sluitknop modal
-    modalClose.addEventListener('click', () => {
-        overlay.classList.remove('show');
-    });
-
-    // Klik buiten de modal sluit de modal
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) overlay.classList.remove('show');
+document.querySelectorAll('.grid-item').forEach(item => {
+    item.addEventListener('click', () => {
+        const url = item.dataset.url; // haalt de link op
+        if (url) {
+            window.location.href = url; // navigeert naar de nieuwe pagina
+        }
     });
 });
+
+
 
 
 
