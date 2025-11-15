@@ -97,7 +97,7 @@ h1 {
     transition: 0.2s;
 }
 
-.modal-option:hover {
+.modal-btn:hover {
     background: #ddd;
 }
 
