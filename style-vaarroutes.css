@@ -85,7 +85,7 @@ h1 {
     position: relative;
 }
 
-.modal-option {
+.modal-btn {
     display: block;
     background: white;
     color: black;
@@ -128,4 +128,12 @@ h1 {
     .title {
         font-size: 14px;
     }
+}
+
+.overlay {
+    z-index: 9999;
+}
+
+.modal {
+    z-index: 10000;
 }
