@@ -91,29 +91,76 @@ disableButtons();
 
 // Selecteer alle vierkanten
 document.addEventListener('DOMContentLoaded', () => {
-    const gridItems = document.querySelectorAll('.grid-item');
+  const overlay = document.getElementById('overlay');
+  const modalClose = document.getElementById('modalClose');
+  const modalTitle = document.getElementById('modal-title');
+  const modalSubtitle = document.getElementById('modal-subtitle');
+  const opt1 = document.getElementById('opt1');
+  const opt2 = document.getElementById('opt2');
+  const opt3 = document.getElementById('opt3');
 
-    gridItems.forEach(item => {
-        item.addEventListener('click', (e) => {
-            // voorkom toggle als je op select, option of label klikt
-            if (['SELECT', 'OPTION', 'LABEL'].includes(e.target.tagName)) return;
+  // helper: maak slug van titel: "Varen 4 km Highlights" -> "varen-4-km-highlights"
+  function slugify(text) {
+    return text.toString().toLowerCase()
+      .replace(/æ/g, 'ae').replace(/ø/g, 'o').replace(/å/g, 'a') // NL chars
+      .replace(/\s+/g, '-')           // spaties -> -
+      .replace(/[^\w\-]+/g, '')       // verwijder niet-woordtekens
+      .replace(/\-\-+/g, '-')         // dubbele - -> -
+      .replace(/^-+/, '').replace(/-+$/, '');
+  }
 
-            const menu = item.querySelector('.scenario-menu');
+  function openModal(routeTitle) {
+    modalTitle.textContent = 'Scenario kiezen';
+    modalSubtitle.textContent = routeTitle;
 
-            // verberg alle andere scenario-menus
-            document.querySelectorAll('.scenario-menu').forEach(m => {
-                if (m !== menu) m.style.display = 'none';
-            });
+    const base = slugify(routeTitle); // basis voor links
 
-            // toggle huidige menu met getComputedStyle
-            if (window.getComputedStyle(menu).display === 'none') {
-                menu.style.display = 'block';
-            } else {
-                menu.style.display = 'none';
-            }
-        });
+    // Bouw voorbeeld links (pas aan naar jouw bestandsnamen)
+    opt1.href = base + '-puzzeltocht.html';
+    opt1.textContent = 'Puzzeltocht';
+
+    opt2.href = base + '-moordmysterie.html';
+    opt2.textContent = 'Moordmysterie';
+
+    opt3.href = base + '-schattenjacht.html';
+    opt3.textContent = 'Schattenjacht';
+
+    overlay.classList.add('show');
+    overlay.setAttribute('aria-hidden', 'false');
+    // focus optioneel op eerste knop
+    opt1.focus();
+  }
+
+  function closeModal() {
+    overlay.classList.remove('show');
+    overlay.setAttribute('aria-hidden', 'true');
+  }
+
+  // Klik op vierkanten -> open modal
+  document.querySelectorAll('.grid-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      // als klik op select/option/label: negeer
+      if (['SELECT', 'OPTION', 'LABEL'].includes(e.target.tagName)) return;
+
+      const titleEl = item.querySelector('.title');
+      const routeTitle = titleEl ? titleEl.textContent.trim() : 'Route';
+      openModal(routeTitle);
     });
+  });
+
+  // Sluit-actie en klik buiten modal sluit ook
+  modalClose.addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
+  });
+
+  // esc toets sluit modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
 });
+
+
 
 
 
