@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varen 4 km</title>
+    <link rel="stylesheet" href="style-vaarroutes.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Varen 4 km</h1>
+        <p>Kies een scenario om te starten:</p>
+
+        <div class="grid">
+            <div class="grid-item" data-opt="varen-4km-puzzeltocht.html">
+                <div class="number">1</div>
+                <div class="title">Puzzeltocht</div>
+            </div>
+            <div class="grid-item" data-opt="varen-4km-moordmysterie.html">
+                <div class="number">2</div>
+                <div class="title">Moordmysterie</div>
+            </div>
+            <div class="grid-item" data-opt="varen-4km-schattenjacht.html">
+                <div class="number">3</div>
+                <div class="title">Schattenjacht</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal bevestiging -->
+    <div id="overlay" class="overlay" aria-hidden="true">
+        <div class="modal">
+            <button id="modalClose" class="modal-close">✕</button>
+            <h2>Kies jouw avontuur!</h2>
+            <p>Je staat op het punt deze route te starten.</p>
+            <div class="modal-buttons">
+                <a id="confirmBtn" class="modal-btn" href="#">Start avontuur</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script-vaarroutes.js"></script>
+</body>
+</html>
