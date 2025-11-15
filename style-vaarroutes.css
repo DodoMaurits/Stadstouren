@@ -75,32 +75,6 @@ h1 {
     display: flex;
 }
 
-.modal {
-    background: black;
-    padding: 30px;
-    border-radius: 10px;
-    color: white;
-    width: 300px;
-    text-align: center;
-    position: relative;
-}
-
-.modal-btn {
-    display: block;
-    background: white;
-    color: black;
-    padding: 12px;
-    margin-top: 15px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-.modal-btn:hover {
-    background: #ddd;
-}
-
 /* CLOSE BUTTON */
 .close {
     position: absolute;
@@ -115,9 +89,6 @@ h1 {
     .grid {
         grid-template-columns: repeat(2, 140px); /* twee vierkanten mobiel */
         gap: 15px;
-        .modal { padding: 18px; max-width: 340px; }
-        .modal h2 { font-size: 18px; }
-        .modal-btn { padding: 10px 12px; }
     }
     .grid-item {
         padding: 10px;
@@ -129,11 +100,6 @@ h1 {
         font-size: 14px;
     }
 }
-
-.overlay {
-    z-index: 9999;
-}
-
 .modal {
     z-index: 10000;
 }
