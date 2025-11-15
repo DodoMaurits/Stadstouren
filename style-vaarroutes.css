@@ -61,15 +61,13 @@ h1 {
 
 /* Overlay / modal */
 .overlay {
-  display: none;               /* verborgen standaard */
+  display: none;
   position: fixed;
-  inset: 0;                    /* top/right/bottom/left: 0 */
-  background: rgba(0,0,0,0.6); /* semi-transparant scherm */
-  display: flex;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
   justify-content: center;
   align-items: center;
-  z-index: 2000;
-  padding: 20px;
+  z-index: 9999;
 }
 
 .overlay.show {
@@ -77,58 +75,35 @@ h1 {
 }
 
 .modal {
-  background: #000;            /* zwart vak */
-  color: #fff;                 /* witte tekst */
-  border-radius: 12px;
-  padding: 24px;
-  width: 100%;
-  max-width: 420px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  position: relative;
+  background: black;
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
   text-align: center;
+  position: relative;
+}
+
+.modal-btn {
+  display: block;
+  padding: 12px;
+  margin: 10px 0;
+  background: #222;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
 }
 
 .modal-close {
   position: absolute;
+  right: 15px;
   top: 10px;
-  right: 10px;
-  background: transparent;
-  color: #fff;
+  background: none;
   border: none;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.modal h2 {
-  margin: 0 0 6px 0;
+  color: white;
   font-size: 22px;
-}
-
-.modal-subtitle {
-  margin: 0 0 18px 0;
-  color: rgba(255,255,255,0.85);
-  font-size: 14px;
-}
-
-/* Knoppen in de modal */
-.modal-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.modal-btn {
-  display: inline-block;
-  text-decoration: none;
-  background: #0d66ff;         /* opvallende knopkleur (blauw) */
-  color: #fff;
-  padding: 12px 16px;
-  border-radius: 10px;
-  font-weight: 600;
-}
-
-.modal-btn:hover {
-  filter: brightness(1.05);
+  cursor: pointer;
 }
 
 /* RESPONSIVE VOOR MOBIEL */
