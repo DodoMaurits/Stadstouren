@@ -1,182 +1,140 @@
-<!doctype html>
-<html lang="nl">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Test Modal - Leiden Vaarroutes</title>
-<style>
-  :root { --bg: #0d1e3a; --card: rgba(255,255,255,0.12); --accent:#0d66ff; }
-  html,body { height:100%; margin:0; }
-  body{
-    font-family: Arial, sans-serif;
-    background: var(--bg);
-    color: #fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-  }
-
-  .container{ width:100%; max-width:900px; text-align:center; }
-
-  h1{ margin:0 0 20px 0; font-size:24px; }
-
-  .grid{
-    display:grid;
-    grid-template-columns: repeat(2, 220px);
-    gap:20px;
-    justify-content:center;
-    margin: 0 auto;
-  }
-
-  .grid-item{
-    background: var(--card);
-    border-radius:12px;
-    aspect-ratio:1/1;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    padding:16px;
-    box-sizing:border-box;
-    cursor:pointer;
-    transition: transform .15s ease, background .15s;
-  }
-  .grid-item:hover{ transform: translateY(-4px); background: rgba(0,230,118,0.15); }
-
-  .number{ font-size:48px; font-weight:700; margin-bottom:8px; color:#fff; }
-  .title{ font-size:15px; font-weight:700; color:#fff; }
-
-  /* overlay & modal */
-  .overlay{ display:none; position:fixed; inset:0; background: rgba(0,0,0,0.65); align-items:center; justify-content:center; z-index:9999; padding:20px; }
-  .overlay.show{ display:flex; }
-
-  .modal{
-    width:100%; max-width:420px; background:#000; color:#fff; border-radius:12px; padding:22px; box-sizing:border-box; position:relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    text-align:center;
-  }
-  .modal h2{ margin:0 0 6px 0; font-size:20px; }
-  .modal p { margin:0 0 12px 0; color:rgba(255,255,255,0.85); }
-
-  .modal-buttons{ display:flex; flex-direction:column; gap:10px; margin-top:10px; }
-  .modal-btn{ display:block; text-decoration:none; background:var(--accent); color:#fff; padding:12px 14px; border-radius:8px; font-weight:700; }
-  .modal-btn.secondary{ background:#444; color:#fff; }
-  .modal-close{ position:absolute; right:12px; top:8px; background:none; border:none; color:#fff; font-size:20px; cursor:pointer; }
-
-  @media (max-width:520px){
-    .grid{ grid-template-columns: repeat(2, 140px); gap:12px; }
-    .number{ font-size:34px; }
-    .title{ font-size:13px; }
-    .modal{ padding:16px; max-width:340px; }
-  }
-</style>
-</head>
 <body>
-  <div class="container">
-    <h1>Leiden Vaarroutes — test</h1>
+    <div class="container">
+        <h1>Leiden Vaarroutes</h1>
 
-    <div class="grid">
-      <div class="grid-item" data-opt1="varen-4km-puzzeltocht.html" data-opt2="varen-4km-moordmysterie.html" data-opt3="varen-4km-schattenjacht.html">
-        <div class="number">1</div><div class="title">Varen 4 km Highlights</div>
-      </div>
+        <div class="grid">
+            <div class="grid-item">
 
-      <div class="grid-item" data-opt1="lopen-4km-puzzeltocht.html" data-opt2="lopen-4km-moordmysterie.html" data-opt3="lopen-4km-schattenjacht.html">
-        <div class="number">2</div><div class="title">Lopen 4 km Highlights</div>
-      </div>
+            <div class="grid-item" 
+                 data-opt1="varen-4km-puzzeltocht.html"
+                 data-opt2="varen-4km-moordmysterie.html"
+                 data-opt3="varen-4km-schattenjacht.html">
+                <div class="number">1</div>
+                <div class="title">Varen 4 km Highlights</div>
+                <!-- Modal (verberg standaard) -->
+                <div class="grid-item"
+                     data-opt1="leiden-puzzeltocht.html"
+                     data-opt2="leiden-moordmysterie.html"
+                     data-opt3="leiden-schattenjacht.html">
+                    <h3 class="title">Leiden</h3>
+                </div>
+            </div>
 
-      <div class="grid-item" data-opt1="varen-6km-puzzeltocht.html" data-opt2="varen-6km-moordmysterie.html" data-opt3="varen-6km-schattenjacht.html">
-        <div class="number">3</div><div class="title">Varen 6 km Hidden Gems</div>
-      </div>
+            <div class="grid-item">
+            <div class="grid-item"
+                 data-opt1="lopen-4km-puzzeltocht.html"
+                 data-opt2="lopen-4km-moordmysterie.html"
+                 data-opt3="lopen-4km-schattenjacht.html">
+                <div class="number">2</div>
+                <div class="title">Lopen 4 km Highlights</div>
+                <!-- Modal (verberg standaard) -->
+                <div class="grid-item"
+                     data-opt1="leiden-puzzeltocht.html"
+                     data-opt2="leiden-moordmysterie.html"
+                     data-opt3="leiden-schattenjacht.html">
+                    <h3 class="title">Leiden</h3>
+                </div>
+            </div>
+            
+            <div class="grid-item">
 
-      <div class="grid-item" data-opt1="lopen-6km-puzzeltocht.html" data-opt2="lopen-6km-moordmysterie.html" data-opt3="lopen-6km-schattenjacht.html">
-        <div class="number">4</div><div class="title">Lopen 6 km Hidden Gems</div>
-      </div>
+            <div class="grid-item"
+                 data-opt1="varen-6km-puzzeltocht.html"
+                 data-opt2="varen-6km-moordmysterie.html"
+                 data-opt3="varen-6km-schattenjacht.html">
+                <div class="number">3</div>
+                <div class="title">Varen 6 km Hidden Gems</div>
+                <!-- Modal (verberg standaard) -->
+                <div class="grid-item"
+                     data-opt1="leiden-puzzeltocht.html"
+                     data-opt2="leiden-moordmysterie.html"
+                     data-opt3="leiden-schattenjacht.html">
+                    <h3 class="title">Leiden</h3>
+                </div>
+            </div>
+                
+            <div class="grid-item">
 
-      <div class="grid-item" data-opt1="varen-8km-puzzeltocht.html" data-opt2="varen-8km-moordmysterie.html" data-opt3="varen-8km-schattenjacht.html">
-        <div class="number">5</div><div class="title">Varen 8 km Curiositeiten</div>
-      </div>
+            <div class="grid-item"
+                 data-opt1="lopen-6km-puzzeltocht.html"
+                 data-opt2="lopen-6km-moordmysterie.html"
+                 data-opt3="lopen-6km-schattenjacht.html">
+                <div class="number">4</div>
+                <div class="title">Lopen 6 km Hidden Gems</div>
+                <!-- Modal (verberg standaard) -->
+                <div class="grid-item"
+                     data-opt1="leiden-puzzeltocht.html"
+                     data-opt2="leiden-moordmysterie.html"
+                     data-opt3="leiden-schattenjacht.html">
+                    <h3 class="title">Leiden</h3>
+                </div>
+            </div>
 
-      <div class="grid-item" data-opt1="lopen-8km-puzzeltocht.html" data-opt2="lopen-8km-moordmysterie.html" data-opt3="lopen-8km-schattenjacht.html">
-        <div class="number">6</div><div class="title">Lopen 8 km Curiositeiten</div>
+                
+            <div class="grid-item">
+            <div class="grid-item"
+                 data-opt1="varen-8km-puzzeltocht.html"
+                 data-opt2="varen-8km-moordmysterie.html"
+                 data-opt3="varen-8km-schattenjacht.html">
+                <div class="number">5</div>
+                <div class="title">Varen 8 km Curiositeiten</div>
+                <!-- Modal (verberg standaard) -->
+                <div class="grid-item"
+                     data-opt1="leiden-puzzeltocht.html"
+                     data-opt2="leiden-moordmysterie.html"
+                     data-opt3="leiden-schattenjacht.html">
+                    <h3 class="title">Leiden</h3>
+                </div>
+            </div>
+        
+            <div class="grid-item">
+
+            <div class="grid-item"
+                 data-opt1="lopen-8km-puzzeltocht.html"
+                 data-opt2="lopen-8km-moordmysterie.html"
+                 data-opt3="lopen-8km-schattenjacht.html">
+                <div class="number">6</div>
+                <div class="title">Lopen 8 km Curiositeiten</div>
+                <!-- Modal (verberg standaard) -->
+                <div class="grid-item"
+                     data-opt1="leiden-puzzeltocht.html"
+                     data-opt2="leiden-moordmysterie.html"
+                     data-opt3="leiden-schattenjacht.html">
+                    <h3 class="title">Leiden</h3>
+                </div>
+            </div>
+        
+    </div>
+
+        </div>
+    </div>
+
+    <!-- MODAL (slechts één keer op de pagina!) -->
+    <!-- MODAL -->
+    <div id="overlay" class="overlay" aria-hidden="true">
+      <div class="modal">
+        <button id="modalClose" class="modal-close">✕</button>
+        <h2 id="modal-title">Scenario kiezen</h2>
+    
+        <div class="modal-buttons">
+          <a id="opt1" class="modal-btn" href="#">Optie 1</a>
+          <a id="opt2" class="modal-btn" href="#">Optie 2</a>
+          <a id="opt3" class="modal-btn" href="#">Optie 3</a>
+        <div class="modal">
+            <button id="modalClose" class="modal-close">✕</button>
+            <h2 id="modal-title">Scenario kiezen</h2>
+
+            <div class="modal-buttons">
+                <a id="opt1" class="modal-btn" href="#">Optie 1</a>
+                <a id="opt2" class="modal-btn" href="#">Optie 2</a>
+                <a id="opt3" class="modal-btn" href="#">Optie 3</a>
+            </div>
+        </div>
       </div>
     </div>
-  </div>
+    
+    <script src="script-vaarroutes.js"></script>
 
-  <!-- single modal -->
-  <div id="overlay" class="overlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <button id="modalClose" class="modal-close" aria-label="Sluit">✕</button>
-      <h2 id="modal-title">Scenario kiezen</h2>
-      <p id="modal-subtitle"></p>
-      <div class="modal-buttons">
-        <a id="opt1" class="modal-btn" href="#">Puzzeltocht</a>
-        <a id="opt2" class="modal-btn secondary" href="#">Moordmysterie</a>
-        <a id="opt3" class="modal-btn" href="#">Schattenjacht</a>
-      </div>
-    </div>
-  </div>
-
-<script>
-  // quick debug log
-  console.log('script loaded');
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const overlay = document.getElementById('overlay');
-    const modalClose = document.getElementById('modalClose');
-    const opt1 = document.getElementById('opt1');
-    const opt2 = document.getElementById('opt2');
-    const opt3 = document.getElementById('opt3');
-    const subtitle = document.getElementById('modal-subtitle');
-
-    // safety: if elements missing, log and abort
-    if(!overlay || !opt1 || !opt2 || !opt3) {
-      console.error('Modal elements missing', {overlay, opt1, opt2, opt3});
-      return;
-    }
-
-    // add click handlers to each grid item
-    const items = document.querySelectorAll('.grid-item');
-    console.log('found grid items:', items.length);
-    items.forEach((item, idx) => {
-      item.addEventListener('click', (e) => {
-        console.log('clicked item', idx, item.dataset);
-        // set subtitle to show title
-        const titleEl = item.querySelector('.title');
-        subtitle.textContent = titleEl ? titleEl.textContent : '';
-
-        // set links from data attributes (fallback to #)
-        opt1.href = item.dataset.opt1 || '#';
-        opt2.href = item.dataset.opt2 || '#';
-        opt3.href = item.dataset.opt3 || '#';
-
-        overlay.classList.add('show');
-        overlay.setAttribute('aria-hidden','false');
-      });
-    });
-
-    modalClose.addEventListener('click', () => {
-      overlay.classList.remove('show');
-      overlay.setAttribute('aria-hidden','true');
-      console.log('modal closed (x)');
-    });
-
-    overlay.addEventListener('click', (e) => {
-      if(e.target === overlay) {
-        overlay.classList.remove('show');
-        overlay.setAttribute('aria-hidden','true');
-        console.log('modal closed (overlay click)');
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if(e.key === 'Escape') {
-        overlay.classList.remove('show');
-        overlay.setAttribute('aria-hidden','true');
-        console.log('modal closed (escape)');
-      }
-    });
-  });
-</script>
+    <script src="script-vaarroutes.js"></script>
 </body>
 </html>
