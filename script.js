@@ -89,75 +89,37 @@ function showError() {
 /* Bij laden: knoppen uit */
 disableButtons();
 
-// Selecteer alle vierkanten
+// Menu Scenario
 document.addEventListener('DOMContentLoaded', () => {
-  const overlay = document.getElementById('overlay');
-  const modalClose = document.getElementById('modalClose');
-  const modalTitle = document.getElementById('modal-title');
-  const modalSubtitle = document.getElementById('modal-subtitle');
-  const opt1 = document.getElementById('opt1');
-  const opt2 = document.getElementById('opt2');
-  const opt3 = document.getElementById('opt3');
+    const overlay = document.getElementById('overlay');
+    const modalClose = document.getElementById('modalClose');
+    const opt1 = document.getElementById('opt1');
+    const opt2 = document.getElementById('opt2');
+    const opt3 = document.getElementById('opt3');
 
-  // helper: maak slug van titel: "Varen 4 km Highlights" -> "varen-4-km-highlights"
-  function slugify(text) {
-    return text.toString().toLowerCase()
-      .replace(/æ/g, 'ae').replace(/ø/g, 'o').replace(/å/g, 'a') // NL chars
-      .replace(/\s+/g, '-')           // spaties -> -
-      .replace(/[^\w\-]+/g, '')       // verwijder niet-woordtekens
-      .replace(/\-\-+/g, '-')         // dubbele - -> -
-      .replace(/^-+/, '').replace(/-+$/, '');
-  }
+    // Klik op een grid-item → toon modal
+    document.querySelectorAll('.grid-item').forEach(item => {
+        item.addEventListener('click', () => {
 
-  function openModal(routeTitle) {
-    modalTitle.textContent = 'Scenario kiezen';
-    modalSubtitle.textContent = routeTitle;
+            // Haal pagina’s uit data-attributen
+            opt1.href = item.dataset.opt1;
+            opt2.href = item.dataset.opt2;
+            opt3.href = item.dataset.opt3;
 
-    const base = slugify(routeTitle); // basis voor links
-
-    // Bouw voorbeeld links (pas aan naar jouw bestandsnamen)
-    opt1.href = base + '-puzzeltocht.html';
-    opt1.textContent = 'Puzzeltocht';
-
-    opt2.href = base + '-moordmysterie.html';
-    opt2.textContent = 'Moordmysterie';
-
-    opt3.href = base + '-schattenjacht.html';
-    opt3.textContent = 'Schattenjacht';
-
-    overlay.classList.add('show');
-    overlay.setAttribute('aria-hidden', 'false');
-    // focus optioneel op eerste knop
-    opt1.focus();
-  }
-
-  function closeModal() {
-    overlay.classList.remove('show');
-    overlay.setAttribute('aria-hidden', 'true');
-  }
-
-  // Klik op vierkanten -> open modal
-  document.querySelectorAll('.grid-item').forEach(item => {
-    item.addEventListener('click', (e) => {
-      // als klik op select/option/label: negeer
-      if (['SELECT', 'OPTION', 'LABEL'].includes(e.target.tagName)) return;
-
-      const titleEl = item.querySelector('.title');
-      const routeTitle = titleEl ? titleEl.textContent.trim() : 'Route';
-      openModal(routeTitle);
+            // Toon modal
+            overlay.classList.add('show');
+        });
     });
-  });
 
-  // Sluit-actie en klik buiten modal sluit ook
-  modalClose.addEventListener('click', closeModal);
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) closeModal();
-  });
+    // Sluiten
+    modalClose.addEventListener('click', () => {
+        overlay.classList.remove('show');
+    });
 
-  // esc toets sluit modal
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  });
+    // Klik buiten modal
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) overlay.classList.remove('show');
+    });
 });
 
 
