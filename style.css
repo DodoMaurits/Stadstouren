@@ -105,28 +105,6 @@ input::placeholder {
     background: #00ff85;
 }
 
-/* Terug-knop */
-.back-btn {
-    display: inline-block;
-    margin-top: 35px;
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    opacity: 0.8;
-}
-
-.back-btn:hover {
-    opacity: 1;
-}
-
-
-
-
-
-
-
-
-
 
 
 
