@@ -104,5 +104,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Pak alle grid-items
+    const items = document.querySelectorAll('.grid-item');
+    
+    // Pak modal elementen
+    const overlay = document.getElementById('overlay');
+    const modalClose = document.getElementById('modalClose');
+    const confirmBtn = document.getElementById('confirmBtn');
+    
+    // Klik op grid-item → modal tonen
+    items.forEach(item => {
+        item.addEventListener('click', () => {
+            const targetPage = item.dataset.opt; // lees data-opt waarde
+            confirmBtn.href = targetPage;        // zet link in modal-knop
+    
+            overlay.setAttribute('aria-hidden', 'false');
+            overlay.classList.add('visible');    // voor fade-in animatie
+        });
+    });
+    
+    // Klik op sluitknop → modal sluiten
+    modalClose.addEventListener('click', () => {
+        overlay.classList.remove('visible');
+        overlay.setAttribute('aria-hidden', 'true');
+    });
+    
+    // Optioneel: klik buiten modal sluit ook
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            overlay.classList.remove('visible');
+            overlay.setAttribute('aria-hidden', 'true');
+        }
+    });
+
 });
+
 
