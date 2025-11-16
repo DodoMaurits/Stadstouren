@@ -191,6 +191,11 @@ input::placeholder {
     .title {
         font-size: 14px;
     }
+    .modal,
+    #infoOverlay .modal {
+        width: calc(100% - 40px); /* schermbreedte minus 40px marge (20px aan elke kant) */
+        max-width: none;           /* geen beperking meer, zodat calc werkt */
+        padding: 20px;             /* binnenruimte van de modal */
 }
 
 .overlay {
@@ -328,6 +333,7 @@ input::placeholder {
     margin: 0;
     line-height: 1.5;
 }
+
 
 
 
