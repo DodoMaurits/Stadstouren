@@ -16,7 +16,7 @@ body {
     width: 90%;
     max-width: 500px;
     margin: 0 auto;
-    padding-top: 30px;
+    padding-top: 10px;
     flex-direction: column;
     align-items: center;
     display: flex;
@@ -25,6 +25,8 @@ body {
 h1 {
     margin-bottom: 30px;
 }
+
+/* INVOER PLAATS */
 .input-wrapper {
     width: 85%;           /* wrapper vult container */
     max-width: 500px;      /* wrapper beperkt breedte */
@@ -34,8 +36,6 @@ h1 {
     margin-top: 10px;
 }
 
-
-/* INPUT */
 #searchInput {
     width: 85%;           /* vul 100% van wrapper */
     max-width: 500px;      /* maximaal 300px breed */
@@ -191,6 +191,7 @@ input::placeholder {
         font-size: 14px;
     }
 }
+
 
 
 
