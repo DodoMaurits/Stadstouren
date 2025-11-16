@@ -175,6 +175,31 @@ input::placeholder {
     line-height: 1.2;
 }
 
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s;
+}
+
+.overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 300px;
+    text-align: center;
+}
+
 /* RESPONSIVE VOOR MOBIEL */
 @media (max-width: 480px) {
     .grid {
@@ -191,6 +216,7 @@ input::placeholder {
         font-size: 14px;
     }
 }
+
 
 
 
