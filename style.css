@@ -196,14 +196,13 @@ input::placeholder {
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.6);
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     opacity: 0;
-    pointer-events: none;   /* voorkomt klikbaarheid */
-    transition: opacity .25s;
+    pointer-events: none;
+    transition: opacity 0.25s;
+    z-index: 1000;
 }
 
 .overlay.visible {
@@ -213,11 +212,60 @@ input::placeholder {
 
 .modal {
     background: white;
-    padding: 30px;
+    padding: 30px 20px 20px 20px;
     border-radius: 12px;
-    max-width: 300px;
+    max-width: 350px;
+    width: 90%;
+    position: relative;      /* nodig voor het kruisje */
     text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
+
+/* Kruisje rechtsboven */
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Start avontuur knop */
+.modal-btn {
+    display: inline-block;
+    background: #7A1C1C;
+    color: white;
+    text-decoration: none;   /* verwijdert onderstreping */
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.modal-btn:hover {
+    background: #a62828;
+    transform: translateY(-2px);
+}
+
+.modal-btn:active {
+    transform: translateY(0);
+}
+
+/* Eventueel tekst in modal */
+.modal h2 {
+    margin-top: 0;
+    font-size: 22px;
+    color: #111;
+}
+
+.modal p {
+    color: #333;
+    margin: 15px 0 0 0;
+}
+
 
 
 
