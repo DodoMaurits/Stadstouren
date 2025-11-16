@@ -76,17 +76,18 @@ h1 {
 }
 
 /* CLOSE BUTTON */
-.close {
-    position: absolute;
-    right: 12px;
-    top: 8px;
-    font-size: 28px;
+.back-button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    padding: 0;
+    color: #0077cc;
     cursor: pointer;
+    margin-bottom: 10px;
 }
-#panel {
-    position: relative;
-    padding: 20px;
-    background: #eee;
+
+.back-button:hover {
+    text-decoration: underline;
 }
 
 /* RESPONSIVE VOOR MOBIEL */
