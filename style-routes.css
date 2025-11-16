@@ -18,16 +18,32 @@ body {
 
 /* Terug-knop */
 .back-button {
-    display: inline-block;
-    margin-top: 35px;
-    color: white;
-    font-size: 16px;
-    opacity: 0.8;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+
+    background: #f3f4f6;      /* zacht grijs */
+    color: #111;              /* donker */
+    border: 1px solid #d1d5db;/* subtiele rand */
+    border-radius: 8px;
+
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: 600;
+
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+    transition: background 0.2s, transform 0.15s;
 }
 
 .back-button:hover {
-    opacity: 1;
-    text-decoration: underline;
+    background: #e5e7eb;
+    transform: translateY(-2px);
+}
+
+.back-button:active {
+    transform: translateY(0);
 }
 
 h1 {
