@@ -12,29 +12,33 @@ body {
 }
 
 .container {
+    position: relative;
+    padding: 30px 20px;
+    background: #fff;
     width: 90%;
     max-width: 900px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 /* Terug-knop */
 .back-button {
     font-family: Arial, sans-serif;
-    position: fixed;
+    position: absolute;
     top: 20px;
     left: 20px;
 
-    background: #f3f4f6;      /* zacht grijs */
-    color: #111;              /* donker */
-    border: 1px solid #d1d5db;/* subtiele rand */
+    background: #f3f4f6;
+    color: #111;
+    border: 1px solid #d1d5db;
     border-radius: 8px;
 
-    padding: 12px 20px;
+    padding: 10px 18px;
     font-size: 18px;
     font-weight: 600;
-
     cursor: pointer;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-
     transition: background 0.2s, transform 0.15s;
 }
 
