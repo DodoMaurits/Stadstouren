@@ -100,8 +100,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const backButton = document.querySelector('.back-button');
     if (backButton) {
         backButton.addEventListener('click', () => {
-            window.location.href = 'index.html';
+            window.history.back();
         });
     }
 
 });
+
