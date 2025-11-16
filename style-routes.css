@@ -12,8 +12,8 @@ body {
 }
 
 .container {
-    position: relative;
-    padding: 30px 20px;
+    position: absolute;
+    padding: 10px 10px;
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
@@ -24,7 +24,7 @@ body {
 /* Terug-knop */
 .back-button {
     font-family: Arial, sans-serif;
-    position: absolute;
+    position: relative;
     display: block;
     top: 20px;
     left: 20px;
