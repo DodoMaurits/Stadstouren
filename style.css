@@ -266,6 +266,68 @@ input::placeholder {
     margin: 15px 0 0 0;
 }
 
+/* Info-knop: rond, i in het midden */
+.info-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #7A1C1C;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Modal zelf (zelfde als vorige overlay/modal) */
+#infoOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+}
+
+#infoOverlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#infoOverlay .modal {
+    background: white;
+    padding: 25px 20px;
+    border-radius: 12px;
+    max-width: 350px;
+    width: 90%;
+    position: relative;
+    text-align: left;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Kruisje */
+#infoOverlay .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Tekst */
+#infoOverlay p {
+    margin: 0;
+    line-height: 1.5;
+}
+
 
 
 
