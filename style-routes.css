@@ -21,6 +21,12 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
+.page-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 /* Terug-knop */
 .back-button {
     font-family: Arial, sans-serif;
