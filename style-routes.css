@@ -25,8 +25,11 @@ body {
 .back-button {
     font-family: Arial, sans-serif;
     position: absolute;
+    display: block;
     top: 20px;
     left: 20px;
+    width: 50px;
+    height: 30px;
 
     background: #7A1C1C;
     color: white;
