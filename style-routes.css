@@ -16,6 +16,21 @@ body {
     max-width: 900px;
 }
 
+/* CLOSE BUTTON */
+.back-button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    padding: 0;
+    color: #0077cc;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.back-button:hover {
+    text-decoration: underline;
+}
+
 h1 {
     margin-bottom: 30px;
 }
@@ -73,21 +88,6 @@ h1 {
 
 .overlay.show {
     display: flex;
-}
-
-/* CLOSE BUTTON */
-.back-button {
-    background: none;
-    border: none;
-    font-size: 16px;
-    padding: 0;
-    color: #0077cc;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-
-.back-button:hover {
-    text-decoration: underline;
 }
 
 /* RESPONSIVE VOOR MOBIEL */
