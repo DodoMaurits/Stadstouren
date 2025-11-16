@@ -72,23 +72,6 @@ h1 {
     line-height: 1.2;
 }
 
-/* Overlay / modal */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-.overlay.show {
-    display: flex;
-}
-
 /* RESPONSIVE VOOR MOBIEL */
 @media (max-width: 480px) {
     .grid {
