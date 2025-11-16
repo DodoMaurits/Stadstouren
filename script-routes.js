@@ -8,3 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+---//Terugknop//---
+document.querySelector('.close').addEventListener('click', function () {
+    history.back();
+});
