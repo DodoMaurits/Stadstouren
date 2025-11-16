@@ -18,6 +18,8 @@ if (backButton) {
         window.location.href = 'index.html';
         // OF: history.back();
     });
-}
+});
+  
+    Uncaught TypeError: Cannot read property 'addEventListener' of null
+    
 }); 
-Uncaught TypeError: Cannot read property 'addEventListener' of null
