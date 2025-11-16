@@ -137,6 +137,30 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Info modal
+    const infoBtn = document.getElementById('infoBtn');
+    const infoOverlay = document.getElementById('infoOverlay');
+    const infoClose = document.getElementById('infoClose');
+    
+    infoBtn.addEventListener('click', () => {
+        infoOverlay.classList.add('visible');
+        infoOverlay.setAttribute('aria-hidden', 'false');
+    });
+    
+    infoClose.addEventListener('click', () => {
+        infoOverlay.classList.remove('visible');
+        infoOverlay.setAttribute('aria-hidden', 'true');
+    });
+    
+    // Klik buiten de modal sluit ook
+    infoOverlay.addEventListener('click', (e) => {
+        if (e.target === infoOverlay) {
+            infoOverlay.classList.remove('visible');
+            infoOverlay.setAttribute('aria-hidden', 'true');
+        }
+    });
+
 });
+
 
 
