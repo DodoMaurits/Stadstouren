@@ -27,6 +27,10 @@ body {
     position: absolute;
     top: 20px;
     left: 20px;
+    right: 20px;
+    bottem: 20px;
+    widht: auto;
+    display: inline-block;
 
     background: #7A1C1C;
     color: white;
