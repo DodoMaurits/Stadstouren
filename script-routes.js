@@ -1,15 +1,21 @@
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.grid-item').forEach(item => {
-        item.addEventListener('click', () => {
-            const url = item.dataset.url;
-            if (url) {
-                window.location.href = url;
-            }
-        });
+// Zorg dat het script pas draait als de pagina volledig geladen is
+document.addEventListener('DOMContentLoaded', function() {
+    
+// Grid-items klikbaar maken
+const gridItems = document.querySelectorAll('.grid-item');
+gridItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const url = item.dataset.url;
+        if (url) {window.location.href = url;}
     });
 });
 
----//Terugknop//---
-document.querySelector('.close').addEventListener('click', function () {
-    history.back();
-});
+// Terug-knop
+const backButton = document.querySelector('.back-button');
+if (backButton) {
+    backButton.addEventListener('click', () => {
+        // Terug naar index.html
+        window.location.href = 'index.html';
+        // OF: history.back();
+    });
+}
