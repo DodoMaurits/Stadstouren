@@ -80,20 +80,21 @@ input::placeholder {
 
 /* BUTTONS */
 .button-container {
-    display: flex;
-    justify-content: center; /* horizontaal gecentreerd */
-    gap: 15px;
-    margin-top: 30px;
+    display: flex;              /* knoppen naast elkaar */
+    justify-content: center;    /* centreren */
+    gap: 20px;                  /* afstand tussen knoppen */
+    margin-top: 30px;           /* ruimte boven de container */
 }
 
 .route-btn {
-    width: 150;
-    padding: 15px 0px;
-    background: #00e676;  /* fel groen */
-    color: #071225;       /* donkerblauw */
+    width: 150px;              /* breedte knop */
+    padding: 15px 0px;        /* ruimte binnen de knop */
+    background: #00e676;       /* knopkleur */
+    color: #071225;            /* tekstkleur */
     font-size: 18px;
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: 10px;       /* afgeronde hoeken */
+    font-weight: bold;         /* tekst dikgedrukt */
     border: none;
     cursor: pointer;
     transition: 0.2s ease;
@@ -327,6 +328,7 @@ input::placeholder {
     margin: 0;
     line-height: 1.5;
 }
+
 
 
 
