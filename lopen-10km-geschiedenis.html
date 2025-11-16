@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varen 10km Leidse Geschiedenistour</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+
+        <button class="back-button">Terug</button>
+        
+        <h1>Varen 10km Leidse Geschiedenistour</h1>
+        
+        <p>Kies een scenario om te starten:<button id="infoBtn" class="info-button" aria-label="Informatie">i</button></p>
+
+        <div class="grid">
+            <div class="grid-item" data-opt="lopen-10km-geschiedenis-puzzeltocht.html">
+                <div class="number">1</div>
+                <div class="title">Puzzeltocht</div>
+            </div>
+            <div class="grid-item" data-opt="lopen-10km-geschiedenis-moordmysterie.html">
+                <div class="number">2</div>
+                <div class="title">Moordmysterie</div>
+            </div>
+            <div class="grid-item" data-opt="lopen-10km-geschiedenis-schattenjacht.html">
+                <div class="number">3</div>
+                <div class="title">Schattenjacht</div>
+            </div>
+            <div class="grid-item" data-opt="lopen-10km-geschiedenis-tijdreiziger.html">
+                <div class="number">4</div>
+                <div class="title">Tijdreiziger</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal bevestiging -->
+    <div id="overlay" class="overlay" aria-hidden="true">
+        <div class="modal">
+            <button id="modalClose" class="modal-close">✕</button>
+            <h2>Kies jouw avontuur!</h2>
+            <p>Je staat op het punt deze route te starten.</p>
+            <div class="modal-buttons">
+                <a id="confirmBtn" class="modal-btn" href="#">Start avontuur</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Informatie modal -->
+    <div id="infoOverlay" class="overlay" aria-hidden="true">
+        <div class="modal">
+            <button id="infoClose" class="modal-close">✕</button>
+            <h2 style="font-weight: bold; margin-bottom: 10px;">Uitleg scenario</h2>
+            <p>
+                Elk scenario komt langs dezelfde plekken, maar vertelt een ander verhaal.
+                Kies dus welk scenario het beste bij jouw smaak of de situatie past.<br><br>
+                Ben je in een gezelschap met kleinere kinderen? Kies dan voor de schattenjacht.
+                Houd je van rekenen en puzzelen? Dan is de puzzeltocht iets voor jou.
+                Houd je van spanning en avontuur? Kies dan voor de tijdreiziger.
+                Ben je een fan van detectives en 'whodunit'? Kies dan het moordmysterie.
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
