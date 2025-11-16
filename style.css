@@ -87,7 +87,7 @@ input::placeholder {
 }
 
 .route-btn {
-    width: 180px;
+    width: 160px;
     padding: 15px 0px;
     background: #00e676;  /* fel groen */
     color: #071225;       /* donkerblauw */
@@ -327,6 +327,7 @@ input::placeholder {
     margin: 0;
     line-height: 1.5;
 }
+
 
 
 
