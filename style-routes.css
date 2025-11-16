@@ -83,6 +83,11 @@ h1 {
     font-size: 28px;
     cursor: pointer;
 }
+#panel {
+    position: relative;
+    padding: 20px;
+    background: #eee;
+}
 
 /* RESPONSIVE VOOR MOBIEL */
 @media (max-width: 480px) {
