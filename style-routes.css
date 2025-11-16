@@ -18,6 +18,7 @@ body {
 
 /* Terug-knop */
 .back-button {
+    font-family: Arial, sans-serif;
     position: fixed;
     top: 20px;
     left: 20px;
