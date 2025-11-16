@@ -13,7 +13,7 @@ body {
 
 .container {
     position: relative;
-    padding-top: 50px;
+    padding-top: 80px;
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
@@ -68,13 +68,13 @@ h1 {
     left: 20px;
     width: 100px;
     height: 40px;
+    padding: 10px 18px;
 
     background: #7A1C1C;
     color: white;
-    border: 1px solid #d1d5db;
+    border: none;
     border-radius: 8px;
     font-family: Arial, sans-serif;
-    padding: 10px 18px;
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
