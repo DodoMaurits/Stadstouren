@@ -339,6 +339,45 @@ input::placeholder {
     }
 }
 
+.verdachten-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 160px);
+  gap: 24px;
+}
+
+.verdachte {
+  height: 200px;
+  border: 2px solid white;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  background:
+    url("https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png")
+    center 30px / 70px no-repeat,
+    #1c1c1c;
+
+  transition: all 0.25s ease;
+}
+
+.verdachte:hover {
+  transform: scale(1.05);
+}
+
+/* Afgestreept */
+.verdachte.afgestreept {
+  border-color: #c40000;
+  color: #c40000;
+  background-color: #2a0000;
+}
+
+
 
 
 
