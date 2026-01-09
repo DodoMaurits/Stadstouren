@@ -162,5 +162,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+    // Verdachten-grid
+document.querySelectorAll(".verdachte").forEach(blok => {
+  blok.addEventListener("click", () => {
+    blok.classList.toggle("afgestreept");
+  });
+});
+
 
 
