@@ -405,7 +405,9 @@ input::placeholder {
 }
 
 .home-button {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     float: right; 
     width: 35px;           /* vierkant */
     height: 35px;          /* vierkant */
@@ -449,6 +451,7 @@ input::placeholder {
     font-weight: bold;
     text-align: center; /* titel mag gecentreerd */
 }
+
 
 
 
