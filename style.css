@@ -503,6 +503,14 @@ input::placeholder {
     text-decoration: none;
 }
 
+.next-button,
+.next-button:hover,
+.next-button:visited,
+.net-button:active {
+    text-decoration: none;
+}
+
+
 
 
 
