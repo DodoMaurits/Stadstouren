@@ -399,8 +399,8 @@ input::placeholder {
 @media (max-width: 480px) {
     .verdachte {
         font-size: 0.65rem;              /* kleinere tekst */
-        padding: 5px;                     /* minder padding */
-        background-size: 40% auto;       /* kleiner silhouet */
+        padding: 1px;                     /* minder padding */
+        background-size: 50% auto;       /* kleiner silhouet */
     }
 }
 
@@ -449,6 +449,7 @@ input::placeholder {
     font-weight: bold;
     text-align: center; /* titel mag gecentreerd */
 }
+
 
 
 
