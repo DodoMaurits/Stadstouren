@@ -388,6 +388,7 @@ input::placeholder {
     width: 50%;        /* de afbeelding vult 60% van de boxbreedte */
     max-width: 100%;   /* nooit groter dan de box zelf */
     height: auto;      /* behoudt aspect ratio */
+    object-fit: contain;
     display: block;
     margin-top: 10px;  /* marge boven */
     border-radius: 5px; /* optioneel, afgeronde hoeken voor de afbeelding */
@@ -409,7 +410,10 @@ input::placeholder {
     .verdachte {
         font-size: 0.65rem;              /* kleinere tekst */
         padding: 2px;                     /* minder padding */
-        background-size: 50% auto;       /* kleiner silhouet */
+        background-size: 45% auto;       /* kleiner silhouet */
+    }
+    .verdachte img {
+        widh: 55%;
     }
 }
 
@@ -495,6 +499,7 @@ input::placeholder {
 .next-button:active {
     transform: translateY(0);
 }
+
 
 
 
