@@ -528,14 +528,13 @@ input::placeholder {
 .nav-buttons {
     display: flex;
     justify-content: space-between;
+    gap: 16px;
     max-width: 480px;
     margin: 30px auto 20px;
 }
 
 .nav-button {
     width: 150px;
-    margin: 0 auto 20px auto; /* gecentreerd boven de titel */
-    gap: 8px;
     padding: 10px 20px;
     background: rgba(255, 255, 255, 0.1);
     color: white;
@@ -552,6 +551,7 @@ input::placeholder {
     text-decoration: none;
     transform: translateY(-2px);
 }
+
 
 
 
