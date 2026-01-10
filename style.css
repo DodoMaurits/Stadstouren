@@ -357,7 +357,7 @@ input::placeholder {
 .verdachten-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* standaard 4 kolommen op desktop */
-    gap: 12px;
+    gap: 8px;
     width: 100%;
     justify-content: center;
     max-width: 480px;   /* max breedte voor kleine schermen */
@@ -368,8 +368,8 @@ input::placeholder {
   aspect-ratio: 3 / 4;   /* netjes rechtop */
   height: auto;
 
-  border: 2px solid white;
-  border-radius: 10px;
+  border: 2px solid green;
+  border-radius: 2px;
   color: white;
   font-size: 0.75rem;
 
@@ -457,6 +457,7 @@ input::placeholder {
         font-size: 0.75rem;              /* kleinere tekst */
     }
 }
+
 
 
 
