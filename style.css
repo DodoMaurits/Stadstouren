@@ -482,7 +482,7 @@ input::placeholder {
     padding: 10px 20px;
     font-size: 18px;
     font-weight: 600;
-    background: #7A1C1C;
+    background: #00e676;
     color: white;
     border: none;
     border-radius: 8px;
@@ -503,6 +503,7 @@ input::placeholder {
 }
 
 }
+
 
 
 
