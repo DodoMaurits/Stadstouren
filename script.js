@@ -163,11 +163,24 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
     // Verdachten-grid
-document.querySelectorAll(".verdachte").forEach(blok => {
-  blok.addEventListener("click", () => {
-    blok.classList.toggle("afgestreept");
-  });
-});
+document.querySelectorAll('.verdachte').forEach(el => {
+    const id = el.dataset.id;
 
+    // Herstel status
+    if (localStorage.getItem('verdachte-' + id) === 'afgestreept') {
+        el.classList.add('afgestreept');
+    }
+
+    // Klikgedrag
+    el.addEventListener('click', () => {
+        el.classList.toggle('afgestreept');
+
+        if (el.classList.contains('afgestreept')) {
+            localStorage.setItem('verdachte-' + id, 'afgestreept');
+        } else {
+            localStorage.removeItem('verdachte-' + id);
+        }
+    });
+});
 
 
