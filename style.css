@@ -482,7 +482,7 @@ input::placeholder {
     padding: 10px 20px;
     font-size: 18px;
     font-weight: 600;
-    background: #1ACC80;
+    background: rgba(255, 255, 255, 0.1);
     color: white;
     border: none;
     border-radius: 8px;
@@ -492,7 +492,7 @@ input::placeholder {
 }
 
 .next-button:hover {
-    background: #e5e7eb;
+    background: rgba(0, 230, 118, 0.2);
     color: #111;
     transform: translateY(-2px);
     text-decoration: none;
@@ -534,7 +534,7 @@ input::placeholder {
 
 .nav-button {
     padding: 12px 16px;
-    background: #7A1C1C;
+    background: rgba(255, 255, 255, 0.1);
     color: white;
     font-size: 0.9rem;
     font-weight: 600;
@@ -545,10 +545,11 @@ input::placeholder {
 }
 
 .nav-button:hover {
-    background: #e5e7eb;
+    background: rgba(0, 230, 118, 0.2);
     color: #111;
     transform: translateY(-2px);
 }
+
 
 
 
