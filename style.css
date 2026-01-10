@@ -420,7 +420,7 @@ input::placeholder {
     float: right; 
     width: 35px;           /* vierkant */
     height: 35px;          /* vierkant */
-    background-color: #c40000; /* fel rood */
+    background-color: #7A1C1C;
     color: white;
     font-size: 18px;
     font-weight: 600;
@@ -430,11 +430,13 @@ input::placeholder {
     text-decoration: none; /* verwijder onderstreping */
     cursor: pointer;
     transition: background 0.2s, transform 0.15s;
+    text-decoration: none;
 }
 
 .home-button:hover {
     transform: translateY(-2px);
-    background-color: #ff0000; /* iets feller rood */
+    background-color: #e5e7eb;
+    color: #111;
 }
 
 .home-button:active {
@@ -480,6 +482,7 @@ input::placeholder {
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.2s, transform 0.15s;
+    text-decoration: none;
 }
 
 .next-button:hover {
@@ -491,6 +494,7 @@ input::placeholder {
 .next-button:active {
     transform: translateY(0);
 }
+
 
 
 
