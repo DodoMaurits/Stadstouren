@@ -340,17 +340,6 @@ input::placeholder {
 }
 
 /* Introductiescherm */
-.intro {
-  max-width: 600px;
-  margin: 24px auto 32px;
-  padding: 0 16px;
-  color: white;
-}
-
-.intro h2 {
-  margin-bottom: 8px;
-}
-
 .verdachten-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -396,6 +385,7 @@ input::placeholder {
   color: #c40000;
   background-color: #2a0000;
 }
+
 
 
 
