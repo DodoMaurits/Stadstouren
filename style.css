@@ -208,10 +208,6 @@ input::placeholder {
     .title {
         font-size: 14px;
     }
-    .modal {
-        max-width: 340px;
-        width: 80%;
-    }
 }
 
 .overlay {
@@ -352,11 +348,9 @@ input::placeholder {
 
 /* RESPONSIVE VOOR MOBIEL */
 @media (max-width: 480px) {
-    .modal,
     #infoOverlay .modal {
-        width: calc(100% - 40px); /* schermbreedte minus 40px marge (20px aan elke kant) */
-        max-width: none;           /* geen beperking meer, zodat calc werkt */
-        padding: 20px;             /* binnenruimte van de modal */
+        width: calc(100% - 32px); /* iets meer lucht */
+        padding: 20px 16px;       /* 🔑 marge links/rechts */
     }
 }
 
@@ -526,6 +520,7 @@ input::placeholder {
     text-decoration: none;
     transform: translateY(-2px);
 }
+
 
 
 
