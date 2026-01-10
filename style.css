@@ -407,7 +407,6 @@ input::placeholder {
 .home-button {
     display: block;
     float: right; 
-    padding: 10px 20px;
     width: 35px;           /* vierkant */
     height: 35px;          /* vierkant */
     background-color: #c40000; /* fel rood */
@@ -450,6 +449,7 @@ input::placeholder {
     font-weight: bold;
     text-align: center; /* titel mag gecentreerd */
 }
+
 
 
 
