@@ -387,28 +387,30 @@ input::placeholder {
 }
 
 .home-button {
-    position: fixed;       /* altijd zichtbaar op het scherm */
-    top: 15px;             /* afstand vanaf bovenkant */
-    right: 15px;           /* afstand vanaf rechterkant */
+    display: block;
+    margin: 0 auto 20px auto; /* gecentreerd boven de titel */
+    padding: 10px 20px;
     width: 35px;           /* vierkant */
     height: 35px;          /* vierkant */
     background-color: #c40000; /* fel rood */
     color: white;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: 600;
     text-align: center;
-    line-height: 35px;     /* center het kruis verticaal */
-    border-radius: 6px;    /* licht afgerond */
+    border: none;
+    border-radius: 8px;
     text-decoration: none; /* verwijder onderstreping */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     cursor: pointer;
-    transition: transform 0.2s, background-color 0.2s;
-    z-index: 1000;         /* boven andere elementen */
+    transition: background 0.2s, transform 0.15s;
 }
 
 .home-button:hover {
-    transform: scale(1.1);
+    transform: translateY(-2px);
     background-color: #ff0000; /* iets feller rood */
+}
+
+.home-button:active {
+    transform: translateY(0);
 }
 
 .intro-box {
@@ -431,6 +433,7 @@ input::placeholder {
     font-weight: bold;
     text-align: center; /* titel mag gecentreerd */
 }
+
 
 
 
