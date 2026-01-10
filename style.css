@@ -510,6 +510,22 @@ input::placeholder {
     text-decoration: none;
 }
 
+.instruction-box {
+    max-width: 280px;
+    margin: 15px auto 20px auto;
+    padding: 12px 14px;
+
+    background-color: #cfe8ff; /* lichtblauw */
+    color: #0f2a44;
+
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+
+    border-radius: 8px;
+}
+
+
 
 
 
