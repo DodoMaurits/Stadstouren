@@ -362,6 +362,7 @@ input::placeholder {
     justify-content: center;
     max-width: 480px;   /* max breedte voor kleine schermen */
     margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 .verdachte {
@@ -457,6 +458,7 @@ input::placeholder {
         font-size: 0.75rem;              /* kleinere tekst */
     }
 }
+
 
 
 
