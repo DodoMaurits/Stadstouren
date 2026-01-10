@@ -185,6 +185,13 @@ input::placeholder {
 
 /* RESPONSIVE VOOR MOBIEL */
 @media (max-width: 480px) {
+    body {
+        display: flex;
+        justify-content: center;  /* horizontaal centreren blijft */
+        align-items: flex-start;  /* niet helemaal verticaal centreren */
+        padding-top: 20px;        /* duwt de inhoud iets naar beneden vanaf top */
+        min-height: auto;         /* laat de hoogte dynamisch zijn, voorkomt lege scrollruimte */
+    }
     .grid {
         grid-template-columns: repeat(2, 140px);
         gap: 15px;
@@ -443,6 +450,7 @@ input::placeholder {
     font-weight: bold;
     text-align: center; /* titel mag gecentreerd */
 }
+
 
 
 
