@@ -482,7 +482,7 @@ input::placeholder {
     padding: 10px 20px;
     font-size: 18px;
     font-weight: 600;
-    background: #00e676;
+    background: #1ACC80;
     color: white;
     border: none;
     border-radius: 8px;
@@ -500,8 +500,7 @@ input::placeholder {
 
 .next-button:active {
     transform: translateY(0);
-}
-
+    text-decoration: none;
 }
 
 
