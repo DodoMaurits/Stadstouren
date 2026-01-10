@@ -208,6 +208,10 @@ input::placeholder {
     .title {
         font-size: 14px;
     }
+    .modal {
+        max-width: 340px;
+        width: 80%;
+    }
 }
 
 .overlay {
@@ -522,6 +526,7 @@ input::placeholder {
     text-decoration: none;
     transform: translateY(-2px);
 }
+
 
 
 
