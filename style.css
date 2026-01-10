@@ -342,11 +342,11 @@ input::placeholder {
 /* Introductiescherm */
 .verdachten-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* standaard 4 kolommen op desktop */
     gap: 12px;
     width: 100%;
     justify-content: center;
-    max-width: 480px;   /* max breedte op mobiel */
+    max-width: 480px;   /* max breedte voor kleine schermen */
     margin: 0 auto;
 }
 
@@ -374,16 +374,18 @@ input::placeholder {
   transition: all 0.2s ease;
 }
 
-@media (hover: hover) {
-  .verdachte:hover {
-    transform: scale(1.05);
-  }
-}
-
+/* Afgestreept */
 .verdachte.afgestreept {
   border-color: #c40000;
   color: #c40000;
   background-color: #2a0000;
+}
+
+/* RESPONSIVE VOOR MOBIEL: 3 kolommen */
+@media (max-width: 480px) {
+    .verdachten-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 kolommen op mobiel */
+    }
 }
 
 .home-button {
@@ -433,6 +435,7 @@ input::placeholder {
     font-weight: bold;
     text-align: center; /* titel mag gecentreerd */
 }
+
 
 
 
