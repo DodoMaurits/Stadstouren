@@ -474,42 +474,6 @@ input::placeholder {
     }
 }
 
-.next-button {
-    display: block;
-    width: fit-content;
-    margin: 0 auto 20px auto; /* gecentreerd boven de titel */
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 18px;
-    font-weight: 600;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    text-decoration: none;
-}
-
-.next-button:hover {
-    background: rgba(0, 230, 118, 0.2);
-    color: #111;
-    transform: translateY(-2px);
-    text-decoration: none;
-}
-
-.next-button:active {
-    transform: translateY(0);
-    text-decoration: none;
-}
-
-.next-button,
-.next-button:hover,
-.next-button:visited,
-.net-button:active {
-    text-decoration: none;
-}
-
 .instruction-box {
     max-width: 280px;
     margin: 15px auto 20px auto;
@@ -531,6 +495,8 @@ input::placeholder {
     gap: 16px;
     max-width: 480px;
     margin: 30px auto 20px;
+    margin-top: 20px;
+    padding: 10px 20px;
 }
 
 .nav-button {
@@ -551,6 +517,7 @@ input::placeholder {
     text-decoration: none;
     transform: translateY(-2px);
 }
+
 
 
 
