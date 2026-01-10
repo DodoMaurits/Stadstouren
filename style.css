@@ -488,7 +488,7 @@ input::placeholder {
 }
 
 .instruction-box img {
-    width: 24px;
+    width: 50px;
     height: auto;      /* behoudt aspect ratio */
     object-fit: contain;
     display: block;
@@ -523,6 +523,7 @@ input::placeholder {
     text-decoration: none;
     transform: translateY(-2px);
 }
+
 
 
 
