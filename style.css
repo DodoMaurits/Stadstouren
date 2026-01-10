@@ -369,13 +369,11 @@ input::placeholder {
 .verdachte {
     aspect-ratio: 3 / 4;   /* netjes rechtop */
     height: auto;
-
     border: 2px solid green;
     border-radius: 2px;
     color: white;
     font-size: 0.75rem;
     background-color: #03002A;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -478,18 +476,24 @@ input::placeholder {
 .instruction-box {
     width: 250px;
     height: 250px;
-    max-width: 280px;
     margin: 15px auto 20px auto;
     padding: 12px 14px;
-
     background-color: #cfe8ff; /* lichtblauw */
     color: #0f2a44;
-
     font-size: 0.9rem;
     font-weight: 600;
     text-align: center;
-
     border-radius: 8px;
+}
+
+.instruction-box img {
+    width: 50%;        /* de afbeelding vult 60% van de boxbreedte */
+    max-width: 100%;   /* nooit groter dan de box zelf */
+    height: auto;      /* behoudt aspect ratio */
+    object-fit: contain;
+    display: block;
+    margin-top: 10px;  /* marge boven */
+    border-radius: 5px; /* optioneel, afgeronde hoeken voor de afbeelding */
 }
 
 .nav-buttons {
@@ -520,6 +524,7 @@ input::placeholder {
     text-decoration: none;
     transform: translateY(-2px);
 }
+
 
 
 
