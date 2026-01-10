@@ -373,7 +373,7 @@ input::placeholder {
     border-radius: 2px;
     color: white;
     font-size: 0.75rem;
-    background-color: #060050;
+    background-color: #03002A;
 
     display: flex;
     flex-direction: column;
@@ -385,7 +385,7 @@ input::placeholder {
 }
 
 .verdachte img {
-    width: 60%;        /* de afbeelding vult 60% van de boxbreedte */
+    width: 50%;        /* de afbeelding vult 60% van de boxbreedte */
     max-width: 100%;   /* nooit groter dan de box zelf */
     height: auto;      /* behoudt aspect ratio */
     display: block;
@@ -466,6 +466,7 @@ input::placeholder {
         font-size: 0.75rem;              /* kleinere tekst */
     }
 }
+
 
 
 
