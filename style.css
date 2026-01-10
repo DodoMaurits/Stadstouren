@@ -487,7 +487,7 @@ input::placeholder {
 }
 
 .instruction-box img {
-    width: 15px        /* de afbeelding vult 60% van de boxbreedte */
+    width: 8px        /* de afbeelding vult 60% van de boxbreedte */
     height: auto;      /* behoudt aspect ratio */
     object-fit: contain;
     display: block;
@@ -523,6 +523,7 @@ input::placeholder {
     text-decoration: none;
     transform: translateY(-2px);
 }
+
 
 
 
