@@ -381,10 +381,12 @@ input::placeholder {
   background-color: #2a0000;
 }
 
-/* RESPONSIVE VOOR MOBIEL: 3 kolommen */
+/* RESPONSIVE VOOR MOBIEL: maak alles wat kleiner zodat 4 passen */
 @media (max-width: 480px) {
-    .verdachten-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 kolommen op mobiel */
+    .verdachte {
+        font-size: 0.65rem;              /* kleinere tekst */
+        padding: 5px;                     /* minder padding */
+        background-size: 40% auto;       /* kleiner silhouet */
     }
 }
 
@@ -435,6 +437,7 @@ input::placeholder {
     font-weight: bold;
     text-align: center; /* titel mag gecentreerd */
 }
+
 
 
 
