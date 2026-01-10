@@ -132,16 +132,19 @@ input::placeholder {
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.2s, transform 0.15s;
+    text-decoration: none;
 }
 
 .back-button:hover {
     background: #e5e7eb;
     color: #111;
     transform: translateY(-2px);
+    text-decoration: none;
 }
 
 .back-button:active {
     transform: translateY(0);
+    text-decoration: none;
 }
 
 .grid {
@@ -519,6 +522,7 @@ input::placeholder {
     text-decoration: none;
     transform: translateY(-2px);
 }
+
 
 
 
