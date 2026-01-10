@@ -385,10 +385,12 @@ input::placeholder {
 }
 
 .verdachte img {
-    widh: 50%;
-    height: auto;
+    width: 60%;        /* de afbeelding vult 60% van de boxbreedte */
+    max-width: 100%;   /* nooit groter dan de box zelf */
+    height: auto;      /* behoudt aspect ratio */
     display: block;
-    margin-top: 20px;
+    margin-top: 10px;  /* marge boven */
+    border-radius: 5px; /* optioneel, afgeronde hoeken voor de afbeelding */
 }
 
 .verdachte p {
@@ -464,6 +466,7 @@ input::placeholder {
         font-size: 0.75rem;              /* kleinere tekst */
     }
 }
+
 
 
 
