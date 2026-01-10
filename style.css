@@ -483,16 +483,17 @@ input::placeholder {
     font-size: 0.9rem;
     font-weight: 600;
     text-align: center;
-    align-items: center;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .instruction-box img {
     width: 50px;
     height: auto;      /* behoudt aspect ratio */
     object-fit: contain;
-    display: block;
-    margin-top: 2px;  /* marge boven */
+    margin-top: 10px 0; 
 }
 
 .nav-buttons {
@@ -523,6 +524,7 @@ input::placeholder {
     text-decoration: none;
     transform: translateY(-2px);
 }
+
 
 
 
