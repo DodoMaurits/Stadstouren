@@ -534,7 +534,7 @@ input::placeholder {
 }
 
 .nav-button {
-    width: 150px;
+    width: 120px;
     padding: 10px 20px;
     background: rgba(255, 255, 255, 0.1);
     color: white;
@@ -551,6 +551,7 @@ input::placeholder {
     text-decoration: none;
     transform: translateY(-2px);
 }
+
 
 
 
