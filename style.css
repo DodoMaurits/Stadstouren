@@ -341,12 +341,13 @@ input::placeholder {
 
 /* Introductiescherm */
 .verdachten-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  width: 100%;
-  max-width: 480px;   /* max breedte op mobiel */
-  margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    width: 100%;
+    justify-content: center;
+    max-width: 480px;   /* max breedte op mobiel */
+    margin: 0 auto;
 }
 
 .verdachte {
@@ -385,6 +386,7 @@ input::placeholder {
   color: #c40000;
   background-color: #2a0000;
 }
+
 
 
 
