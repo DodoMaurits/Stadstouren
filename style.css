@@ -411,6 +411,28 @@ input::placeholder {
     background-color: #ff0000; /* iets feller rood */
 }
 
+.intro-box {
+    background-color: rgba(0, 0, 0, 0.85); /* duistere zwarte achtergrond met iets transparantie */
+    padding: 20px 25px;       /* binnenruimte */
+    margin: 20px auto;        /* boven/onder marge, gecentreerd */
+    max-width: 500px;         /* maximale breedte */
+    border-radius: 12px;      /* afgeronde hoeken */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5); /* subtiele schaduw */
+    text-align: left;         /* tekst links uitlijnen */
+    color: white;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.intro-box h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center; /* titel mag gecentreerd */
+}
+
+
 
 
 
