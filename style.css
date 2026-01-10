@@ -357,10 +357,10 @@ input::placeholder {
 .verdachten-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* standaard 4 kolommen op desktop */
-    gap: 8px;
+    gap: 4px;
     width: calc(100% - 40px); /* schermbreedte minus 40px marge (20px aan elke kant) */
     justify-content: center;
-    max-width: 440px;   /* max breedte voor kleine schermen */
+    max-width: 400px;   /* max breedte voor kleine schermen */
     margin: 0 auto;
     margin-bottom: 20px;
 }
@@ -379,7 +379,7 @@ input::placeholder {
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    gap: 4px;
+    gap: 2px;
     padding: 4px;
     transition: all 0.2s ease;
 }
@@ -495,6 +495,7 @@ input::placeholder {
 .next-button:active {
     transform: translateY(0);
 }
+
 
 
 
