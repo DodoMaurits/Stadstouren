@@ -441,6 +441,7 @@ input::placeholder {
     transform: translateY(-2px);
     background-color: #e5e7eb;
     color: #111;
+    text-decoration: none;
 }
 
 .home-button:active {
@@ -494,11 +495,15 @@ input::placeholder {
     background: #e5e7eb;
     color: #111;
     transform: translateY(-2px);
+    text-decoration: none;
 }
 
 .next-button:active {
     transform: translateY(0);
 }
+
+}
+
 
 
 
