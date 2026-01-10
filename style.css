@@ -487,12 +487,11 @@ input::placeholder {
 }
 
 .instruction-box img {
-    width: 8px        /* de afbeelding vult 60% van de boxbreedte */
+    width: 4px
     height: auto;      /* behoudt aspect ratio */
     object-fit: contain;
     display: block;
-    margin-top: 10px;  /* marge boven */
-    border-radius: 5px; /* optioneel, afgeronde hoeken voor de afbeelding */
+    margin-top: 2px;  /* marge boven */
 }
 
 .nav-buttons {
@@ -523,6 +522,7 @@ input::placeholder {
     text-decoration: none;
     transform: translateY(-2px);
 }
+
 
 
 
