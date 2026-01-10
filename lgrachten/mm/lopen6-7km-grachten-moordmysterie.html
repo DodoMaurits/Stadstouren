@@ -8,19 +8,22 @@
 </head>
 <body>
     
-    <!-- Informatie sectie -->
-    <section class="intro">
-          <h2>Introductie</h2>
-          <p>
-            Je bent gevraagd als rechercheur om een historische cold case opnieuw te onderzoeken,
-            vanwege een recente vondst: nieuw archiefmateriaal is opgedoken in een oude kist
-            met mogelijk interessante aanwijzingen.
-            <br><br>
-            Op een ochtend om 05:13 werd burgemeester François Was dood aangetroffen.
-            Zijn lichaam lag in de struiken van het Plantsoenpark en werd gevonden door de boomverzorger.
-            Uiteindelijk zijn er 8 mensen verhoord geweest:
-          </p>
-    </section>
+    <!-- Informatie modal -->
+    <div id="infoOverlay" class="overlay" aria-hidden="true">
+        <div class="modal">
+            <button id="infoClose" class="modal-close">✕</button>
+            <h2 style="font-weight: bold; margin-bottom: 10px;">Introductie</h2>
+            <p>
+                Je bent gevraagd als rechercheur om een historische cold case opnieuw te onderzoeken,
+                vanwege een recente vondst: nieuw archiefmateriaal is opgedoken in een oude kist
+                met mogelijk interessante aanwijzingen.
+                <br><br>
+                Op een ochtend om 05:13 werd burgemeester François Was dood aangetroffen.
+                Zijn lichaam lag in de struiken van het Plantsoenpark en werd gevonden door de boomverzorger.
+                Uiteindelijk zijn er 8 mensen verhoord geweest:
+            </p>
+        </div>
+    </div>
 
     <div class="verdachten-grid">
         <div class="verdachte">De boomverzorger</div>
