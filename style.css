@@ -353,7 +353,7 @@ input::placeholder {
     }
 }
 
-/* Introductiescherm */
+/* Verdachten */
 .verdachten-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* standaard 4 kolommen op desktop */
@@ -366,30 +366,36 @@ input::placeholder {
 }
 
 .verdachte {
-  aspect-ratio: 3 / 4;   /* netjes rechtop */
-  height: auto;
+    aspect-ratio: 3 / 4;   /* netjes rechtop */
+    height: auto;
 
-  border: 2px solid green;
-  border-radius: 2px;
-  color: white;
-  font-size: 0.75rem;
+    border: 2px solid green;
+    border-radius: 2px;
+    color: white;
+    font-size: 0.75rem;
+    background-color: #1c1c1c;
 
-  padding: 8px;
-  cursor: pointer;
-
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-
-  background:
-    url("https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png")
-    center 20px / 50% no-repeat,
-    #1c1c1c;
-
-  transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    gap: 8px;
+    padding: 8px;
+    transition: all 0.2s ease;
 }
 
-/* Afgestreept */
+.verdachte img {
+    widh: 50%;
+    height: auto;
+    display: block;
+    margin-top: 20px;
+}
+
+.verdachte p {
+    text-align: center;
+    margin: 0;
+}
+
 .verdachte.afgestreept {
   border-color: #c40000;
   color: #c40000;
@@ -400,7 +406,7 @@ input::placeholder {
 @media (max-width: 480px) {
     .verdachte {
         font-size: 0.65rem;              /* kleinere tekst */
-        padding: 1px;                     /* minder padding */
+        padding: 2px;                     /* minder padding */
         background-size: 50% auto;       /* kleiner silhouet */
     }
 }
@@ -442,7 +448,7 @@ input::placeholder {
     box-shadow: 0 8px 20px rgba(0,0,0,0.5); /* subtiele schaduw */
     text-align: left;         /* tekst links uitlijnen */
     color: white;
-    font-size: 0.9rem;
+    font-size: 1rem;
     line-height: 1.5;
 }
 
@@ -458,6 +464,7 @@ input::placeholder {
         font-size: 0.75rem;              /* kleinere tekst */
     }
 }
+
 
 
 
