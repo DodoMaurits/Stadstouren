@@ -12,6 +12,14 @@ body {
     text-align: center;
 }
 
+.top-row {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 10px auto;
+}
+
 .container {
     width: 90%;
     max-width: 500px;
@@ -436,6 +444,7 @@ input::placeholder {
     font-weight: bold;
     text-align: center; /* titel mag gecentreerd */
 }
+
 
 
 
