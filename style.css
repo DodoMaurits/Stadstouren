@@ -474,8 +474,8 @@ input::placeholder {
 }
 
 .instruction-box {
-    width: 250px;
-    height: 250px;
+    width: 280px;
+    height: 280px;
     margin: 15px auto 20px auto;
     padding: 12px 14px;
     background-color: #cfe8ff; /* lichtblauw */
@@ -523,6 +523,7 @@ input::placeholder {
     text-decoration: none;
     transform: translateY(-2px);
 }
+
 
 
 
