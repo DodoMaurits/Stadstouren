@@ -341,17 +341,24 @@ input::placeholder {
 
 .verdachten-grid {
   display: grid;
-  grid-template-columns: repeat(4, 160px);
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 480px;   /* max breedte op mobiel */
+  margin: 0 auto;
 }
 
+
 .verdachte {
-  height: 200px;
+  aspect-ratio: 3 / 4;   /* netjes rechtop */
+  height: auto;
+
   border: 2px solid white;
-  border-radius: 12px;
+  border-radius: 10px;
   color: white;
-  text-align: center;
-  padding: 12px;
+  font-size: 0.75rem;
+
+  padding: 8px;
   cursor: pointer;
 
   display: flex;
@@ -360,14 +367,16 @@ input::placeholder {
 
   background:
     url("https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png")
-    center 30px / 70px no-repeat,
+    center 20px / 50% no-repeat,
     #1c1c1c;
 
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
 }
 
-.verdachte:hover {
-  transform: scale(1.05);
+@media (hover: hover) {
+  .verdachte:hover {
+    transform: scale(1.05);
+  }
 }
 
 /* Afgestreept */
@@ -376,6 +385,7 @@ input::placeholder {
   color: #c40000;
   background-color: #2a0000;
 }
+
 
 
 
