@@ -473,7 +473,8 @@ input::placeholder {
     display: block;
     width: fit-content;
     margin: 0 auto 20px auto; /* gecentreerd boven de titel */
-    padding: 30px 20px;
+    margin-top: 20px;
+    padding: 10px 20px;
     font-size: 18px;
     font-weight: 600;
     background: #7A1C1C;
@@ -494,6 +495,7 @@ input::placeholder {
 .next-button:active {
     transform: translateY(0);
 }
+
 
 
 
