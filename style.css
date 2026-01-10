@@ -373,7 +373,7 @@ input::placeholder {
     border-radius: 2px;
     color: white;
     font-size: 0.75rem;
-    background-color: #1c1c1c;
+    background-color: #060050;
 
     display: flex;
     flex-direction: column;
@@ -466,6 +466,7 @@ input::placeholder {
         font-size: 0.75rem;              /* kleinere tekst */
     }
 }
+
 
 
 
