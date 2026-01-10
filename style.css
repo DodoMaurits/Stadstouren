@@ -467,6 +467,32 @@ input::placeholder {
     }
 }
 
+.next-button {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 20px auto; /* gecentreerd boven de titel */
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    background: #7A1C1C;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.next-button:hover {
+    background: #e5e7eb;
+    color: #111;
+    transform: translateY(-2px);
+}
+
+.next-button:active {
+    transform: translateY(0);
+}
+
+
 
 
 
