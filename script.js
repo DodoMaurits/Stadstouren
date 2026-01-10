@@ -96,14 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ----- Terugknop -----
-    const backButton = document.querySelector('.back-button');
-    if (backButton) {
-        backButton.addEventListener('click', () => {
-            window.history.back();
-        });
-    }
-
     // Pak alle grid-items
     const items = document.querySelectorAll('.grid-item');
     
@@ -182,5 +174,6 @@ document.querySelectorAll('.verdachte').forEach(el => {
         }
     });
 });
+
 
 
