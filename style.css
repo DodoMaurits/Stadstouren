@@ -358,9 +358,9 @@ input::placeholder {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* standaard 4 kolommen op desktop */
     gap: 8px;
-    width: 100%;
+    width: calc(100% - 40px); /* schermbreedte minus 40px marge (20px aan elke kant) */
     justify-content: center;
-    max-width: 480px;   /* max breedte voor kleine schermen */
+    max-width: 440px;   /* max breedte voor kleine schermen */
     margin: 0 auto;
     margin-bottom: 20px;
 }
@@ -491,6 +491,7 @@ input::placeholder {
 .next-button:active {
     transform: translateY(0);
 }
+
 
 
 
