@@ -242,6 +242,14 @@ function levenshtein(a, b) {
         infoOverlay.classList.remove('visible');
         infoOverlay.setAttribute('aria-hidden', 'true');
     });
+    
+    // Klik buiten de modal sluit ook
+    infoOverlay.addEventListener('click', (e) => {
+        if (e.target === infoOverlay) {
+            infoOverlay.classList.remove('visible');
+            infoOverlay.setAttribute('aria-hidden', 'true');
+        }
+    });
 
 
 
