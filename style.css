@@ -539,9 +539,10 @@ input::placeholder {
 }
 
 #answerInput {
-    width: 80px;
+    width: 200px;
+    height: 15px;
     padding: 18px 20px;
-    margin: 20px;
+    margin-bottom: 20px;
     font-size: 14px;
     border-radius: 8px;
     border: 4px solid transparent;
@@ -563,6 +564,7 @@ input::placeholder {
 #answerInput::placeholder {
     color: #999;
 }
+
 
 
 
