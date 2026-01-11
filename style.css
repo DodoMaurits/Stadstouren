@@ -256,6 +256,7 @@ input::placeholder {
     background: #7A1C1C;
     color: white;
     text-decoration: none;   /* verwijdert onderstreping */
+    box-sizing: border-box;
     padding: 12px 25px;
     border-radius: 8px;
     font-weight: 600;
@@ -324,6 +325,7 @@ input::placeholder {
     border-radius: 12px;
     max-width: 350px;
     width: 90%;
+    box-sizing: border-box;
     position: relative;
     text-align: left;
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
@@ -340,13 +342,11 @@ input::placeholder {
     cursor: pointer;
 }
 
-/* Tekst */
 #infoOverlay p {
     margin: 0;
     line-height: 1.5;
 }
 
-/* RESPONSIVE VOOR MOBIEL */
 @media (max-width: 480px) {
     #infoOverlay .modal {
         width: calc(100% - 32px); /* iets meer lucht */
@@ -404,7 +404,6 @@ input::placeholder {
   background-color: #2a0000;
 }
 
-/* RESPONSIVE VOOR MOBIEL: maak alles wat kleiner zodat 4 passen */
 @media (max-width: 480px) {
     .verdachte {
         font-size: 0.65rem;              /* kleinere tekst */
@@ -495,6 +494,12 @@ input::placeholder {
     margin-top: 10px 0; 
 }
 
+@media (max-width: 480px) {
+    .instruction-box {
+        width: 40px;
+    }
+}
+
 .nav-buttons {
     display: flex;
     justify-content: space-between;
@@ -522,6 +527,7 @@ input::placeholder {
     text-decoration: none;
     transform: translateY(-2px);
 }
+
 
 
 
