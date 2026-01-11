@@ -24,6 +24,31 @@
             </p>
         </div>
 
+        <div class="input-wrapper">
+            <input 
+                type="text" 
+                id="answerInput" 
+                data-answer="Kret-Karsten"
+                placeholder="Type je antwoord en druk op enter"
+                autocomplete="off"
+            >
+            <p id="answerError" class="error" style="display:none;">
+                Helaas! Dit is niet het goede antwoord.
+            </p>
+        </div>
+        
+        <div id="infoOverlay" class="overlay" aria-hidden="true">
+            <div class="modal">
+                <button id="infoClose2" class="modal-close">✕</button>
+                <h2 style="font-weight: bold; margin-bottom: 10px; text-align: center;">Zeker en vast!</h2>
+                <p>
+                Uit het gesprek bleek dat mevrouw Kret-Karsten een goede band had met de vogelverzorger. 
+                Ze zei dat hij altijd zo kon mopperen over de vrekkigheid van de burgemeester, 
+                maar dat na de belofte van de burgemeester om de volière te behouden, zijn toon veranderd was.
+                </p>
+            </div>
+        </div>
+        
         <div class="verdachten-grid">
             <div class="verdachte" data-id="boomverzorger">
                 <img src="../../icons/De_boomverzorger.png" alt="Verdachte">
