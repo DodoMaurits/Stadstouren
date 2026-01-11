@@ -188,8 +188,11 @@ if (answerInput) {
         if (e.key !== 'Enter') return;
 
         const userAnswer = answerInput.value.trim().toLowerCase();
-
-        if (userAnswer === correctAnswer) {
+        const correctAnswer = answerInput.dataset.answer.trim().toLowerCase();
+        
+        const distance = levenshtein(userAnswer, correctAnswer);
+        
+        if (distance <= 1) {
             answerError.style.display = "none";
 
             // Toon succes-overlay
@@ -215,6 +218,35 @@ const correctAnswers = answerInput.dataset.answer
 if (correctAnswers.includes(userAnswer)) {
     // goed
 }
+
+function levenshtein(a, b) {
+    const matrix = [];
+
+    for (let i = 0; i <= b.length; i++) {
+        matrix[i] = [i];
+    }
+    for (let j = 0; j <= a.length; j++) {
+        matrix[0][j] = j;
+    }
+
+    for (let i = 1; i <= b.length; i++) {
+        for (let j = 1; j <= a.length; j++) {
+            if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            } else {
+                matrix[i][j] = Math.min(
+                    matrix[i - 1][j - 1] + 1, // vervanging
+                    matrix[i][j - 1] + 1,     // invoeging
+                    matrix[i - 1][j] + 1      // verwijdering
+                );
+            }
+        }
+    }
+
+    return matrix[b.length][a.length];
+}
+
+
 
 
 
