@@ -266,6 +266,21 @@ document.getElementById('answerInput').addEventListener('keydown', function(e) {
     }
 });
 
+// Success overlay
+document.getElementById('successClose').addEventListener('click', () => {
+    document.getElementById('successOverlay').classList.remove('visible');
+});
+
+// Klik buiten de modal sluit ook
+successOverlay.addEventListener('click', (e) => {
+    if (e.target === successOverlay) {
+        successOverlay.classList.remove('visible');
+        successOverlay.setAttribute('aria-hidden', 'true');
+    }
+});
+
+
+
 
 
 
