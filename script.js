@@ -236,6 +236,15 @@ function levenshtein(a, b) {
     return matrix[b.length][a.length];
 }
 
+    const infoClose2 = document.getElementById('infoClose2');
+    
+    infoClose2.addEventListener('click', () => {
+        infoOverlay.classList.remove('visible');
+        infoOverlay.setAttribute('aria-hidden', 'true');
+    });
+
+
+
 
 
 
