@@ -178,30 +178,36 @@ document.querySelectorAll('.verdachte').forEach(el => {
 // ---- ANTWOORD CONTROLE ----
 const answerInput = document.getElementById('answerInput');
 const answerError = document.getElementById('answerError');
+const infoOverlay = document.getElementById('infoOverlay');
 
 if (answerInput) {
-    const correctAnswer = answerInput.dataset.answer
-        .trim()
-        .toLowerCase();
+
+    const correctAnswers = answerInput.dataset.answer
+        .toLowerCase()
+        .split(',')
+        .map(a => a.trim());
 
     answerInput.addEventListener('keydown', (e) => {
         if (e.key !== 'Enter') return;
 
         const userAnswer = answerInput.value.trim().toLowerCase();
-        const correctAnswer = answerInput.dataset.answer.trim().toLowerCase();
-        
-        const distance = levenshtein(userAnswer, correctAnswer);
-        
-        if (distance <= 1) {
-            answerError.style.display = "none";
 
-            // Toon succes-overlay
+        let isCorrect = false;
+
+        for (const correct of correctAnswers) {
+            const distance = levenshtein(userAnswer, correct);
+            if (distance <= 1) {
+                isCorrect = true;
+                break;
+            }
+        }
+
+        if (isCorrect) {
+            answerError.style.display = "none";
             infoOverlay.classList.add('visible');
             infoOverlay.setAttribute('aria-hidden', 'false');
         } else {
             answerError.style.display = "block";
-
-            // visuele feedback
             answerInput.classList.add('input-error');
             setTimeout(() => {
                 answerInput.classList.remove('input-error');
@@ -210,61 +216,28 @@ if (answerInput) {
     });
 }
 
-const correctAnswers = answerInput.dataset.answer
-    .toLowerCase()
-    .split(',')
-    .map(a => a.trim());
-
-if (correctAnswers.includes(userAnswer)) {
-    // goed
-}
-
 function levenshtein(a, b) {
     const matrix = [];
 
-    for (let i = 0; i <= b.length; i++) {
-        matrix[i] = [i];
-    }
-    for (let j = 0; j <= a.length; j++) {
-        matrix[0][j] = j;
-    }
+    for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+    for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
 
     for (let i = 1; i <= b.length; i++) {
         for (let j = 1; j <= a.length; j++) {
-            if (b.charAt(i - 1) === a.charAt(j - 1)) {
-                matrix[i][j] = matrix[i - 1][j - 1];
-            } else {
-                matrix[i][j] = Math.min(
-                    matrix[i - 1][j - 1] + 1, // vervanging
-                    matrix[i][j - 1] + 1,     // invoeging
-                    matrix[i - 1][j] + 1      // verwijdering
+            matrix[i][j] = b[i - 1] === a[j - 1]
+                ? matrix[i - 1][j - 1]
+                : Math.min(
+                    matrix[i - 1][j - 1] + 1,
+                    matrix[i][j - 1] + 1,
+                    matrix[i - 1][j] + 1
                 );
-            }
         }
     }
-
     return matrix[b.length][a.length];
 }
 
-document.getElementById('answerInput').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') {
-        const userAnswer = e.target.value.trim().toLowerCase(); // spaties en hoofdletters negeren
-        const correctAnswer = e.target.dataset.answer.trim().toLowerCase();
 
-        const errorMsg = document.getElementById('answerError');
 
-        if (userAnswer === correctAnswer) {
-            // Goed antwoord
-            errorMsg.style.display = 'none';
-            // Hier kan je de overlay tonen:
-            document.getElementById('infoOverlay').classList.add('visible');
-            document.getElementById('infoOverlay').setAttribute('aria-hidden', 'false');
-        } else {
-            // Fout antwoord
-            errorMsg.style.display = 'block';
-        }
-    }
-});
 
 
 
