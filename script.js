@@ -177,33 +177,27 @@ document.querySelectorAll('.verdachte').forEach(el => {
 
 // ---- ANTWOORD CONTROLE ----
 const answerInput = document.getElementById('answerInput');
-const checkAnswerBtn = document.getElementById('checkAnswerBtn');
 const answerError = document.getElementById('answerError');
 
-// ✅ HET JUISTE ANTWOORD
+// ✅ juiste antwoord
 const correctAnswer = "boomverzorger";
 
-checkAnswerBtn.addEventListener('click', () => {
+answerInput.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter') return;
+
     const userAnswer = answerInput.value.trim().toLowerCase();
 
     if (userAnswer === correctAnswer) {
-        // foutmelding verbergen
         answerError.style.display = "none";
 
-        // overlay tonen
+        // Overlay tonen
         infoOverlay.classList.add('visible');
         infoOverlay.setAttribute('aria-hidden', 'false');
     } else {
-        // foutmelding tonen
         answerError.style.display = "block";
     }
 });
 
-answerInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-        checkAnswerBtn.click();
-    }
-});
 
 
 
