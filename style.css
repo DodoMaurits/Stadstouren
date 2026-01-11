@@ -471,6 +471,10 @@ input::placeholder {
     }
 }
 
+.center {
+    text-align: center;
+}
+
 .instruction-box {
     width: 280px;
     height: 280px;
@@ -533,6 +537,7 @@ input::placeholder {
     text-decoration: none;
     transform: translateY(-2px);
 }
+
 
 
 
