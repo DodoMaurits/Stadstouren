@@ -26,6 +26,30 @@
             </p>
         </div>
 
+        <div class="input-wrapper">
+            <input 
+                type="text" 
+                id="answerInput" 
+                data-answer="Rotogravure"
+                placeholder="Type je antwoord en druk op Enter"
+                autocomplete="off"
+            >
+            <p id="answerError" class="error" style="display:none;">
+                Helaas! Dit is niet het goede antwoord.
+            </p>
+        </div>
+        
+        <div id="infoOverlay" class="overlay" aria-hidden="true">
+            <div class="modal">
+                <button id="infoClose" class="modal-close">✕</button>
+                <h2 style="font-weight: bold; margin-bottom: 10px; text-align: center;">Klasse!</h2>
+                <p>
+                De brief bevat een doodsbedreiging aan de burgemeester 
+                omdat hij zou hebben verklaard gebouwen te willen slopen ten koste van cultuur in de stad.
+                </p>
+            </div>
+        </div>
+        
         <div class="verdachten-grid">
             <div class="verdachte" data-id="boomverzorger">
                 <img src="../../icons/De_boomverzorger.png" alt="Verdachte">
