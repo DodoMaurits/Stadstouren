@@ -557,13 +557,14 @@ input::placeholder {
 /* Focus effect */
 #answerInput:focus {
     border-color: white;
-    box-shadow: 0 0 0 3px rgba(0, 230, 118, 0.25);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25); /* wit glow */
 }
 
 /* Placeholder mooier */
 #answerInput::placeholder {
     color: #999;
 }
+
 
 
 
