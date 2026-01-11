@@ -23,6 +23,30 @@
             </p>
         </div>
 
+        <div class="input-wrapper">
+            <input 
+                type="text" 
+                id="answerInput" 
+                data-answer="Schieland"
+                placeholder="Type je antwoord en druk op Enter"
+                autocomplete="off"
+            >
+            <p id="answerError" class="error" style="display:none;">
+                Helaas! Dit is niet het goede antwoord.
+            </p>
+        </div>
+        
+        <div id="infoOverlay" class="overlay" aria-hidden="true">
+            <div class="modal">
+                <button id="infoClose2" class="modal-close">✕</button>
+                <h2 style="font-weight: bold; margin-bottom: 10px; text-align: center;">Perfect!</h2>
+                <p>
+                In de envelop zitten foto’s van de verdachten. 
+                Jouw oog valt op de dakloze, wiens schoeisel slechts bestond uit versleten lappen.
+                </p>
+            </div>
+        </div>
+        
         <div class="verdachten-grid">
             <div class="verdachte" data-id="boomverzorger">
                 <img src="../../icons/De_boomverzorger.png" alt="Verdachte">
