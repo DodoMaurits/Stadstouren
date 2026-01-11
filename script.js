@@ -101,7 +101,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Pak modal elementen
     const overlay = document.getElementById('overlay');
-    const modalClose = document.getElementById('modalClose');
     const confirmBtn = document.getElementById('confirmBtn');
     
     // Klik op grid-item → modal tonen
@@ -114,44 +113,15 @@ document.addEventListener('DOMContentLoaded', function() {
             overlay.classList.add('visible');    // voor fade-in animatie
         });
     });
-    
-    // Klik op sluitknop → modal sluiten
-    modalClose.addEventListener('click', () => {
-        overlay.classList.remove('visible');
-        overlay.setAttribute('aria-hidden', 'true');
-    });
-    
-    // Optioneel: klik buiten modal sluit ook
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) {
-            overlay.classList.remove('visible');
-            overlay.setAttribute('aria-hidden', 'true');
-        }
-    });
 
     // Info modal
     const infoBtn = document.getElementById('infoBtn');
     const infoOverlay = document.getElementById('infoOverlay');
-    const infoClose = document.getElementById('infoClose');
     
     infoBtn.addEventListener('click', () => {
         infoOverlay.classList.add('visible');
         infoOverlay.setAttribute('aria-hidden', 'false');
     });
-    
-    infoClose.addEventListener('click', () => {
-        infoOverlay.classList.remove('visible');
-        infoOverlay.setAttribute('aria-hidden', 'true');
-    });
-    
-    // Klik buiten de modal sluit ook
-    infoOverlay.addEventListener('click', (e) => {
-        if (e.target === infoOverlay) {
-            infoOverlay.classList.remove('visible');
-            infoOverlay.setAttribute('aria-hidden', 'true');
-        }
-    });
-
 });
 
     // Verdachten-grid
@@ -266,18 +236,28 @@ document.getElementById('answerInput').addEventListener('keydown', function(e) {
     }
 });
 
-// Success overlay
-document.getElementById('successClose').addEventListener('click', () => {
-    document.getElementById('successOverlay').classList.remove('visible');
+// Sluit alle modals via het kruisje
+document.querySelectorAll('.modal-close').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const overlay = btn.closest('.overlay'); // parent overlay vinden
+        if (overlay) {
+            overlay.classList.remove('visible');
+            overlay.setAttribute('aria-hidden', 'true');
+        }
+    });
 });
 
 // Klik buiten de modal sluit ook
-successOverlay.addEventListener('click', (e) => {
-    if (e.target === successOverlay) {
-        successOverlay.classList.remove('visible');
-        successOverlay.setAttribute('aria-hidden', 'true');
-    }
+document.querySelectorAll('.overlay').forEach(overlay => {
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            overlay.classList.remove('visible');
+            overlay.setAttribute('aria-hidden', 'true');
+        }
+    });
 });
+
+
 
 
 
