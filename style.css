@@ -501,8 +501,7 @@ input::placeholder {
     gap: 16px;
     max-width: 480px;
     margin: 30px auto 20px;
-    margin-top: 20px;
-    padding: 10px 20px;
+    padding: 0;
 }
 
 .nav-button {
@@ -523,6 +522,7 @@ input::placeholder {
     text-decoration: none;
     transform: translateY(-2px);
 }
+
 
 
 
