@@ -179,24 +179,45 @@ document.querySelectorAll('.verdachte').forEach(el => {
 const answerInput = document.getElementById('answerInput');
 const answerError = document.getElementById('answerError');
 
-// ✅ juiste antwoord
-const correctAnswer = "boomverzorger";
+if (answerInput) {
+    const correctAnswer = answerInput.dataset.answer
+        .trim()
+        .toLowerCase();
 
-answerInput.addEventListener('keydown', (e) => {
-    if (e.key !== 'Enter') return;
+    answerInput.addEventListener('keydown', (e) => {
+        if (e.key !== 'Enter') return;
 
-    const userAnswer = answerInput.value.trim().toLowerCase();
+        const userAnswer = answerInput.value.trim().toLowerCase();
 
-    if (userAnswer === correctAnswer) {
-        answerError.style.display = "none";
+        if (userAnswer === correctAnswer) {
+            answerError.style.display = "none";
 
-        // Overlay tonen
-        infoOverlay.classList.add('visible');
-        infoOverlay.setAttribute('aria-hidden', 'false');
-    } else {
-        answerError.style.display = "block";
-    }
-});
+            // Toon succes-overlay
+            infoOverlay.classList.add('visible');
+            infoOverlay.setAttribute('aria-hidden', 'false');
+        } else {
+            answerError.style.display = "block";
+
+            // visuele feedback
+            answerInput.classList.add('input-error');
+            setTimeout(() => {
+                answerInput.classList.remove('input-error');
+            }, 400);
+        }
+    });
+}
+
+const correctAnswers = answerInput.dataset.answer
+    .toLowerCase()
+    .split(',')
+    .map(a => a.trim());
+
+if (correctAnswers.includes(userAnswer)) {
+    // goed
+}
+
+
+
 
 
 
