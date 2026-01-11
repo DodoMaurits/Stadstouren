@@ -238,11 +238,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         return matrix[b.length][a.length];
     }
+    
+    
+    
 
-}
-    
-    
-    
 
 
 
