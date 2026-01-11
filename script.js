@@ -199,5 +199,13 @@ checkAnswerBtn.addEventListener('click', () => {
     }
 });
 
+answerInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        checkAnswerBtn.click();
+    }
+});
+
+
+
 
 
