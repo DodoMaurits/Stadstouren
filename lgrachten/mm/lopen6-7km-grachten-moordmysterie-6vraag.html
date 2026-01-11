@@ -25,6 +25,31 @@
             </p>
         </div>
 
+        <div class="input-wrapper">
+            <input 
+                type="text" 
+                id="answerInput" 
+                data-answer="De portier"
+                placeholder="Type je antwoord en druk op Enter"
+                autocomplete="off"
+            >
+            <p id="answerError" class="error" style="display:none;">
+                Helaas! Dit is niet het goede antwoord.
+            </p>
+        </div>
+        
+        <div id="infoOverlay" class="overlay" aria-hidden="true">
+            <div class="modal">
+                <button id="infoClose" class="modal-close">✕</button>
+                <h2 style="font-weight: bold; margin-bottom: 10px; text-align: center;">Je bent op dreef!</h2>
+                <p>
+                Uit meerdere bronnen bleek de vogelspotter regelmatig te vinden te zijn in de Leidse Hortus om vogels te spotten. 
+                Uit een ouder formulier van de Hortus Botanicus blijkt de vogelspotter de verrekijker 3 dagen voor de moord 
+                als vermist te hebben opgegeven.
+                </p>
+            </div>
+        </div>
+        
         <div class="verdachten-grid">
             <div class="verdachte" data-id="boomverzorger">
                 <img src="../../icons/De_boomverzorger.png" alt="Verdachte">
