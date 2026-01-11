@@ -246,6 +246,27 @@ function levenshtein(a, b) {
     return matrix[b.length][a.length];
 }
 
+document.getElementById('answerInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        const userAnswer = e.target.value.trim().toLowerCase(); // spaties en hoofdletters negeren
+        const correctAnswer = e.target.dataset.answer.trim().toLowerCase();
+
+        const errorMsg = document.getElementById('answerError');
+
+        if (userAnswer === correctAnswer) {
+            // Goed antwoord
+            errorMsg.style.display = 'none';
+            // Hier kan je de overlay tonen:
+            document.getElementById('infoOverlay').classList.add('visible');
+            document.getElementById('infoOverlay').setAttribute('aria-hidden', 'false');
+        } else {
+            // Fout antwoord
+            errorMsg.style.display = 'block';
+        }
+    }
+});
+
+
 
 
 
