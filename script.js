@@ -134,109 +134,115 @@ document.addEventListener('DOMContentLoaded', function() {
     const infoOverlay = document.getElementById('infoOverlay');
     const infoClose = document.getElementById('infoClose');
     
-    infoBtn.addEventListener('click', () => {
-        infoOverlay.classList.add('visible');
-        infoOverlay.setAttribute('aria-hidden', 'false');
-    });
-    
-    infoClose.addEventListener('click', () => {
-        infoOverlay.classList.remove('visible');
-        infoOverlay.setAttribute('aria-hidden', 'true');
-    });
-    
-    // Klik buiten de modal sluit ook
-    infoOverlay.addEventListener('click', (e) => {
-        if (e.target === infoOverlay) {
-            infoOverlay.classList.remove('visible');
-            infoOverlay.setAttribute('aria-hidden', 'true');
-        }
-    });
-
-});
-
-    // Verdachten-grid
-document.querySelectorAll('.verdachte').forEach(el => {
-    const id = el.dataset.id;
-
-    // Herstel status
-    if (localStorage.getItem('verdachte-' + id) === 'afgestreept') {
-        el.classList.add('afgestreept');
-    }
-
-    // Klikgedrag
-    el.addEventListener('click', () => {
-        el.classList.toggle('afgestreept');
-
-        if (el.classList.contains('afgestreept')) {
-            localStorage.setItem('verdachte-' + id, 'afgestreept');
-        } else {
-            localStorage.removeItem('verdachte-' + id);
-        }
-    });
-});
-
-// ---- ANTWOORD CONTROLE ----
-const answerInput = document.getElementById('answerInput');
-const answerError = document.getElementById('answerError');
-const infoOverlay = document.getElementById('infoOverlay');
-
-if (answerInput) {
-
-    const correctAnswers = answerInput.dataset.answer
-        .toLowerCase()
-        .split(',')
-        .map(a => a.trim());
-
-    answerInput.addEventListener('keydown', (e) => {
-        if (e.key !== 'Enter') return;
-
-        const userAnswer = answerInput.value.trim().toLowerCase();
-
-        let isCorrect = false;
-
-        for (const correct of correctAnswers) {
-            const distance = levenshtein(userAnswer, correct);
-            if (distance <= 1) {
-                isCorrect = true;
-                break;
-            }
-        }
-
-        if (isCorrect) {
-            answerError.style.display = "none";
+    if (infoBtn && infoOverlay) {
+        infoBtn.addEventListener('click', () => {
             infoOverlay.classList.add('visible');
             infoOverlay.setAttribute('aria-hidden', 'false');
-        } else {
-            answerError.style.display = "block";
-            answerInput.classList.add('input-error');
-            setTimeout(() => {
-                answerInput.classList.remove('input-error');
-            }, 400);
-        }
-    });
-}
-
-function levenshtein(a, b) {
-    const matrix = [];
-
-    for (let i = 0; i <= b.length; i++) matrix[i] = [i];
-    for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
-
-    for (let i = 1; i <= b.length; i++) {
-        for (let j = 1; j <= a.length; j++) {
-            matrix[i][j] = b[i - 1] === a[j - 1]
-                ? matrix[i - 1][j - 1]
-                : Math.min(
-                    matrix[i - 1][j - 1] + 1,
-                    matrix[i][j - 1] + 1,
-                    matrix[i - 1][j] + 1
-                );
-        }
+        });
     }
-    return matrix[b.length][a.length];
+    
+    if (infoClose && infoOverlay) {
+        infoClose.addEventListener('click', () => {
+            infoOverlay.classList.remove('visible');
+            infoOverlay.setAttribute('aria-hidden', 'true');
+        });
+    }
+    
+    if (infoOverlay) {
+        infoOverlay.addEventListener('click', (e) => {
+            if (e.target === infoOverlay) {
+                infoOverlay.classList.remove('visible');
+                infoOverlay.setAttribute('aria-hidden', 'true');
+            }
+        });
+    }
+    
+    // Verdachten-grid
+    document.querySelectorAll('.verdachte').forEach(el => {
+        const id = el.dataset.id;
+    
+        // Herstel status
+        if (localStorage.getItem('verdachte-' + id) === 'afgestreept') {
+            el.classList.add('afgestreept');
+        }
+    
+        // Klikgedrag
+        el.addEventListener('click', () => {
+            el.classList.toggle('afgestreept');
+    
+            if (el.classList.contains('afgestreept')) {
+                localStorage.setItem('verdachte-' + id, 'afgestreept');
+            } else {
+                localStorage.removeItem('verdachte-' + id);
+            }
+        });
+    });
+
+    // ---- ANTWOORD CONTROLE ----
+    const answerInput = document.getElementById('answerInput');
+    const answerError = document.getElementById('answerError');
+    const infoOverlay = document.getElementById('infoOverlay');
+    
+    if (answerInput) {
+    
+        const correctAnswers = answerInput.dataset.answer
+            .toLowerCase()
+            .split(',')
+            .map(a => a.trim());
+    
+        answerInput.addEventListener('keydown', (e) => {
+            if (e.key !== 'Enter') return;
+    
+            const userAnswer = answerInput.value.trim().toLowerCase();
+    
+            let isCorrect = false;
+    
+            for (const correct of correctAnswers) {
+                const distance = levenshtein(userAnswer, correct);
+                if (distance <= 1) {
+                    isCorrect = true;
+                    break;
+                }
+            }
+    
+            if (isCorrect) {
+                answerError.style.display = "none";
+                infoOverlay.classList.add('visible');
+                infoOverlay.setAttribute('aria-hidden', 'false');
+            } else {
+                answerError.style.display = "block";
+                answerInput.classList.add('input-error');
+                setTimeout(() => {
+                    answerInput.classList.remove('input-error');
+                }, 400);
+            }
+        });
+    }
+    
+    function levenshtein(a, b) {
+        const matrix = [];
+    
+        for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+        for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+    
+        for (let i = 1; i <= b.length; i++) {
+            for (let j = 1; j <= a.length; j++) {
+                matrix[i][j] = b[i - 1] === a[j - 1]
+                    ? matrix[i - 1][j - 1]
+                    : Math.min(
+                        matrix[i - 1][j - 1] + 1,
+                        matrix[i][j - 1] + 1,
+                        matrix[i - 1][j] + 1
+                    );
+            }
+        }
+        return matrix[b.length][a.length];
+    }
+
 }
-
-
+    
+    
+    
 
 
 
