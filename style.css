@@ -538,6 +538,35 @@ input::placeholder {
     transform: translateY(-2px);
 }
 
+#answerInput {
+    width: 100%;
+    max-width: 420px;
+    padding: 18px 20px;
+    font-size: 18px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    outline: none;
+    box-sizing: border-box;
+    background: #ffffff;
+    color: #111;
+    text-align: center;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+/* Focus effect */
+#answerInput:focus {
+    border-color: #00e676;
+    box-shadow: 0 0 0 3px rgba(0, 230, 118, 0.25);
+}
+
+/* Placeholder mooier */
+#answerInput::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+
+
 
 
 
