@@ -24,6 +24,30 @@
             </p>
         </div>
 
+        <div class="input-wrapper">
+            <input 
+                type="text" 
+                id="answerInput" 
+                data-answer="Jan de Valk"
+                placeholder="Type je antwoord en druk op enter"
+                autocomplete="off"
+            >
+            <p id="answerError" class="error" style="display:none;">
+                Helaas! Dit is niet het goede antwoord.
+            </p>
+        </div>
+        
+        <div id="infoOverlay" class="overlay" aria-hidden="true">
+            <div class="modal">
+                <button id="infoClose2" class="modal-close">✕</button>
+                <h2 style="font-weight: bold; margin-bottom: 10px; text-align: center;">Correct!</h2>
+                <p>
+                Molenaar Jan de Valk had bij zijn rondjes door het Plantsoen allemaal 
+                kleine gekleurde scherven en splintertjes bij de struiken gevonden.
+                </p>
+            </div>
+        </div>
+        
         <div class="verdachten-grid">
             <div class="verdachte" data-id="boomverzorger">
                 <img src="../../icons/De_boomverzorger.png" alt="Verdachte">
