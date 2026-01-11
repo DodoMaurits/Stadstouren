@@ -497,6 +497,7 @@ input::placeholder {
 @media (max-width: 480px) {
     .instruction-box {
         width: 200px;
+        height: 200px;
     }
 }
 
@@ -527,6 +528,7 @@ input::placeholder {
     text-decoration: none;
     transform: translateY(-2px);
 }
+
 
 
 
