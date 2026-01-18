@@ -607,6 +607,18 @@ input::placeholder {
     outline: none;
 }
 
+.final-button:not(:disabled) {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(176, 0, 32, 0.6); }
+    70%  { box-shadow: 0 0 0 10px rgba(176, 0, 32, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(176, 0, 32, 0); }
+}
+
+
+
 
 
 
