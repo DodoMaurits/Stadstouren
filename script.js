@@ -154,24 +154,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-    // Verdachten-grid
+// Verdachten-grid (groen/rood toggle)
 document.querySelectorAll('.verdachte').forEach(el => {
     const id = el.dataset.id;
 
     // Herstel status
     if (localStorage.getItem('verdachte-' + id) === 'afgestreept') {
-        el.classList.add('afgestreept');
+        el.classList.add('afgestreept'); // rood
+    } else {
+        el.classList.remove('afgestreept'); // groen
     }
 
-    // Klikgedrag
+    // Klikgedrag: toggle rood/groen
     el.addEventListener('click', () => {
         el.classList.toggle('afgestreept');
-
-        if (el.classList.contains('afgestreept')) {
-            localStorage.setItem('verdachte-' + id, 'afgestreept');
-        } else {
-            localStorage.removeItem('verdachte-' + id);
-        }
+        updateButtonState(); // update knopstatus
     });
 });
 
@@ -251,109 +248,73 @@ function levenshtein(a, b) {
         }
     });
 
-    // Ontknoping
-    const answerInputFinal = document.getElementById("answerInput"); // LET OP: gebruik een andere variabele!
-    const finalButton = document.getElementById("finalButton");
-    
-    if (answerInputFinal && finalButton) {
-    
-        const correctWeapon = answerInputFinal.dataset.answer
-            .toLowerCase()
-            .split(",")
-            .map(a => a.trim());
-    
-        const correctSuspectId = "eigenaar"; // pas aan per scenario
-    
-        function getRemainingSuspects() {
-            return Array.from(document.querySelectorAll(".verdachte"))
-                .filter(v => !v.classList.contains("afgestreept"));
-        }
-    
-        function weaponIsCorrect() {
-            const user = answerInputFinal.value.trim().toLowerCase();
-            if (!user) return false;
-            return correctWeapon.some(correct => levenshtein(user, correct) <= 1);
-        }
-    
-        function suspectIsCorrect() {
-            const remaining = getRemainingSuspects();
-            return remaining.length === 1 && remaining[0].dataset.id === correctSuspectId;
-        }
-    
-        function updateButtonState() {
-            const hasInput = answerInputFinal.value.trim().length > 0;
-            const oneSuspectLeft = getRemainingSuspects().length === 1;
-    
-            finalButton.disabled = !(hasInput && oneSuspectLeft);
-        }
-    
-        // Activeren bij invoer
-        answerInputFinal.addEventListener("input", updateButtonState);
-    
-        // Activeren bij klikken op grid
-        document.querySelectorAll(".verdachte").forEach(el => {
-            el.addEventListener("click", () => setTimeout(updateButtonState, 10));
-        });
-    
-        finalButton.addEventListener("click", () => {
-            const weaponCorrect = weaponIsCorrect();
-            const suspectCorrect = suspectIsCorrect();
-    
-            let targetPage = "";
-    
-            if (weaponCorrect && suspectCorrect) {
-                targetPage = "ontknoping-alles-goed.html";
-            } else if (weaponCorrect && !suspectCorrect) {
-                targetPage = "ontknoping-wapen-goed.html";
-            } else if (!weaponCorrect && suspectCorrect) {
-                targetPage = "ontknoping-verdachte-goed.html";
-            } else {
-                targetPage = "ontknoping-alles-fout.html";
-            }
-    
-            window.location.href = targetPage;
-        });
+// Ontknoping finale pagina
+const answerInputFinal = document.getElementById("answerInput");
+const finalButton = document.getElementById("finalButton");
+
+if (answerInputFinal && finalButton) {
+
+    const correctWeapon = answerInputFinal.dataset.answer
+        .toLowerCase()
+        .split(",")
+        .map(a => a.trim());
+
+    const correctSuspectId = "eigenaar"; // pas aan per scenario
+
+    // Functie die kijkt welke verdachten groen zijn
+    function getRemainingSuspects() {
+        return Array.from(document.querySelectorAll(".verdachte"))
+            .filter(v => !v.classList.contains("afgestreept"));
     }
 
-    // Controleer knopstatus direct na DOM geladen
-    updateButtonState();
+    // Check of het wapen correct is
+    function weaponIsCorrect() {
+        const user = answerInputFinal.value.trim().toLowerCase();
+        if (!user) return false;
+        return correctWeapon.some(correct => levenshtein(user, correct) <= 1);
+    }
 
-    answerInput.addEventListener("input", updateButtonState);
-    
+    // Check of de verdachte correct is
+    function suspectIsCorrect() {
+        const remaining = getRemainingSuspects();
+        return remaining.length === 1 && remaining[0].dataset.id === correctSuspectId;
+    }
+
+    // Update de knopstatus
+    function updateButtonState() {
+        const hasInput = answerInputFinal.value.trim().length > 0;
+        const oneSuspectLeft = getRemainingSuspects().length === 1;
+
+        finalButton.disabled = !(hasInput && oneSuspectLeft);
+    }
+
+    // Listeners
+    answerInputFinal.addEventListener("input", updateButtonState);
     document.querySelectorAll(".verdachte").forEach(el => {
-        el.addEventListener("click", () => {
-            setTimeout(updateButtonState, 10);
-        });
+        el.addEventListener("click", updateButtonState);
     });
-    
-    // initial check
+
+    // Klik op de finale knop
+    finalButton.addEventListener("click", () => {
+        const weaponCorrect = weaponIsCorrect();
+        const suspectCorrect = suspectIsCorrect();
+
+        let targetPage = "";
+
+        if (weaponCorrect && suspectCorrect) {
+            targetPage = "ontknoping-alles-goed.html";
+        } else if (weaponCorrect && !suspectCorrect) {
+            targetPage = "ontknoping-wapen-goed.html";
+        } else if (!weaponCorrect && suspectCorrect) {
+            targetPage = "ontknoping-verdachte-goed.html";
+        } else {
+            targetPage = "ontknoping-alles-fout.html";
+        }
+
+        window.location.href = targetPage;
+    });
+
+    // Direct check bij laden van pagina
     updateButtonState();
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+}
 
