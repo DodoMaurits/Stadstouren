@@ -314,6 +314,22 @@ function levenshtein(a, b) {
             window.location.href = targetPage;
         });
     }
+
+    // Controleer knopstatus direct na DOM geladen
+    updateButtonState();
+
+    answerInput.addEventListener("input", updateButtonState);
+    
+    document.querySelectorAll(".verdachte").forEach(el => {
+        el.addEventListener("click", () => {
+            setTimeout(updateButtonState, 10);
+        });
+    });
+    
+    // initial check
+    updateButtonState();
+
+
     
     
     
@@ -340,3 +356,4 @@ function levenshtein(a, b) {
     
     
     
+
