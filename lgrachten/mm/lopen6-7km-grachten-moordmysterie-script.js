@@ -154,13 +154,13 @@ if (answerInputFinal && finalButton) {
         let targetPage = "";
 
         if (weaponCorrect && suspectCorrect) {
-            targetPage = "lopen6-7km-grachten-moordmysterie-ontknoping-goed.html";
+            targetPage = "lgrachten/mm/lopen6-7km-grachten-moordmysterie-goed.html";
         } else if (weaponCorrect && !suspectCorrect) {
-            targetPage = "lopen6-7km-grachten-moordmysterie-ontknoping-goedwapen.html";
+            targetPage = "lgrachten/mm/lopen6-7km-grachten-moordmysterie-goedwapen.html";
         } else if (!weaponCorrect && suspectCorrect) {
-            targetPage = "lopen6-7km-grachten-moordmysterie-ontknoping-foutwapen.html";
+            targetPage = "lgrachten/mm/lopen6-7km-grachten-moordmysterie-foutwapen.html";
         } else {
-            targetPage = "lopen6-7km-grachten-moordmysterie-ontknoping-fout.html";
+            targetPage = "lgrachten/mm/lopen6-7km-grachten-moordmysterie-fout.html";
         }
 
         window.location.href = targetPage;
