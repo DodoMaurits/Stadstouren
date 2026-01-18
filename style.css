@@ -565,6 +565,50 @@ input::placeholder {
     color: #999;
 }
 
+.final-button {
+    width: 300px;
+    padding: 16px 0;
+    margin-top: 25px;
+
+    background: #b00020;
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease, opacity 0.2s;
+}
+
+/* Hover alleen als actief */
+.final-button:not(:disabled):hover {
+    background: #d0002a;
+    transform: translateY(-1px);
+}
+
+/* Klik-effect */
+.final-button:not(:disabled):active {
+    transform: translateY(0);
+}
+
+/* Uitgeschakeld */
+.final-button:disabled {
+    background: #5a5a5a;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Focus: geen groen lijntje */
+.final-button:focus {
+    outline: none;
+}
+
+
+
 
 
 
