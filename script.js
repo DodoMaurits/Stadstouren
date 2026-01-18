@@ -251,92 +251,92 @@ function levenshtein(a, b) {
         }
     });
 
-    const answerInput = document.getElementById("answerInput");
+    // Ontknoping
+    const answerInputFinal = document.getElementById("answerInput"); // LET OP: gebruik een andere variabele!
     const finalButton = document.getElementById("finalButton");
     
-    const correctWeapon = answerInput.dataset.answer
-        .toLowerCase()
-        .split(",")
-        .map(a => a.trim());
+    if (answerInputFinal && finalButton) {
     
-    const correctSuspectId = "eigenaar"; // <-- ID van juiste verdachte
-
-    function getRemainingSuspects() {
-        return Array.from(document.querySelectorAll(".verdachte"))
-            .filter(v => !v.classList.contains("afgestreept"));
-    }
+        const correctWeapon = answerInputFinal.dataset.answer
+            .toLowerCase()
+            .split(",")
+            .map(a => a.trim());
     
-    function weaponIsCorrect() {
-        const user = answerInput.value.trim().toLowerCase();
-        if (!user) return false;
+        const correctSuspectId = "eigenaar"; // pas aan per scenario
     
-        return correctWeapon.some(correct => levenshtein(user, correct) <= 1);
-    }
-    
-    function suspectIsCorrect() {
-        const remaining = getRemainingSuspects();
-        return remaining.length === 1 && remaining[0].dataset.id === correctSuspectId;
-    }
-
-    function updateButtonState() {
-        const hasInput = answerInput.value.trim().length > 0;
-        const oneSuspectLeft = getRemainingSuspects().length === 1;
-    
-        finalButton.disabled = !(hasInput && oneSuspectLeft);
-    }
-
-    answerInput.addEventListener("input", updateButtonState);
-
-    document.querySelectorAll(".verdachte").forEach(el => {
-        el.addEventListener("click", () => {
-            setTimeout(updateButtonState, 10);
-        });
-    });
-
-    finalButton.addEventListener("click", () => {
-    
-        const weaponCorrect = weaponIsCorrect();
-        const suspectCorrect = suspectIsCorrect();
-    
-        let targetPage = "";
-    
-        if (weaponCorrect && suspectCorrect) {
-            targetPage = "ontknoping-alles-goed.html";
-        } 
-        else if (weaponCorrect && !suspectCorrect) {
-            targetPage = "ontknoping-wapen-goed.html";
-        } 
-        else if (!weaponCorrect && suspectCorrect) {
-            targetPage = "ontknoping-verdachte-goed.html";
-        } 
-        else {
-            targetPage = "ontknoping-alles-fout.html";
+        function getRemainingSuspects() {
+            return Array.from(document.querySelectorAll(".verdachte"))
+                .filter(v => !v.classList.contains("afgestreept"));
         }
     
-        window.location.href = targetPage;
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        function weaponIsCorrect() {
+            const user = answerInputFinal.value.trim().toLowerCase();
+            if (!user) return false;
+            return correctWeapon.some(correct => levenshtein(user, correct) <= 1);
+        }
+    
+        function suspectIsCorrect() {
+            const remaining = getRemainingSuspects();
+            return remaining.length === 1 && remaining[0].dataset.id === correctSuspectId;
+        }
+    
+        function updateButtonState() {
+            const hasInput = answerInputFinal.value.trim().length > 0;
+            const oneSuspectLeft = getRemainingSuspects().length === 1;
+    
+            finalButton.disabled = !(hasInput && oneSuspectLeft);
+        }
+    
+        // Activeren bij invoer
+        answerInputFinal.addEventListener("input", updateButtonState);
+    
+        // Activeren bij klikken op grid
+        document.querySelectorAll(".verdachte").forEach(el => {
+            el.addEventListener("click", () => setTimeout(updateButtonState, 10));
+        });
+    
+        finalButton.addEventListener("click", () => {
+            const weaponCorrect = weaponIsCorrect();
+            const suspectCorrect = suspectIsCorrect();
+    
+            let targetPage = "";
+    
+            if (weaponCorrect && suspectCorrect) {
+                targetPage = "ontknoping-alles-goed.html";
+            } else if (weaponCorrect && !suspectCorrect) {
+                targetPage = "ontknoping-wapen-goed.html";
+            } else if (!weaponCorrect && suspectCorrect) {
+                targetPage = "ontknoping-verdachte-goed.html";
+            } else {
+                targetPage = "ontknoping-alles-fout.html";
+            }
+    
+            window.location.href = targetPage;
+        });
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
