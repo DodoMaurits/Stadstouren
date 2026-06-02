@@ -15,7 +15,6 @@ body {
 @media (max-width: 480px) {
 body {
     padding-top: 20px;        /* duwt de inhoud iets naar beneden vanaf top */
-    min-height: auto;         /* laat de hoogte dynamisch zijn, voorkomt lege scrollruimte */
 } }
 
 .container {
