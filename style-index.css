@@ -12,11 +12,6 @@ body {
     text-align: center;
 }
 
-@media (max-width: 480px) {
-body {
-    padding-top: 20px;        /* inhoud lager vanaf top */
-} }
-
 .container {
     width: 90%;
     max-width: 500px;
