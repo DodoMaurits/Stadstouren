@@ -6,8 +6,8 @@ body {
     font-family: Arial, sans-serif;
 
     display: flex;
-    justify-content: center; /* verticaal centreren */
-    align-items: center;     /* horizontaal centreren */
+    justify-content: center; /* horizontaal */
+    align-items: center;     /* verticaal */
     min-height: 100vh;       /* volledige hoogte scherm */
     text-align: center;
 }
