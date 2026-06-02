@@ -13,14 +13,10 @@ body {
 }
 
 @media (max-width: 480px) {
-    body {
-        display: flex;
-        justify-content: center;  /* horizontaal centreren blijft */
-        align-items: center;      /* verticaal centreren blijft */
-        padding-top: 20px;        /* duwt de inhoud iets naar beneden vanaf top */
-        min-height: auto;         /* laat de hoogte dynamisch zijn, voorkomt lege scrollruimte */
-    }
-}
+body {
+    padding-top: 20px;        /* duwt de inhoud iets naar beneden vanaf top */
+    min-height: auto;         /* laat de hoogte dynamisch zijn, voorkomt lege scrollruimte */
+} }
 
 .container {
     width: 90%;
