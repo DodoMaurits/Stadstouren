@@ -670,3 +670,19 @@ input::placeholder {
         transform: translateY(0);
     }
 }
+
+/*------------ HINTS KNOP -------------*/
+.hints-button {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 8px;
+    background: #0c8a4b;
+    color: white;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.hints-button:hover {
+    transform: translateY(-2px);
+}
