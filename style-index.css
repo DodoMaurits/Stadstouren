@@ -191,7 +191,7 @@ input::placeholder {
     body {
         display: flex;
         justify-content: center;  /* horizontaal centreren blijft */
-        align-items: flex-start;  /* niet helemaal verticaal centreren */
+        align-items: center;      /* verticaal centreren blijft */
         padding-top: 20px;        /* duwt de inhoud iets naar beneden vanaf top */
         min-height: auto;         /* laat de hoogte dynamisch zijn, voorkomt lege scrollruimte */
     }
