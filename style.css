@@ -93,31 +93,6 @@ input::placeholder {
     margin-top: 30px;           /* ruimte boven de container */
 }
 
-.route-btn {
-    width: 150px;              /* breedte knop */
-    padding: 15px 0px;        /* ruimte binnen de knop */
-    background: #00e676;       /* knopkleur */
-    color: #071225;            /* tekstkleur */
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 10px;       /* afgeronde hoeken */
-    font-weight: bold;         /* tekst dikgedrukt */
-    border: none;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.route-btn:disabled {
-    background: #7aeebb;
-    cursor: not-allowed;
-    opacity: 0.6;
-}
-
-.route-btn:hover:not(:disabled) {
-    transform: scale(1.05);
-    background: #00ff85;
-}
-
 /* Terug-knop */
 .back-button {
     display: block;
