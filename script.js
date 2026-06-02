@@ -16,35 +16,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ----- Input -----
     if (searchInput) {
-        searchInput.addEventListener("input", () => {
-            const query = searchInput.value.toLowerCase();
+        searchInput.addEventListener("focus", () => {
             dropdown.innerHTML = "";
-            errorMessage.textContent = "";
-            selectedPlace = null;
-            disableButtons();
-
-            if (query.length === 0) {
-                dropdown.style.display = "none";
-                return;
-            }
-
-            const filtered = places.filter(p =>
-                p.name.toLowerCase().includes(query)
-            );
-
-            dropdown.style.display = filtered.length ? "block" : "none";
-
-            filtered.forEach(place => {
+    
+            places.forEach(place => {
                 const item = document.createElement("div");
                 item.className = "dropdown-item";
                 item.textContent = place.name;
-
+    
                 item.addEventListener("click", () => {
                     selectPlace(place);
                 });
-
+    
                 dropdown.appendChild(item);
             });
+    
+            dropdown.style.display = "block";
         });
     }
 
