@@ -205,6 +205,12 @@ input::placeholder {
     opacity: 1;
     pointer-events: auto;
 }
+@media (max-width: 900px) {
+    .overlay.visible {
+        width: calc(100% - 32px); /* iets meer lucht */
+        padding: 20px 16px;       /* marge links/rechts */
+    }
+}
 
 .modal {
     background: white;
@@ -215,12 +221,6 @@ input::placeholder {
     position: relative;      /* nodig voor het kruisje */
     text-align: center;
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-@media (max-width: 900px) {
-    .modal {
-        width: calc(100% - 32px); /* iets meer lucht */
-        padding: 20px 16px;       /* marge links/rechts */
-    }
 }
 
 /* Kruisje rechtsboven */
