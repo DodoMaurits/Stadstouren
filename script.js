@@ -139,5 +139,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    /*----- NOTE KNOP -----*/
+    const notesButton = document.getElementById("notesButton");
+    const notesOverlay = document.getElementById("notesOverlay");
+    const notesClose = document.getElementById("notesClose");
+    const notesArea = document.getElementById("notesArea");
+    
+    if (notesButton) {
+    
+        // laad opgeslagen notities
+        notesArea.value = localStorage.getItem("detectiveNotes") || "";
+    
+        notesButton.addEventListener("click", () => {
+            notesOverlay.classList.add("visible");
+        });
+    
+        notesClose.addEventListener("click", () => {
+            notesOverlay.classList.remove("visible");
+        });
+    
+        // automatisch opslaan tijdens typen
+        notesArea.addEventListener("input", () => {
+            localStorage.setItem(
+                "detectiveNotes",
+                notesArea.value
+            );
+        });
+    }
+
 });
 
