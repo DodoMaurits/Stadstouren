@@ -16,36 +16,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ----- Input -----
     if (searchInput) {
+    
+        searchInput.addEventListener("focus", () => {
+            dropdown.innerHTML = "";
+    
+            places.forEach(place => {
+                const item = document.createElement("div");
+                item.className = "dropdown-item";
+                item.textContent = place.name;
+    
+                item.addEventListener("click", () => {
+                    selectPlace(place);
+                });
+    
+                dropdown.appendChild(item);
+            });
+    
+            dropdown.style.display = "block";
+        });
+    
         searchInput.addEventListener("input", () => {
             const query = searchInput.value.toLowerCase();
             dropdown.innerHTML = "";
             errorMessage.textContent = "";
             selectedPlace = null;
             disableButtons();
-
-            if (query.length === 0) {
-                dropdown.style.display = "none";
-                return;
-            }
-
+    
             const filtered = places.filter(p =>
                 p.name.toLowerCase().includes(query)
             );
-
+    
             dropdown.style.display = filtered.length ? "block" : "none";
-
+    
             filtered.forEach(place => {
                 const item = document.createElement("div");
                 item.className = "dropdown-item";
                 item.textContent = place.name;
-
+    
                 item.addEventListener("click", () => {
                     selectPlace(place);
                 });
-
+    
                 dropdown.appendChild(item);
             });
         });
+    
     }
 
     // ----- Selectie -----
