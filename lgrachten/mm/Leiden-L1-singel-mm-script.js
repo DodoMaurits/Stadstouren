@@ -154,13 +154,13 @@ if (answerInputFinal && finalButton) {
         let targetPage = "";
 
         if (weaponCorrect && suspectCorrect) {
-            targetPage = "L1-singel-mm-goed.html";
+            targetPage = "Leiden-L1-singel-mm-goed.html";
         } else if (weaponCorrect && !suspectCorrect) {
-            targetPage = "L1-singel-mm-foutwapen.html";
+            targetPage = "Leiden-L1-singel-mm-foutwapen.html";
         } else if (!weaponCorrect && suspectCorrect) {
-            targetPage = "L1-singel-mm-goedwapen.html";
+            targetPage = "Leiden-L1-singel-mm-goedwapen.html";
         } else {
-            targetPage = "L1-singel-mm-fout.html";
+            targetPage = "Leiden-L1-singel-mm-fout.html";
         }
 
         window.location.href = targetPage;
