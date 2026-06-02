@@ -644,14 +644,12 @@ input::placeholder {
 
 /*------------ NOTE KNOP -------------*/
 .notes-button {
-    display: block;
-    width: fit-content;
-    margin: 0 auto 20px auto; /* gecentreerd boven de titel */
+    width: 35px;
     height: 35px;
     margin-right: 100px;
     border: none;
     border-radius: 8px;
-    background-color: #cfe8ff;
+    background-color: #0c8a4b;
     color: white;
     cursor: pointer;
     transition: background 0.2s, transform 0.15s;
