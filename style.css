@@ -285,52 +285,6 @@ input::placeholder {
     margin-left: 10px;
 }
 
-/* Modal zelf (zelfde als vorige overlay/modal) */
-#infoOverlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s;
-}
-
-#infoOverlay.visible {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-#infoOverlay .modal {
-    background: white;
-    padding: 25px 20px;
-    border-radius: 12px;
-    max-width: 350px;
-    width: 90%;
-    box-sizing: border-box;
-    position: relative;
-    text-align: left;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
-/* Kruisje */
-#infoOverlay .modal-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-#infoOverlay p {
-    margin: 0;
-    line-height: 1.5;
-}
-
 /* Verdachten */
 .verdachten-grid {
     display: grid;
