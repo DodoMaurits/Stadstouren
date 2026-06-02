@@ -644,14 +644,29 @@ input::placeholder {
 
 /*------------ NOTE KNOP -------------*/
 .notes-button {
-    width: 35px;
+    display: block;
+    width: fit-content;
+    margin: 0 auto 20px auto; /* gecentreerd boven de titel */
     height: 35px;
-    margin-right: 8px;
+    margin-right: 50px;
     border: none;
     border-radius: 8px;
-    background: #0f4c81;
+    background-color: #cfe8ff;
     color: white;
     cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.notes-button:hover {
+    background: #e5e7eb;
+    color: #111;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.notes-button:active {
+    transform: translateY(0);
+    text-decoration: none;
 }
 
 .notes-modal {
