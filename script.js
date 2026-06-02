@@ -103,18 +103,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Klik op sluitknop → modal sluiten
-    modalClose.addEventListener('click', () => {
-        overlay.classList.remove('visible');
-        overlay.setAttribute('aria-hidden', 'true');
-    });
-    
-    // Optioneel: klik buiten modal sluit ook
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) {
+    if (modalClose && overlay) {
+        modalClose.addEventListener('click', () => {
             overlay.classList.remove('visible');
             overlay.setAttribute('aria-hidden', 'true');
-        }
-    });
+        });
+    
+        // Optioneel: klik buiten modal sluit ook
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                overlay.classList.remove('visible');
+                overlay.setAttribute('aria-hidden', 'true');
+            }
+        });
+    }
 
     // Info modal
     const infoBtn = document.getElementById('infoBtn');
