@@ -674,7 +674,7 @@ input::placeholder {
 
 #notesArea {
     width: 300px;
-    height: 75vh;
+    height: 75dvh;
     max-height: 600px;
     box-sizing: border-box;
     padding: 12px;
