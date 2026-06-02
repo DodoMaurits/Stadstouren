@@ -668,7 +668,8 @@ input::placeholder {
 }
 
 .notes-modal {
-    max-width: 500px;
+    max-width: 85vh;
+    overflow: hidden;
 }
 
 #notesArea {
