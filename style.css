@@ -643,3 +643,26 @@ input::placeholder {
 }
 
 /*------------ NOTE KNOP -------------*/
+.notes-button {
+    width: 35px;
+    height: 35px;
+    margin-right: 8px;
+    border: none;
+    border-radius: 8px;
+    background: #0f4c81;
+    color: white;
+    cursor: pointer;
+}
+
+.notes-modal {
+    max-width: 500px;
+}
+
+#notesArea {
+    width: 100%;
+    min-height: 250px;
+    box-sizing: border-box;
+    padding: 12px;
+    resize: vertical;
+    margin-top: 10px;
+}
