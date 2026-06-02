@@ -8,7 +8,6 @@ body {
     display: flex;
     justify-content: center; /* horizontaal */
     align-items: center;     /* verticaal */
-    min-height: 100vh;       /* volledige hoogte scherm */
     text-align: center;
 }
 
