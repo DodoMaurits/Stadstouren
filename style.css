@@ -673,7 +673,7 @@ input::placeholder {
 }
 
 #notesArea {
-    width: 100%;
+    width: 300px;
     height: 75vh;
     max-height: 600px;
     box-sizing: border-box;
@@ -681,3 +681,9 @@ input::placeholder {
     resize: vertical;
     margin-top: 10px;
 }
+@media (max-width: 900px) {
+    #notesArea {
+        width: 95%;
+    }
+}
+
