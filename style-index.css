@@ -13,6 +13,12 @@ body {
     min-height: 100dvh;
 }
 
+@media (max-width: 900px) {
+    body {
+    padding-bottom: 20px;
+    }
+}
+
 .container {
     width: 90%;
     max-width: 500px;
