@@ -154,13 +154,13 @@ if (answerInputFinal && finalButton) {
         let targetPage = "";
 
         if (weaponCorrect && suspectCorrect) {
-            targetPage = "lopen6-7km-grachten-moordmysterie-goed.html";
+            targetPage = "L1-singel-mm-goed.html";
         } else if (weaponCorrect && !suspectCorrect) {
-            targetPage = "lopen6-7km-grachten-moordmysterie-foutwapen.html";
+            targetPage = "L1-singel-mm-foutwapen.html";
         } else if (!weaponCorrect && suspectCorrect) {
-            targetPage = "lopen6-7km-grachten-moordmysterie-goedwapen.html";
+            targetPage = "L1-singel-mm-goedwapen.html";
         } else {
-            targetPage = "lopen6-7km-grachten-moordmysterie-fout.html";
+            targetPage = "L1-singel-mm-fout.html";
         }
 
         window.location.href = targetPage;
