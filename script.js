@@ -167,5 +167,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    const homeButton = document.getElementById("homeButton");
+    const homeOverlay = document.getElementById("homeOverlay");
+    const homeCancel = document.getElementById("homeCancel");
+    
+    if (homeButton && homeOverlay && homeCancel) {
+    
+        homeButton.addEventListener("click", () => {
+            homeOverlay.classList.add("visible");
+        });
+    
+        homeCancel.addEventListener("click", () => {
+            homeOverlay.classList.remove("visible");
+        });
+    
+        homeOverlay.addEventListener("click", (e) => {
+            if (e.target === homeOverlay) {
+                homeOverlay.classList.remove("visible");
+            }
+        });
+    }
+
 });
 
