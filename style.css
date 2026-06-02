@@ -314,6 +314,12 @@ input::placeholder {
     text-align: left;
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
+@media (max-width: 900px) {
+    #infoOverlay .modal {
+        width: calc(100% - 32px); /* iets meer lucht */
+        padding: 20px 16px;       /* marge links/rechts */
+    }
+}
 
 /* Kruisje */
 #infoOverlay .modal-close {
