@@ -648,7 +648,7 @@ input::placeholder {
     width: fit-content;
     margin: 0 auto 20px auto; /* gecentreerd boven de titel */
     height: 35px;
-    margin-right: 50px;
+    margin-right: 100px;
     border: none;
     border-radius: 8px;
     background-color: #cfe8ff;
