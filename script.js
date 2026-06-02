@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const notesClose = document.getElementById("notesClose");
     const notesArea = document.getElementById("notesArea");
     
-    if (notesButton) {
+    if (notesButton && notesOverlay && notesClose && notesArea) {
     
         // laad opgeslagen notities
         notesArea.value = localStorage.getItem("detectiveNotes") || "";
@@ -158,12 +158,8 @@ document.addEventListener('DOMContentLoaded', function() {
             notesOverlay.classList.remove("visible");
         });
     
-        // automatisch opslaan tijdens typen
         notesArea.addEventListener("input", () => {
-            localStorage.setItem(
-                "detectiveNotes",
-                notesArea.value
-            );
+            localStorage.setItem("detectiveNotes", notesArea.value);
         });
     }
 
