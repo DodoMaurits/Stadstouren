@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const diff = Math.floor((now - startTime) / 1000);
             const minutes = String(Math.floor(diff / 60)).padStart(2, "0");
             const seconds = String(diff % 60).padStart(2, "0");
-            timerEl.textContent = `${minutes}:${seconds}`;
+            timerEl.textContent = `${Math.floor(diff / 3600)}:${minutes}:${seconds}`;
         }
         updateTimer();
         setInterval(updateTimer, 1000);
