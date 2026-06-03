@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-
-    // Elementen ophalen
     const searchInput = document.getElementById("searchInput");
     const dropdown = document.getElementById("dropdown");
     const errorMessage = document.getElementById("errorMessage");
@@ -13,24 +11,19 @@ document.addEventListener('DOMContentLoaded', function() {
     if (searchInput) {
         searchInput.addEventListener("focus", () => {
             dropdown.innerHTML = "";
-    
             places.forEach(place => {
                 const item = document.createElement("div");
                 item.className = "dropdown-item";
                 item.textContent = place.name;
-    
                 item.addEventListener("click", () => {
                     selectPlace(place);
                 });
-    
                 dropdown.appendChild(item);
             });
-    
             dropdown.style.display = "block";
         });
     }
 
-    // ----- Selectie -----
     function selectPlace(place) {
         selectedPlace = place;
         searchInput.value = place.name;
@@ -38,17 +31,14 @@ document.addEventListener('DOMContentLoaded', function() {
         enableButtons();
     }
 
-    // ----- Buttons -----
     function disableButtons() {
         if (boatBtn) boatBtn.disabled = true;
         if (walkBtn) walkBtn.disabled = true;
     }
-
     function enableButtons() {
         if (boatBtn) boatBtn.disabled = false;
         if (walkBtn) walkBtn.disabled = false;
     }
-
     function showError() {
         errorMessage.textContent = "Kies een plaats";
     }
@@ -64,10 +54,9 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = selectedPlace.walk;
         });
     }
-
     disableButtons();
 
-    // ----- Routes grid -----
+    /* ----- MODAL START ROUTE ----- */
     const gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
         item.addEventListener('click', () => {
@@ -76,37 +65,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Pak alle grid-items
     const items = document.querySelectorAll('.grid-item');
-    
-    // Pak modal elementen
     const overlay = document.getElementById('overlay');
     const modalClose = document.getElementById('modalClose');
     const confirmBtn = document.getElementById('confirmBtn');
-    
-    // Klik op grid-item → modal tonen
+    const modalContent = document.getElementById('modalContent');
     items.forEach(item => {
         item.addEventListener('click', () => {
             const targetPage = item.dataset.opt;
             const templateId = item.dataset.template;
-            confirmBtn.href = targetPage;
             const template = document.getElementById(templateId);
             if (template && modalContent) {
                 modalContent.innerHTML = template.innerHTML;
+            }
+            if (confirmBtn) {
+                confirmBtn.href = targetPage;
             }
             overlay.classList.add('visible');
             overlay.setAttribute('aria-hidden', 'false');
         });
     });
-    
-    // Klik op sluitknop → modal sluiten
     if (modalClose && overlay) {
         modalClose.addEventListener('click', () => {
             overlay.classList.remove('visible');
             overlay.setAttribute('aria-hidden', 'true');
         });
-    
-        // Optioneel: klik buiten modal sluit ook
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay) {
                 overlay.classList.remove('visible');
@@ -115,11 +98,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Info modal
+    /* ----- MODAL INFO ----- */
     const infoBtn = document.getElementById('infoBtn');
     const infoOverlay = document.getElementById('infoOverlay');
     const infoClose = document.getElementById('infoClose');
-    
     if (infoBtn && infoOverlay && infoClose) {
         infoBtn.addEventListener('click', () => {
             infoOverlay.classList.add('visible');
