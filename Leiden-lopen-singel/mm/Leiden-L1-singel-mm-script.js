@@ -60,24 +60,25 @@ document.addEventListener("DOMContentLoaded", () => {
         startTime = Number(localStorage.getItem("timerStart"));
         if (!startTime) {
             timerEl.textContent = "0:00:00";
-        }
-        const endTime = localStorage.getItem("timerEnd");
-        function showTime(diff) {
-            const hours = Math.floor(diff / 3600);
-            const minutes = String(Math.floor((diff % 3600) / 60)).padStart(2, "0");
-            const seconds = String(diff % 60).padStart(2, "0");
-            timerEl.textContent = `${hours}:${minutes}:${seconds}`;
-        }
-        if (endTime) {
-            const diff = Math.floor((endTime - startTime) / 1000);
-            showTime(diff);
         } else {
-            function updateTimer() {
-                const diff = Math.floor((Date.now() - startTime) / 1000);
-                showTime(diff);
+            const endTime = localStorage.getItem("timerEnd");
+            function showTime(diff) {
+                const hours = Math.floor(diff / 3600);
+                const minutes = String(Math.floor((diff % 3600) / 60)).padStart(2, "0");
+                const seconds = String(diff % 60).padStart(2, "0");
+                timerEl.textContent = `${hours}:${minutes}:${seconds}`;
             }
-            updateTimer();
-            timerInterval = setInterval(updateTimer, 1000);
+            if (endTime) {
+                const diff = Math.floor((endTime - startTime) / 1000);
+                showTime(diff);
+            } else {
+                function updateTimer() {
+                    const diff = Math.floor((Date.now() - startTime) / 1000);
+                    showTime(diff);
+                }
+                updateTimer();
+                timerInterval = setInterval(updateTimer, 1000);
+            }
         }
     }
 
