@@ -307,6 +307,34 @@ h1 {
     }
 }
 
+#notesSave {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 20px auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    background: #00e676;
+    color: #071225;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    text-decoration: none;
+}
+
+#notesSave:hover {
+    background: #e5e7eb;
+    color: #111;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+#notesSave:active {
+    transform: translateY(0);
+    text-decoration: none;
+}
+
 /* ----- TOP-ROW TIMER ----- */
 .timer {
     position: absolute;
