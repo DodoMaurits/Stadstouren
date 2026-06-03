@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         id="notesArea"
                         placeholder="Schrijf hier je notities..."
                     ></textarea>
+                    <button id="notesSave" class="modal-close">Opslaan</button>
                 </div>
             </div>
 
