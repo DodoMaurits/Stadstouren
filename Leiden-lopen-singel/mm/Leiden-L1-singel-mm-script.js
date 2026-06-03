@@ -195,6 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 targetPage = "Leiden-L1-singel-mm-fout.html";
             }
+            localStorage.clear();
             window.location.href = targetPage;
         });
         updateButtonState(); /* Direct check bij laden van pagina */
