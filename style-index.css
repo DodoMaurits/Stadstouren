@@ -26,11 +26,12 @@ body {
     display: flex;
 }
 
+/* ----- TITEL ----- */
 h1 {
     margin-bottom: 30px;
 }
 
-/* ----- INVOER ----- */
+/* ----- INVOERVELD STAD ----- */
 .input-wrapper {
     width: 85%;
     max-width: 500px;
@@ -88,7 +89,7 @@ input::placeholder {
     margin-top: 10px;
 }
 
-/* ----- BUTTONS ----- */
+/* ----- BUTTONS VAREN OF WANDELEN ----- */
 .button-container {
     display: flex;
     justify-content: center;
