@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!container) return;
 
     container.innerHTML = `
-        <div class="verdachtenGrid">
+        <div class="verdachten-grid">
             <div class="verdachte" data-id="boomverzorger">
                 <img src="../../icons/De_boomverzorger.png" alt="Verdachte">
                 <p><br>De boomverzorger</p>
