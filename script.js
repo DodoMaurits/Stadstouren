@@ -57,14 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
     disableButtons();
 
     /* ----- MODAL START ROUTE ----- */
-    const gridItems = document.querySelectorAll('.grid-item');
-    gridItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const url = item.dataset.url;
-            if (url) window.location.href = url;
-        });
-    });
-
     const items = document.querySelectorAll('.grid-item');
     const overlay = document.getElementById('overlay');
     const modalClose = document.getElementById('modalClose');
