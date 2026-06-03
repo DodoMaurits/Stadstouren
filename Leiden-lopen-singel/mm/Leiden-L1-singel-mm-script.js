@@ -1,3 +1,7 @@
+let timerInterval;
+let startTime;
+let finalTime = null;
+
 document.addEventListener("DOMContentLoaded", () => {
 
 /* ---------- GEDEELDE LAY-OUT ---------- */
@@ -46,21 +50,29 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ----- TIMER ----- */
     const timerEl = document.getElementById("timer");
     if (timerEl) {
-        let startTime = localStorage.getItem("timerStart");
-    
+        startTime = Number(localStorage.getItem("timerStart"));
         if (!startTime) {
             startTime = Date.now();
             localStorage.setItem("timerStart", startTime);
         }
-        function updateTimer() {
-            const now = Date.now();
-            const diff = Math.floor((now - startTime) / 1000);
-            const minutes = String(Math.floor(diff / 60)).padStart(2, "0");
+        const endTime = localStorage.getItem("timerEnd");
+        function showTime(diff) {
+            const hours = Math.floor(diff / 3600);
+            const minutes = String(Math.floor((diff % 3600) / 60)).padStart(2, "0");
             const seconds = String(diff % 60).padStart(2, "0");
-            timerEl.textContent = `${Math.floor(diff / 3600)}:${minutes}:${seconds}`;
+            timerEl.textContent = `${hours}:${minutes}:${seconds}`;
         }
-        updateTimer();
-        const timerInterval = setInterval(updateTimer, 1000);
+        if (endTime) {
+            const diff = Math.floor((endTime - startTime) / 1000);
+            showTime(diff);
+        } else {
+            function updateTimer() {
+                const diff = Math.floor((Date.now() - startTime) / 1000);
+                showTime(diff);
+            }
+            updateTimer();
+            timerInterval = setInterval(updateTimer, 1000);
+        }
     }
 
     /* ----- VERDACHTENGRID ----- */
@@ -205,7 +217,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         /* Klik op finale knop → juiste ontknopingspagina */
         finalButton.addEventListener("click", () => {
-            clearInterval(timerInterval);
             const weaponCorrect = weaponIsCorrect();
             const suspectCorrect = suspectIsCorrect();
             let targetPage = "";
