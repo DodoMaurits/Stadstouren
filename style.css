@@ -132,8 +132,9 @@ input::placeholder {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding: 12px 25px;
     width: 100px;
+    padding: 12px 0;
+    box-sizing: border-box;
 }
 
 .grid {
