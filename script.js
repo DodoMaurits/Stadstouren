@@ -94,11 +94,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // Klik op grid-item → modal tonen
     items.forEach(item => {
         item.addEventListener('click', () => {
-            const targetPage = item.dataset.opt; // lees data-opt waarde
-            confirmBtn.href = targetPage;        // zet link in modal-knop
-    
+            const targetPage = item.dataset.opt;
+            const templateId = item.dataset.template;
+            confirmBtn.href = targetPage;
+            const template = document.getElementById(templateId);
+            if (template) {
+                const modal = overlay.querySelector(".modal");
+                const closeBtn = modal.querySelector("#modalClose");
+                const buttons = modal.querySelector(".modal-buttons");
+                modal.innerHTML = "";
+                modal.appendChild(closeBtn);
+                modal.appendChild(document.createRange().createContextualFragment(template.innerHTML));
+                modal.appendChild(buttons);
+            }
+            overlay.classList.add('visible');
             overlay.setAttribute('aria-hidden', 'false');
-            overlay.classList.add('visible');    // voor fade-in animatie
         });
     });
     
@@ -151,24 +161,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const notesSave = document.getElementById("notesSave");
     
     if (notesButton && notesOverlay && notesClose && notesArea) {
-    
-        // laad opgeslagen notities
         notesArea.value = localStorage.getItem("detectiveNotes") || "";
-    
         notesButton.addEventListener("click", () => {
             notesOverlay.classList.add("visible");
         });
-    
         notesClose.addEventListener("click", () => {
             notesOverlay.classList.remove("visible");
         });
-
         if (notesSave) {
             notesSave.addEventListener("click", () => {
                 notesOverlay.classList.remove("visible");
             });
         }
-    
         notesArea.addEventListener("input", () => {
             localStorage.setItem("detectiveNotes", notesArea.value);
         });
@@ -177,17 +181,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const homeButton = document.getElementById("homeButton");
     const homeOverlay = document.getElementById("homeOverlay");
     const homeCancel = document.getElementById("homeCancel");
-    
     if (homeButton && homeOverlay && homeCancel) {
-    
         homeButton.addEventListener("click", () => {
             homeOverlay.classList.add("visible");
         });
-    
         homeCancel.addEventListener("click", () => {
             homeOverlay.classList.remove("visible");
         });
-    
         homeOverlay.addEventListener("click", (e) => {
             if (e.target === homeOverlay) {
                 homeOverlay.classList.remove("visible");
