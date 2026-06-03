@@ -234,6 +234,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         updateButtonState(); /* Direct check bij laden van pagina */
     }
+
+    const closeGameButton = document.getElementById("closeGameButton");
+    if (closeGameButton) {
+        closeGameButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            localStorage.clear();
+            window.location.href = closeGameButton.href;
+        });
+    }
 });
 
 /* ---------- SPELLINGSAFWIJKINGEN (LEVENSHTEIN) ---------- */
