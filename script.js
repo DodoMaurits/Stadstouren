@@ -148,6 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const notesOverlay = document.getElementById("notesOverlay");
     const notesClose = document.getElementById("notesClose");
     const notesArea = document.getElementById("notesArea");
+    const notesSave = document.getElementById("notesSave");
     
     if (notesButton && notesOverlay && notesClose && notesArea) {
     
@@ -161,6 +162,12 @@ document.addEventListener('DOMContentLoaded', function() {
         notesClose.addEventListener("click", () => {
             notesOverlay.classList.remove("visible");
         });
+
+        if (notesSave) {
+            notesSave.addEventListener("click", () => {
+                notesOverlay.classList.remove("visible");
+            });
+        }
     
         notesArea.addEventListener("input", () => {
             localStorage.setItem("detectiveNotes", notesArea.value);
