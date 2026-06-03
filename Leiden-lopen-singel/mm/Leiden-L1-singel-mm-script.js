@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
         container.insertAdjacentHTML("afterbegin", `
             <div class="top-row">
                 <button id="notesButton" class="notes-button">✏️</button>
-                <div id="timer" class="timer">00:00</div>
+                <div id="timer" class="timer">0:00:00</div>
                 <button class="home-button" id="homeButton">x</button>
             </div>
 
