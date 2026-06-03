@@ -49,11 +49,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ----- TIMER ----- */
     const timerEl = document.getElementById("timer");
+    const startTimerButton = document.getElementById("startTimerButton");
+    if (startTimerButton) {
+        startTimerButton.addEventListener("click", () => {
+            localStorage.removeItem("timerEnd");
+            localStorage.setItem("timerStart", Date.now());
+        });
+    }
     if (timerEl) {
         startTime = Number(localStorage.getItem("timerStart"));
         if (!startTime) {
-            startTime = Date.now();
-            localStorage.setItem("timerStart", startTime);
+            timerEl.textContent = "0:00:00";
+            return;
         }
         const endTime = localStorage.getItem("timerEnd");
         function showTime(diff) {
