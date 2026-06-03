@@ -60,7 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
         startTime = Number(localStorage.getItem("timerStart"));
         if (!startTime) {
             timerEl.textContent = "0:00:00";
-            return;
         }
         const endTime = localStorage.getItem("timerEnd");
         function showTime(diff) {
