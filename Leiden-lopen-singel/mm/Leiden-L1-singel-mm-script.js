@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
         container.insertAdjacentHTML("afterbegin", `
             <div class="top-row">
                 <button id="notesButton" class="notes-button">✏️</button>
+                <div id="timer" class="timer">00:00</div>
                 <button class="home-button" id="homeButton">x</button>
             </div>
 
@@ -39,6 +40,26 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.clear();
             window.location.href = homeConfirm.href;
         });
+    }
+
+    /* ----- TIMER ----- */
+    const timerEl = document.getElementById("timer");
+    if (timerEl) {
+        let startTime = localStorage.getItem("timerStart");
+    
+        if (!startTime) {
+            startTime = Date.now();
+            localStorage.setItem("timerStart", startTime);
+        }
+        function updateTimer() {
+            const now = Date.now();
+            const diff = Math.floor((now - startTime) / 1000);
+            const minutes = String(Math.floor(diff / 60)).padStart(2, "0");
+            const seconds = String(diff % 60).padStart(2, "0");
+            timerEl.textContent = `${minutes}:${seconds}`;
+        }
+        updateTimer();
+        setInterval(updateTimer, 1000);
     }
 
     /* ----- VERDACHTENGRID ----- */
