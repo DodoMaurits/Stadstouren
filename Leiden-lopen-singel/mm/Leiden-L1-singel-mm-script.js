@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div id="homeOverlay" class="overlay">
                 <div class="modal">
                     <h2>Weet je het zeker?</h2>
-                    <p>Door op ja te klikken verlaat je de spelroute.</p>
+                    <p>Je verlaat het spel en je notities worden gewist.</p>
                     <div style="display:flex; gap:10px; justify-content:center; margin-top:20px;">
                         <a href="../../Leiden-L1-singel.html" id="homeConfirm" class="back-button">Ja</a>
                         <button id="homeCancel" class="back-button">Nee</button>
