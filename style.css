@@ -133,6 +133,7 @@ input::placeholder {
     justify-content: center;
     align-items: center;
     padding: 12px 25px;
+    width: 100px;
 }
 
 .grid {
