@@ -302,6 +302,7 @@ h1 {
     padding: 12px;
     resize: vertical;
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 @media (max-width: 900px) {
     #notesArea {
@@ -312,7 +313,6 @@ h1 {
 .save-button {
     display: block;
     width: 100%;
-    margin-top: 30px;
     padding: 12px;
     background: #0c8a4b;
     color: white;
