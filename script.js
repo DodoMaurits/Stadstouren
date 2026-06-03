@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     disableButtons();
 
     /* ----- MODAL START ROUTE ----- */
-    const items = document.querySelectorAll('.grid-item');
+    const items = document.querySelectorAll('.grid-item[data-opt]');
     const overlay = document.getElementById('overlay');
     const modalClose = document.getElementById('modalClose');
     const confirmBtn = document.getElementById('confirmBtn');
@@ -89,6 +89,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    document.querySelectorAll('.grid-item[data-url]').forEach(item => {
+        item.addEventListener('click', () => {
+            window.location.href = item.dataset.url;
+        });
+    });
 
     /* ----- MODAL INFO ----- */
     const infoBtn = document.getElementById('infoBtn');
