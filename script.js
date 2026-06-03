@@ -4,17 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById("searchInput");
     const dropdown = document.getElementById("dropdown");
     const errorMessage = document.getElementById("errorMessage");
-
     const boatBtn = document.getElementById("boatBtn");
     const walkBtn = document.getElementById("walkBtn");
-
     const places = [
         { name: "Leiden", boat: "leiden-vaarroutes.html", walk: "leiden-wandelroutes.html" }
     ];
-
     let selectedPlace = null;
-
-    // ----- Input -----
     if (searchInput) {
         searchInput.addEventListener("focus", () => {
             dropdown.innerHTML = "";
@@ -57,14 +52,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function showError() {
         errorMessage.textContent = "Kies een plaats";
     }
-
     if (boatBtn) {
         boatBtn.addEventListener("click", () => {
             if (!selectedPlace) return showError();
             window.location.href = selectedPlace.boat;
         });
     }
-
     if (walkBtn) {
         walkBtn.addEventListener("click", () => {
             if (!selectedPlace) return showError();
@@ -98,14 +91,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const templateId = item.dataset.template;
             confirmBtn.href = targetPage;
             const template = document.getElementById(templateId);
-            if (template) {
-                const modal = overlay.querySelector(".modal");
-                const closeBtn = modal.querySelector("#modalClose");
-                const buttons = modal.querySelector(".modal-buttons");
-                modal.innerHTML = "";
-                modal.appendChild(closeBtn);
-                modal.appendChild(document.createRange().createContextualFragment(template.innerHTML));
-                modal.appendChild(buttons);
+            if (template && modalContent) {
+                modalContent.innerHTML = template.innerHTML;
             }
             overlay.classList.add('visible');
             overlay.setAttribute('aria-hidden', 'false');
@@ -138,13 +125,10 @@ document.addEventListener('DOMContentLoaded', function() {
             infoOverlay.classList.add('visible');
             infoOverlay.setAttribute('aria-hidden', 'false');
         });
-    
         infoClose.addEventListener('click', () => {
             infoOverlay.classList.remove('visible');
             infoOverlay.setAttribute('aria-hidden', 'true');
         });
-    
-        // Klik buiten de modal sluit ook
         infoOverlay.addEventListener('click', (e) => {
             if (e.target === infoOverlay) {
                 infoOverlay.classList.remove('visible');
