@@ -418,7 +418,7 @@ h1 {
     justify-content: space-between;
     gap: 16px;
     max-width: 480px;
-    margin: 20px auto 20px;
+    margin: 0px auto 20px;
     padding: 0;
 }
 
