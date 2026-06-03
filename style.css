@@ -4,27 +4,18 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     display: flex;
-    justify-content: center; /* horizontaal */
-    align-items: center;     /* verticaal */
-    min-height: 100vh;       /* volledige hoogte scherm */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 @media (max-width: 900px) {
     body {
         display: flex;
-        justify-content: center;  /* horizontaal centreren blijft */
-        align-items: flex-start;  /* niet helemaal verticaal centreren */
-        padding-top: 20px;        /* duwt de inhoud iets naar beneden vanaf top */
-        min-height: auto;         /* laat de hoogte dynamisch zijn, voorkomt lege scrollruimte */
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 20px;
+        min-height: auto;
     }
-}
-
-.top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto 10px auto;
 }
 
 .container {
@@ -36,75 +27,23 @@ body {
     display: flex;
 }
 
-h1 {
-    margin-bottom: 30px;
+@keyframes reveal {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* INVOER PLAATS */
-.input-wrapper {
-    width: 85%;           /* wrapper vult container */
-    max-width: 500px;      /* wrapper beperkt breedte */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
+@keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(176, 0, 32, 0.6); }
+    70%  { box-shadow: 0 0 0 10px rgba(176, 0, 32, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(176, 0, 32, 0); }
 }
 
-#searchInput {
-    width: 85%;           /* vul 100% van wrapper */
-    max-width: 500px;      /* maximaal 300px breed */
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: none;
-    box-sizing: border-box;
-}
-
-input::placeholder {
-    color: #888;
-}
-
-/* DROPDOWN */
-.dropdown {
-    width: 85%;
-    max-width: 400px;
-    background: white;
-    color: black;
-    border-radius: 6px;
-    margin-top: 5px;
-    text-align: left;
-}
-
-.dropdown-item {
-    padding: 12px;
-    cursor: pointer;
-}
-
-.dropdown-item:hover {
-    background: #102040;
-}
-
-/* FOUTMELDING */
-.error {
-    color: #ff6a6a;
-    font-style: italic;
-    font-size: 16px;
-    margin-top: 10px;
-}
-
-/* BUTTONS */
-.button-container {
-    display: flex;              /* knoppen naast elkaar */
-    justify-content: center;    /* centreren */
-    gap: 20px;                  /* afstand tussen knoppen */
-    margin-top: 30px;           /* ruimte boven de container */
-}
-
-/* Terug-knop */
+/* --------------- 1. OVERZICHTSPAGINA ROUTES --------------- */
+/* ----- BUTTON TERUG ----- */
 .back-button {
     display: block;
     width: fit-content;
-    margin: 0 auto 20px auto; /* gecentreerd boven de titel */
+    margin: 0 auto 20px auto;
     padding: 10px 20px;
     font-size: 18px;
     font-weight: 600;
@@ -129,15 +68,12 @@ input::placeholder {
     text-decoration: none;
 }
 
-#homeConfirm, #homeCancel {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    padding: 12px 0;
-    box-sizing: border-box;
+/* ----- TITEL BOVEN ROUTES ----- */
+h1 {
+    margin-bottom: 30px;
 }
 
+/* ----- GRID ROUTE-OPTIES ----- */
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 200px);
@@ -182,9 +118,7 @@ input::placeholder {
     margin-bottom: 10px;
 }
 @media (max-width: 900px) {
-    .number {
-        font-size: 35px;
-    }
+    .number { font-size: 35px; }
 }
 
 .title {
@@ -193,11 +127,26 @@ input::placeholder {
     line-height: 1.2;
 }
 @media (max-width: 900px) {
-    .title {
-        font-size: 14px;
-    }
+    .title { font-size: 14px; }
 }
 
+/* ----- BUTTON INFO ----- */
+.info-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #7A1C1C;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* ----- OVERLAY FUNCTIE ----- */
 .overlay {
     position: fixed;
     inset: 0;
@@ -217,57 +166,23 @@ input::placeholder {
 }
 @media (max-width: 900px) {
     .overlay.visible {
-        width: calc(100% - 32px); /* iets meer lucht */
-        padding: 20px 16px;       /* marge links/rechts */
+        width: calc(100% - 32px);
+        padding: 20px 16px;
     }
 }
 
+/* ----- OVERLAY BERICHT ----- */
 .modal {
     background: white;
     padding: 30px 20px 20px 20px;
     border-radius: 12px;
     max-width: 350px;
     width: 90%;
-    position: relative;      /* nodig voor het kruisje */
+    position: relative;
     text-align: center;
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-/* Kruisje rechtsboven */
-.modal-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-/* Start avontuur knop */
-.modal-btn {
-    display: inline-block;
-    background: #7A1C1C;
-    color: white;
-    text-decoration: none;   /* verwijdert onderstreping */
-    box-sizing: border-box;
-    padding: 12px 25px;
-    border-radius: 8px;
-    font-weight: 600;
-    margin-top: 20px;
-    transition: background 0.2s, transform 0.15s;
-}
-
-.modal-btn:hover {
-    background: #a62828;
-    transform: translateY(-2px);
-}
-
-.modal-btn:active {
-    transform: translateY(0);
-}
-
-/* Eventueel tekst in modal */
 .modal h2 {
     margin-top: 0;
     font-size: 22px;
@@ -279,23 +194,18 @@ input::placeholder {
     margin: 15px 0 0 0;
 }
 
-/* Info-knop: rond, i in het midden */
-.info-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #7A1C1C;
-    color: white;
+/* ----- BUTTON OVERLAY SLUITEN ----- */
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
     border: none;
-    font-weight: bold;
+    font-size: 20px;
     cursor: pointer;
-    margin-left: 10px;
 }
 
-/* Modal zelf (zelfde als vorige overlay/modal) */
+/* ----- OVERLAY INFO-SPECIFIEK ----- */
 #infoOverlay {
     position: fixed;
     inset: 0;
@@ -318,75 +228,105 @@ input::placeholder {
     line-height: 1.5;
 }
 
-/* Verdachten */
-.verdachten-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* standaard 4 kolommen op desktop */
-    gap: 4px;
-    width: calc(100% - 40px); /* schermbreedte minus 40px marge (20px aan elke kant) */
-    justify-content: center;
-    max-width: 400px;   /* max breedte voor kleine schermen */
-    margin: 0 auto;
-    margin-bottom: 20px;
-}
-
-.verdachte {
-    aspect-ratio: 3 / 4;   /* netjes rechtop */
-    height: auto;
-    border: 2px solid green;
-    border-radius: 2px;
+/* ----- BUTTON START AVONTUUR ----- */
+.modal-btn {
+    display: inline-block;
+    background: #7A1C1C;
     color: white;
-    font-size: 0.75rem;
-    background-color: #03002A;
+    text-decoration: none;
+    box-sizing: border-box;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.modal-btn:hover {
+    background: #a62828;
+    transform: translateY(-2px);
+}
+
+.modal-btn:active {
+    transform: translateY(0);
+}
+
+/* --------------- 2. SPEL --------------- */
+/* ----- TOP-ROW LAYOUT ----- */
+.top-row {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 10px auto;
+}
+
+/* ----- TOP-ROW NOTITIES ----- */
+.notes-button {
+    width: 35px;
+    height: 35px;
+    margin-right: 30px;
+    border: none;
+    border-radius: 8px;
+    background-color: #0c8a4b;
+    color: white;
     cursor: pointer;
-    gap: 2px;
-    padding: 4px;
-    transition: all 0.2s ease;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.notes-button:hover {
+    background: #e5e7eb;
+    color: #111;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.notes-button:active {
+    transform: translateY(0);
+    text-decoration: none;
+}
+
+.notes-modal {
+    max-width: 85vh;
+    overflow: hidden;
+}
+
+#notesArea {
+    width: 100%;
+    height: 75dvh;
+    max-height: 600px;
+    box-sizing: border-box;
+    padding: 12px;
+    resize: vertical;
+    margin-top: 10px;
 }
 @media (max-width: 900px) {
-    .verdachte {
-        font-size: 0.65rem;              /* kleinere tekst */
-        padding: 2px;                    /* minder padding */
-        background-size: 45% auto;       /* kleiner silhouet */
+    #notesArea {
+        width: 95%;
     }
 }
 
-.verdachte img {
-    width: 50%;        /* de afbeelding vult 60% van de boxbreedte */
-    max-width: 100%;   /* nooit groter dan de box zelf */
-    height: auto;      /* behoudt aspect ratio */
-    object-fit: contain;
-    display: block;
-    margin-top: 10px;  /* marge boven */
-    border-radius: 5px; /* optioneel, afgeronde hoeken voor de afbeelding */
-}
-@media (max-width: 900px) {
-    .verdachte img {
-        widh: 55%;
-    }
-}
-
-.verdachte p {
+/* ----- TOP-ROW TIMER ----- */
+.timer {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: rgba(255,255,255,0.1);
+    padding: 6px 12px;
+    border-radius: 8px;
+    min-width: 70px;
     text-align: center;
-    margin: 0;
 }
 
-.verdachte.afgestreept {
-  border-color: #c40000;
-  color: #c40000;
-  background-color: #2a0000;
-}
-
+/* ----- TOP-ROW BUTTON SLUITEN ----- */
 .home-button {
     display: flex;
     justify-content: center;
     align-items: center;
     float: right; 
-    width: 35px;           /* vierkant */
-    height: 35px;          /* vierkant */
+    width: 35px;
+    height: 35px;
     background-color: #7A1C1C;
     color: white;
     font-size: 18px;
@@ -394,7 +334,7 @@ input::placeholder {
     text-align: center;
     border: none;
     border-radius: 8px;
-    text-decoration: none; /* verwijder onderstreping */
+    text-decoration: none;
     cursor: pointer;
     transition: background 0.2s, transform 0.15s;
     text-decoration: none;
@@ -411,70 +351,16 @@ input::placeholder {
     transform: translateY(0);
 }
 
-.intro-box {
-    background-color: rgba(0, 0, 0, 0.85); /* duistere zwarte achtergrond met iets transparantie */
-    padding: 20px 20px;       /* binnenruimte */
-    margin: 20px auto;        /* boven/onder marge, gecentreerd */
-    max-width: 500px;         /* maximale breedte */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5); /* subtiele schaduw */
-    text-align: left;         /* tekst links uitlijnen */
-    color: white;
-    font-size: 1rem;
-    line-height: 1.5;
-}
-@media (max-width: 900px) {
-    .intro-box {
-        font-size: 0.75rem;              /* kleinere tekst */
-    }
-}
-
-.intro-box h2 {
-    margin-top: 0;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center; /* titel mag gecentreerd */
-}
-
-.center {
-    text-align: center;
-}
-
-.instruction-box {
-    width: 280px;
-    height: 280px;
-    margin: 15px auto 20px auto;
-    padding: 12px 14px;
-    background-color: #cfe8ff; /* lichtblauw */
-    color: #0f2a44;
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-align: center;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#homeConfirm, #homeCancel {
+    display: inline-flex;
     justify-content: center;
-}
-@media (max-width: 900px) {
-    .instruction-box {
-        width: 220px;
-        height: 220px;
-        font-size: 0.7rem;
-    }
+    align-items: center;
+    width: 100px;
+    padding: 12px 0;
+    box-sizing: border-box;
 }
 
-.instruction-box img {
-    width: 50px;
-    height: auto;      /* behoudt aspect ratio */
-    object-fit: contain;
-}
-@media (max-width: 900px) {
-    .instruction-box img {
-        width: 40px;
-        height: auto;
-    }
-}
-
+/* ----- BUTTONS VORIGE/VOLGENDE ----- */
 .nav-buttons {
     display: flex;
     justify-content: space-between;
@@ -503,6 +389,96 @@ input::placeholder {
     transform: translateY(-2px);
 }
 
+/* ----- BOX INTRODUCTIE & VRAGEN ----- */
+.intro-box {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 20px 20px;
+    margin: 20px auto;
+    max-width: 500px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    text-align: left;
+    color: white;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+@media (max-width: 900px) {
+    .intro-box {
+        font-size: 0.75rem;
+    }
+}
+
+.intro-box h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.center {
+    text-align: center;
+}
+
+/* ----- BOX INSTRUCTIES ----- */
+.instruction-box {
+    width: 280px;
+    height: 280px;
+    margin: 15px auto 20px auto;
+    padding: 12px 14px;
+    background-color: #cfe8ff;
+    color: #0f2a44;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width: 900px) {
+    .instruction-box {
+        width: 220px;
+        height: 220px;
+        font-size: 0.7rem;
+    }
+}
+
+.instruction-box img {
+    width: 50px;
+    height: auto;
+    object-fit: contain;
+}
+@media (max-width: 900px) {
+    .instruction-box img {
+        width: 40px;
+        height: auto;
+    }
+}
+
+/* ----- VRAAG MET INVOERVELD ----- */
+.input-wrapper {
+    width: 85%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#searchInput {
+    width: 85%;
+    max-width: 500px;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    box-sizing: border-box;
+}
+
+input::placeholder {
+    color: #888;
+}
+
 #answerInput {
     width: 300px;
     height: 15px;
@@ -519,55 +495,115 @@ input::placeholder {
     transition: border 0.2s, box-shadow 0.2s;
 }
 
-/* Focus effect */
 #answerInput:focus {
     border-color: white;
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25); /* wit glow */
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
 }
 
-/* Placeholder mooier */
 #answerInput::placeholder {
     color: #999;
 }
 
+.error {
+    color: #ff6a6a;
+    font-style: italic;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* ----- VERDACHTENGRID ----- */
+.verdachten-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    width: calc(100% - 40px);
+    justify-content: center;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.verdachte {
+    aspect-ratio: 3 / 4;
+    height: auto;
+    border: 2px solid green;
+    border-radius: 2px;
+    color: white;
+    font-size: 0.75rem;
+    background-color: #03002A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    gap: 2px;
+    padding: 4px;
+    transition: all 0.2s ease;
+}
+@media (max-width: 900px) {
+    .verdachte {
+        font-size: 0.65rem;
+        padding: 2px;
+        background-size: 45% auto;
+    }
+}
+
+.verdachte img {
+    width: 50%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+@media (max-width: 900px) {
+    .verdachte img {
+        widh: 55%;
+    }
+}
+
+.verdachte p {
+    text-align: center;
+    margin: 0;
+}
+
+.verdachte.afgestreept {
+  border-color: #c40000;
+  color: #c40000;
+  background-color: #2a0000;
+}
+
+/* ----- BUTTON ONTKNOPING ----- */
 .final-button {
     width: 300px;
     padding: 16px 0;
     margin-top: 25px;
-
     background: #b00020;
     color: #ffffff;
-
     font-size: 15px;
     font-weight: bold;
     letter-spacing: 1px;
-
     border: none;
     border-radius: 10px;
-
     cursor: pointer;
     transition: background 0.2s ease, transform 0.1s ease, opacity 0.2s;
 }
 
-/* Hover alleen als actief */
 .final-button:not(:disabled):hover {
     background: #d0002a;
     transform: translateY(-1px);
 }
 
-/* Klik-effect */
 .final-button:not(:disabled):active {
     transform: translateY(0);
 }
 
-/* Uitgeschakeld */
 .final-button:disabled {
     background: #5a5a5a;
     opacity: 0.5;
     cursor: not-allowed;
 }
 
-/* Focus: geen groen lijntje */
 .final-button:focus {
     outline: none;
 }
@@ -576,12 +612,7 @@ input::placeholder {
     animation: pulse 1.5s infinite;
 }
 
-@keyframes pulse {
-    0%   { box-shadow: 0 0 0 0 rgba(176, 0, 32, 0.6); }
-    70%  { box-shadow: 0 0 0 10px rgba(176, 0, 32, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(176, 0, 32, 0); }
-}
-
+/* ----- BOX RESULTAAT ----- */
 .result-box {
     max-width: 800px;
     margin: 60px auto;
@@ -632,68 +663,9 @@ input::placeholder {
     font-size: 1.05rem;
     margin-top: 15px;
     color: #e0e0e0;
-
     text-align: justify;
     hyphens: auto;
-
     -webkit-hyphens: auto;
     -ms-hyphens: auto;
     word-break: normal;
 }
-
-@keyframes reveal {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/*------------ NOTE KNOP -------------*/
-.notes-button {
-    width: 35px;
-    height: 35px;
-    margin-right: 30px;
-    border: none;
-    border-radius: 8px;
-    background-color: #0c8a4b;
-    color: white;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-}
-
-.notes-button:hover {
-    background: #e5e7eb;
-    color: #111;
-    transform: translateY(-2px);
-    text-decoration: none;
-}
-
-.notes-button:active {
-    transform: translateY(0);
-    text-decoration: none;
-}
-
-.notes-modal {
-    max-width: 85vh;
-    overflow: hidden;
-}
-
-#notesArea {
-    width: 100%;
-    height: 75dvh;
-    max-height: 600px;
-    box-sizing: border-box;
-    padding: 12px;
-    resize: vertical;
-    margin-top: 10px;
-}
-@media (max-width: 900px) {
-    #notesArea {
-        width: 95%;
-    }
-}
-
