@@ -4,15 +4,13 @@ body {
     background: #0d1e3a;
     color: white;
     font-family: Arial, sans-serif;
-
     display: flex;
-    justify-content: center; /* horizontaal */
-    align-items: center;     /* verticaal */
+    justify-content: center;
+    align-items: center;
     text-align: center;
     min-height: 100vh;
     min-height: 100dvh;
 }
-
 @media (max-width: 900px) {
     body {
     padding-bottom: 20px;
@@ -32,19 +30,20 @@ h1 {
     margin-bottom: 30px;
 }
 
-/* INVOER PLAATS */
+/* ----- INVOER ----- */
 .input-wrapper {
-    width: 85%;           /* wrapper vult container */
-    max-width: 500px;      /* wrapper beperkt breedte */
+    width: 85%;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
+    position: relative;
 }
 
 #searchInput {
-    width: 85%;           /* vul 100% van wrapper */
-    max-width: 500px;      /* maximaal 300px breed */
+    width: 85%;
+    max-width: 500px;
     padding: 12px;
     font-size: 16px;
     border-radius: 8px;
@@ -56,15 +55,19 @@ input::placeholder {
     color: #888;
 }
 
-/* DROPDOWN */
+/* ----- DROPDOWN MENU ----- */
 .dropdown {
     width: 85%;
     max-width: 400px;
     background: white;
     color: black;
     border-radius: 6px;
-    margin-top: 5px;
     text-align: left;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
 }
 
 .dropdown-item {
@@ -76,7 +79,7 @@ input::placeholder {
     background: #102040;
 }
 
-/* FOUTMELDING */
+/* ----- FOUTMELDING ----- */
 .error {
     color: #ff6a6a;
     font-style: italic;
@@ -84,23 +87,23 @@ input::placeholder {
     margin-top: 10px;
 }
 
-/* BUTTONS */
+/* ----- BUTTONS ----- */
 .button-container {
-    display: flex;              /* knoppen naast elkaar */
-    justify-content: center;    /* centreren */
-    gap: 20px;                  /* afstand tussen knoppen */
-    margin-top: 30px;           /* ruimte boven de container */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
 }
 
 .route-btn {
-    width: 150px;              /* breedte knop */
-    padding: 15px 0px;        /* ruimte binnen de knop */
-    background: #00e676;       /* knopkleur */
-    color: #071225;            /* tekstkleur */
+    width: 150px;
+    padding: 15px 0px;
+    background: #00e676;
+    color: #071225;
     font-size: 18px;
     font-weight: bold;
-    border-radius: 10px;       /* afgeronde hoeken */
-    font-weight: bold;         /* tekst dikgedrukt */
+    border-radius: 10px;
+    font-weight: bold;
     border: none;
     cursor: pointer;
     transition: 0.2s ease;
