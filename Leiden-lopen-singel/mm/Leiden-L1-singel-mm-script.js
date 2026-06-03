@@ -32,6 +32,17 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         `);
     }
+    const homeConfirm = document.getElementById("homeConfirm");
+    if (homeConfirm) {
+        const originalHref = homeConfirm.href;
+        homeConfirm.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (confirm("Weet je het zeker?")) {
+                localStorage.clear();
+                window.location.href = originalHref;
+            }
+        });
+    }
 
     /* ----- VERDACHTENGRID ----- */
     const verdachtenContainer = document.getElementById("verdachtenGrid");
