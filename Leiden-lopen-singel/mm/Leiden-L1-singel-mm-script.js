@@ -1,25 +1,55 @@
-// ======================
-// Verdachten-grid (groen/rood toggle)
-// ======================
+/* ----- GEDEELDE LAY-OUT ----- */
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.querySelector(".container");
+    if (container) {
+        container.insertAdjacentHTML("afterbegin", `
+            <div class="top-row">
+                <button id="notesButton" class="notes-button">✏️</button>
+                <button class="home-button" id="homeButton">x</button>
+            </div>
+
+            <div id="notesOverlay" class="overlay">
+                <div class="modal notes-modal">
+                    <button id="notesClose" class="modal-close">✕</button>
+                    <h2>Notitieboekje</h2>
+                    <textarea
+                        id="notesArea"
+                        placeholder="Schrijf hier je notities..."
+                    ></textarea>
+                </div>
+            </div>
+
+            <div id="homeOverlay" class="overlay">
+                <div class="modal">
+                    <h2>Weet je het zeker?</h2>
+                    <p>Door op ja te klikken verlaat je de spelroute.</p>
+                    <div style="display:flex; gap:10px; justify-content:center; margin-top:20px;">
+                        <a href="../../Leiden-L1-singel.html" id="homeConfirm" class="back-button">Ja</a>
+                        <button id="homeCancel" class="back-button">Nee</button>
+                    </div>
+                </div>
+            </div>
+        `);
+    }
+});
+
+/* ----- VERDACHTEN ----- */
 document.querySelectorAll('.verdachte').forEach(el => {
     const id = el.dataset.id;
-
-    // Herstel status uit localStorage
+    /* Herstel status uit localStorage */
     if (localStorage.getItem('verdachte-' + id) === 'afgestreept') {
-        el.classList.add('afgestreept'); // rood
+        el.classList.add('afgestreept'); /*rood*/
     } else {
-        el.classList.remove('afgestreept'); // groen
+        el.classList.remove('afgestreept'); /*groen*/
     }
-
-    // Klikgedrag: toggle rood/groen
+    /* Klikgedrag: toggle rood/groen */
     el.addEventListener('click', () => {
         el.classList.toggle('afgestreept');
-        // update finale knop status na DOM-update
+        /* update finale knop status na DOM-update */
         setTimeout(() => {
             if (typeof updateButtonState === 'function') updateButtonState();
         }, 10);
-        
-        // Sla status op
+        /* Sla status op */
         if (el.classList.contains('afgestreept')) {
             localStorage.setItem('verdachte-' + id, 'afgestreept');
         } else {
@@ -28,9 +58,7 @@ document.querySelectorAll('.verdachte').forEach(el => {
     });
 });
 
-// ======================
-// ANTWOORD CONTROLE
-// ======================
+/* ----- ANTWOORD CONTROLE ----- */
 const answerInput = document.getElementById('answerInput');
 const answerError = document.getElementById('answerError');
 const infoOverlay = document.getElementById('infoOverlay');
@@ -63,7 +91,7 @@ if (answerInput) {
     });
 }
 
-// Levenshtein functie voor spellingsafwijkingen
+/* ----- SPELLINGSAFWIJKINGEN (LEVENSHTEIN) ----- */
 function levenshtein(a, b) {
     const matrix = [];
     for (let i = 0; i <= b.length; i++) matrix[i] = [i];
@@ -83,14 +111,13 @@ function levenshtein(a, b) {
     return matrix[b.length][a.length];
 }
 
-// Info overlay sluiten
+/* ----- INFOOVERLAY SLUITEN ----- */
 const infoClose2 = document.getElementById('infoClose2');
 if (infoClose2 && infoOverlay) {
     infoClose2.addEventListener('click', () => {
         infoOverlay.classList.remove('visible');
         infoOverlay.setAttribute('aria-hidden', 'true');
     });
-
     infoOverlay.addEventListener('click', (e) => {
         if (e.target === infoOverlay) {
             infoOverlay.classList.remove('visible');
@@ -99,60 +126,48 @@ if (infoClose2 && infoOverlay) {
     });
 }
 
-// ======================
-// ONTKNOPING FINALE PAGINA
-// ======================
+/* ----- ONTKNOPING FINALE ----- */
 const answerInputFinal = document.getElementById("answerInput");
 const finalButton = document.getElementById("finalButton");
 
 if (answerInputFinal && finalButton) {
-
     const correctWeapon = answerInputFinal.dataset.answer
         .toLowerCase()
         .split(",")
         .map(a => a.trim());
-
     const correctSuspectId = "eigenaar"; // pas aan per scenario
-
-    // Check welke verdachten nog groen zijn
+    /* Check welke verdachten nog groen zijn */
     function getRemainingSuspects() {
         return Array.from(document.querySelectorAll(".verdachte"))
             .filter(v => !v.classList.contains("afgestreept"));
     }
-
-    // Controleer of het wapen correct is
+    /* Controleer of het wapen correct is */
     function weaponIsCorrect() {
         const user = answerInputFinal.value.trim().toLowerCase();
         if (!user) return false;
         return correctWeapon.some(correct => levenshtein(user, correct) <= 1);
     }
-
-    // Controleer of de juiste verdachte groen is
+    /* Controleer of de juiste verdachte groen is */
     function suspectIsCorrect() {
         const remaining = getRemainingSuspects();
         return remaining.length === 1 && remaining[0].dataset.id === correctSuspectId;
     }
-
-    // Update de finale knop status
+    /* Update de finale knop status */
     function updateButtonState() {
         const hasInput = answerInputFinal.value.trim().length > 0;
         const oneSuspectLeft = getRemainingSuspects().length === 1;
         finalButton.disabled = !(hasInput && oneSuspectLeft);
     }
-
-    // Listeners om knopstatus te updaten
+    /* Listeners om knopstatus te updaten */
     answerInputFinal.addEventListener("input", updateButtonState);
     document.querySelectorAll(".verdachte").forEach(el => {
         el.addEventListener("click", () => setTimeout(updateButtonState, 10));
     });
-
-    // Klik op finale knop → juiste ontknopingspagina
+    /* Klik op finale knop → juiste ontknopingspagina */
     finalButton.addEventListener("click", () => {
         const weaponCorrect = weaponIsCorrect();
         const suspectCorrect = suspectIsCorrect();
-
         let targetPage = "";
-
         if (weaponCorrect && suspectCorrect) {
             targetPage = "Leiden-L1-singel-mm-goed.html";
         } else if (weaponCorrect && !suspectCorrect) {
@@ -162,10 +177,8 @@ if (answerInputFinal && finalButton) {
         } else {
             targetPage = "Leiden-L1-singel-mm-fout.html";
         }
-
         window.location.href = targetPage;
     });
-
-    // Direct check bij laden van pagina
+    /* Direct check bij laden van pagina */
     updateButtonState();
 }
