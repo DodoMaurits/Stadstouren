@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
             timerEl.textContent = `${Math.floor(diff / 3600)}:${minutes}:${seconds}`;
         }
         updateTimer();
-        setInterval(updateTimer, 1000);
+        const timerInterval = setInterval(updateTimer, 1000);
     }
 
     /* ----- VERDACHTENGRID ----- */
@@ -205,6 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         /* Klik op finale knop → juiste ontknopingspagina */
         finalButton.addEventListener("click", () => {
+            clearInterval(timerInterval);
             const weaponCorrect = weaponIsCorrect();
             const suspectCorrect = suspectIsCorrect();
             let targetPage = "";
@@ -221,18 +222,6 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = targetPage;
         });
         updateButtonState(); /* Direct check bij laden van pagina */
-    }
-    const finalTimeEl = document.getElementById("finalTime");
-    if (finalTimeEl) {
-        const start = localStorage.getItem("timerStart");
-        const end = localStorage.getItem("timerEnd");
-        if (start && end) {
-            const diff = Math.floor((end - start) / 1000);
-            const hours = Math.floor(diff / 3600);
-            const minutes = String(Math.floor((diff % 3600) / 60)).padStart(2, "0");
-            const seconds = String(diff % 60).padStart(2, "0");
-            finalTimeEl.textContent = `Eindtijd: ${hours}:${minutes}:${seconds}`;
-        }
     }
 });
 
