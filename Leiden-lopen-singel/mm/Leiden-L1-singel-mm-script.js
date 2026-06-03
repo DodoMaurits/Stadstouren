@@ -63,6 +63,17 @@ document.addEventListener("DOMContentLoaded", () => {
         setInterval(updateTimer, 1000);
     }
 
+    const start = localStorage.getItem("timerStart");
+    const end = localStorage.getItem("timerEnd");
+    if (start && end) {
+        const diff = Math.floor((end - start) / 1000);
+        const hours = Math.floor(diff / 3600);
+        const minutes = String(Math.floor((diff % 3600) / 60)).padStart(2, "0");
+        const seconds = String(diff % 60).padStart(2, "0");
+        document.getElementById("finalTime").textContent =
+            `Eindtijd: ${hours}:${minutes}:${seconds}`;
+    }
+
     /* ----- VERDACHTENGRID ----- */
     const verdachtenContainer = document.getElementById("verdachtenGrid");
     if (verdachtenContainer) {
@@ -217,7 +228,6 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 targetPage = "Leiden-L1-singel-mm-fout.html";
             }
-            localStorage.clear();
             localStorage.setItem("timerEnd", Date.now());
             window.location.href = targetPage;
         });
