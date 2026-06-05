@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antwoord</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="intro-box">
+            <h2>Definitieve antwoord</h2>
+            <p class="center"></p>
+            <p>Vul hieronder het moordwapen in. Vink alle verdachten af, tot er maar 1 overblijft. Klik vervolgens op de rode knop.  
+            </p>
+        </div>
+
+        <div class="input-wrapper">
+            <input 
+                type="text" 
+                id="answerInput" 
+                data-answer="Tuinkabouter"
+                placeholder="Type je antwoord en druk op enter"
+                autocomplete="off"
+            >
+        </div>
+        
+        <div id="verdachtenGrid" class="verdachten-grid"></div>
+
+        <button id="finalButton" class="final-button" disabled>
+            ONTKNOPING
+        </button>
+
+        <div class="nav-buttons">
+            <a href="Leiden-Lsingel-tr-12vraag.html" class="nav-button previous">Vorige</a>
+        </div>
+    </div>
+
+    <script src="../Leiden-Lsingel-script.js"></script>
+    <script src="../../script.js"></script>
+
+</body>
+</html>
