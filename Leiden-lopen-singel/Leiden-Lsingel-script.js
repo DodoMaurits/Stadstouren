@@ -147,16 +147,49 @@ document.addEventListener("DOMContentLoaded", () => {
             input.inputMode = "numeric";
             input.maxLength = 4;
             input.className = "jaartal-cirkel";
-            input.placeholder = "?";
-            const storageKey = `jaartal-${i}`;
-            input.value = localStorage.getItem(storageKey) || "";
+            input.placeholder = "...";
+            const storageKey = `leiden-lsingel-jaartal-${i}`;
+            const savedValue = localStorage.getItem(storageKey);
+            if (savedValue) {
+                input.value = savedValue;
+                input.classList.add("filled");
+            }
+    
             input.addEventListener("input", () => {
                 const value = input.value.replace(/\D/g, "").slice(0, 4);
                 input.value = value;
+                input.classList.remove("filled");
+                if (value.length > 0) {
+                    input.classList.add("editing");
+                } else {
+                    input.classList.remove("editing");
+                    localStorage.removeItem(storageKey);
+                }
+            });
+    
+            input.addEventListener("keydown", (e) => {
+                if (e.key === "Enter") {
+                    const value = input.value.trim();
+                    input.classList.remove("editing");
+                    if (value) {
+                        localStorage.setItem(storageKey, value);
+                        input.classList.add("filled");
+                    } else {
+                        localStorage.removeItem(storageKey);
+                        input.classList.remove("filled");
+                    }
+                    input.blur();
+                }
+            });
+            input.addEventListener("blur", () => {
+                const value = input.value.trim();
+                input.classList.remove("editing");
                 if (value) {
                     localStorage.setItem(storageKey, value);
+                    input.classList.add("filled");
                 } else {
                     localStorage.removeItem(storageKey);
+                    input.classList.remove("filled");
                 }
             });
             jaartallenContainer.appendChild(input);
