@@ -712,7 +712,7 @@ input::placeholder {
     animation: pulse 1.5s infinite;
 }
 
-/* ----- BOX RESULTAAT ----- */
+/* ----- BOX RESULTAAT MOORDMYSTERIE ----- */
 .result-box {
     max-width: 800px;
     margin: 60px auto;
@@ -768,4 +768,30 @@ input::placeholder {
     -webkit-hyphens: auto;
     -ms-hyphens: auto;
     word-break: normal;
+}
+
+/* ----- RESULTAAT TIJDREIZIGER ----- */
+.jaartal-result {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #03002A;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: 4px solid;
+}
+@media (max-width: 900px) {
+    .jaartal-result { width: 65px; height: 65px; font-size: 16px; }
+}
+
+.jaartal-result.correct {
+    border-color: #00c853;
+}
+
+.jaartal-result.incorrect {
+    border-color: #d50000;
 }
