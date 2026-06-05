@@ -625,6 +625,45 @@ input::placeholder {
   background-color: #2a0000;
 }
 
+/* ----- JAARTALLENGRID ----- */
+.jaartallen-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    justify-items: center;
+    margin: 20px auto;
+    max-width: 420px;
+}
+@media (max-width: 900px) {
+    .jaartallen-grid { gap: 10px; }
+}
+
+.jaartal-cirkel {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #00e676;
+    background: #03002A;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    outline: none;
+    transition: all 0.2s ease;
+}
+@media (max-width: 900px) {
+    .jaartal-cirkel { width: 65px; height: 65px; font-size: 16px; }
+}
+
+.jaartal-cirkel:focus {
+    border-color: white;
+    box-shadow: 0 0 10px rgba(255,255,255,0.4);
+}
+
+.jaartal-cirkel::placeholder {
+    color: rgba(255,255,255,0.4);
+}
+
 /* ----- BUTTON ONTKNOPING ----- */
 .final-button {
     width: 300px;
