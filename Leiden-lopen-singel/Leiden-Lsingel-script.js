@@ -1,6 +1,7 @@
 let timerInterval;
 let startTime;
 let finalTime = null;
+const isResultPage = !!localStorage.getItem("timeTravelResults");
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -139,8 +140,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ----- JAARTALLENGRID ----- */
     const jaartallenContainer = document.getElementById("jaartallenGrid");
-    
     if (jaartallenContainer) {
+        jaartallenContainer.innerHTML = "";
+    }    
+    if (jaartallenContainer && !isResultPage) {
         for (let i = 1; i <= 12; i++) {
             const input = document.createElement("input");
             input.type = "text";
@@ -383,12 +386,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const resultGrid = document.getElementById("jaartallenGrid");
-    if (
-        resultGrid &&
-        localStorage.getItem("timeTravelResults")
-    ) {
-        const results = JSON.parse(
-            localStorage.getItem("timeTravelResults")
+    const resultsData = localStorage.getItem("timeTravelResults");
+    if (resultGrid && resultsData) {
+        resultGrid.innerHTML = ""; // voorkomt dubbele grids
+        const results = JSON.parse(resultsData);
+        const selectedCircle = Number(
+            localStorage.getItem("selectedTimeCircle")
         );
         for (let i = 1; i <= 12; i++) {
             const value =
@@ -403,9 +406,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 results[i - 1].correct
                     ? "correct"
                     : "incorrect"
-            );
-            const selectedCircle = Number(
-                localStorage.getItem("selectedTimeCircle")
             );
             if (selectedCircle === (i - 1)) {
                 circle.classList.add("selected");
