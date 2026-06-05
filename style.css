@@ -642,12 +642,13 @@ input::placeholder {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    border: 3px solid #00e676;
+    border: 3px solid #7A1C1C;
     background: #03002A;
     color: white;
     font-size: 18px;
     font-weight: bold;
     text-align: center;
+
     outline: none;
     transition: all 0.2s ease;
 }
@@ -655,14 +656,22 @@ input::placeholder {
     .jaartal-cirkel { width: 65px; height: 65px; font-size: 16px; }
 }
 
-.jaartal-cirkel:focus {
-    border-color: white;
-    box-shadow: 0 0 10px rgba(255,255,255,0.4);
-}
-
 .jaartal-cirkel::placeholder {
     color: rgba(255,255,255,0.4);
 }
+
+.jaartal-cirkel.editing {
+    border-color: #ffd700; /* geel */
+}
+
+.jaartal-cirkel.filled {
+    border-color: white;
+}
+
+.jaartal-cirkel:focus {
+    box-shadow: 0 0 10px rgba(255,255,255,0.25);
+}
+
 
 /* ----- BUTTON ONTKNOPING ----- */
 .final-button {
