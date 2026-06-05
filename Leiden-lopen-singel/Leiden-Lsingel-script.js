@@ -374,10 +374,10 @@ document.addEventListener("DOMContentLoaded", () => {
             );
             if (chosenCircle.correct) {
                 window.location.href =
-                    "tr/Leiden-Lsingel-tr-goed.html";
+                    "Leiden-Lsingel-tr-goed.html";
             } else {
                 window.location.href =
-                    "tr/Leiden-Lsingel-tr-fout.html";
+                    "Leiden-Lsingel-tr-fout.html";
             }
         });
     }
