@@ -136,6 +136,32 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    /* ----- JAARTALLENGRID ----- */
+    const jaartallenContainer = document.getElementById("jaartallenGrid");
+    
+    if (jaartallenContainer) {
+        for (let i = 1; i <= 12; i++) {
+            const input = document.createElement("input");
+            input.type = "text";
+            input.inputMode = "numeric";
+            input.maxLength = 4;
+            input.className = "jaartal-cirkel";
+            input.placeholder = "?";
+            const storageKey = `jaartal-${i}`;
+            input.value = localStorage.getItem(storageKey) || "";
+            input.addEventListener("input", () => {
+                const value = input.value.replace(/\D/g, "").slice(0, 4);
+                input.value = value;
+                if (value) {
+                    localStorage.setItem(storageKey, value);
+                } else {
+                    localStorage.removeItem(storageKey);
+                }
+            });
+            jaartallenContainer.appendChild(input);
+        }
+    }
     
     /* ---------- ANTWOORD CONTROLE ---------- */
     const answerInput = document.getElementById('answerInput');
