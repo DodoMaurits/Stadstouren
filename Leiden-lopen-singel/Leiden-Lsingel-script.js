@@ -244,7 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     
-    /* ---------- ONTKNOPING FINALE ---------- */
+    /* ---------- ONTKNOPING MOORDMYSTERIE ---------- */
     const answerInputFinal = document.getElementById("answerInput");
     const finalButton = document.getElementById("finalButton");
     
@@ -300,7 +300,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         updateButtonState(); /* Direct check bij laden van pagina */
     }
-
     const closeGameButton = document.getElementById("closeGameButton");
     if (closeGameButton) {
         closeGameButton.addEventListener("click", (e) => {
@@ -308,6 +307,101 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.clear();
             window.location.href = closeGameButton.href;
         });
+    }
+
+    /* ---------- ONTKNOPING TIJDREIZIGER ---------- */
+    const correctYears = [
+    "1901", // cirkel 1
+    "1942", // cirkel 2
+    "1632", // cirkel 3
+    "1840", // cirkel 4
+    "1516", // cirkel 5
+    "1869", // cirkel 6
+    "2043", // cirkel 7
+    "1887", // cirkel 8
+    "1977", // cirkel 9
+    "1611", // cirkel 10
+    "1903", // cirkel 11
+    "1745"  // cirkel 12
+    ];
+    
+    const timeFinalButton = document.getElementById("timeFinalButton");
+    if (timeFinalButton) {
+        function updateTimeButtonState() {
+            let allFilled = true;
+            for (let i = 1; i <= 12; i++) {
+                const value = localStorage.getItem(
+                    `leiden-lsingel-jaartal-${i}`
+                );
+                if (!value || value.trim() === "") {
+                    allFilled = false;
+                    break;
+                }
+            }
+            timeFinalButton.disabled = !allFilled;
+        }
+        document.addEventListener("input", () => {
+            setTimeout(updateTimeButtonState, 10);
+        });
+        updateTimeButtonState();
+    }
+
+    if (timeFinalButton) {
+        timeFinalButton.addEventListener("click", () => {
+            const randomIndex = Math.floor(Math.random() * 12);
+            let results = [];
+            for (let i = 1; i <= 12; i++) {
+                const entered =
+                    localStorage.getItem(`leiden-lsingel-jaartal-${i}`) || "";
+                const correct =
+                    correctYears[i - 1];
+                results.push({
+                    correct: entered === correct
+                });
+            }
+            localStorage.setItem(
+                "timeTravelResults",
+                JSON.stringify(results)
+            );
+            const chosenCircle = results[randomIndex];
+            localStorage.setItem(
+                "timerEnd",
+                Date.now()
+            );
+            if (chosenCircle.correct) {
+                window.location.href =
+                    "../Leiden-Lsingel-tr-goed.html";
+            } else {
+                window.location.href =
+                    "../Leiden-Lsingel-tr-fout.html";
+            }
+        });
+    }
+
+    const resultGrid = document.getElementById("jaartallenGrid");
+    if (
+        resultGrid &&
+        localStorage.getItem("timeTravelResults")
+    ) {
+        const results = JSON.parse(
+            localStorage.getItem("timeTravelResults")
+        );
+        for (let i = 1; i <= 12; i++) {
+            const value =
+                localStorage.getItem(
+                    `leiden-lsingel-jaartal-${i}`
+                ) || "";
+            const circle =
+                document.createElement("div");
+            circle.className = "jaartal-result";
+            circle.textContent = value;
+            circle.classList.add(
+                results[i - 1].correct
+                    ? "correct"
+                    : "incorrect"
+            );
+            resultGrid.appendChild(circle);
+        }
     }
 });
 
