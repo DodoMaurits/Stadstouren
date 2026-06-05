@@ -365,6 +365,10 @@ document.addEventListener("DOMContentLoaded", () => {
             );
             const chosenCircle = results[randomIndex];
             localStorage.setItem(
+                "selectedTimeCircle",
+                randomIndex
+            );
+            localStorage.setItem(
                 "timerEnd",
                 Date.now()
             );
@@ -400,6 +404,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     ? "correct"
                     : "incorrect"
             );
+            const selectedCircle = Number(
+                localStorage.getItem("selectedTimeCircle")
+            );
+            if (selectedCircle === (i - 1)) {
+                circle.classList.add("selected");
+            }
             resultGrid.appendChild(circle);
         }
     }
