@@ -70,10 +70,12 @@ document.addEventListener('DOMContentLoaded', function() {
         overlay.setAttribute('aria-hidden', 'true');
         overlayContent.innerHTML = "";
     }
-    overlayClose.addEventListener('click', closeOverlay);
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) closeOverlay();
-    });
+    if (overlay && overlayClose) {
+        overlayClose.addEventListener('click', closeOverlay);
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeOverlay();
+        });
+    }
     
     /* ----- GRID ITEMS ----- */
     if (document.querySelector('.grid-item[data-url]')) {
