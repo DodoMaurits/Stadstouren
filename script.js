@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         startOverlayPlaceholder.innerHTML = `
             <div id="overlay" class="overlay" aria-hidden="true">
                 <div class="modal">
-                    <button id="modalClose" class="overlay-close">✕</button>
+                    <button id="startClose" class="overlay-close">✕</button>
                     <div id="modalContent"></div>
                     <p>
                         Nadat je op start drukt krijg je eerst een introductie.
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         `;
         const overlay = document.getElementById('overlay');
-        const modalClose = document.getElementById('modalClose');
+        const startClose = document.getElementById('startClose');
         const confirmBtn = document.getElementById('confirmBtn');
         const modalContent = document.getElementById('modalContent');
         items.forEach(item => {
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 overlay.setAttribute('aria-hidden', 'false');
             });
         });
-        modalClose.addEventListener('click', () => {
+        startClose.addEventListener('click', () => {
             overlay.classList.remove('visible');
             overlay.setAttribute('aria-hidden', 'true');
         });
