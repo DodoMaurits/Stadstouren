@@ -228,8 +228,8 @@ h1 {
     line-height: 1.5;
 }
 
-/* ----- BUTTON START AVONTUUR ----- */
-.modal-btn {
+/* ----- STARTBUTTON ----- */
+.startBtn {
     display: inline-block;
     background: #7A1C1C;
     color: white;
@@ -242,12 +242,12 @@ h1 {
     transition: background 0.2s, transform 0.15s;
 }
 
-.modal-btn:hover {
+.startBtn:hover {
     background: #a62828;
     transform: translateY(-2px);
 }
 
-.modal-btn:active {
+.startBtn:active {
     transform: translateY(0);
 }
 
