@@ -56,136 +56,104 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     disableButtons();
 
+    /* ----- OVERLAYFUNCTIE ----- */
+    const overlay = document.getElementById('overlay');
+    const overlayContent = document.getElementById('overlayContent');
+    const overlayClose = document.getElementById('overlayClose');
+    
+    function openOverlay(html) {
+        overlayContent.innerHTML = html;
+        overlay.classList.add('visible');
+        overlay.setAttribute('aria-hidden', 'false');
+    }
+    
+    function closeOverlay() {
+        overlay.classList.remove('visible');
+        overlay.setAttribute('aria-hidden', 'true');
+        overlayContent.innerHTML = "";
+    }
+    overlayClose.addEventListener('click', closeOverlay);
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeOverlay();
+    
     /* ----- STARTOVERLAY ----- */
     const items = document.querySelectorAll('.grid-item[data-opt]');
-    const startOverlayPlaceholder = document.getElementById('startOverlayContainer');
-    if (startOverlayPlaceholder) {
-        startOverlayPlaceholder.innerHTML = `
-            <div id="startOverlay" class="overlay" aria-hidden="true">
-                <div class="modal">
-                    <button id="startClose" class="overlay-close">✕</button>
-                    <div id="startContent"></div>
-                    <p>
-                        Nadat je op start drukt krijg je eerst een introductie.
-                        Daarna start je zelf de tijd.
-                    </p>
-                    <div class="modal-buttons">
-                        <a id="startButton" class="modal-btn" href="#">
-                            Start avontuur
-                        </a>
-                    </div>
-                </div>
-            </div>
-        `;
-        const startOverlay = document.getElementById('startOverlay');
-        const startClose = document.getElementById('startClose');
-        const startButton = document.getElementById('startButton');
-        const startContent = document.getElementById('startContent');
-        items.forEach(item => {
-            item.addEventListener('click', () => {
-                const targetPage = item.dataset.opt;
-                const templateId = item.dataset.template;
-                const template = document.getElementById(templateId);
-                if (template && startContent) {
-                    startContent.innerHTML = template.innerHTML;
-                }
-                startButton.href = targetPage;
-                startOverlay.classList.add('visible');
-                startOverlay.setAttribute('aria-hidden', 'false');
-            });
+    items.forEach(item => {
+        item.addEventListener('click', () => {
+            const template = document.getElementById(item.dataset.template);
+            const targetPage = item.dataset.opt;
+            openOverlay(`
+                ${template.innerHTML}
+                <p>
+                    Nadat je op start drukt krijg je eerst een introductie.
+                    Daarna start je zelf de tijd.
+                </p>
+                <a class="modal-btn" href="${targetPage}">
+                    Start avontuur
+                </a>
+            `);
         });
-        startClose.addEventListener('click', () => {
-            startOverlay.classList.remove('visible');
-            startOverlay.setAttribute('aria-hidden', 'true');
-        });
-        startOverlay.addEventListener('click', (e) => {
-            if (e.target === startOverlay) {
-                startOverlay.classList.remove('visible');
-                startOverlay.setAttribute('aria-hidden', 'true');
-            }
-        });
-    }
+    });
 
     /* ----- INFOOVERLAY ----- */
     const infoBtn = document.getElementById('infoBtn');
     if (infoBtn) {
-        const infoText = `
-            Elk scenario komt langs dezelfde plekken, maar vertelt een ander verhaal.
-            Kies dus welk scenario het beste bij jouw smaak of de situatie past.<br><br>
-    
-            Ben je een fan van detectives en 'whodunit'? Kies dan het moordmysterie.
-            Spreekt het leren over de geschiedenis van de stad je aan? Kies dan voor de tijdreiziger.
-            Houd je van rekenen en puzzelen? Dan is de puzzeltocht iets voor jou.
-            Ben je in een gezelschap met kleinere kinderen? Kies dan voor de schattenjacht.
-        `;
-        document.body.insertAdjacentHTML('beforeend', `
-            <div id="infoOverlay" class="overlay" aria-hidden="true">
-                <div class="modal">
-                    <button id="infoClose" class="overlay-close">✕</button>
-                    <h2 style="font-weight: bold; margin-bottom: 10px;">
-                        Uitleg scenario
-                    </h2>
-                    <p>${infoText}</p>
-                </div>
-            </div>
-        `);
-        const infoOverlay = document.getElementById('infoOverlay');
-        const infoClose = document.getElementById('infoClose');
         infoBtn.addEventListener('click', () => {
-            infoOverlay.classList.add('visible');
-            infoOverlay.setAttribute('aria-hidden', 'false');
-        });
-        infoClose.addEventListener('click', () => {
-            infoOverlay.classList.remove('visible');
-            infoOverlay.setAttribute('aria-hidden', 'true');
-        });
-        infoOverlay.addEventListener('click', (e) => {
-            if (e.target === infoOverlay) {
-                infoOverlay.classList.remove('visible');
-                infoOverlay.setAttribute('aria-hidden', 'true');
-            }
+            openOverlay(`
+                <h2>Uitleg scenario</h2>
+                <p>
+                Elk scenario komt langs dezelfde plekken, maar vertelt een ander verhaal.
+                Kies dus welk scenario het beste bij jouw smaak of de situatie past.
+                <br><br>
+                Ben je een fan van detectives en 'whodunit'? Kies dan het moordmysterie.
+                Spreekt het leren over de geschiedenis van de stad je aan? Kies dan voor de tijdreiziger.
+                Houd je van rekenen en puzzelen? Dan is de puzzeltocht iets voor jou.
+                Ben je in een gezelschap met kleinere kinderen? Kies dan voor de schattenjacht.
+                </p>
+            `);
         });
     }
 
     /*----- NOTE KNOP -----*/
     const notesButton = document.getElementById("notesButton");
-    const notesOverlay = document.getElementById("notesOverlay");
-    const notesClose = document.getElementById("notesClose");
-    const notesArea = document.getElementById("notesArea");
-    const notesSave = document.getElementById("notesSave");
-    
-    if (notesButton && notesOverlay && notesClose && notesArea) {
-        notesArea.value = localStorage.getItem("detectiveNotes") || "";
+    if (notesButton) {
         notesButton.addEventListener("click", () => {
-            notesOverlay.classList.add("visible");
-        });
-        notesClose.addEventListener("click", () => {
-            notesOverlay.classList.remove("visible");
-        });
-        if (notesSave) {
-            notesSave.addEventListener("click", () => {
-                notesOverlay.classList.remove("visible");
-            });
-        }
-        notesArea.addEventListener("input", () => {
-            localStorage.setItem("detectiveNotes", notesArea.value);
+            openOverlay(`
+                <div class="notes-modal">
+                    <textarea id="notesArea"></textarea>
+                    <button id="notesSave">Opslaan</button>
+                </div>
+            `);
+            setTimeout(() => {
+                const notesArea = document.getElementById("notesArea");
+                const notesSave = document.getElementById("notesSave");
+                notesArea.value = localStorage.getItem("detectiveNotes") || "";
+                notesArea.addEventListener("input", () => {
+                    localStorage.setItem("detectiveNotes", notesArea.value);
+                });
+                notesSave.addEventListener("click", () => {
+                    closeOverlay();
+                });
+            }, 0);
         });
     }
 
+    /*----- HOMEKNOP SPEL SLUITEN-----*/
     const homeButton = document.getElementById("homeButton");
-    const homeOverlay = document.getElementById("homeOverlay");
-    const homeCancel = document.getElementById("homeCancel");
-    if (homeButton && homeOverlay && homeCancel) {
+    if (homeButton) {
         homeButton.addEventListener("click", () => {
-            homeOverlay.classList.add("visible");
-        });
-        homeCancel.addEventListener("click", () => {
-            homeOverlay.classList.remove("visible");
-        });
-        homeOverlay.addEventListener("click", (e) => {
-            if (e.target === homeOverlay) {
-                homeOverlay.classList.remove("visible");
-            }
+            openOverlay(`
+                <h2>Terug naar home?</h2>
+                <p>Je voortgang wordt niet opgeslagen.</p>
+                <div class="modal-buttons">
+                    <a href="index.html" class="modal-btn">
+                        Ja, ga terug
+                    </a>
+                    <button class="modal-btn" onclick="closeOverlay()">
+                        Annuleren
+                    </button>
+                </div>
+            `);
         });
     }
 
