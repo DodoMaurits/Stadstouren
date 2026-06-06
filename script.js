@@ -119,20 +119,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const container = document.querySelector(".container");
     if (container) {
         container.insertAdjacentHTML("afterbegin", `
-            <div class="top-row">
-                <button id="notesButton" class="notes-button">✏️</button>
-                <div id="timer" class="timer">0:00:00</div>
-                <button class="home-button" id="homeButton">x</button>
-            </div>
+        <div class="top-row">
+            <button id="notesButton" class="notes-button">✏️</button>
+            <div id="timer" class="timer">0:00:00</div>
+            <button id="homeButton" class="home-button">x</button>
+        </div>
         `);
-    }
-    const homeConfirm = document.getElementById("homeConfirm");
-    if (homeConfirm) {
-        homeConfirm.addEventListener("click", (e) => {
-            e.preventDefault();
-            localStorage.clear();
-            window.location.href = homeConfirm.href;
-        });
     }
 
     /*----- NOTE KNOP -----*/
@@ -153,9 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 notesArea.addEventListener("input", () => {
                     localStorage.setItem("detectiveNotes", notesArea.value);
                 });
-                notesSave.addEventListener("click", () => {
-                    closeOverlay();
-                });
+                notesSave.addEventListener("click", closeOverlay);
             }, 0);
         });
     }
@@ -202,10 +192,9 @@ document.addEventListener('DOMContentLoaded', function() {
             openOverlay(`
                 <h2>Weet je het zeker?</h2>
                 <p>Je verlaat het spel en je notities worden gewist.</p>
-                <div class="modal-buttons"
-                style="display:flex; gap:10px; justify-content:center; margin-top:20px;">
+                <div class="modal-buttons" style="display:flex; gap:10px; justify-content:center; margin-top:20px;">
                     <a href="../../Leiden-L1-singel.html" class="back-button">Ja</a>
-                    <button id="homeCancel" class="back-button" onclick="closeOverlay()">Nee</button>
+                    <button class="back-button" onclick="closeOverlay()">Nee</button>
                 </div>
             `);
         });
