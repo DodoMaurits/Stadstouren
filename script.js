@@ -63,7 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
         initScenarioPage(); }
     function initRoutesPage() {
         const items = document.querySelectorAll('.grid-item[data-url]');
-    
         items.forEach(item => {
             item.addEventListener('click', () => {
                 window.location.href = item.dataset.url;
@@ -110,23 +109,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     /* ----- STARTOVERLAY ----- */
-    items.forEach(item => {
-        item.addEventListener('click', () => {
-            const template = document.getElementById(item.dataset.template);
-            const targetPage = item.dataset.opt;
+    const startBtn = document.getElementById('startBtn');
+    if (startBtn) {
+        startBtn.textContent = "Start avontuur";
+        startBtn.addEventListener('click', () => {
             openOverlay(`
-                ${template.innerHTML}
                 <p>
-                    Nadat je op start drukt krijg je eerst een introductie.
-                    Daarna start je zelf de tijd.
+                Nadat je op start drukt krijg je eerst een introductie.
+                Daarna start je zelf de tijd.
                 </p>
-                <a class="modal-btn" href="${targetPage}">
-                    Start avontuur
-                </a>
+                <a href="Leiden-L1-singel.html" class="modal-btn">${startBtn.textContent}</a>
             `);
         });
-    });
-
+    }
+    
     /* ----- INFOOVERLAY ----- */
     const infoBtn = document.getElementById('infoBtn');
     if (infoBtn) {
