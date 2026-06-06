@@ -57,7 +57,14 @@ document.addEventListener('DOMContentLoaded', function() {
     disableButtons();
 
     /* ----- OVERLAYFUNCTIE ----- */
-    const overlay = document.getElementById('overlay');
+    const overlayHTML = `<div id="overlay" class="overlay" aria-hidden="true">
+        <div class="modal">
+            <button id="overlayClose" class="overlay-close">✕</button>
+            <div id="overlayContent"></div>
+        </div>
+    </div>
+    `;
+    document.body.insertAdjacentHTML("beforeend", overlayHTML);
     const overlayContent = document.getElementById('overlayContent');
     const overlayClose = document.getElementById('overlayClose');
     function openOverlay(html) {
