@@ -61,10 +61,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const startOverlayPlaceholder = document.getElementById('startOverlay');
     if (startOverlayPlaceholder) {
         startOverlayPlaceholder.innerHTML = `
-            <div id="overlay" class="overlay" aria-hidden="true">
+            <div id="startOverlay" class="overlay" aria-hidden="true">
                 <div class="modal">
                     <button id="startClose" class="overlay-close">✕</button>
-                    <div id="modalContent"></div>
+                    <div id="startContent"></div>
                     <p>
                         Nadat je op start drukt krijg je eerst een introductie.
                         Daarna start je zelf de tijd.
@@ -77,31 +77,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         `;
-        const overlay = document.getElementById('overlay');
+        const startOverlay = document.getElementById('startOverlay');
         const startClose = document.getElementById('startClose');
         const startButton = document.getElementById('startButton');
-        const modalContent = document.getElementById('modalContent');
+        const startContent = document.getElementById('startContent');
         items.forEach(item => {
             item.addEventListener('click', () => {
                 const targetPage = item.dataset.opt;
                 const templateId = item.dataset.template;
                 const template = document.getElementById(templateId);
-                if (template && modalContent) {
-                    modalContent.innerHTML = template.innerHTML;
+                if (template && startContent) {
+                    startContent.innerHTML = template.innerHTML;
                 }
                 startButton.href = targetPage;
-                overlay.classList.add('visible');
-                overlay.setAttribute('aria-hidden', 'false');
+                startOverlay.classList.add('visible');
+                startOverlay.setAttribute('aria-hidden', 'false');
             });
         });
         startClose.addEventListener('click', () => {
-            overlay.classList.remove('visible');
-            overlay.setAttribute('aria-hidden', 'true');
+            startOverlay.classList.remove('visible');
+            startOverlay.setAttribute('aria-hidden', 'true');
         });
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) {
-                overlay.classList.remove('visible');
-                overlay.setAttribute('aria-hidden', 'true');
+        startOverlay.addEventListener('click', (e) => {
+            if (e.target === startOverlay) {
+                startOverlay.classList.remove('visible');
+                startOverlay.setAttribute('aria-hidden', 'true');
             }
         });
     }
