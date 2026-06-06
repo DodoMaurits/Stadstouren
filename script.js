@@ -116,6 +116,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    /* ----- INFOOVERLAY ----- */
+    if (document.getElementById('infoBtn') && !document.getElementById('infoOverlay')) {
+        document.body.insertAdjacentHTML('beforeend', `
+            <div id="infoOverlay" class="overlay" aria-hidden="true">
+                <div class="modal">
+                    <button id="infoClose" class="modal-close">✕</button>
+                    <h2 style="font-weight: bold; margin-bottom: 10px;">
+                        Uitleg scenario
+                    </h2>
+                    <p>
+                        Elk scenario komt langs dezelfde plekken, maar vertelt een ander verhaal.
+                        Kies dus welk scenario het beste bij jouw smaak of de situatie past.<br><br>
+                        Ben je een fan van detectives en 'whodunit'? Kies dan het moordmysterie.
+                        Spreekt het leren over de geschiedenis van de stad je aan? Kies dan voor de tijdreiziger.
+                        Houd je van rekenen en puzzelen? Dan is de puzzeltocht iets voor jou.
+                        Ben je in een gezelschap met kleinere kinderen? Kies dan voor de schattenjacht.
+                    </p>
+                </div>
+            </div>
+        `);
+    }
+
     /*----- NOTE KNOP -----*/
     const notesButton = document.getElementById("notesButton");
     const notesOverlay = document.getElementById("notesOverlay");
