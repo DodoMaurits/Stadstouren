@@ -134,18 +134,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-/* ---------- TOP-ROW ---------- */
-    const container = document.querySelector(".container");
-    if (container) {
+    /* ---------- TOP-ROW ---------- */
+    if (document.body.classList.contains("game-page")) {
+        const container = document.querySelector(".container");
         container.insertAdjacentHTML("afterbegin", `
-        <div class="top-row">
-            <button id="notesButton" class="notes-button">✏️</button>
-            <div id="timer" class="timer">0:00:00</div>
-            <button id="homeButton" class="home-button">x</button>
-        </div>
+            <div class="top-row">
+                <button id="notesButton" class="notes-button">✏️</button>
+                <div id="timer" class="timer">0:00:00</div>
+                <button id="homeButton" class="home-button">x</button>
+            </div>
         `);
     }
-
+    
     /*----- NOTE KNOP -----*/
     const notesButton = document.getElementById("notesButton");
     if (notesButton) {
