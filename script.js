@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         Nadat je op start drukt krijg je eerst een introductie.
                         Daarna start je zelf de tijd.
                     </p>
-                    <a href="${targetPage}" class="modal-btn">
+                    <a href="${targetPage}" class="start-button">
                         ${START_TEXT}
                     </a>
                 `);
