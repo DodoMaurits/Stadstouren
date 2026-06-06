@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         Daarna start je zelf de tijd.
                     </p>
                     <div class="modal-buttons">
-                        <a id="confirmBtn" class="modal-btn" href="#">
+                        <a id="startButton" class="modal-btn" href="#">
                             Start avontuur
                         </a>
                     </div>
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         const overlay = document.getElementById('overlay');
         const startClose = document.getElementById('startClose');
-        const confirmBtn = document.getElementById('confirmBtn');
+        const startButton = document.getElementById('startButton');
         const modalContent = document.getElementById('modalContent');
         items.forEach(item => {
             item.addEventListener('click', () => {
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (template && modalContent) {
                     modalContent.innerHTML = template.innerHTML;
                 }
-                confirmBtn.href = targetPage;
+                startButton.href = targetPage;
                 overlay.classList.add('visible');
                 overlay.setAttribute('aria-hidden', 'false');
             });
