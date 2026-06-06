@@ -56,28 +56,44 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     disableButtons();
 
-    /* ----- MODAL START ROUTE ----- */
+    /* ----- STARTOVERLAY ----- */
     const items = document.querySelectorAll('.grid-item[data-opt]');
-    const overlay = document.getElementById('overlay');
-    const modalClose = document.getElementById('modalClose');
-    const confirmBtn = document.getElementById('confirmBtn');
-    const modalContent = document.getElementById('modalContent');
-    items.forEach(item => {
-        item.addEventListener('click', () => {
-            const targetPage = item.dataset.opt;
-            const templateId = item.dataset.template;
-            const template = document.getElementById(templateId);
-            if (template && modalContent) {
-                modalContent.innerHTML = template.innerHTML;
-            }
-            if (confirmBtn) {
+    const startOverlayPlaceholder = document.getElementById('startOverlay');
+    if (startOverlayPlaceholder) {
+        startOverlayPlaceholder.innerHTML = `
+            <div id="overlay" class="overlay" aria-hidden="true">
+                <div class="modal">
+                    <button id="modalClose" class="modal-close">✕</button>
+                    <div id="modalContent"></div>
+                    <p>
+                        Nadat je op start drukt krijg je eerst een introductie.
+                        Daarna start je zelf de tijd.
+                    </p>
+                    <div class="modal-buttons">
+                        <a id="confirmBtn" class="modal-btn" href="#">
+                            Start avontuur
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+        const overlay = document.getElementById('overlay');
+        const modalClose = document.getElementById('modalClose');
+        const confirmBtn = document.getElementById('confirmBtn');
+        const modalContent = document.getElementById('modalContent');
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                const targetPage = item.dataset.opt;
+                const templateId = item.dataset.template;
+                const template = document.getElementById(templateId);
+                if (template && modalContent) {
+                    modalContent.innerHTML = template.innerHTML;
+                }
                 confirmBtn.href = targetPage;
-            }
-            overlay.classList.add('visible');
-            overlay.setAttribute('aria-hidden', 'false');
+                overlay.classList.add('visible');
+                overlay.setAttribute('aria-hidden', 'false');
+            });
         });
-    });
-    if (modalClose && overlay) {
         modalClose.addEventListener('click', () => {
             overlay.classList.remove('visible');
             overlay.setAttribute('aria-hidden', 'true');
@@ -89,11 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    document.querySelectorAll('.grid-item[data-url]').forEach(item => {
-        item.addEventListener('click', () => {
-            window.location.href = item.dataset.url;
-        });
-    });
 
     /* ----- INFOOVERLAY ----- */
     const infoBtn = document.getElementById('infoBtn');
