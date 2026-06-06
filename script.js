@@ -115,13 +115,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+/* ---------- TOP-ROW ---------- */
+    const container = document.querySelector(".container");
+    if (container) {
+        container.insertAdjacentHTML("afterbegin", `
+            <div class="top-row">
+                <button id="notesButton" class="notes-button">✏️</button>
+                <div id="timer" class="timer">0:00:00</div>
+                <button class="home-button" id="homeButton">x</button>
+            </div>
+        `);
+    }
+    const homeConfirm = document.getElementById("homeConfirm");
+    if (homeConfirm) {
+        homeConfirm.addEventListener("click", (e) => {
+            e.preventDefault();
+            localStorage.clear();
+            window.location.href = homeConfirm.href;
+        });
+    }
+
     /*----- NOTE KNOP -----*/
     const notesButton = document.getElementById("notesButton");
     if (notesButton) {
         notesButton.addEventListener("click", () => {
             openOverlay(`
                 <div class="notes-modal">
-                    <textarea id="notesArea"></textarea>
+                    <h2>Notitieboekje</h2>
+                    <textarea id="notesArea" placeholder="Schrijf hier je notities..."></textarea>
                     <button id="notesSave">Opslaan</button>
                 </div>
             `);
@@ -139,20 +160,52 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    /* ----- TIMER ----- */
+    const timerEl = document.getElementById("timer");
+    const startTimerButton = document.getElementById("startTimerButton");
+    if (startTimerButton) {
+        startTimerButton.addEventListener("click", () => {
+            localStorage.removeItem("timerEnd");
+            localStorage.setItem("timerStart", Date.now());
+        });
+    }
+    if (timerEl) {
+        startTime = Number(localStorage.getItem("timerStart"));
+        if (!startTime) {
+            timerEl.textContent = "0:00:00";
+        } else {
+            const endTime = localStorage.getItem("timerEnd");
+            function showTime(diff) {
+                const hours = Math.floor(diff / 3600);
+                const minutes = String(Math.floor((diff % 3600) / 60)).padStart(2, "0");
+                const seconds = String(diff % 60).padStart(2, "0");
+                timerEl.textContent = `${hours}:${minutes}:${seconds}`;
+            }
+            if (endTime) {
+                const diff = Math.floor((endTime - startTime) / 1000);
+                showTime(diff);
+            } else {
+                function updateTimer() {
+                    const diff = Math.floor((Date.now() - startTime) / 1000);
+                    showTime(diff);
+                }
+                updateTimer();
+                timerInterval = setInterval(updateTimer, 1000);
+            }
+        }
+    }
+
     /*----- HOMEKNOP SPEL SLUITEN-----*/
     const homeButton = document.getElementById("homeButton");
     if (homeButton) {
         homeButton.addEventListener("click", () => {
             openOverlay(`
-                <h2>Terug naar home?</h2>
-                <p>Je voortgang wordt niet opgeslagen.</p>
-                <div class="modal-buttons">
-                    <a href="index.html" class="modal-btn">
-                        Ja, ga terug
-                    </a>
-                    <button class="modal-btn" onclick="closeOverlay()">
-                        Annuleren
-                    </button>
+                <h2>Weet je het zeker?</h2>
+                <p>Je verlaat het spel en je notities worden gewist.</p>
+                <div class="modal-buttons"
+                style="display:flex; gap:10px; justify-content:center; margin-top:20px;">
+                    <a href="../../Leiden-L1-singel.html" class="back-button">Ja</a>
+                    <button id="homeCancel" class="back-button" onclick="closeOverlay()">Nee</button>
                 </div>
             `);
         });
