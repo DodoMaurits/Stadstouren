@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     /* ----- STARTOVERLAY ----- */
     const items = document.querySelectorAll('.grid-item[data-opt]');
-    const startOverlayPlaceholder = document.getElementById('startOverlay');
+    const startOverlayPlaceholder = document.getElementById('startOverlayContainer');
     if (startOverlayPlaceholder) {
         startOverlayPlaceholder.innerHTML = `
             <div id="startOverlay" class="overlay" aria-hidden="true">
