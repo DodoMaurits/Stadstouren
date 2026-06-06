@@ -56,48 +56,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     disableButtons();
 
-    /* ----- GRID ITEMS ----- */
-    if (document.querySelector('.grid-item[data-url]')) {
-        initRoutesPage(); }
-    if (document.querySelector('.grid-item[data-opt]')) {
-        initScenarioPage(); }
-    function initRoutesPage() {
-        const items = document.querySelectorAll('.grid-item[data-url]');
-        items.forEach(item => {
-            item.addEventListener('click', () => {
-                window.location.href = item.dataset.url;
-            });
-        });
-    }
-    function initScenarioPage() {
-        const items = document.querySelectorAll('.grid-item[data-opt]');
-    
-        items.forEach(item => {
-            item.addEventListener('click', () => {
-                const template = document.getElementById(item.dataset.template);
-                const targetPage = item.dataset.opt;
-    
-                openOverlay(`
-                    ${template.innerHTML}
-                    <a href="${targetPage}" class="modal-btn">
-                        Start avontuur
-                    </a>
-                `);
-            });
-        });
-    }
-    
     /* ----- OVERLAYFUNCTIE ----- */
     const overlay = document.getElementById('overlay');
     const overlayContent = document.getElementById('overlayContent');
     const overlayClose = document.getElementById('overlayClose');
-    
     function openOverlay(html) {
         overlayContent.innerHTML = html;
         overlay.classList.add('visible');
         overlay.setAttribute('aria-hidden', 'false');
     }
-    
     function closeOverlay() {
         overlay.classList.remove('visible');
         overlay.setAttribute('aria-hidden', 'true');
@@ -108,18 +75,41 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.target === overlay) closeOverlay();
     });
     
-    /* ----- STARTOVERLAY ----- */
-    const startBtn = document.getElementById('startBtn');
-    if (startBtn) {
-        startBtn.textContent = "Start avontuur";
-        startBtn.addEventListener('click', () => {
-            openOverlay(`
-                <p>
-                Nadat je op start drukt krijg je eerst een introductie.
-                Daarna start je zelf de tijd.
-                </p>
-                <a href="Leiden-L1-singel.html" class="modal-btn">${startBtn.textContent}</a>
-            `);
+    /* ----- GRID ITEMS ----- */
+    if (document.querySelector('.grid-item[data-url]')) {
+        initRoutesPage(); }
+    if (document.querySelector('.grid-item[data-opt]')) {
+        initScenarioPage(); }
+
+    /* ----- GRID ROUTES ----- */
+    function initRoutesPage() {
+        const items = document.querySelectorAll('.grid-item[data-url]');
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                window.location.href = item.dataset.url;
+            });
+        });
+    }
+    
+    /* ----- GRID SCENARIO & STARTOVERLAY ----- */
+    const START_TEXT = "Start avontuur";
+    function initScenarioPage() {
+        const items = document.querySelectorAll('.grid-item[data-opt]');
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                const template = document.getElementById(item.dataset.template);
+                const targetPage = item.dataset.opt;
+                openOverlay(`
+                    ${template.innerHTML}
+                    <p>
+                        Nadat je op start drukt krijg je eerst een introductie.
+                        Daarna start je zelf de tijd.
+                    </p>
+                    <a href="${targetPage}" class="modal-btn">
+                        ${START_TEXT}
+                    </a>
+                `);
+            });
         });
     }
     
