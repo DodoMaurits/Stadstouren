@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /* ---------- TOP-ROW ---------- */
-    if (document.body.classList.contains("game-page")) {
+    if (document.body.classList.contains("spelpagina")) {
         const container = document.querySelector(".container");
         container.insertAdjacentHTML("afterbegin", `
             <div class="top-row">
