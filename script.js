@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         startOverlayPlaceholder.innerHTML = `
             <div id="overlay" class="overlay" aria-hidden="true">
                 <div class="modal">
-                    <button id="modalClose" class="modal-close">✕</button>
+                    <button id="modalClose" class="overlay-close">✕</button>
                     <div id="modalContent"></div>
                     <p>
                         Nadat je op start drukt krijg je eerst een introductie.
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.insertAdjacentHTML('beforeend', `
             <div id="infoOverlay" class="overlay" aria-hidden="true">
                 <div class="modal">
-                    <button id="infoClose" class="modal-close">✕</button>
+                    <button id="infoClose" class="overlay-close">✕</button>
                     <h2 style="font-weight: bold; margin-bottom: 10px;">
                         Uitleg scenario
                     </h2>
