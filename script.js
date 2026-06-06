@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
     overlayClose.addEventListener('click', closeOverlay);
     overlay.addEventListener('click', (e) => {
         if (e.target === overlay) closeOverlay();
+    });
     
     /* ----- STARTOVERLAY ----- */
     const items = document.querySelectorAll('.grid-item[data-opt]');
