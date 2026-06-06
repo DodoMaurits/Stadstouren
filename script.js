@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    /* ----- INDEX ----- */
     const searchInput = document.getElementById("searchInput");
     const dropdown = document.getElementById("dropdown");
     const errorMessage = document.getElementById("errorMessage");
@@ -7,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const places = [
         { name: "Leiden", boat: "leiden-vaarroutes.html", walk: "leiden-wandelroutes.html" }
     ];
-    let selectedPlace = null;
     if (searchInput) {
         searchInput.addEventListener("focus", () => {
             dropdown.innerHTML = "";
@@ -23,14 +24,13 @@ document.addEventListener('DOMContentLoaded', function() {
             dropdown.style.display = "block";
         });
     }
-
+    let selectedPlace = null;
     function selectPlace(place) {
         selectedPlace = place;
         searchInput.value = place.name;
         dropdown.style.display = "none";
         enableButtons();
     }
-
     function disableButtons() {
         if (boatBtn) boatBtn.disabled = true;
         if (walkBtn) walkBtn.disabled = true;
@@ -56,6 +56,38 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     disableButtons();
 
+    /* ----- GRID ITEMS ----- */
+    if (document.querySelector('.grid-item[data-url]')) {
+        initRoutesPage(); }
+    if (document.querySelector('.grid-item[data-opt]')) {
+        initScenarioPage(); }
+    function initRoutesPage() {
+        const items = document.querySelectorAll('.grid-item[data-url]');
+    
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                window.location.href = item.dataset.url;
+            });
+        });
+    }
+    function initScenarioPage() {
+        const items = document.querySelectorAll('.grid-item[data-opt]');
+    
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                const template = document.getElementById(item.dataset.template);
+                const targetPage = item.dataset.opt;
+    
+                openOverlay(`
+                    ${template.innerHTML}
+                    <a href="${targetPage}" class="modal-btn">
+                        Start avontuur
+                    </a>
+                `);
+            });
+        });
+    }
+    
     /* ----- OVERLAYFUNCTIE ----- */
     const overlay = document.getElementById('overlay');
     const overlayContent = document.getElementById('overlayContent');
@@ -78,7 +110,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     /* ----- STARTOVERLAY ----- */
-    const items = document.querySelectorAll('.grid-item[data-opt]');
     items.forEach(item => {
         item.addEventListener('click', () => {
             const template = document.getElementById(item.dataset.template);
