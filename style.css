@@ -130,22 +130,6 @@ h1 {
     .title { font-size: 14px; }
 }
 
-/* ----- BUTTON INFO ----- */
-.info-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #7A1C1C;
-    color: white;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
 /* ----- OVERLAY FUNCTIE ----- */
 .overlay {
     position: fixed;
@@ -194,7 +178,7 @@ h1 {
     margin: 15px 0 0 0;
 }
 
-/* ----- BUTTON OVERLAY SLUITEN ----- */
+/* ----- KRUISJE OVERLAY SLUITEN ----- */
 .overlay-close {
     position: absolute;
     top: 10px;
@@ -205,31 +189,24 @@ h1 {
     cursor: pointer;
 }
 
-/* ----- OVERLAY INFO-SPECIFIEK ----- */
-#infoOverlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    display: flex;
-    justify-content: center;
+/* ----- BUTTON INFO ----- */
+.info-button {
+    display: inline-flex;
     align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #7A1C1C;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
 }
 
-#infoOverlay.visible {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-#infoOverlay p {
-    margin: 0;
-    line-height: 1.5;
-}
-
-/* ----- STARTBUTTON ----- */
-.startBtn {
+/* ----- BUTTON START ----- */
+.start-button {
     display: inline-block;
     background: #7A1C1C;
     color: white;
@@ -242,12 +219,12 @@ h1 {
     transition: background 0.2s, transform 0.15s;
 }
 
-.startBtn:hover {
+.start-button:hover {
     background: #a62828;
     transform: translateY(-2px);
 }
 
-.startBtn:active {
+.start-button:active {
     transform: translateY(0);
 }
 
