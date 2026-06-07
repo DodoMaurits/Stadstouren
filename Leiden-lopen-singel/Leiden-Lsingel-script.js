@@ -1,6 +1,3 @@
-let timerInterval;
-let startTime;
-let finalTime = null;
 const isResultPage = !!localStorage.getItem("timeTravelResults");
 
 document.addEventListener("DOMContentLoaded", () => {
