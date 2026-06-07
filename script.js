@@ -1,3 +1,7 @@
+let timerInterval;
+let startTime;
+let finalTime = null;
+
 document.addEventListener('DOMContentLoaded', function() {
 
     /* ----- INDEX ----- */
@@ -209,9 +213,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /* ----- TIMER ----- */
-    let timerInterval;
-    let startTime;
-    let finalTime = null;
     const timerEl = document.getElementById("timer");
     const startTimerButton = document.getElementById("startTimerButton");
     if (startTimerButton) {
