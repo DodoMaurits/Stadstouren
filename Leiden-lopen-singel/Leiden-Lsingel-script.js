@@ -121,54 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     
-    /* ---------- ANTWOORD CONTROLE ---------- */
-    const answerInput = document.getElementById('answerInput');
-    const answerError = document.getElementById('answerError');
-    const infoOverlay = document.getElementById('infoOverlay');
-    
-    if (answerInput) {
-        const correctAnswers = answerInput.dataset.answer
-            .toLowerCase()
-            .split(',')
-            .map(a => a.trim());
-    
-        answerInput.addEventListener('keydown', (e) => {
-            if (e.key !== 'Enter') return;
-    
-            const userAnswer = answerInput.value.trim().toLowerCase();
-            let isCorrect = correctAnswers.some(correct => levenshtein(userAnswer, correct) <= 1);
-    
-            if (isCorrect) {
-                if (answerError) answerError.style.display = "none";
-                if (infoOverlay) {
-                    infoOverlay.classList.add('visible');
-                    infoOverlay.setAttribute('aria-hidden', 'false');
-                }
-            } else {
-                if (answerError) answerError.style.display = "block";
-                answerInput.classList.add('input-error');
-                setTimeout(() => {
-                    answerInput.classList.remove('input-error');
-                }, 400);
-            }
-        });
-    }
-    
-    /* ---------- INFOOVERLAY SLUITEN ---------- */
-    const infoClose2 = document.getElementById('infoClose2');
-    if (infoClose2 && infoOverlay) {
-        infoClose2.addEventListener('click', () => {
-            infoOverlay.classList.remove('visible');
-            infoOverlay.setAttribute('aria-hidden', 'true');
-        });
-        infoOverlay.addEventListener('click', (e) => {
-            if (e.target === infoOverlay) {
-                infoOverlay.classList.remove('visible');
-                infoOverlay.setAttribute('aria-hidden', 'true');
-            }
-        });
-    }
-    
     /* ---------- ONTKNOPING MOORDMYSTERIE ---------- */
     const answerInputFinal = document.getElementById("answerInput");
     const finalButton = document.getElementById("finalButton");
