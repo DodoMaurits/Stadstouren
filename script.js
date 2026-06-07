@@ -79,6 +79,8 @@ document.addEventListener('DOMContentLoaded', function() {
         overlay.setAttribute('aria-hidden', 'true');
         overlayContent.innerHTML = "";
     }
+    window.openOverlay = openOverlay;
+    window.closeOverlay = closeOverlay;
     if (overlay && overlayClose) {
         overlayClose.addEventListener('click', closeOverlay);
         overlay.addEventListener('click', (e) => {
@@ -140,6 +142,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 Ben je in een gezelschap met kleinere kinderen? Kies dan voor de schattenjacht.
                 </p>
             `);
+        });
+    }
+
+    /* ---------- ANTWOORD CONTROLE ---------- */
+    const answerInput = document.getElementById('answerInput');
+    const answerError = document.getElementById('answerError');
+    if (answerInput) {
+        const correctAnswers = answerInput.dataset.answer
+            .toLowerCase()
+            .split(',')
+            .map(a => a.trim());
+        answerInput.addEventListener('keydown', (e) => {
+            if (e.key !== 'Enter') return;
+            const userAnswer = answerInput.value.trim().toLowerCase();
+            let isCorrect = correctAnswers.some(correct => levenshtein(userAnswer, correct) <= 1);
+            if (isCorrect) {
+                if (answerError) answerError.style.display = "none";
+                const clue = document.getElementById("antwoordClue");
+                if (clue) {
+                    openOverlay(clue.innerHTML);
+                }
+            } else {
+                if (answerError) answerError.style.display = "block";
+                answerInput.classList.add('input-error');
+                setTimeout(() => {
+                    answerInput.classList.remove('input-error');
+                }, 400);
+            }
         });
     }
 
