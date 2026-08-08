@@ -6,8 +6,33 @@
     <title>Leiden Singel Moordmysterie</title>
     <link rel="stylesheet" href="../../style.css">
     <style>
+        /* Verberg alle pagina's behalve de actieve */
         .page { display: none; }
         .page.active { display: block; }
+        
+        /* Zorg dat top-row en verdachten-grid altijd zichtbaar zijn */
+        .top-row { display: flex !important; }
+        .verdachten-grid { display: grid !important; }
+        
+        /* Centreer nav-buttons perfect */
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: 15px auto 20px;
+            padding: 0;
+            width: 100%;
+        }
+        
+        /* Zorg dat de container goed werkt */
+        .container {
+            width: 90%;
+            max-width: 500px;
+            margin: 0 auto;
+            flex-direction: column;
+            align-items: center;
+            display: flex;
+        }
     </style>
 </head>
 <body class="spelpagina">
@@ -920,12 +945,9 @@
                 "Leiden-L1-singel-mm-goedwapen.html",
             ];
             
-            // Get current page index from URL hash or localStorage
+            // Get current page index from localStorage or hash (but don't change URL)
             function getCurrentPageIndex() {
-                const hash = window.location.hash.substring(1);
-                if (hash && pageMap[hash] !== undefined) {
-                    return pageMap[hash];
-                }
+                // First check localStorage
                 const saved = localStorage.getItem('leiden-lsingel-mm-current-page');
                 if (saved !== null && !isNaN(parseInt(saved))) {
                     const idx = parseInt(saved);
@@ -933,10 +955,17 @@
                         return idx;
                     }
                 }
+                
+                // Fallback: check URL hash (for direct linking)
+                const hash = window.location.hash.substring(1);
+                if (hash && pageMap[hash] !== undefined) {
+                    return pageMap[hash];
+                }
+                
                 return 0; // Default to intro
             }
             
-            // Navigate to a specific page
+            // Navigate to a specific page (without changing URL)
             function navigateTo(pageIndex) {
                 if (pageIndex < 0 || pageIndex >= pages.length) {
                     console.error('Invalid page index:', pageIndex);
@@ -951,10 +980,11 @@
                 });
                 
                 currentPageIndex = pageIndex;
-                const pageFilename = pageOrder[pageIndex];
-                window.location.hash = pageFilename;
+                
+                // Save to localStorage (but NOT to URL hash)
                 localStorage.setItem('leiden-lsingel-mm-current-page', pageIndex.toString());
                 
+                // Update document title
                 const activePage = pages[pageIndex];
                 if (activePage) {
                     const title = activePage.dataset.title;
@@ -1027,7 +1057,7 @@
             currentPageIndex = getCurrentPageIndex();
             navigateTo(currentPageIndex);
             
-            // Handle browser back/forward
+            // Handle browser back/forward (but don't change URL)
             window.addEventListener('popstate', () => {
                 currentPageIndex = getCurrentPageIndex();
                 navigateTo(currentPageIndex);
