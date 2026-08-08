@@ -31,7 +31,7 @@
             width: calc(100% - 40px);
             justify-content: center;
             max-width: 400px;
-            margin: 0 auto 20px;
+            margin: 0 auto 0;
         }
         #globalVerdachtenGrid .verdachte {
             aspect-ratio: 3 / 4;
@@ -65,23 +65,15 @@
                 padding: 2px;
             }
         }
-        /* Verberg de verdachten-grid in de pagina's zelf */
-        .page .verdachten-grid { display: none !important; }
-        
-        /* Zorg dat de globale grid onder de pagina-inhoud komt */
-        #page-content-wrapper {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        /* Verberg de verdachten-grid en nav-buttons in de pagina's zelf */
+        .page .verdachten-grid, .page .nav-buttons { display: none !important; }
     </style>
 </head>
 <body class="spelpagina">
 
     <div class="container">
         <div id="page-content-wrapper">
-            <div id="page-0" class="page" data-filename="Leiden-Lsingel-mm.html" data-title="Introductie">
+            <div id="page-0" class="page" data-filename="Leiden-Lsingel-mm.html" data-title="Introductie" data-nav-buttons="<></>">
                 <div class="container">
 <div class="intro-box">
 <h2>Introductie</h2>
@@ -94,13 +86,11 @@
             </p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button next" href="Leiden-L1-singel-mm-1vraag.html" id="startTimerButton">Start de tijd</a>
-</div>
+
 </div>
             </div>
 
-            <div id="page-1" class="page" data-filename="Leiden-L1-singel-mm-1vraag.html" data-title="Vraag 1">
+            <div id="page-1" class="page" data-filename="Leiden-L1-singel-mm-1vraag.html" data-title="Vraag 1" data-nav-buttons="<></>">
                 <div class="container">
 <div class="intro-box">
 <h2>Het moordwapen</h2>
@@ -114,16 +104,13 @@
             </p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-Lsingel-mm.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-2punt.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-2" class="page" data-filename="Leiden-L1-singel-mm-2punt.html" data-title="Punt 2">
+            <div id="page-2" class="page" data-filename="Leiden-L1-singel-mm-2punt.html" data-title="Punt 2" data-nav-buttons="<></>">
                 <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 2</h2>
@@ -132,16 +119,13 @@
             Loop rechtdoor tot je voor stadspoort de Morspoort staat.</p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-1vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-2vraag.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-3" class="page" data-filename="Leiden-L1-singel-mm-2vraag.html" data-title="Vraag 2">
+            <div id="page-3" class="page" data-filename="Leiden-L1-singel-mm-2vraag.html" data-title="Vraag 2" data-nav-buttons="<></>">
                 <div class="container">
 <div class="intro-box">
 <h2>Alibi</h2>
@@ -153,16 +137,13 @@
             </p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-2punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-3punt.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-4" class="page" data-filename="Leiden-L1-singel-mm-3punt.html" data-title="Punt 3">
+            <div id="page-4" class="page" data-filename="Leiden-L1-singel-mm-3punt.html" data-title="Punt 3" data-nav-buttons="<></>">
                 <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 3</h2>
@@ -171,16 +152,13 @@
             Loop het park door tot voorbij de molen en kijk uit over het water vanaf de witte ophaalbrug.</p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-2vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-3vraag.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-5" class="page" data-filename="Leiden-L1-singel-mm-3vraag.html" data-title="Vraag 3">
+            <div id="page-5" class="page" data-filename="Leiden-L1-singel-mm-3vraag.html" data-title="Vraag 3" data-nav-buttons="<></>">
                 <div class="container">
 <div class="intro-box">
 <h2>Informatie</h2>
@@ -210,16 +188,13 @@
             </p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-3punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-4punt.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-6" class="page" data-filename="Leiden-L1-singel-mm-4punt.html" data-title="Punt 4">
+            <div id="page-6" class="page" data-filename="Leiden-L1-singel-mm-4punt.html" data-title="Punt 4" data-nav-buttons="<></>">
                 <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 4</h2>
@@ -227,16 +202,13 @@
 <p>Loop rechtdoor over de Rembrandtbrug en sla aan de overkant rechtsaf naar het Rembrandtplein.</p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-3vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-4vraag.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-7" class="page" data-filename="Leiden-L1-singel-mm-4vraag.html" data-title="Vraag 4">
+            <div id="page-7" class="page" data-filename="Leiden-L1-singel-mm-4vraag.html" data-title="Vraag 4" data-nav-buttons="<></>">
                 <div class="container">
 <div class="intro-box">
 <h2>Brief</h2>
@@ -263,16 +235,13 @@
 </div>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-4punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-5punt.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-8" class="page" data-filename="Leiden-L1-singel-mm-5punt.html" data-title="Punt 5">
+            <div id="page-8" class="page" data-filename="Leiden-L1-singel-mm-5punt.html" data-title="Punt 5" data-nav-buttons="<></>">
                 <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 5</h2>
@@ -282,16 +251,13 @@
             <br/>Ga aan het eind van het park over het bruggetje en neem de trap, totdat je je in de speeltuin bevindt.</p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-4vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-5vraag.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-9" class="page" data-filename="Leiden-L1-singel-mm-5vraag.html" data-title="Vraag 5">
+            <div id="page-9" class="page" data-filename="Leiden-L1-singel-mm-5vraag.html" data-title="Vraag 5" data-nav-buttons="<></>">
                 <div class="container">
 <div class="intro-box">
 <h2>Alibi</h2>
@@ -302,16 +268,13 @@
             </p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-5punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-6punt.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-10" class="page" data-filename="Leiden-L1-singel-mm-6punt.html" data-title="Punt 6">
+            <div id="page-10" class="page" data-filename="Leiden-L1-singel-mm-6punt.html" data-title="Punt 6" data-nav-buttons="<></>">
                 <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 6</h2>
@@ -322,16 +285,13 @@
             naar links de poort van de Hortus Botanicus binnen. Loop langs het Grand Café.</p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-5vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-6vraag.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-11" class="page" data-filename="Leiden-L1-singel-mm-6vraag.html" data-title="Vraag 6">
+            <div id="page-11" class="page" data-filename="Leiden-L1-singel-mm-6vraag.html" data-title="Vraag 6" data-nav-buttons="<></>">
                 <div class="container">
 <div class="intro-box">
 <h2>Informatie</h2>
@@ -361,16 +321,13 @@
 </div>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-6punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-7punt.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-12" class="page" data-filename="Leiden-L1-singel-mm-7punt.html" data-title="Punt 7">
+            <div id="page-12" class="page" data-filename="Leiden-L1-singel-mm-7punt.html" data-title="Punt 7" data-nav-buttons="<></>">
                 <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 7</h2>
@@ -380,16 +337,13 @@
             Sta in het park stil bij het standbeeld van Van der Werf.</p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-6vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-7vraag.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-13" class="page" data-filename="Leiden-L1-singel-mm-7vraag.html" data-title="Vraag 7">
+            <div id="page-13" class="page" data-filename="Leiden-L1-singel-mm-7vraag.html" data-title="Vraag 7" data-nav-buttons="<></>">
                 <div class="container">
 <div class="intro-box">
 <h2>Envelop</h2>
@@ -416,16 +370,13 @@
 </div>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-7punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-8punt.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-14" class="page" data-filename="Leiden-L1-singel-mm-8punt.html" data-title="Punt 8">
+            <div id="page-14" class="page" data-filename="Leiden-L1-singel-mm-8punt.html" data-title="Punt 8" data-nav-buttons="<></>">
                 <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 8</h2>
@@ -436,16 +387,13 @@
             tot je links de volière aantreft.<p>
 </p></p></div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-7vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-8vraag.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-15" class="page" data-filename="Leiden-L1-singel-mm-8vraag.html" data-title="Vraag 8">
+            <div id="page-15" class="page" data-filename="Leiden-L1-singel-mm-8vraag.html" data-title="Vraag 8" data-nav-buttons="<></>">
                 <div class="container">
 <div class="intro-box">
 <h2>Informatie</h2>
@@ -474,16 +422,13 @@
 </div>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-8punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-9punt.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-16" class="page" data-filename="Leiden-L1-singel-mm-9punt.html" data-title="Punt 9">
+            <div id="page-16" class="page" data-filename="Leiden-L1-singel-mm-9punt.html" data-title="Punt 9" data-nav-buttons="<></>">
                 <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 9</h2>
@@ -493,16 +438,13 @@
             Sla rechtsaf de Veerstraat in en stop op het Co-Snookerplein.<p>
 </p></p></div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-8vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-9vraag.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-17" class="page" data-filename="Leiden-L1-singel-mm-9vraag.html" data-title="Vraag 9">
+            <div id="page-17" class="page" data-filename="Leiden-L1-singel-mm-9vraag.html" data-title="Vraag 9" data-nav-buttons="<></>">
                 <div class="container">
 <div class="intro-box">
 <h2>Informatie</h2>
@@ -528,16 +470,13 @@
 </div>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-9punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-10punt.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-18" class="page" data-filename="Leiden-L1-singel-mm-10punt.html" data-title="Punt 10">
+            <div id="page-18" class="page" data-filename="Leiden-L1-singel-mm-10punt.html" data-title="Punt 10" data-nav-buttons="<></>">
                 <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 10</h2>
@@ -548,16 +487,13 @@
             </p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-9vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-10vraag.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-19" class="page" data-filename="Leiden-L1-singel-mm-10vraag.html" data-title="Vraag 10">
+            <div id="page-19" class="page" data-filename="Leiden-L1-singel-mm-10vraag.html" data-title="Vraag 10" data-nav-buttons="<></>">
                 <div class="container">
 <div class="intro-box">
 <h2>Moordwapen</h2>
@@ -566,16 +502,13 @@
             </p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-10punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-11punt.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-20" class="page" data-filename="Leiden-L1-singel-mm-11punt.html" data-title="Punt 11">
+            <div id="page-20" class="page" data-filename="Leiden-L1-singel-mm-11punt.html" data-title="Punt 11" data-nav-buttons="<></>">
                 <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 11</h2>
@@ -587,16 +520,13 @@
             </p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-10vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-11vraag.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-21" class="page" data-filename="Leiden-L1-singel-mm-11vraag.html" data-title="Vraag 11">
+            <div id="page-21" class="page" data-filename="Leiden-L1-singel-mm-11vraag.html" data-title="Vraag 11" data-nav-buttons="<></>">
                 <div class="container">
 <div class="intro-box">
 <h2>Alibi</h2>
@@ -606,16 +536,13 @@
             </p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-11punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-12punt.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-22" class="page" data-filename="Leiden-L1-singel-mm-12punt.html" data-title="Punt 12">
+            <div id="page-22" class="page" data-filename="Leiden-L1-singel-mm-12punt.html" data-title="Punt 12" data-nav-buttons="<></>">
                 <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 12</h2>
@@ -628,16 +555,13 @@
             </p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-11vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-12vraag.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-23" class="page" data-filename="Leiden-L1-singel-mm-12vraag.html" data-title="Vraag 12">
+            <div id="page-23" class="page" data-filename="Leiden-L1-singel-mm-12vraag.html" data-title="Vraag 12" data-nav-buttons="<></>">
                 <div class="container">
 <div class="intro-box">
 <h2>Aanwijzing</h2>
@@ -646,16 +570,13 @@
             </p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-12punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-13punt.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-24" class="page" data-filename="Leiden-L1-singel-mm-13punt.html" data-title="Punt 13">
+            <div id="page-24" class="page" data-filename="Leiden-L1-singel-mm-13punt.html" data-title="Punt 13" data-nav-buttons="<></>">
                 <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 13</h2>
@@ -668,16 +589,13 @@
             Loop voorbij het eerste bakstenen gebouw en stop bij de tweede tot je je midden in het park bevindt.</p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-12vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-13vraag.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-25" class="page" data-filename="Leiden-L1-singel-mm-13vraag.html" data-title="Vraag 13">
+            <div id="page-25" class="page" data-filename="Leiden-L1-singel-mm-13vraag.html" data-title="Vraag 13" data-nav-buttons="<></>">
                 <div class="container">
 <div class="intro-box">
 <h2>Moordwapen</h2>
@@ -686,16 +604,13 @@
             </p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-13punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-14punt.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-26" class="page" data-filename="Leiden-L1-singel-mm-14punt.html" data-title="Punt 14">
+            <div id="page-26" class="page" data-filename="Leiden-L1-singel-mm-14punt.html" data-title="Punt 14" data-nav-buttons="<></>">
                 <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 14</h2>
@@ -707,16 +622,13 @@
             </p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-13vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-14vraag.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-27" class="page" data-filename="Leiden-L1-singel-mm-14vraag.html" data-title="Vraag 14">
+            <div id="page-27" class="page" data-filename="Leiden-L1-singel-mm-14vraag.html" data-title="Vraag 14" data-nav-buttons="<></>">
                 <div class="container">
 <div class="intro-box">
 <h2>Alibi</h2>
@@ -726,16 +638,13 @@
             </p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-14punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-15punt.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-28" class="page" data-filename="Leiden-L1-singel-mm-15punt.html" data-title="Punt 15">
+            <div id="page-28" class="page" data-filename="Leiden-L1-singel-mm-15punt.html" data-title="Punt 15" data-nav-buttons="<></>">
                 <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 15</h2>
@@ -745,16 +654,13 @@
             over het plein van de Lammermarkt. Stop als je bij de molen bent.</p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-14vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-15vraag.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-29" class="page" data-filename="Leiden-L1-singel-mm-15vraag.html" data-title="Vraag 15">
+            <div id="page-29" class="page" data-filename="Leiden-L1-singel-mm-15vraag.html" data-title="Vraag 15" data-nav-buttons="<></>">
                 <div class="container">
 <div class="intro-box">
 <h2>Moordwapen</h2>
@@ -782,16 +688,13 @@
 </div>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-15punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-ontknoping.html">Volgende</a>
-</div>
+
 
 
 </div>
             </div>
 
-            <div id="page-30" class="page" data-filename="Leiden-L1-singel-mm-ontknoping.html" data-title="Antwoord">
+            <div id="page-30" class="page" data-filename="Leiden-L1-singel-mm-ontknoping.html" data-title="Antwoord" data-nav-buttons="<></>">
                 <div class="container">
 <div class="intro-box">
 <h2>Definitieve antwoord</h2>
@@ -806,9 +709,7 @@
 <button class="final-button" disabled="" id="finalButton">
             ONTKNOPING
         </button>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-15vraag.html">Vorige</a>
-</div>
+
 </div>
             </div>
 
@@ -909,6 +810,7 @@
         </div>
         
         <div id="globalVerdachtenGrid" class="verdachten-grid"></div>
+        <div id="globalNavButtons" class="nav-buttons"></div>
     </div>
 
     <script>
@@ -1020,7 +922,49 @@
                     if (title) document.title = title + ' - Leiden Singel Moordmysterie';
                 }
                 
+                // Update globale nav-buttons
+                updateGlobalNavButtons();
+                
                 window.scrollTo(0, 0);
+            }
+            
+            function updateGlobalNavButtons() {
+                const globalNavButtons = document.getElementById('globalNavButtons');
+                if (!globalNavButtons) return;
+                
+                const activePage = pages[currentPageIndex];
+                if (!activePage) return;
+                
+                const navHtml = activePage.dataset.navButtons;
+                if (navHtml) {
+                    globalNavButtons.innerHTML = navHtml;
+                    
+                    // Re-attach click handlers
+                    globalNavButtons.querySelectorAll('a').forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (pageMap[href] !== undefined) {
+                            link.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                navigateTo(pageMap[href]);
+                            });
+                        }
+                        if (link.id === 'startTimerButton') {
+                            link.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                navigateTo(1);
+                            });
+                        }
+                        if (link.id === 'closeGameButton') {
+                            link.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                localStorage.clear();
+                                window.location.href = link.href;
+                            });
+                        }
+                    });
+                } else {
+                    globalNavButtons.innerHTML = '';
+                }
             }
             
             const originalHrefDescriptor = Object.getOwnPropertyDescriptor(Location.prototype, 'href');
