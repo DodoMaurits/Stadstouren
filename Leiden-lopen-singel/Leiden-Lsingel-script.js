@@ -3,9 +3,11 @@ const isResultPage = !!localStorage.getItem("timeTravelResults");
 document.addEventListener("DOMContentLoaded", () => {
 
     /* ----- VERDACHTENGRID ----- */
-    const verdachtenContainer = document.querySelector(".verdachten-grid-container");
-    if (verdachtenContainer) {
-        verdachtenContainer.innerHTML = `
+    function buildVerdachtenGrid() {
+        const container = document.querySelector(".verdachten-grid-container");
+        if (!container || container.innerHTML.trim()) return;
+        
+        container.innerHTML = `
             <div class="verdachte" data-id="boomverzorger">
                 <img src="../icons/De_boomverzorger.png" alt="Verdachte">
                 <p><br>De boomverzorger</p></div>
@@ -39,15 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p><br>De schoonmaker<br>van het zwanenbassin</p></div>
         `;
     
-        verdachtenContainer.querySelectorAll(".verdachte").forEach(el => {
-            const id = el.dataset.id;
-            if (localStorage.getItem('verdachte-' + id) === 'afgestreept') {
-                el.classList.add('afgestreept');
-            } else {
-                el.classList.remove('afgestreept');
-            }
-            el.addEventListener('click', () => { 
+        // Voeg click handlers toe (1 keer)
+        container.querySelectorAll(".verdachte").forEach(el => {
+            el.addEventListener('click', () => {
                 el.classList.toggle('afgestreept');
+                const id = el.dataset.id;
                 if (el.classList.contains('afgestreept')) {
                     localStorage.setItem('verdachte-' + id, 'afgestreept');
                 } else {
@@ -56,6 +54,24 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    // Herstel de state
+    function restoreVerdachtenState() {
+        document.querySelectorAll(".verdachte").forEach(el => {
+            const id = el.dataset.id;
+            el.classList.toggle('afgestreept', localStorage.getItem('verdachte-' + id) === 'afgestreept');
+        });
+    }
+
+    // Initialiseer
+    document.addEventListener("DOMContentLoaded", () => {
+        buildVerdachtenGrid();
+        restoreVerdachtenState();
+        // Herstel state bij elke navigatie
+        document.querySelectorAll(".nav-button").forEach(button => {
+            button.addEventListener("click", () => setTimeout(restoreVerdachtenState, 50));
+        });
+    });
     
     /* ----- JAARTALLENGRID ----- */
     const jaartallenContainer = document.getElementById("jaartallenGrid");
