@@ -3,7 +3,7 @@ const isResultPage = !!localStorage.getItem("timeTravelResults");
 document.addEventListener("DOMContentLoaded", () => {
 
     /* ----- VERDACHTENGRID ----- */
-    const verdachtenContainer = document.getElementById("verdachtenGrid");
+    const verdachtenContainer = document.querySelector(".verdachten-grid-container");
     if (verdachtenContainer) {
         verdachtenContainer.innerHTML = `
             <div class="verdachte" data-id="boomverzorger">
