@@ -6,24 +6,11 @@
     <title>Leiden Singel Moordmysterie</title>
     <link rel="stylesheet" href="../../style.css">
     <style>
+        /* Verberg alle pagina's behalve de actieve */
         .page { display: none; }
         .page.active { display: block; }
-        .container {
-            width: 90%;
-            max-width: 500px;
-            margin: 0 auto;
-            flex-direction: column;
-            align-items: center;
-            display: flex;
-        }
-        .nav-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin: 15px auto 20px;
-            padding: 0;
-            width: 100%;
-        }
+        
+        /* Zorg dat de globale verdachten-grid altijd zichtbaar is */
         #globalVerdachtenGrid {
             display: grid !important;
             grid-template-columns: repeat(4, 1fr);
@@ -33,6 +20,8 @@
             max-width: 400px;
             margin: 0 auto 0;
         }
+        
+        /* Stijl voor verdachten in globale grid */
         #globalVerdachtenGrid .verdachte {
             aspect-ratio: 3 / 4;
             height: auto;
@@ -59,21 +48,33 @@
         #globalVerdachtenGrid .verdachte.afgestreept img {
             filter: grayscale(100%);
         }
+        
         @media (max-width: 900px) {
             #globalVerdachtenGrid .verdachte {
                 font-size: 0.65rem;
                 padding: 2px;
             }
         }
-        .page .verdachten-grid, .page .nav-buttons { display: none !important; }
+        
+        /* Verberg de verdachten-grid in de pagina's zelf */
+        .page .verdachten-grid { display: none !important; }
+        
+        /* Centreer nav-buttons perfect */
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: 15px auto 20px;
+            padding: 0;
+            width: 100%;
+        }
     </style>
 </head>
 <body class="spelpagina">
 
     <div class="container">
-        <div id="page-content-wrapper">
-            <div id="page-0" class="page" data-filename="Leiden-Lsingel-mm.html" data-title="Introductie" data-nav-buttons="<></>">
-                <div class="container">
+        <div id="page-0" class="page" data-filename="Leiden-Lsingel-mm.html" data-title="Introductie">
+            <div class="container">
 <div class="intro-box">
 <h2>Introductie</h2>
 <p>Je bent gevraagd als rechercheur om een historische cold case uit <b>1903</b> opnieuw te onderzoeken.
@@ -85,12 +86,14 @@
             </p>
 </div>
 
-
+<div class="nav-buttons">
+<a class="nav-button next" href="Leiden-L1-singel-mm-1vraag.html" id="startTimerButton">Start de tijd</a>
 </div>
-            </div>
+</div>
+        </div>
 
-            <div id="page-30" class="page" data-filename="Leiden-L1-singel-mm-ontknoping.html" data-title="Antwoord" data-nav-buttons="<></>">
-                <div class="container">
+        <div id="page-30" class="page" data-filename="Leiden-L1-singel-mm-ontknoping.html" data-title="Antwoord">
+            <div class="container">
 <div class="intro-box">
 <h2>Definitieve antwoord</h2>
 <p class="center"></p>
@@ -104,12 +107,14 @@
 <button class="final-button" disabled="" id="finalButton">
             ONTKNOPING
         </button>
-
+<div class="nav-buttons">
+<a class="nav-button previous" href="Leiden-L1-singel-mm-15vraag.html">Vorige</a>
 </div>
-            </div>
+</div>
+        </div>
 
-            <div id="page-31" class="page" data-filename="Leiden-L1-singel-mm-fout.html" data-title="Helaas!">
-                <div class="container">
+        <div id="page-31" class="page" data-filename="Leiden-L1-singel-mm-fout.html" data-title="Helaas!">
+            <div class="container">
 <div class="result-box">
 <h2>Resultaat</h2>
 <p class="center"></p>
@@ -130,10 +135,10 @@
 </div>
 <a class="back-button" href="../../leiden-wandelroutes.html" id="closeGameButton">Spel sluiten</a>
 </div>
-            </div>
+        </div>
 
-            <div id="page-32" class="page" data-filename="Leiden-L1-singel-mm-foutwapen.html" data-title="Helaas!">
-                <div class="container">
+        <div id="page-32" class="page" data-filename="Leiden-L1-singel-mm-foutwapen.html" data-title="Helaas!">
+            <div class="container">
 <div class="result-box">
 <h2>Resultaat</h2>
 <p class="center"></p>
@@ -154,10 +159,10 @@
 </div>
 <a class="back-button" href="../../leiden-wandelroutes.html" id="closeGameButton">Spel sluiten</a>
 </div>
-            </div>
+        </div>
 
-            <div id="page-33" class="page" data-filename="Leiden-L1-singel-mm-goed.html" data-title="Gefeliciteerd!">
-                <div class="container">
+        <div id="page-33" class="page" data-filename="Leiden-L1-singel-mm-goed.html" data-title="Gefeliciteerd!">
+            <div class="container">
 <div class="result-box">
 <h2>Resultaat</h2>
 <p class="center"></p>
@@ -177,10 +182,10 @@
 </div>
 <a class="back-button" href="../../leiden-wandelroutes.html" id="closeGameButton">Spel sluiten</a>
 </div>
-            </div>
+        </div>
 
-            <div id="page-34" class="page" data-filename="Leiden-L1-singel-mm-goedwapen.html" data-title="Helaas!">
-                <div class="container">
+        <div id="page-34" class="page" data-filename="Leiden-L1-singel-mm-goedwapen.html" data-title="Helaas!">
+            <div class="container">
 <div class="result-box">
 <h2>Resultaat</h2>
 <p class="center"></p>
@@ -200,19 +205,20 @@
 </div>
 <a class="back-button" href="../../leiden-wandelroutes.html" id="closeGameButton">Spel sluiten</a>
 </div>
-            </div>
-
         </div>
+
         
+        <!-- Globale verdachten-grid (altijd zichtbaar, onder de pagina-inhoud) -->
         <div id="globalVerdachtenGrid" class="verdachten-grid"></div>
-        <div id="globalNavButtons" class="nav-buttons"></div>
     </div>
 
     <script>
+        // ===== PAGE NAVIGATION SYSTEM =====
         (function() {
             const pages = document.querySelectorAll('.page');
             let currentPageIndex = 0;
             
+            // Map old filenames to new page indices
             const pageMap = {
                 "Leiden-Lsingel-mm.html": 0,
                 "Leiden-L1-singel-mm-1vraag.html": 1,
@@ -289,6 +295,7 @@
                 "Leiden-L1-singel-mm-goedwapen.html",
             ];
             
+            // Get current page index from localStorage or hash (but don't change URL)
             function getCurrentPageIndex() {
                 const saved = localStorage.getItem('leiden-lsingel-mm-current-page');
                 if (saved !== null && !isNaN(parseInt(saved))) {
@@ -300,6 +307,7 @@
                 return 0;
             }
             
+            // Navigate to a specific page (without changing URL)
             function navigateTo(pageIndex) {
                 if (pageIndex < 0 || pageIndex >= pages.length) return;
                 
@@ -317,51 +325,10 @@
                     if (title) document.title = title + ' - Leiden Singel Moordmysterie';
                 }
                 
-                updateGlobalNavButtons();
                 window.scrollTo(0, 0);
             }
             
-            function updateGlobalNavButtons() {
-                const globalNavButtons = document.getElementById('globalNavButtons');
-                if (!globalNavButtons) return;
-                
-                const activePage = pages[currentPageIndex];
-                if (!activePage) return;
-                
-                const navHtml = activePage.dataset.navButtons;
-                if (navHtml) {
-                    globalNavButtons.innerHTML = navHtml;
-                    
-                    globalNavButtons.querySelectorAll('a').forEach(link => {
-                        const href = link.getAttribute('href');
-                        if (pageMap[href] !== undefined) {
-                            link.addEventListener('click', (e) => {
-                                e.preventDefault();
-                                navigateTo(pageMap[href]);
-                            });
-                        }
-                        if (link.id === 'startTimerButton') {
-                            link.addEventListener('click', (e) => {
-                                e.preventDefault();
-                                localStorage.removeItem('timerStart');
-                                localStorage.removeItem('timerEnd');
-                                navigateTo(1);
-                            });
-                        }
-                        if (link.id === 'closeGameButton') {
-                            link.addEventListener('click', (e) => {
-                                e.preventDefault();
-                                // Clear ALL localStorage for this game
-                                localStorage.clear();
-                                window.location.href = link.href;
-                            });
-                        }
-                    });
-                } else {
-                    globalNavButtons.innerHTML = '';
-                }
-            }
-            
+            // Override window.location.href for local navigation
             const originalHrefDescriptor = Object.getOwnPropertyDescriptor(Location.prototype, 'href');
             if (originalHrefDescriptor) {
                 Object.defineProperty(window.location, 'href', {
@@ -380,43 +347,7 @@
                 });
             }
             
-            // Initialize verdachten grid - ONLY if it doesn't exist yet
-            // The Leiden-Lsingel-script-combined.js will handle this
-            function initGlobalVerdachtenGrid() {
-                const globalGrid = document.getElementById('globalVerdachtenGrid');
-                if (!globalGrid) return;
-                
-                // Only initialize if empty (let the main script handle it)
-                if (globalGrid.innerHTML.trim() === '') {
-                    globalGrid.innerHTML = `
-                        <div class="verdachte" data-id="boomverzorger">
-                            <img src="../../icons/De_boomverzorger.png" alt="Verdachte">
-                            <p><br>De boomverzorger</p></div>
-                        <div class="verdachte" data-id="vogeldief">
-                            <img src="../../icons/De_vogeldief.png" alt="Verdachte">
-                            <p><br>De vogeldief</p></div>
-                        <div class="verdachte" data-id="vogelspotter">
-                            <img src="../../icons/De_vogelspotter.png" alt="Verdachte">
-                            <p><br>De vogelspotter</p></div>
-                        <div class="verdachte" data-id="dakloze">
-                            <img src="../../icons/De_dakloze.png" alt="Verdachte">
-                            <p><br>De dakloze</p></div>
-                        <div class="verdachte" data-id="vogelverzorger">
-                            <img src="../../icons/De_vogelverzorger.png" alt="Verdachte">
-                            <p><br>De vogelverzorger van de volière</p></div>
-                        <div class="verdachte" data-id="eigenaar">
-                            <img src="../../icons/De_eigenaar.png" alt="Verdachte">
-                            <p><br>De eigenaar<br>van de muziektent</p></div>
-                        <div class="verdachte" data-id="portier">
-                            <img src="../../icons/De_portier.png" alt="Verdachte">
-                            <p><br>De portier<br>van de concertzaal</p></div>
-                        <div class="verdachte" data-id="schoonmaker">
-                            <img src="../../icons/De_schoonmaker.png" alt="Verdachte">
-                            <p><br>De schoonmaker<br>van het zwanenbassin</p></div>
-                    `;
-                }
-            }
-            
+            // Intercept link clicks
             document.addEventListener('click', (e) => {
                 const link = e.target.closest('a');
                 if (!link) return;
@@ -424,12 +355,14 @@
                 const href = link.getAttribute('href');
                 if (!href) return;
                 
+                // Check if it's a local page navigation
                 if (pageMap[href] !== undefined) {
                     e.preventDefault();
                     navigateTo(pageMap[href]);
                     return;
                 }
                 
+                // Handle startTimerButton
                 if (link.id === 'startTimerButton') {
                     e.preventDefault();
                     localStorage.removeItem('timerStart');
@@ -438,6 +371,7 @@
                     return;
                 }
                 
+                // Handle closeGameButton
                 if (link.id === 'closeGameButton') {
                     e.preventDefault();
                     localStorage.clear();
@@ -450,21 +384,42 @@
                 }
             }, true);
             
+            // Initialize
             currentPageIndex = getCurrentPageIndex();
             navigateTo(currentPageIndex);
-            initGlobalVerdachtenGrid();
             
+            // Handle browser back/forward (but don't change URL)
             window.addEventListener('popstate', () => {
                 currentPageIndex = getCurrentPageIndex();
                 navigateTo(currentPageIndex);
             });
             
+            // Expose for other scripts
             window.navigateToPage = navigateTo;
         })();
     </script>
     
     <script src="Leiden-Lsingel-script-combined.js"></script>
     <script src="../../script.js"></script>
+    <script>
+        // Override homeButton behavior for combined HTML
+        document.addEventListener('DOMContentLoaded', function() {
+            const homeButton = document.getElementById("homeButton");
+            if (homeButton && typeof window.navigateToPage === 'function') {
+                homeButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    // Clear all localStorage
+                    localStorage.clear();
+                    // Navigate to intro
+                    navigateToPage(0);
+                    // Clear timer
+                    localStorage.removeItem('timerStart');
+                    localStorage.removeItem('timerEnd');
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
