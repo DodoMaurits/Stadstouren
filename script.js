@@ -282,4 +282,3 @@ function levenshtein(a, b) {
     }
     return matrix[b.length][a.length];
 }
-
