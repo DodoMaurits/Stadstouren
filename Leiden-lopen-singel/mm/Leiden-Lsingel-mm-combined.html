@@ -383,20 +383,6 @@
     
     <script src="Leiden-Lsingel-script-combined.js"></script>
     <script src="../../script.js"></script>
-    <script>
-        // Override homeButton behavior for combined HTML
-        document.addEventListener('DOMContentLoaded', function() {
-            const homeButton = document.getElementById("homeButton");
-            if (homeButton && typeof window.navigateToPage === 'function') {
-                homeButton.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    localStorage.clear();
-                    navigateToPage(0);
-                });
-            }
-        });
-    </script>
 
 </body>
 </html>
