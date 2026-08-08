@@ -769,17 +769,22 @@
     <script>
         (function() {
             const pages = document.querySelectorAll('.page');
-            let currentPageIndex = 0;
-            // Navigeer naar een pagina op basis van index
-            function navigateTo(pageIndex) {
-                if (pageIndex < 0 || pageIndex >= pages.length) return;
+            let currentPageId = "0"; // Houdt de huidige page-ID bij (bijv. "3.1", "100", etc.)
+            // Navigeer naar een pagina op basis van ID (bijv. "3.1", "100")
+            function navigateTo(pageId) {
+                // Zoek de pagina met de juiste ID (bijv. id="page-3.1")
+                const targetPage = document.getElementById(`page-${pageId}`);
+                if (!targetPage) {
+                    console.error('Pagina niet gevonden:', pageId);
+                    return;
+                }
                 // Verberg alle pagina's
                 pages.forEach(page => page.classList.remove('active'));
                 // Toon de geselecteerde pagina
-                pages[pageIndex].classList.add('active');
-                currentPageIndex = pageIndex;
+                targetPage.classList.add('active');
+                currentPageId = pageId;
                 // Update URL hash (optioneel)
-                window.location.hash = pageIndex;
+                window.location.hash = pageId;
                 // Scroll naar boven
                 window.scrollTo(0, 0);
             }
@@ -788,11 +793,11 @@
                 const button = e.target.closest('[data-page]');
                 if (!button) return;
                 e.preventDefault();
-                const targetPage = parseInt(button.getAttribute('data-page'));
+                const targetPage = button.getAttribute('data-page');
                 navigateTo(targetPage);
             });
-            // Start op pagina 0 (of uit URL hash)
-            const initialPage = parseInt(window.location.hash.substring(1)) || 0;
+            // Start op de eerste pagina (of uit URL hash)
+            const initialPage = window.location.hash.substring(1) || "0";
             navigateTo(initialPage);
         })();
     </script>
