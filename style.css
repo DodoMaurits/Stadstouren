@@ -256,6 +256,11 @@ margin-top: 0;
     max-width: 500px;
 }
 
+.page[data-title="Helaas!"] .top-row,
+.page[data-title="Gefeliciteerd!"] .top-row {
+    display: none;
+}
+
 /* ----- TOP-ROW NOTITIES ----- */
 .notes-button {
     width: 35px;
