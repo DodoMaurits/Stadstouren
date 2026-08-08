@@ -5,54 +5,58 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ----- VERDACHTENGRID ----- */
     function buildVerdachtenGrid() {
         const container = document.querySelector(".verdachten-grid-container");
-        if (!container || container.innerHTML.trim()) return;
-        
-        container.innerHTML = `
-            <div class="verdachte" data-id="boomverzorger">
-                <img src="../icons/De_boomverzorger.png" alt="Verdachte">
-                <p><br>De boomverzorger</p></div>
+        if (!container) return; // Als de container niet bestaat, doe niets
 
-            <div class="verdachte" data-id="vogeldief">
-                <img src="../icons/De_vogeldief.png" alt="Verdachte">
-                <p><br>De vogeldief</p></div>
+        // Bouw de grid alleen als hij nog leeg is
+        if (container.innerHTML.trim() === "") {
+            container.innerHTML = `
+                <div class="verdachte" data-id="boomverzorger">
+                    <img src="../icons/De_boomverzorger.png" alt="Verdachte">
+                    <p><br>De boomverzorger</p>
+                </div>
+                <div class="verdachte" data-id="vogeldief">
+                    <img src="../icons/De_vogeldief.png" alt="Verdachte">
+                    <p><br>De vogeldief</p>
+                </div>
+                <div class="verdachte" data-id="vogelspotter">
+                    <img src="../icons/De_vogelspotter.png" alt="Verdachte">
+                    <p><br>De vogelspotter</p>
+                </div>
+                <div class="verdachte" data-id="dakloze">
+                    <img src="../icons/De_dakloze.png" alt="Verdachte">
+                    <p><br>De dakloze</p>
+                </div>
+                <div class="verdachte" data-id="vogelverzorger">
+                    <img src="../icons/De_vogelverzorger.png" alt="Verdachte">
+                    <p><br>De vogelverzorger van de volière</p>
+                </div>
+                <div class="verdachte" data-id="eigenaar">
+                    <img src="../icons/De_eigenaar.png" alt="Verdachte">
+                    <p><br>De eigenaar<br>van de muziektent</p>
+                </div>
+                <div class="verdachte" data-id="portier">
+                    <img src="../icons/De_portier.png" alt="Verdachte">
+                    <p><br>De portier<br>van de concertzaal</p>
+                </div>
+                <div class="verdachte" data-id="schoonmaker">
+                    <img src="../icons/De_schoonmaker.png" alt="Verdachte">
+                    <p><br>De schoonmaker<br>van het zwanenbassin</p>
+                </div>
+            `;
 
-            <div class="verdachte" data-id="vogelspotter">
-                <img src="../icons/De_vogelspotter.png" alt="Verdachte">
-                <p><br>De vogelspotter</p></div>
-
-            <div class="verdachte" data-id="dakloze">
-                <img src="../icons/De_dakloze.png" alt="Verdachte">
-                <p><br>De dakloze</p></div>
-
-            <div class="verdachte" data-id="vogelverzorger">
-                <img src="../icons/De_vogelverzorger.png" alt="Verdachte">
-                <p><br>De vogelverzorger van de volière</p></div>
-
-            <div class="verdachte" data-id="eigenaar">
-                <img src="../icons/De_eigenaar.png" alt="Verdachte">
-                <p><br>De eigenaar<br>van de muziektent</p></div>
-
-            <div class="verdachte" data-id="portier">
-                <img src="../icons/De_portier.png" alt="Verdachte">
-                <p><br>De portier<br>van de concertzaal</p></div>
-
-            <div class="verdachte" data-id="schoonmaker">
-                <img src="../icons/De_schoonmaker.png" alt="Verdachte">
-                <p><br>De schoonmaker<br>van het zwanenbassin</p></div>
-        `;
-    
-        // Voeg click handlers toe (1 keer)
-        container.querySelectorAll(".verdachte").forEach(el => {
-            el.addEventListener('click', () => {
-                el.classList.toggle('afgestreept');
-                const id = el.dataset.id;
-                if (el.classList.contains('afgestreept')) {
-                    localStorage.setItem('verdachte-' + id, 'afgestreept');
-                } else {
-                    localStorage.removeItem('verdachte-' + id);
-                }
+            // Voeg click handlers toe (1 keer)
+            container.querySelectorAll(".verdachte").forEach(el => {
+                el.addEventListener('click', () => {
+                    el.classList.toggle('afgestreept');
+                    const id = el.dataset.id;
+                    if (el.classList.contains('afgestreept')) {
+                        localStorage.setItem('verdachte-' + id, 'afgestreept');
+                    } else {
+                        localStorage.removeItem('verdachte-' + id);
+                    }
+                });
             });
-        });
+        }
     }
 
     // Herstel de state
@@ -63,14 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Initialiseer
-    document.addEventListener("DOMContentLoaded", () => {
-        buildVerdachtenGrid();
-        restoreVerdachtenState();
-        // Herstel state bij elke navigatie
-        document.querySelectorAll(".nav-button").forEach(button => {
-            button.addEventListener("click", () => setTimeout(restoreVerdachtenState, 50));
-        });
+    // Bouw de grid en herstel de state
+    buildVerdachtenGrid();
+    restoreVerdachtenState();
+
+    // Herstel state bij elke navigatie
+    document.querySelectorAll(".nav-button").forEach(button => {
+        button.addEventListener("click", () => setTimeout(restoreVerdachtenState, 50));
     });
     
     /* ----- JAARTALLENGRID ----- */
