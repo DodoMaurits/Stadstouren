@@ -6,25 +6,8 @@
     <title>Leiden Singel Moordmysterie</title>
     <link rel="stylesheet" href="../../style.css">
     <style>
-        /* Verberg alle pagina's behalve de actieve */
         .page { display: none; }
         .page.active { display: block; }
-        
-        /* Zorg dat top-row en verdachten-grid altijd zichtbaar zijn */
-        .top-row { display: flex !important; }
-        .verdachten-grid { display: grid !important; }
-        
-        /* Centreer nav-buttons perfect */
-        .nav-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin: 15px auto 20px;
-            padding: 0;
-            width: 100%;
-        }
-        
-        /* Zorg dat de container goed werkt */
         .container {
             width: 90%;
             max-width: 500px;
@@ -33,12 +16,62 @@
             align-items: center;
             display: flex;
         }
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: 15px auto 20px;
+            padding: 0;
+            width: 100%;
+        }
+        #globalVerdachtenGrid {
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4px;
+            width: calc(100% - 40px);
+            justify-content: center;
+            max-width: 400px;
+            margin: 0 auto 20px;
+        }
+        #globalVerdachtenGrid .verdachte {
+            aspect-ratio: 3 / 4;
+            height: auto;
+            border: 2px solid green;
+            border-radius: 2px;
+            color: white;
+            font-size: 0.75rem;
+            background-color: #03002A;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            gap: 2px;
+            padding: 4px;
+            transition: all 0.2s ease;
+        }
+        #globalVerdachtenGrid .verdachte img {
+            width: 50%;
+        }
+        #globalVerdachtenGrid .verdachte.afgestreept {
+            border-color: red;
+            opacity: 0.5;
+        }
+        #globalVerdachtenGrid .verdachte.afgestreept img {
+            filter: grayscale(100%);
+        }
+        @media (max-width: 900px) {
+            #globalVerdachtenGrid .verdachte {
+                font-size: 0.65rem;
+                padding: 2px;
+            }
+        }
     </style>
 </head>
 <body class="spelpagina">
 
-    <div id="page-0" class="page" data-filename="Leiden-Lsingel-mm.html" data-title="Introductie">
-        <div class="container">
+    <div class="container">
+        <div id="page-0" class="page" data-filename="Leiden-Lsingel-mm.html" data-title="Introductie">
+            <div class="container">
 <div class="intro-box">
 <h2>Introductie</h2>
 <p>Je bent gevraagd als rechercheur om een historische cold case uit <b>1903</b> opnieuw te onderzoeken.
@@ -49,15 +82,13 @@
             Aan jou de taak om de moordenaar en het moordwapen te achterhalen.
             </p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button next" href="Leiden-L1-singel-mm-1vraag.html" id="startTimerButton">Start de tijd</a>
-</div>
-</div>
-    </div>
 
-    <div id="page-1" class="page" data-filename="Leiden-L1-singel-mm-1vraag.html" data-title="Vraag 1">
-        <div class="container">
+
+</div>
+        </div>
+
+        <div id="page-1" class="page" data-filename="Leiden-L1-singel-mm-1vraag.html" data-title="Vraag 1">
+            <div class="container">
 <div class="intro-box">
 <h2>Het moordwapen</h2>
 <p class="center">Punt 1/15. Locatie: Wereldmuseum</p>
@@ -69,36 +100,30 @@
             op het potloodje linksboven te klikken.
             </p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-Lsingel-mm.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-2punt.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-2" class="page" data-filename="Leiden-L1-singel-mm-2punt.html" data-title="Punt 2">
-        <div class="container">
+        <div id="page-2" class="page" data-filename="Leiden-L1-singel-mm-2punt.html" data-title="Punt 2">
+            <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 2</h2>
 <img alt="Route" src="../../icons/Route.png"/><br/>
 <p>Houd het water aan je rechterhand en loop om het museum heen met de bocht mee naar links.
             Loop rechtdoor tot je voor stadspoort de Morspoort staat.</p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-1vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-2vraag.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-3" class="page" data-filename="Leiden-L1-singel-mm-2vraag.html" data-title="Vraag 2">
-        <div class="container">
+        <div id="page-3" class="page" data-filename="Leiden-L1-singel-mm-2vraag.html" data-title="Vraag 2">
+            <div class="container">
 <div class="intro-box">
 <h2>Alibi</h2>
 <p class="center">Punt 2/15. Locatie: Morspoort</p>
@@ -108,36 +133,30 @@
             Klik op een verdachte om uit te sluiten.
             </p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-2punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-3punt.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-4" class="page" data-filename="Leiden-L1-singel-mm-3punt.html" data-title="Punt 3">
-        <div class="container">
+        <div id="page-4" class="page" data-filename="Leiden-L1-singel-mm-3punt.html" data-title="Punt 3">
+            <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 3</h2>
 <img alt="Route" src="../../icons/Route.png"/>
 <p>Loop verder langs het water om het gebouw naar Park De Put. 
             Loop het park door tot voorbij de molen en kijk uit over het water vanaf de witte ophaalbrug.</p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-2vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-3vraag.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-5" class="page" data-filename="Leiden-L1-singel-mm-3vraag.html" data-title="Vraag 3">
-        <div class="container">
+        <div id="page-5" class="page" data-filename="Leiden-L1-singel-mm-3vraag.html" data-title="Vraag 3">
+            <div class="container">
 <div class="intro-box">
 <h2>Informatie</h2>
 <p class="center">Punt 3/15. Locatie: Rembrandtbrug</p>
@@ -165,35 +184,29 @@
             daar dienst deed als militair in tijdelijke burgerdienst.
             </p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-3punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-4punt.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-6" class="page" data-filename="Leiden-L1-singel-mm-4punt.html" data-title="Punt 4">
-        <div class="container">
+        <div id="page-6" class="page" data-filename="Leiden-L1-singel-mm-4punt.html" data-title="Punt 4">
+            <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 4</h2>
 <img alt="Route" src="../../icons/Route.png"/>
 <p>Loop rechtdoor over de Rembrandtbrug en sla aan de overkant rechtsaf naar het Rembrandtplein.</p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-3vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-4vraag.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-7" class="page" data-filename="Leiden-L1-singel-mm-4vraag.html" data-title="Vraag 4">
-        <div class="container">
+        <div id="page-7" class="page" data-filename="Leiden-L1-singel-mm-4vraag.html" data-title="Vraag 4">
+            <div class="container">
 <div class="intro-box">
 <h2>Brief</h2>
 <p class="center">Punt 4/15. Locatie: Rembrandtpleintje</p>
@@ -218,18 +231,15 @@
                 </p>
 </div>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-4punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-5punt.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-8" class="page" data-filename="Leiden-L1-singel-mm-5punt.html" data-title="Punt 5">
-        <div class="container">
+        <div id="page-8" class="page" data-filename="Leiden-L1-singel-mm-5punt.html" data-title="Punt 5">
+            <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 5</h2>
 <img alt="Route" src="../../icons/Route.png"/>
@@ -237,18 +247,15 @@
             <br/>Steek vervolgens de weg over en loop rechtdoor onder het gebouw door om het Singelpark te vervolgen.
             <br/>Ga aan het eind van het park over het bruggetje en neem de trap, totdat je je in de speeltuin bevindt.</p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-4vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-5vraag.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-9" class="page" data-filename="Leiden-L1-singel-mm-5vraag.html" data-title="Vraag 5">
-        <div class="container">
+        <div id="page-9" class="page" data-filename="Leiden-L1-singel-mm-5vraag.html" data-title="Vraag 5">
+            <div class="container">
 <div class="intro-box">
 <h2>Alibi</h2>
 <p class="center">Punt 5/15. Locatie: Speeltuin</p>
@@ -257,18 +264,15 @@
             Kijk goed rond.
             </p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-5punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-6punt.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-10" class="page" data-filename="Leiden-L1-singel-mm-6punt.html" data-title="Punt 6">
-        <div class="container">
+        <div id="page-10" class="page" data-filename="Leiden-L1-singel-mm-6punt.html" data-title="Punt 6">
+            <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 6</h2>
 <img alt="Route" src="../../icons/Route.png"/>
@@ -277,18 +281,15 @@
             Sla daar rechtsaf en loop aan het eind van de straat
             naar links de poort van de Hortus Botanicus binnen. Loop langs het Grand Café.</p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-5vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-6vraag.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-11" class="page" data-filename="Leiden-L1-singel-mm-6vraag.html" data-title="Vraag 6">
-        <div class="container">
+        <div id="page-11" class="page" data-filename="Leiden-L1-singel-mm-6vraag.html" data-title="Vraag 6">
+            <div class="container">
 <div class="intro-box">
 <h2>Informatie</h2>
 <p class="center">Punt 6/15. Locatie: Hortus Botanicus</p>
@@ -316,18 +317,15 @@
                 </p>
 </div>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-6punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-7punt.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-12" class="page" data-filename="Leiden-L1-singel-mm-7punt.html" data-title="Punt 7">
-        <div class="container">
+        <div id="page-12" class="page" data-filename="Leiden-L1-singel-mm-7punt.html" data-title="Punt 7">
+            <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 7</h2>
 <img alt="Route" src="../../icons/Route.png"/>
@@ -335,18 +333,15 @@
             Blijf de gracht net zo lang volgen met het water aan je linkerhand, tot je bij het Van der Werfpark komt.
             Sta in het park stil bij het standbeeld van Van der Werf.</p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-6vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-7vraag.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-13" class="page" data-filename="Leiden-L1-singel-mm-7vraag.html" data-title="Vraag 7">
-        <div class="container">
+        <div id="page-13" class="page" data-filename="Leiden-L1-singel-mm-7vraag.html" data-title="Vraag 7">
+            <div class="container">
 <div class="intro-box">
 <h2>Envelop</h2>
 <p class="center">Punt 7/15. Locatie: Van der Werfpark</p>
@@ -371,18 +366,15 @@
                 </p>
 </div>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-7punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-8punt.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-14" class="page" data-filename="Leiden-L1-singel-mm-8punt.html" data-title="Punt 8">
-        <div class="container">
+        <div id="page-14" class="page" data-filename="Leiden-L1-singel-mm-8punt.html" data-title="Punt 8">
+            <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 8</h2>
 <img alt="Route" src="../../icons/Route.png"/>
@@ -391,18 +383,15 @@
             Steek de rotonde over naar het Plantsoen een vervolg je weg door het Singelpark met het water aan je rechterhand
             tot je links de volière aantreft.<p>
 </p></p></div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-7vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-8vraag.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-15" class="page" data-filename="Leiden-L1-singel-mm-8vraag.html" data-title="Vraag 8">
-        <div class="container">
+        <div id="page-15" class="page" data-filename="Leiden-L1-singel-mm-8vraag.html" data-title="Vraag 8">
+            <div class="container">
 <div class="intro-box">
 <h2>Informatie</h2>
 <p class="center">Punt 8/15. Locatie: Volière Plantsoen</p>
@@ -429,18 +418,15 @@
                 </p>
 </div>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-8punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-9punt.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-16" class="page" data-filename="Leiden-L1-singel-mm-9punt.html" data-title="Punt 9">
-        <div class="container">
+        <div id="page-16" class="page" data-filename="Leiden-L1-singel-mm-9punt.html" data-title="Punt 9">
+            <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 9</h2>
 <img alt="Route" src="../../icons/Route.png"/>
@@ -448,18 +434,15 @@
             Steek de weg over via het zebrapad en vervolg het pad door het groen tot je Café Plantage treft.
             Sla rechtsaf de Veerstraat in en stop op het Co-Snookerplein.<p>
 </p></p></div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-8vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-9vraag.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-17" class="page" data-filename="Leiden-L1-singel-mm-9vraag.html" data-title="Vraag 9">
-        <div class="container">
+        <div id="page-17" class="page" data-filename="Leiden-L1-singel-mm-9vraag.html" data-title="Vraag 9">
+            <div class="container">
 <div class="intro-box">
 <h2>Informatie</h2>
 <p class="center">Punt 9/15. Locatie: Co-Snookerplein</p>
@@ -483,18 +466,15 @@
                 </p>
 </div>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-9punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-10punt.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-18" class="page" data-filename="Leiden-L1-singel-mm-10punt.html" data-title="Punt 10">
-        <div class="container">
+        <div id="page-18" class="page" data-filename="Leiden-L1-singel-mm-10punt.html" data-title="Punt 10">
+            <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 10</h2>
 <img alt="Route" src="../../icons/Route.png"/>
@@ -503,36 +483,30 @@
             tot je aan je rechterhand een wit bruggetje ziet. Loop over het bruggetje en betreed Speeltuin De Doorbraak.
             </p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-9vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-10vraag.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-19" class="page" data-filename="Leiden-L1-singel-mm-10vraag.html" data-title="Vraag 10">
-        <div class="container">
+        <div id="page-19" class="page" data-filename="Leiden-L1-singel-mm-10vraag.html" data-title="Vraag 10">
+            <div class="container">
 <div class="intro-box">
 <h2>Moordwapen</h2>
 <p class="center">Punt 10/15. Locatie: De Doorbraak</p>
 <p>Kijk in de speeltuin goed om je heen. Het moordwapen was niet van het materiaal van het varken.
             </p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-10punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-11punt.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-20" class="page" data-filename="Leiden-L1-singel-mm-11punt.html" data-title="Punt 11">
-        <div class="container">
+        <div id="page-20" class="page" data-filename="Leiden-L1-singel-mm-11punt.html" data-title="Punt 11">
+            <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 11</h2>
 <img alt="Route" src="../../icons/Route.png"/>
@@ -542,18 +516,15 @@
             en ga rechtdoor over het bruggetje naar Brasserie De Poort. Stop vervolgens voor stadspoort de Zijlpoort.
             </p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-10vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-11vraag.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-21" class="page" data-filename="Leiden-L1-singel-mm-11vraag.html" data-title="Vraag 11">
-        <div class="container">
+        <div id="page-21" class="page" data-filename="Leiden-L1-singel-mm-11vraag.html" data-title="Vraag 11">
+            <div class="container">
 <div class="intro-box">
 <h2>Alibi</h2>
 <p class="center">Punt 11/15. Locatie: De Zijlpoort</p>
@@ -561,18 +532,15 @@
             De verdachte had dagelijks te maken met hetgeen waar er zes van zijn.
             </p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-11punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-12punt.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-22" class="page" data-filename="Leiden-L1-singel-mm-12punt.html" data-title="Punt 12">
-        <div class="container">
+        <div id="page-22" class="page" data-filename="Leiden-L1-singel-mm-12punt.html" data-title="Punt 12">
+            <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 12</h2>
 <img alt="Route" src="../../icons/Route.png"/>
@@ -583,36 +551,30 @@
             Ga rechts voorbij het basketbalveldje tot je aan je linkerhand twee houten bankjes treft. 
             </p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-11vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-12vraag.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-23" class="page" data-filename="Leiden-L1-singel-mm-12vraag.html" data-title="Vraag 12">
-        <div class="container">
+        <div id="page-23" class="page" data-filename="Leiden-L1-singel-mm-12vraag.html" data-title="Vraag 12">
+            <div class="container">
 <div class="intro-box">
 <h2>Aanwijzing</h2>
 <p class="center">Punt 12/15. Locatie: Stenen Monument Huigpark</p>
 <p>Kijk bij de bankjes goed om je heen. Een van de onschuldige verdachten is niet lang na de moord hier beland.
             </p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-12punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-13punt.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-24" class="page" data-filename="Leiden-L1-singel-mm-13punt.html" data-title="Punt 13">
-        <div class="container">
+        <div id="page-24" class="page" data-filename="Leiden-L1-singel-mm-13punt.html" data-title="Punt 13">
+            <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 13</h2>
 <img alt="Route" src="../../icons/Route.png"/>
@@ -623,36 +585,30 @@
             Neem het pad links tussen de twee grote witte bouwcomplexen door om naar het Slachthuispark te gaan.
             Loop voorbij het eerste bakstenen gebouw en stop bij de tweede tot je je midden in het park bevindt.</p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-12vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-13vraag.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-25" class="page" data-filename="Leiden-L1-singel-mm-13vraag.html" data-title="Vraag 13">
-        <div class="container">
+        <div id="page-25" class="page" data-filename="Leiden-L1-singel-mm-13vraag.html" data-title="Vraag 13">
+            <div class="container">
 <div class="intro-box">
 <h2>Moordwapen</h2>
 <p class="center">Punt 13/15. Locatie: Slachthuispark Nieuw Leyden</p>
 <p>“Waarvan 6 dezelfde dieren graag eten, wil het moordwapen niks van weten.”
             </p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-13punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-14punt.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-26" class="page" data-filename="Leiden-L1-singel-mm-14punt.html" data-title="Punt 14">
-        <div class="container">
+        <div id="page-26" class="page" data-filename="Leiden-L1-singel-mm-14punt.html" data-title="Punt 14">
+            <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 14</h2>
 <img alt="Route" src="../../icons/Route.png"/>
@@ -662,18 +618,15 @@
             op de hoek van de Vestwal.
             </p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-13vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-14vraag.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-27" class="page" data-filename="Leiden-L1-singel-mm-14vraag.html" data-title="Vraag 14">
-        <div class="container">
+        <div id="page-27" class="page" data-filename="Leiden-L1-singel-mm-14vraag.html" data-title="Vraag 14">
+            <div class="container">
 <div class="intro-box">
 <h2>Alibi</h2>
 <p class="center">Punt 14/15. Locatie: De Vestwal</p>
@@ -681,18 +634,15 @@
             Wiens beroep doet denken aan waarover Rosario sprak is onschuldig.
             </p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-14punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-15punt.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-28" class="page" data-filename="Leiden-L1-singel-mm-15punt.html" data-title="Punt 15">
-        <div class="container">
+        <div id="page-28" class="page" data-filename="Leiden-L1-singel-mm-15punt.html" data-title="Punt 15">
+            <div class="container">
 <div class="instruction-box">
 <h2>Ga naar punt 15</h2>
 <img alt="Route" src="../../icons/Route.png"/>
@@ -700,18 +650,15 @@
             Vervolg je weg langs het water op de Marepoortkade. Loop in een directe lijn naar de molen
             over het plein van de Lammermarkt. Stop als je bij de molen bent.</p>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-14vraag.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-15vraag.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-29" class="page" data-filename="Leiden-L1-singel-mm-15vraag.html" data-title="Vraag 15">
-        <div class="container">
+        <div id="page-29" class="page" data-filename="Leiden-L1-singel-mm-15vraag.html" data-title="Vraag 15">
+            <div class="container">
 <div class="intro-box">
 <h2>Moordwapen</h2>
 <p class="center">Punt 15/15. Locatie: Molen &amp; Bevrijdingsmonument</p>
@@ -737,18 +684,15 @@
                 </p>
 </div>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-15punt.html">Vorige</a>
-<a class="nav-button next" href="Leiden-L1-singel-mm-ontknoping.html">Volgende</a>
-</div>
+
+
 
 
 </div>
-    </div>
+        </div>
 
-    <div id="page-30" class="page" data-filename="Leiden-L1-singel-mm-ontknoping.html" data-title="Antwoord">
-        <div class="container">
+        <div id="page-30" class="page" data-filename="Leiden-L1-singel-mm-ontknoping.html" data-title="Antwoord">
+            <div class="container">
 <div class="intro-box">
 <h2>Definitieve antwoord</h2>
 <p class="center"></p>
@@ -758,18 +702,16 @@
 <div class="input-wrapper">
 <input autocomplete="off" data-answer="Tuinkabouter" id="answerInput" placeholder="Type je antwoord en druk op enter" type="text"/>
 </div>
-<div class="verdachten-grid" id="verdachtenGrid"></div>
+
 <button class="final-button" disabled="" id="finalButton">
             ONTKNOPING
         </button>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-15vraag.html">Vorige</a>
-</div>
-</div>
-    </div>
 
-    <div id="page-31" class="page" data-filename="Leiden-L1-singel-mm-fout.html" data-title="Helaas!">
-        <div class="container">
+</div>
+        </div>
+
+        <div id="page-31" class="page" data-filename="Leiden-L1-singel-mm-fout.html" data-title="Helaas!">
+            <div class="container">
 <div class="result-box">
 <h2>Resultaat</h2>
 <p class="center"></p>
@@ -790,10 +732,10 @@
 </div>
 <a class="back-button" href="../../leiden-wandelroutes.html" id="closeGameButton">Spel sluiten</a>
 </div>
-    </div>
+        </div>
 
-    <div id="page-32" class="page" data-filename="Leiden-L1-singel-mm-foutwapen.html" data-title="Helaas!">
-        <div class="container">
+        <div id="page-32" class="page" data-filename="Leiden-L1-singel-mm-foutwapen.html" data-title="Helaas!">
+            <div class="container">
 <div class="result-box">
 <h2>Resultaat</h2>
 <p class="center"></p>
@@ -814,10 +756,10 @@
 </div>
 <a class="back-button" href="../../leiden-wandelroutes.html" id="closeGameButton">Spel sluiten</a>
 </div>
-    </div>
+        </div>
 
-    <div id="page-33" class="page" data-filename="Leiden-L1-singel-mm-goed.html" data-title="Gefeliciteerd!">
-        <div class="container">
+        <div id="page-33" class="page" data-filename="Leiden-L1-singel-mm-goed.html" data-title="Gefeliciteerd!">
+            <div class="container">
 <div class="result-box">
 <h2>Resultaat</h2>
 <p class="center"></p>
@@ -837,10 +779,10 @@
 </div>
 <a class="back-button" href="../../leiden-wandelroutes.html" id="closeGameButton">Spel sluiten</a>
 </div>
-    </div>
+        </div>
 
-    <div id="page-34" class="page" data-filename="Leiden-L1-singel-mm-goedwapen.html" data-title="Helaas!">
-        <div class="container">
+        <div id="page-34" class="page" data-filename="Leiden-L1-singel-mm-goedwapen.html" data-title="Helaas!">
+            <div class="container">
 <div class="result-box">
 <h2>Resultaat</h2>
 <p class="center"></p>
@@ -860,15 +802,18 @@
 </div>
 <a class="back-button" href="../../leiden-wandelroutes.html" id="closeGameButton">Spel sluiten</a>
 </div>
+        </div>
+
+        
+        <div id="globalVerdachtenGrid" class="verdachten-grid"></div>
+        <div id="globalNavButtons" class="nav-buttons"></div>
     </div>
 
     <script>
-        // ===== PAGE NAVIGATION SYSTEM =====
         (function() {
             const pages = document.querySelectorAll('.page');
             let currentPageIndex = 0;
             
-            // Map old filenames to new page indices
             const pageMap = {
                 "Leiden-Lsingel-mm.html": 0,
                 "Leiden-L1-singel-mm-1vraag.html": 1,
@@ -945,125 +890,152 @@
                 "Leiden-L1-singel-mm-goedwapen.html",
             ];
             
-            // Get current page index from localStorage or hash (but don't change URL)
             function getCurrentPageIndex() {
-                // First check localStorage
                 const saved = localStorage.getItem('leiden-lsingel-mm-current-page');
                 if (saved !== null && !isNaN(parseInt(saved))) {
                     const idx = parseInt(saved);
-                    if (idx >= 0 && idx < pageOrder.length) {
-                        return idx;
-                    }
+                    if (idx >= 0 && idx < pageOrder.length) return idx;
                 }
-                
-                // Fallback: check URL hash (for direct linking)
                 const hash = window.location.hash.substring(1);
-                if (hash && pageMap[hash] !== undefined) {
-                    return pageMap[hash];
-                }
-                
-                return 0; // Default to intro
+                if (hash && pageMap[hash] !== undefined) return pageMap[hash];
+                return 0;
             }
             
-            // Navigate to a specific page (without changing URL)
             function navigateTo(pageIndex) {
-                if (pageIndex < 0 || pageIndex >= pages.length) {
-                    console.error('Invalid page index:', pageIndex);
-                    return;
-                }
+                if (pageIndex < 0 || pageIndex >= pages.length) return;
                 
                 pages.forEach((page, idx) => {
                     page.classList.remove('active');
-                    if (idx === pageIndex) {
-                        page.classList.add('active');
-                    }
+                    if (idx === pageIndex) page.classList.add('active');
                 });
                 
                 currentPageIndex = pageIndex;
-                
-                // Save to localStorage (but NOT to URL hash)
                 localStorage.setItem('leiden-lsingel-mm-current-page', pageIndex.toString());
                 
-                // Update document title
                 const activePage = pages[pageIndex];
                 if (activePage) {
                     const title = activePage.dataset.title;
-                    if (title) {
-                        document.title = title + ' - Leiden Singel Moordmysterie';
-                    }
+                    if (title) document.title = title + ' - Leiden Singel Moordmysterie';
                 }
                 
+                updateNavButtons();
                 window.scrollTo(0, 0);
             }
             
-            // Override window.location.href for local navigation
+            function updateNavButtons() {
+                const globalNavButtons = document.getElementById('globalNavButtons');
+                if (!globalNavButtons) return;
+                
+                const currentPage = pages[currentPageIndex];
+                if (!currentPage) return;
+                
+                const originalNavButtons = currentPage.querySelector('.nav-buttons');
+                if (originalNavButtons) {
+                    globalNavButtons.innerHTML = originalNavButtons.innerHTML;
+                    
+                    globalNavButtons.querySelectorAll('a').forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (pageMap[href] !== undefined) {
+                            link.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                navigateTo(pageMap[href]);
+                            });
+                        }
+                        if (link.id === 'startTimerButton') {
+                            link.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                navigateTo(1);
+                            });
+                        }
+                        if (link.id === 'closeGameButton') {
+                            link.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                localStorage.clear();
+                                window.location.href = link.href;
+                            });
+                        }
+                    });
+                } else {
+                    globalNavButtons.innerHTML = '';
+                }
+            }
+            
             const originalHrefDescriptor = Object.getOwnPropertyDescriptor(Location.prototype, 'href');
             if (originalHrefDescriptor) {
                 Object.defineProperty(window.location, 'href', {
                     get: function() { return originalHrefDescriptor.get.call(this); },
                     set: function(newValue) {
                         if (typeof newValue === 'string') {
-                            // Extract filename from URL
                             const filename = newValue.split('/').pop();
                             if (pageMap[filename] !== undefined) {
                                 navigateTo(pageMap[filename]);
                                 return;
                             }
                         }
-                        // For external links, use original behavior
                         originalHrefDescriptor.set.call(this, newValue);
                     },
                     configurable: true
                 });
             }
             
-            // Intercept link clicks
-            document.addEventListener('click', (e) => {
-                const link = e.target.closest('a');
-                if (!link) return;
+            function initGlobalVerdachtenGrid() {
+                const globalGrid = document.getElementById('globalVerdachtenGrid');
+                if (!globalGrid) return;
                 
-                const href = link.getAttribute('href');
-                if (!href) return;
+                globalGrid.innerHTML = `
+                    <div class="verdachte" data-id="boomverzorger">
+                        <img src="../../icons/De_boomverzorger.png" alt="Verdachte">
+                        <p><br>De boomverzorger</p></div>
+                    <div class="verdachte" data-id="vogeldief">
+                        <img src="../../icons/De_vogeldief.png" alt="Verdachte">
+                        <p><br>De vogeldief</p></div>
+                    <div class="verdachte" data-id="vogelspotter">
+                        <img src="../../icons/De_vogelspotter.png" alt="Verdachte">
+                        <p><br>De vogelspotter</p></div>
+                    <div class="verdachte" data-id="dakloze">
+                        <img src="../../icons/De_dakloze.png" alt="Verdachte">
+                        <p><br>De dakloze</p></div>
+                    <div class="verdachte" data-id="vogelverzorger">
+                        <img src="../../icons/De_vogelverzorger.png" alt="Verdachte">
+                        <p><br>De vogelverzorger van de volière</p></div>
+                    <div class="verdachte" data-id="eigenaar">
+                        <img src="../../icons/De_eigenaar.png" alt="Verdachte">
+                        <p><br>De eigenaar<br>van de muziektent</p></div>
+                    <div class="verdachte" data-id="portier">
+                        <img src="../../icons/De_portier.png" alt="Verdachte">
+                        <p><br>De portier<br>van de concertzaal</p></div>
+                    <div class="verdachte" data-id="schoonmaker">
+                        <img src="../../icons/De_schoonmaker.png" alt="Verdachte">
+                        <p><br>De schoonmaker<br>van het zwanenbassin</p></div>
+                `;
                 
-                // Check if it's a local page navigation
-                if (pageMap[href] !== undefined) {
-                    e.preventDefault();
-                    navigateTo(pageMap[href]);
-                    return;
-                }
-                
-                // Handle startTimerButton
-                if (link.id === 'startTimerButton') {
-                    e.preventDefault();
-                    navigateTo(1);
-                    return;
-                }
-                
-                // Handle closeGameButton
-                if (link.id === 'closeGameButton') {
-                    e.preventDefault();
-                    localStorage.clear();
-                    // Use original href for external navigation
-                    if (originalHrefDescriptor) {
-                        originalHrefDescriptor.set.call(window.location, link.href);
+                globalGrid.querySelectorAll(".verdachte").forEach(el => {
+                    const id = el.dataset.id;
+                    if (localStorage.getItem('verdachte-' + id) === 'afgestreept') {
+                        el.classList.add('afgestreept');
                     } else {
-                        window.location.href = link.href;
+                        el.classList.remove('afgestreept');
                     }
-                    return;
-                }
-            }, true);
+                    el.addEventListener('click', () => {
+                        el.classList.toggle('afgestreept');
+                        if (el.classList.contains('afgestreept')) {
+                            localStorage.setItem('verdachte-' + id, 'afgestreept');
+                        } else {
+                            localStorage.removeItem('verdachte-' + id);
+                        }
+                    });
+                });
+            }
             
-            // Initialize
             currentPageIndex = getCurrentPageIndex();
             navigateTo(currentPageIndex);
+            initGlobalVerdachtenGrid();
             
-            // Handle browser back/forward (but don't change URL)
             window.addEventListener('popstate', () => {
                 currentPageIndex = getCurrentPageIndex();
                 navigateTo(currentPageIndex);
             });
             
-            // Expose for other scripts
             window.navigateToPage = navigateTo;
         })();
     </script>
