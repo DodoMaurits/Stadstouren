@@ -568,7 +568,7 @@ input::placeholder {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 4px;
-    width: calc(100% - 40px);
+    width: 100%
     justify-content: center;
     max-width: 400px;
     margin: 0 auto;
