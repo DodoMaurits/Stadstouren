@@ -433,6 +433,7 @@ margin-top: 0;
     color: #111;
     text-decoration: none;
     transform: translateY(-2px);
+    cursor: pointer;
 }
 
 /* ----- BOX INTRODUCTIE & VRAGEN ----- */
