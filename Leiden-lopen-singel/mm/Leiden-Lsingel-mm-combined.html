@@ -10,7 +10,25 @@
         .page { display: none; }
         .page.active { display: block; }
         
-        /* Zorg dat de globale verdachten-grid altijd zichtbaar is */
+        /* Container structuur */
+        .container {
+            width: 90%;
+            max-width: 500px;
+            margin: 0 auto;
+            flex-direction: column;
+            align-items: center;
+            display: flex;
+        }
+        
+        /* Globale elementen */
+        #globalElements {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        /* Globale verdachten-grid */
         #globalVerdachtenGrid {
             display: grid !important;
             grid-template-columns: repeat(4, 1fr);
@@ -56,11 +74,8 @@
             }
         }
         
-        /* Verberg de verdachten-grid in de pagina's zelf */
-        .page .verdachten-grid { display: none !important; }
-        
-        /* Centreer nav-buttons perfect */
-        .nav-buttons {
+        /* Globale nav-buttons */
+        #globalNavButtons {
             display: flex;
             justify-content: center;
             gap: 16px;
@@ -68,13 +83,23 @@
             padding: 0;
             width: 100%;
         }
+        
+        /* Verberg de verdachten-grid in de pagina's zelf */
+        .page .verdachten-grid { display: none !important; }
+        
+        /* Verberg nav-buttons in pagina's (we hebben globale) */
+        .page .nav-buttons { display: none !important; }
+        
+        /* Zorg dat de intro-pagina de startTimerButton toont */
+        #page-0 .nav-buttons { display: flex !important; }
     </style>
 </head>
 <body class="spelpagina">
 
     <div class="container">
-        <div id="page-0" class="page" data-filename="Leiden-Lsingel-mm.html" data-title="Introductie">
-            <div class="container">
+        <div id="page-content-wrapper">
+            <div id="page-0" class="page" data-filename="Leiden-Lsingel-mm.html" data-title="Introductie">
+                <div class="container">
 <div class="intro-box">
 <h2>Introductie</h2>
 <p>Je bent gevraagd als rechercheur om een historische cold case uit <b>1903</b> opnieuw te onderzoeken.
@@ -90,10 +115,10 @@
 <a class="nav-button next" href="Leiden-L1-singel-mm-1vraag.html" id="startTimerButton">Start de tijd</a>
 </div>
 </div>
-        </div>
+            </div>
 
-        <div id="page-30" class="page" data-filename="Leiden-L1-singel-mm-ontknoping.html" data-title="Antwoord">
-            <div class="container">
+            <div id="page-30" class="page" data-filename="Leiden-L1-singel-mm-ontknoping.html" data-title="Antwoord">
+                <div class="container">
 <div class="intro-box">
 <h2>Definitieve antwoord</h2>
 <p class="center"></p>
@@ -111,10 +136,10 @@
 <a class="nav-button previous" href="Leiden-L1-singel-mm-15vraag.html">Vorige</a>
 </div>
 </div>
-        </div>
+            </div>
 
-        <div id="page-31" class="page" data-filename="Leiden-L1-singel-mm-fout.html" data-title="Helaas!">
-            <div class="container">
+            <div id="page-31" class="page" data-filename="Leiden-L1-singel-mm-fout.html" data-title="Helaas!">
+                <div class="container">
 <div class="result-box">
 <h2>Resultaat</h2>
 <p class="center"></p>
@@ -135,10 +160,10 @@
 </div>
 <a class="back-button" href="../../leiden-wandelroutes.html" id="closeGameButton">Spel sluiten</a>
 </div>
-        </div>
+            </div>
 
-        <div id="page-32" class="page" data-filename="Leiden-L1-singel-mm-foutwapen.html" data-title="Helaas!">
-            <div class="container">
+            <div id="page-32" class="page" data-filename="Leiden-L1-singel-mm-foutwapen.html" data-title="Helaas!">
+                <div class="container">
 <div class="result-box">
 <h2>Resultaat</h2>
 <p class="center"></p>
@@ -159,10 +184,10 @@
 </div>
 <a class="back-button" href="../../leiden-wandelroutes.html" id="closeGameButton">Spel sluiten</a>
 </div>
-        </div>
+            </div>
 
-        <div id="page-33" class="page" data-filename="Leiden-L1-singel-mm-goed.html" data-title="Gefeliciteerd!">
-            <div class="container">
+            <div id="page-33" class="page" data-filename="Leiden-L1-singel-mm-goed.html" data-title="Gefeliciteerd!">
+                <div class="container">
 <div class="result-box">
 <h2>Resultaat</h2>
 <p class="center"></p>
@@ -182,10 +207,10 @@
 </div>
 <a class="back-button" href="../../leiden-wandelroutes.html" id="closeGameButton">Spel sluiten</a>
 </div>
-        </div>
+            </div>
 
-        <div id="page-34" class="page" data-filename="Leiden-L1-singel-mm-goedwapen.html" data-title="Helaas!">
-            <div class="container">
+            <div id="page-34" class="page" data-filename="Leiden-L1-singel-mm-goedwapen.html" data-title="Helaas!">
+                <div class="container">
 <div class="result-box">
 <h2>Resultaat</h2>
 <p class="center"></p>
@@ -205,11 +230,14 @@
 </div>
 <a class="back-button" href="../../leiden-wandelroutes.html" id="closeGameButton">Spel sluiten</a>
 </div>
-        </div>
+            </div>
 
+        </div>
         
-        <!-- Globale verdachten-grid (altijd zichtbaar, onder de pagina-inhoud) -->
-        <div id="globalVerdachtenGrid" class="verdachten-grid"></div>
+        <div id="globalElements">
+            <div id="globalVerdachtenGrid" class="verdachten-grid"></div>
+            <div id="globalNavButtons" class="nav-buttons"></div>
+        </div>
     </div>
 
     <script>
@@ -325,7 +353,57 @@
                     if (title) document.title = title + ' - Leiden Singel Moordmysterie';
                 }
                 
+                // Update globale nav-buttons
+                updateGlobalNavButtons();
+                
                 window.scrollTo(0, 0);
+            }
+            
+            // Update globale nav-buttons based on current page
+            function updateGlobalNavButtons() {
+                const globalNavButtons = document.getElementById('globalNavButtons');
+                if (!globalNavButtons) return;
+                
+                const activePage = pages[currentPageIndex];
+                if (!activePage) return;
+                
+                // Find nav-buttons in the active page
+                const navButtons = activePage.querySelector('.nav-buttons');
+                if (navButtons) {
+                    globalNavButtons.innerHTML = navButtons.innerHTML;
+                    
+                    // Re-attach click handlers
+                    globalNavButtons.querySelectorAll('a').forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (pageMap[href] !== undefined) {
+                            link.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                navigateTo(pageMap[href]);
+                            });
+                        }
+                        if (link.id === 'startTimerButton') {
+                            link.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                localStorage.removeItem('timerStart');
+                                localStorage.removeItem('timerEnd');
+                                navigateTo(1); // Go to FIRST question (index 1)
+                            });
+                        }
+                        if (link.id === 'closeGameButton') {
+                            link.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                localStorage.clear();
+                                if (originalHrefDescriptor) {
+                                    originalHrefDescriptor.set.call(window.location, link.href);
+                                } else {
+                                    window.location.href = link.href;
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    globalNavButtons.innerHTML = '';
+                }
             }
             
             // Override window.location.href for local navigation
@@ -355,31 +433,9 @@
                 const href = link.getAttribute('href');
                 if (!href) return;
                 
-                // Check if it's a local page navigation
                 if (pageMap[href] !== undefined) {
                     e.preventDefault();
                     navigateTo(pageMap[href]);
-                    return;
-                }
-                
-                // Handle startTimerButton
-                if (link.id === 'startTimerButton') {
-                    e.preventDefault();
-                    localStorage.removeItem('timerStart');
-                    localStorage.removeItem('timerEnd');
-                    navigateTo(1);
-                    return;
-                }
-                
-                // Handle closeGameButton
-                if (link.id === 'closeGameButton') {
-                    e.preventDefault();
-                    localStorage.clear();
-                    if (originalHrefDescriptor) {
-                        originalHrefDescriptor.set.call(window.location, link.href);
-                    } else {
-                        window.location.href = link.href;
-                    }
                     return;
                 }
             }, true);
@@ -409,13 +465,8 @@
                 homeButton.addEventListener('click', (e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    // Clear all localStorage
                     localStorage.clear();
-                    // Navigate to intro
                     navigateToPage(0);
-                    // Clear timer
-                    localStorage.removeItem('timerStart');
-                    localStorage.removeItem('timerEnd');
                 });
             }
         });
