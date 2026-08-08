@@ -743,22 +743,25 @@
             let currentPageId = "0";
             const template = document.getElementById('verdachtenTemplate'); // Haal de template op
     
-            // Vul de verdachten-grid voor een specifieke pagina
-            function fillVerdachtenGridForPage(pageElement) {
-                const container = pageElement.querySelector('.verdachten-grid-container');
-                if (!container) return;
-                if (container.querySelector('.verdachte')) return; // Al gevuld
-                
-                // Clone de template en voeg toe aan de container
-                const clone = template.content.cloneNode(true);
-                container.appendChild(clone);
-                
-                // Voeg event listeners toe voor afstrepen
-                container.querySelectorAll('.verdachte').forEach(el => {
-                    const id = el.dataset.id;
-                    if (localStorage.getItem('verdachte-' + id) === 'afgestreept') {
-                        el.classList.add('afgestreept');
-                    }
+        // Vul de verdachten-grid voor een specifieke pagina
+        function fillVerdachtenGridForPage(pageElement) {
+            const container = pageElement.querySelector('.verdachten-grid-container');
+            if (!container) return;
+            if (container.querySelector('.verdachte')) return; // Al gevuld
+        
+            // Clone de template en voeg toe aan de container
+            const clone = template.content.cloneNode(true);
+            container.appendChild(clone);
+        
+            // Voeg event listeners toe voor afstrepen (alleen als ze nog niet bestaan)
+            container.querySelectorAll('.verdachte').forEach(el => {
+                const id = el.dataset.id;
+                // Herstel de afvinkstatus uit localStorage
+                if (localStorage.getItem('verdachte-' + id) === 'afgestreept') {
+                    el.classList.add('afgestreept');
+                }
+                // Voeg event listener toe als deze nog niet bestaat
+                if (!el.hasEventListener) {
                     el.addEventListener('click', () => {
                         el.classList.toggle('afgestreept');
                         if (el.classList.contains('afgestreept')) {
@@ -767,8 +770,10 @@
                             localStorage.removeItem('verdachte-' + id);
                         }
                     });
-                });
-            }
+                    el.hasEventListener = true; // Markeer als toegevoegd
+                }
+            });
+        }
     
             // Navigeer naar een pagina
             function navigateTo(pageId) {
