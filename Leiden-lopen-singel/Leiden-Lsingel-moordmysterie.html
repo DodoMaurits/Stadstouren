@@ -740,56 +740,17 @@
         // === PAGE NAVIGATION SYSTEM ===
         (function() {
             const pages = document.querySelectorAll('.page');
-            let currentPageId = "0";
-            const template = document.getElementById('verdachtenTemplate'); // Haal de template op
-    
-        // Vul de verdachten-grid voor een specifieke pagina
-        function fillVerdachtenGridForPage(pageElement) {
-            const container = pageElement.querySelector('.verdachten-grid-container');
-            if (!container) return;
-            if (container.querySelector('.verdachte')) return; // Al gevuld
-        
-            // Clone de template en voeg toe aan de container
-            const clone = template.content.cloneNode(true);
-            container.appendChild(clone);
-        
-            // Voeg event listeners toe voor afstrepen (alleen als ze nog niet bestaan)
-            container.querySelectorAll('.verdachte').forEach(el => {
-                const id = el.dataset.id;
-                // Herstel de afvinkstatus uit localStorage
-                if (localStorage.getItem('verdachte-' + id) === 'afgestreept') {
-                    el.classList.add('afgestreept');
-                }
-                // Voeg event listener toe als deze nog niet bestaat
-                if (!el.hasEventListener) {
-                    el.addEventListener('click', () => {
-                        el.classList.toggle('afgestreept');
-                        if (el.classList.contains('afgestreept')) {
-                            localStorage.setItem('verdachte-' + id, 'afgestreept');
-                        } else {
-                            localStorage.removeItem('verdachte-' + id);
-                        }
-                    });
-                    el.hasEventListener = true; // Markeer als toegevoegd
-                }
-            });
-        }
-    
+            let currentPageId = "0";    
             // Navigeer naar een pagina
             function navigateTo(pageId) {
                 const targetPage = document.getElementById(`page-${pageId}`);
                 if (!targetPage) return;
-    
                 pages.forEach(page => page.classList.remove('active'));
                 targetPage.classList.add('active');
                 currentPageId = pageId;
                 window.location.hash = pageId;
                 window.scrollTo(0, 0);
-    
-                // Vul de grid voor de nieuwe pagina
-                fillVerdachtenGridForPage(targetPage);
             }
-    
             // Klik op navigatieknooppen
             document.addEventListener('click', (e) => {
                 const button = e.target.closest('[data-page]');
@@ -797,7 +758,6 @@
                 e.preventDefault();
                 navigateTo(button.getAttribute('data-page'));
             });
-    
             // Start op de eerste pagina
             const initialPage = window.location.hash.substring(1) || "0";
             navigateTo(initialPage);
