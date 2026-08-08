@@ -740,15 +740,18 @@
         (function() {
             const pages = document.querySelectorAll('.page');
             let currentPageId = "0";
+            const template = document.getElementById('verdachtenTemplate'); // Haal de template op
     
             // Vul de verdachten-grid voor een specifieke pagina
             function fillVerdachtenGridForPage(pageElement) {
                 const container = pageElement.querySelector('.verdachten-grid-container');
                 if (!container) return;
                 if (container.querySelector('.verdachte')) return; // Al gevuld
-    
-                container.innerHTML = verdachtenGridHTML;
-    
+                
+                // Clone de template en voeg toe aan de container
+                const clone = template.content.cloneNode(true);
+                container.appendChild(clone);
+                
                 // Voeg event listeners toe voor afstrepen
                 container.querySelectorAll('.verdachte').forEach(el => {
                     const id = el.dataset.id;
