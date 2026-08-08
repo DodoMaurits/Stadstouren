@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leiden Singel Moordmysterie</title>
+    <title>Leiden Singel Tijdreiziger</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body class="spelpagina">
@@ -12,15 +12,19 @@
         <div id="page-0" class="page" data-title="Introductie">
             <div class="intro-box">
                 <h2>Introductie</h2>
-                <p>Je bent gevraagd als rechercheur om een historische cold case uit <b>1903</b> opnieuw te onderzoeken.
-                Aanleiding is de opening van een nieuwe archiefkamer met foto's en kranten uit die tijd.
-                <br/><br/>Op een ochtend om <b>05:13</b> had de boomverzorger van het <b>Plantsoenpark</b> melding gemaakt van
-                een lichaam in de struiken. Het bleek burgemeester <b>François Was</b>. Een grote schokgolf ging door de stad. 
-                <br/><br/>Uiteindelijk zijn er 8 verdachten verhoord. Het lijstje houd je bij en blijft zichtbaar gedurende de route. 
-                Aan jou de taak om de moordenaar en het moordwapen te achterhalen.
+                <p>Voor het eerst in de geschiedenis is het een professor gelukt een tijdmachine te bouwen.
+                Na de geslaagde sprong terug in de tijd, sloeg de machine echter plots op hol. Sindsdien wordt de 
+                tijdreiziger elke <b>vijf minuten</b> naar een willekeurig moment in de geschiedenis geslingerd. 
+                Het uur loopt telkens opnieuw af, waardoor hij vastzit in een eindeloze tijdlus van <b>12 jaartallen</b>.
+                <br><br>Om de tijdreiziger terug te halen, hebben wij de precieze jaartallen nodig van de plekken waar 
+                hij telkens terechtkomt. Hoe meer correcte jaartallen we invoeren, hoe groter de kans dat we hem precies op 
+                het juiste moment onderscheppen en kunnen terughalen naar het heden. Gelukkig had hij in de tijdmachine 
+                een speciaal apparaat ingebouwd waarmee hij <b>korte berichten</b> naar ons kan sturen. In die berichten 
+                beschrijft hij wat hij om zich heen ziet.
+                <br><br>Jouw taak is simpel maar cruciaal: <b>ontrafel de hints</b>, bepaal het <b>juiste jaartal</b> 
+                en haal de tijdreiziger terug naar het heden.
                 </p>
             </div>
-            <div class="verdachten-grid-container"></div>
             <div class="nav-buttons">
                 <a class="nav-button next" data-page="1" id="startTimerButton">Start de tijd</a>
             </div>
@@ -28,17 +32,15 @@
 
         <div id="page-1" class="page" data-title="Vraag 1">
             <div class="intro-box">
-                <h2>Het moordwapen</h2>
-                <p class="center">Punt 1/15. Locatie: Wereldmuseum</p>
-                <p>Het moordwapen bevindt zich tussen een van de hier ter plekke tentoongestelde objecten.
-                Uit nieuw <b>DNA-onderzoek</b> naar overblijfselen uit die tijd, blijkt dat sommige materialen 
-                sporen van de burgemeester bevatten.<br/><br/>
-                De resultaten zijn binnen. DNA is onder meer gevonden op een stuk <b>gips</b> van Belgische makelij, 
-                een <b>roestvrij staal lemmet</b>, en geverfd <b>hout</b>. Noteer de 3 potentiële moordwapens door 
-                op het potloodje linksboven te klikken.
+               <h2>Het Wereldmuseum</h2>
+                <p class="center">Punt 1/12</p>
+                <p>“Oké… ik denk dat ik in een soort ziekenhuis ben beland. Het is donker, ik hoor overal gekuch en mensen die 
+                zuchten van pijn. Net ving ik een gesprek op van twee verpleegkundigen. Ze zeiden dat het ziekenhuis bij de 
+                opening 150 bedden telde, maar dat ze nu al zijn gegroeid tot 255 bedden. Daarop antwoordde de ander dat het 
+                ziekenhuis elke 4 jaar 15 nieuwe bedden had besteld. Kunnen jullie hier iets mee?”
                 </p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="0">Vorige</a>
                 <a class="nav-button next" data-page="2.1">Volgende</a>
@@ -48,11 +50,11 @@
         <div id="page-2.1" class="page" data-title="Punt 2">
             <div class="instruction-box">
                 <h2>Ga naar punt 2</h2>
-                <img alt="Route" src="../icons/Route.png"/><br/>
+                <img src="../../icons/Route.png" alt="Route"><br>
                 <p>Houd het water aan je rechterhand en loop om het museum heen met de bocht mee naar links.
                 Loop rechtdoor tot je voor stadspoort de Morspoort staat.</p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="1">Vorige</a>
                 <a class="nav-button next" data-page="2.2">Volgende</a>
@@ -69,7 +71,7 @@
                 Klik op een verdachte om uit te sluiten.
                 </p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="2.1">Vorige</a>
                 <a class="nav-button next" data-page="3.1">Volgende</a>
@@ -83,7 +85,7 @@
                 <p>Loop verder langs het water om het gebouw naar Park De Put. 
                 Loop het park door tot voorbij de molen en kijk uit over het water vanaf de witte ophaalbrug.</p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="2.2">Vorige</a>
                 <a class="nav-button next" data-page="3.2">Volgende</a>
@@ -100,24 +102,7 @@
                 Kan jij de achternaam van de journalist achterhalen om zijn verslag te vinden?
                 </p>
             </div>
-            <div class="input-wrapper">
-                <input autocomplete="off" data-answer="Troelstra" id="answerInput" placeholder="Type je antwoord en druk op enter" type="text"/>
-                <p class="error" id="answerError" style="display:none;">
-                Helaas! Dit is niet het goede antwoord.
-                </p>
-            </div>
-            <div hidden="" id="antwoordClue">
-                <h2 style="font-weight: bold; margin-bottom: 10px; text-align: center;">Heel goed!</h2>
-                <p>Uit het verslag blijkt dat de boomverzorger de burgemeester had gevonden 
-                door de afdrukken van schoenen in de aarde te volgen, 
-                die naar de struiken toe liepen. Ook vond hij een handschoen, 
-                vermoedelijk van de schoonmaker van het zwanenbassin.
-                <br/><br/>De burgemeester was de avond ervoor in de concertzaal.
-                Daar was hij voor het laatst gezien door de portier die, zoals gezegd,
-                daar dienst deed als militair in tijdelijke burgerdienst.
-                </p>
-            </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="3.1">Vorige</a>
                 <a class="nav-button next" data-page="4.1">Volgende</a>
@@ -130,7 +115,7 @@
                 <img alt="Route" src="../icons/Route.png"/>
                 <p>Loop rechtdoor over de Rembrandtbrug en sla aan de overkant rechtsaf naar het Rembrandtplein.</p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="3.2">Vorige</a>
                 <a class="nav-button next" data-page="4.2">Volgende</a>
@@ -146,22 +131,7 @@
                 van het bedrijf waarover de burgemeester een controversiële uitbreiding had goedgekeurd?
                 </p>
             </div>
-            <div class="input-wrapper">
-                <input autocomplete="off" data-answer="Rotogravure" id="answerInput" placeholder="Type je antwoord en druk op enter" type="text"/>
-                <p class="error" id="answerError" style="display:none;">
-                Helaas! Dit is niet het goede antwoord.
-                </p>
-            </div>
-            <div aria-hidden="true" class="overlay" id="infoOverlay">
-                <div class="modal">
-                    <button class="modal-close" id="infoClose2">✕</button>
-                    <h2 style="font-weight: bold; margin-bottom: 10px; text-align: center;">Klasse!</h2>
-                    <p>De brief bevat een doodsbedreiging aan de burgemeester, 
-                    omdat hij naar verluidt gebouwen wilde slopen ten koste van de cultuur in de stad.
-                    </p>
-                </div>
-            </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="4.1">Vorige</a>
                 <a class="nav-button next" data-page="5.1">Volgende</a>
@@ -176,7 +146,7 @@
                 <br/>Steek vervolgens de weg over en loop rechtdoor onder het gebouw door om het Singelpark te vervolgen.
                 <br/>Ga aan het eind van het park over het bruggetje en neem de trap, totdat je je in de speeltuin bevindt.</p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="4.2">Vorige</a>
                 <a class="nav-button next" data-page="5.2">Volgende</a>
@@ -192,7 +162,7 @@
                 Kijk goed rond.
                 </p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="5.1">Vorige</a>
                 <a class="nav-button next" data-page="6.1">Volgende</a>
@@ -208,7 +178,7 @@
                 Sla daar rechtsaf en loop aan het eind van de straat
                 naar links de poort van de Hortus Botanicus binnen. Loop langs het Grand Café.</p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="5.2">Vorige</a>
                 <a class="nav-button next" data-page="6.2">Volgende</a>
@@ -225,24 +195,7 @@
                 en je zult nieuwe informatie vinden.
                 </p>
             </div>
-            <div class="input-wrapper">
-                <input autocomplete="off" data-answer="De portier,portier,de portier van de concertzaal,portier van de concertzaal" id="answerInput" placeholder="Type je antwoord en druk op enter" type="text"/>
-                <p class="error" id="answerError" style="display:none;">
-                Helaas! Dit is niet het goede antwoord.
-                </p>
-            </div>
-            <div aria-hidden="true" class="overlay" id="infoOverlay">
-                <div class="modal">
-                    <button class="modal-close" id="infoClose2">✕</button>
-                    <h2 style="font-weight: bold; margin-bottom: 10px; text-align: center;">Je bent op dreef!</h2>
-                    <p>Uit meerdere bronnen bleek de vogelspotter regelmatig te vinden te zijn in de Leidse Hortus 
-                    om zijn hobby uit te oefenen. 
-                    Uit een ouder formulier van de Hortus Botanicus blijkt de vogelspotter de verrekijker 
-                    3 dagen voor de moord als vermist te hebben opgegeven.
-                    </p>
-                </div>
-            </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="6.1">Vorige</a>
                 <a class="nav-button next" data-page="7.1">Volgende</a>
@@ -257,7 +210,7 @@
                 Blijf de gracht net zo lang volgen met het water aan je linkerhand, tot je bij het Van der Werfpark komt.
                 Sta in het park stil bij het standbeeld van Van der Werf.</p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="6.2">Vorige</a>
                 <a class="nav-button next" data-page="7.2">Volgende</a>
@@ -273,22 +226,7 @@
                 De regio bevond zich in de richting van de kansel.
                 </p>
             </div>
-            <div class="input-wrapper">
-                <input autocomplete="off" data-answer="Schieland" id="answerInput" placeholder="Type je antwoord en druk op enter" type="text"/>
-                <p class="error" id="answerError" style="display:none;">
-                Helaas! Dit is niet het goede antwoord.
-                </p>
-            </div>
-            <div aria-hidden="true" class="overlay" id="infoOverlay">
-                <div class="modal">
-                    <button class="modal-close" id="infoClose2">✕</button>
-                    <h2 style="font-weight: bold; margin-bottom: 10px; text-align: center;">Perfect!</h2>
-                    <p>In de envelop zitten foto’s van de verdachten. 
-                    Jouw oog valt op de dakloze, om wiens voeten slechts versleten lappen gewikkeld waren.
-                    </p>
-                </div>
-            </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="7.1">Vorige</a>
                 <a class="nav-button next" data-page="8.1">Volgende</a>
@@ -304,7 +242,7 @@
                 Steek de rotonde over naar het Plantsoen een vervolg je weg door het Singelpark met het water aan je rechterhand
                 tot je links de volière aantreft.<p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="7.2">Vorige</a>
                 <a class="nav-button next" data-page="8.2">Volgende</a>
@@ -321,23 +259,7 @@
                 Kijk goed rond, de volière houdt niks achter.
                 </p>
             </div>
-            <div class="input-wrapper">
-                <input autocomplete="off" data-answer="Kret-Karsten,Kret,Karsten" id="answerInput" placeholder="Type je antwoord en druk op enter" type="text"/>
-                <p class="error" id="answerError" style="display:none;">
-                Helaas! Dit is niet het goede antwoord.
-                </p>
-            </div>
-            <div aria-hidden="true" class="overlay" id="infoOverlay">
-                <div class="modal">
-                    <button class="modal-close" id="infoClose2">✕</button>
-                    <h2 style="font-weight: bold; margin-bottom: 10px; text-align: center;">Zeker en vast!</h2>
-                    <p>Uit het gesprek bleek dat mevrouw Kret-Karsten een goede band had met de vogelverzorger. 
-                    Ze zei dat hij altijd zo kon mopperen over de vrekkigheid van de burgemeester, 
-                    maar dat na de belofte van de burgemeester om de volière te behouden, zijn toon veranderd was.
-                    </p>
-                </div>
-            </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="8.1">Vorige</a>
                 <a class="nav-button next" data-page="9.1">Volgende</a>
@@ -352,7 +274,7 @@
                 Steek de weg over via het zebrapad en vervolg het pad door het groen tot je Café Plantage treft.
                 Sla rechtsaf de Veerstraat in en stop op het Co-Snookerplein.<p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="8.2">Vorige</a>
                 <a class="nav-button next" data-page="9.2">Volgende</a>
@@ -367,22 +289,7 @@
                 Kan jij de achternaam van deze persoon achterhalen? Zijn kleinzoon zou 100 jaar leven.
                 </p>
             </div>
-            <div class="input-wrapper">
-                <input autocomplete="off" data-answer="Vrins" id="answerInput" placeholder="Type je antwoord en druk op enter" type="text"/>
-                <p class="error" id="answerError" style="display:none;">
-                Helaas! Dit is niet het goede antwoord.
-                </p>
-            </div>
-            <div aria-hidden="true" class="overlay" id="infoOverlay">
-                <div class="modal">
-                    <button class="modal-close" id="infoClose2">✕</button>
-                    <h2 style="font-weight: bold; margin-bottom: 10px; text-align: center;">Inderdaad!</h2>
-                    <p>Agent Vrins herkende de handschoen die de boomverzorger bij de burgemeester in de struiken had aangetroffen. 
-                    Hijzelf was deze enkele weken geleden kwijtgeraakt na een winterse wandeling.
-                    </p>
-                </div>
-            </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="9.1">Vorige</a>
                 <a class="nav-button next" data-page="10.1">Volgende</a>
@@ -398,7 +305,7 @@
                 tot je aan je rechterhand een wit bruggetje ziet. Loop over het bruggetje en betreed Speeltuin De Doorbraak.
                 </p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="9.2">Vorige</a>
                 <a class="nav-button next" data-page="10.2">Volgende</a>
@@ -412,7 +319,7 @@
                 <p>Kijk in de speeltuin goed om je heen. Het moordwapen was niet van het materiaal van het varken.
                 </p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="10.1">Vorige</a>
                 <a class="nav-button next" data-page="11.1">Volgende</a>
@@ -429,7 +336,7 @@
                 en ga rechtdoor over het bruggetje naar Brasserie De Poort. Stop vervolgens voor stadspoort de Zijlpoort.
                 </p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="10.2">Vorige</a>
                 <a class="nav-button next" data-page="11.2">Volgende</a>
@@ -444,7 +351,7 @@
                 De verdachte had dagelijks te maken met hetgeen waar er zes van zijn.
                 </p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="11.1">Vorige</a>
                 <a class="nav-button next" data-page="12.1">Volgende</a>
@@ -462,7 +369,7 @@
                 Ga rechts voorbij het basketbalveldje tot je aan je linkerhand twee houten bankjes treft. 
                 </p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="11.2">Vorige</a>
                 <a class="nav-button next" data-page="12.2">Volgende</a>
@@ -476,7 +383,7 @@
                 <p>Kijk bij de bankjes goed om je heen. Een van de onschuldige verdachten is niet lang na de moord hier beland.
                 </p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="12.1">Vorige</a>
                 <a class="nav-button next" data-page="13.1">Volgende</a>
@@ -494,7 +401,7 @@
                 Neem het pad links tussen de twee grote witte bouwcomplexen door om naar het Slachthuispark te gaan.
                 Loop voorbij het eerste bakstenen gebouw en stop bij de tweede tot je je midden in het park bevindt.</p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="12.2">Vorige</a>
                 <a class="nav-button next" data-page="13.2">Volgende</a>
@@ -508,7 +415,7 @@
                 <p>“Waarvan 6 dezelfde dieren graag eten, wil het moordwapen niks van weten.”
                 </p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="13.1">Vorige</a>
                 <a class="nav-button next" data-page="14.1">Volgende</a>
@@ -525,7 +432,7 @@
                 op de hoek van de Vestwal.
                 </p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="13.2">Vorige</a>
                 <a class="nav-button next" data-page="14.2">Volgende</a>
@@ -540,7 +447,7 @@
                 Wiens beroep doet denken aan waarover Rosario sprak is onschuldig.
                 </p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="14.1">Vorige</a>
                 <a class="nav-button next" data-page="15.1">Volgende</a>
@@ -555,7 +462,7 @@
                 Vervolg je weg langs het water op de Marepoortkade. Loop in een directe lijn naar de molen
                 over het plein van de Lammermarkt. Stop als je bij de molen bent.</p>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="14.2">Vorige</a>
                 <a class="nav-button next" data-page="15.2">Volgende</a>
@@ -572,22 +479,7 @@
                 Op deze dag lopen de eiken langs het water voor de tweede keer in het jaar uit.
                 </p>
             </div>
-            <div class="input-wrapper">
-                <input autocomplete="off" data-answer="Jan de Valk,Jan Valk" id="answerInput" placeholder="Type je antwoord en druk op enter" type="text"/>
-                <p class="error" id="answerError" style="display:none;">
-                Helaas! Dit is niet het goede antwoord.
-                </p>
-            </div>
-            <div aria-hidden="true" class="overlay" id="infoOverlay">
-                <div class="modal">
-                    <button class="modal-close" id="infoClose2">✕</button>
-                    <h2 style="font-weight: bold; margin-bottom: 10px; text-align: center;">Correct!</h2>
-                    <p>Molenaar Jan de Valk had bij zijn rondjes door het Plantsoen allemaal 
-                    kleine gekleurde scherven en splintertjes nabij de struiken in de aarde zien glinsteren.
-                    </p>
-                </div>
-            </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="15.1">Vorige</a>
                 <a class="nav-button next" data-page="16.1">Volgende</a>
@@ -604,7 +496,7 @@
             <div class="input-wrapper">
                 <input autocomplete="off" data-answer="Tuinkabouter" id="answerInput" placeholder="Type je antwoord en druk op enter" type="text"/>
             </div>
-            <div class="verdachten-grid-container"></div>
+            <div id="jaartallenGrid" class="jaartallen-grid"></div>
             <button class="final-button" disabled="" id="finalButton">ONTKNOPING</button>
             <div class="nav-buttons">
                 <a class="nav-button previous" data-page="15.2">Vorige</a>
@@ -696,44 +588,6 @@
             </div>
             <a class="back-button" href="../leiden-wandelroutes.html" id="closeGameButton">Spel sluiten</a>
         </div>
-
-    <template id="verdachtenTemplate">
-        <div class="verdachten-grid">
-            <div class="verdachte" data-id="boomverzorger">
-                <img src="../icons/De_boomverzorger.png" alt="Verdachte">
-                <p><br>De boomverzorger</p>
-            </div>
-            <div class="verdachte" data-id="vogeldief">
-                <img src="../icons/De_vogeldief.png" alt="Verdachte">
-                <p><br>De vogeldief</p>
-            </div>
-            <div class="verdachte" data-id="vogelspotter">
-                <img src="../icons/De_vogelspotter.png" alt="Verdachte">
-                <p><br>De vogelspotter</p>
-            </div>
-            <div class="verdachte" data-id="dakloze">
-                <img src="../icons/De_dakloze.png" alt="Verdachte">
-                <p><br>De dakloze</p>
-            </div>
-            <div class="verdachte" data-id="vogelverzorger">
-                <img src="../icons/De_vogelverzorger.png" alt="Verdachte">
-                <p><br>De vogelverzorger van de volière</p>
-            </div>
-            <div class="verdachte" data-id="eigenaar">
-                <img src="../icons/De_eigenaar.png" alt="Verdachte">
-                <p><br>De eigenaar<br>van de muziektent</p>
-            </div>
-            <div class="verdachte" data-id="portier">
-                <img src="../icons/De_portier.png" alt="Verdachte">
-                <p><br>De portier<br>van de concertzaal</p>
-            </div>
-            <div class="verdachte" data-id="schoonmaker">
-                <img src="../icons/De_schoonmaker.png" alt="Verdachte">
-                <p><br>De schoonmaker<br>van het zwanenbassin</p>
-            </div>
-        </div>
-    </template>
-
     </div>
     
     <script>
