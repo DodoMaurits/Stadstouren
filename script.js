@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <h2>Weet je het zeker?</h2>
                 <p>Je verlaat het spel en je notities worden gewist.</p>
                 <div class="modal-buttons" style="display:flex; gap:10px; justify-content:center; margin-top:20px;">
-                    <a href="../../Leiden-L1-singel.html" class="back-button">Ja</a>
+                    <a href="Leiden-L1-singel.html" class="back-button">Ja</a>
                     <button id="cancelExit" class="back-button">Nee</button>
                 </div>
             `);
