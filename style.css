@@ -229,6 +229,23 @@ h1 {
 }
 
 /* --------------- 2. SPEL --------------- */
+/* ----- COMBINATIEPAGINA ----- */
+.page { display: none; }
+.page.active { display: block; }
+        
+#page-content-wrapper {
+width: 100%;
+margin-bottom: 0;
+}
+
+#globalElements {
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 0;
+}
+
 /* ----- TOP-ROW LAYOUT ----- */
 .top-row {
     position: relative;
@@ -392,9 +409,9 @@ h1 {
 /* ----- BUTTONS VORIGE/VOLGENDE ----- */
 .nav-buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 16px;
-    max-width: 480px;
+    width: 100%;
     margin: 15px auto 20px;
     padding: 0;
 }
