@@ -834,203 +834,41 @@
     </div>
 
     <script>
-        // ===== PAGE NAVIGATION SYSTEM =====
         (function() {
             const pages = document.querySelectorAll('.page');
             let currentPageIndex = 0;
-            
-            // Map old filenames to new page indices
-            const pageMap = {
-                "Leiden-Lsingel-mm.html": 0,
-                "Leiden-L1-singel-mm-1vraag.html": 1,
-                "Leiden-L1-singel-mm-2punt.html": 2,
-                "Leiden-L1-singel-mm-2vraag.html": 3,
-                "Leiden-L1-singel-mm-3punt.html": 4,
-                "Leiden-L1-singel-mm-3vraag.html": 5,
-                "Leiden-L1-singel-mm-4punt.html": 6,
-                "Leiden-L1-singel-mm-4vraag.html": 7,
-                "Leiden-L1-singel-mm-5punt.html": 8,
-                "Leiden-L1-singel-mm-5vraag.html": 9,
-                "Leiden-L1-singel-mm-6punt.html": 10,
-                "Leiden-L1-singel-mm-6vraag.html": 11,
-                "Leiden-L1-singel-mm-7punt.html": 12,
-                "Leiden-L1-singel-mm-7vraag.html": 13,
-                "Leiden-L1-singel-mm-8punt.html": 14,
-                "Leiden-L1-singel-mm-8vraag.html": 15,
-                "Leiden-L1-singel-mm-9punt.html": 16,
-                "Leiden-L1-singel-mm-9vraag.html": 17,
-                "Leiden-L1-singel-mm-10punt.html": 18,
-                "Leiden-L1-singel-mm-10vraag.html": 19,
-                "Leiden-L1-singel-mm-11punt.html": 20,
-                "Leiden-L1-singel-mm-11vraag.html": 21,
-                "Leiden-L1-singel-mm-12punt.html": 22,
-                "Leiden-L1-singel-mm-12vraag.html": 23,
-                "Leiden-L1-singel-mm-13punt.html": 24,
-                "Leiden-L1-singel-mm-13vraag.html": 25,
-                "Leiden-L1-singel-mm-14punt.html": 26,
-                "Leiden-L1-singel-mm-14vraag.html": 27,
-                "Leiden-L1-singel-mm-15punt.html": 28,
-                "Leiden-L1-singel-mm-15vraag.html": 29,
-                "Leiden-L1-singel-mm-ontknoping.html": 30,
-                "Leiden-L1-singel-mm-fout.html": 31,
-                "Leiden-L1-singel-mm-foutwapen.html": 32,
-                "Leiden-L1-singel-mm-goed.html": 33,
-                "Leiden-L1-singel-mm-goedwapen.html": 34,
-            };
-            
-            const pageOrder = [
-                "Leiden-Lsingel-mm.html",
-                "Leiden-L1-singel-mm-1vraag.html",
-                "Leiden-L1-singel-mm-2punt.html",
-                "Leiden-L1-singel-mm-2vraag.html",
-                "Leiden-L1-singel-mm-3punt.html",
-                "Leiden-L1-singel-mm-3vraag.html",
-                "Leiden-L1-singel-mm-4punt.html",
-                "Leiden-L1-singel-mm-4vraag.html",
-                "Leiden-L1-singel-mm-5punt.html",
-                "Leiden-L1-singel-mm-5vraag.html",
-                "Leiden-L1-singel-mm-6punt.html",
-                "Leiden-L1-singel-mm-6vraag.html",
-                "Leiden-L1-singel-mm-7punt.html",
-                "Leiden-L1-singel-mm-7vraag.html",
-                "Leiden-L1-singel-mm-8punt.html",
-                "Leiden-L1-singel-mm-8vraag.html",
-                "Leiden-L1-singel-mm-9punt.html",
-                "Leiden-L1-singel-mm-9vraag.html",
-                "Leiden-L1-singel-mm-10punt.html",
-                "Leiden-L1-singel-mm-10vraag.html",
-                "Leiden-L1-singel-mm-11punt.html",
-                "Leiden-L1-singel-mm-11vraag.html",
-                "Leiden-L1-singel-mm-12punt.html",
-                "Leiden-L1-singel-mm-12vraag.html",
-                "Leiden-L1-singel-mm-13punt.html",
-                "Leiden-L1-singel-mm-13vraag.html",
-                "Leiden-L1-singel-mm-14punt.html",
-                "Leiden-L1-singel-mm-14vraag.html",
-                "Leiden-L1-singel-mm-15punt.html",
-                "Leiden-L1-singel-mm-15vraag.html",
-                "Leiden-L1-singel-mm-ontknoping.html",
-                "Leiden-L1-singel-mm-fout.html",
-                "Leiden-L1-singel-mm-foutwapen.html",
-                "Leiden-L1-singel-mm-goed.html",
-                "Leiden-L1-singel-mm-goedwapen.html",
-            ];
-            
-            // Get current page index from URL hash or localStorage
-            function getCurrentPageIndex() {
-                const hash = window.location.hash.substring(1);
-                if (hash && pageMap[hash] !== undefined) {
-                    return pageMap[hash];
-                }
-                const saved = localStorage.getItem('leiden-lsingel-mm-current-page');
-                if (saved !== null && !isNaN(parseInt(saved))) {
-                    const idx = parseInt(saved);
-                    if (idx >= 0 && idx < pageOrder.length) {
-                        return idx;
-                    }
-                }
-                return 0; // Default to intro
-            }
-            
-            // Navigate to a specific page
+    
+            // Navigeer naar een pagina op basis van index
             function navigateTo(pageIndex) {
-                if (pageIndex < 0 || pageIndex >= pages.length) {
-                    console.error('Invalid page index:', pageIndex);
-                    return;
-                }
-                
-                pages.forEach((page, idx) => {
-                    page.classList.remove('active');
-                    if (idx === pageIndex) {
-                        page.classList.add('active');
-                    }
-                });
-                
+                if (pageIndex < 0 || pageIndex >= pages.length) return;
+    
+                // Verberg alle pagina's
+                pages.forEach(page => page.classList.remove('active'));
+    
+                // Toon de geselecteerde pagina
+                pages[pageIndex].classList.add('active');
                 currentPageIndex = pageIndex;
-                const pageFilename = pageOrder[pageIndex];
-                window.location.hash = pageFilename;
-                localStorage.setItem('leiden-lsingel-mm-current-page', pageIndex.toString());
-                
-                const activePage = pages[pageIndex];
-                if (activePage) {
-                    const title = activePage.dataset.title;
-                    if (title) {
-                        document.title = title + ' - Leiden Singel Moordmysterie';
-                    }
-                }
-                
+    
+                // Update URL hash (optioneel)
+                window.location.hash = pageIndex;
+    
+                // Scroll naar boven
                 window.scrollTo(0, 0);
             }
-            
-            // Override window.location.href for local navigation
-            const originalHrefDescriptor = Object.getOwnPropertyDescriptor(Location.prototype, 'href');
-            if (originalHrefDescriptor) {
-                Object.defineProperty(window.location, 'href', {
-                    get: function() { return originalHrefDescriptor.get.call(this); },
-                    set: function(newValue) {
-                        if (typeof newValue === 'string') {
-                            // Extract filename from URL
-                            const filename = newValue.split('/').pop();
-                            if (pageMap[filename] !== undefined) {
-                                navigateTo(pageMap[filename]);
-                                return;
-                            }
-                        }
-                        // For external links, use original behavior
-                        originalHrefDescriptor.set.call(this, newValue);
-                    },
-                    configurable: true
-                });
-            }
-            
-            // Intercept link clicks
+    
+            // Klik op navigatieknooppen
             document.addEventListener('click', (e) => {
-                const link = e.target.closest('a');
-                if (!link) return;
-                
-                const href = link.getAttribute('href');
-                if (!href) return;
-                
-                // Check if it's a local page navigation
-                if (pageMap[href] !== undefined) {
-                    e.preventDefault();
-                    navigateTo(pageMap[href]);
-                    return;
-                }
-                
-                // Handle startTimerButton
-                if (link.id === 'startTimerButton') {
-                    e.preventDefault();
-                    navigateTo(1);
-                    return;
-                }
-                
-                // Handle closeGameButton
-                if (link.id === 'closeGameButton') {
-                    e.preventDefault();
-                    localStorage.clear();
-                    // Use original href for external navigation
-                    if (originalHrefDescriptor) {
-                        originalHrefDescriptor.set.call(window.location, link.href);
-                    } else {
-                        window.location.href = link.href;
-                    }
-                    return;
-                }
-            }, true);
-            
-            // Initialize
-            currentPageIndex = getCurrentPageIndex();
-            navigateTo(currentPageIndex);
-            
-            // Handle browser back/forward
-            window.addEventListener('popstate', () => {
-                currentPageIndex = getCurrentPageIndex();
-                navigateTo(currentPageIndex);
+                const button = e.target.closest('[data-page]');
+                if (!button) return;
+    
+                e.preventDefault();
+                const targetPage = parseInt(button.getAttribute('data-page'));
+                navigateTo(targetPage);
             });
-            
-            // Expose for other scripts
-            window.navigateToPage = navigateTo;
+    
+            // Start op pagina 0 (of uit URL hash)
+            const initialPage = parseInt(window.location.hash.substring(1)) || 0;
+            navigateTo(initialPage);
         })();
     </script>
     
