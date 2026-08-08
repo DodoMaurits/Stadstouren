@@ -20,12 +20,19 @@
             display: flex;
         }
         
-        /* Globale elementen */
+        /* Pagina content wrapper */
+        #page-content-wrapper {
+            width: 100%;
+            margin-bottom: 0;
+        }
+        
+        /* Globale elementen container */
         #globalElements {
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: 0;
         }
         
         /* Globale verdachten-grid */
@@ -84,14 +91,8 @@
             width: 100%;
         }
         
-        /* Verberg de verdachten-grid in de pagina's zelf */
-        .page .verdachten-grid { display: none !important; }
-        
-        /* Verberg nav-buttons in pagina's (we hebben globale) */
-        .page .nav-buttons { display: none !important; }
-        
-        /* Zorg dat de intro-pagina de startTimerButton toont */
-        #page-0 .nav-buttons { display: flex !important; }
+        /* Verberg de verdachten-grid en nav-buttons in de pagina's zelf */
+        .page .verdachten-grid, .page .nav-buttons { display: none !important; }
     </style>
 </head>
 <body class="spelpagina">
@@ -111,9 +112,7 @@
             </p>
 </div>
 
-<div class="nav-buttons">
-<a class="nav-button next" href="Leiden-L1-singel-mm-1vraag.html" id="startTimerButton">Start de tijd</a>
-</div>
+
 </div>
             </div>
 
@@ -132,9 +131,7 @@
 <button class="final-button" disabled="" id="finalButton">
             ONTKNOPING
         </button>
-<div class="nav-buttons">
-<a class="nav-button previous" href="Leiden-L1-singel-mm-15vraag.html">Vorige</a>
-</div>
+
 </div>
             </div>
 
@@ -337,7 +334,10 @@
             
             // Navigate to a specific page (without changing URL)
             function navigateTo(pageIndex) {
-                if (pageIndex < 0 || pageIndex >= pages.length) return;
+                if (pageIndex < 0 || pageIndex >= pages.length) {
+                    console.error('Invalid page index:', pageIndex, 'Max:', pages.length);
+                    return;
+                }
                 
                 pages.forEach((page, idx) => {
                     page.classList.remove('active');
@@ -386,7 +386,8 @@
                                 e.preventDefault();
                                 localStorage.removeItem('timerStart');
                                 localStorage.removeItem('timerEnd');
-                                navigateTo(1); // Go to FIRST question (index 1)
+                                console.log('Starting timer, navigating to page index 1');
+                                navigateTo(1); // FIRST QUESTION
                             });
                         }
                         if (link.id === 'closeGameButton') {
@@ -402,7 +403,21 @@
                         }
                     });
                 } else {
-                    globalNavButtons.innerHTML = '';
+                    // For intro page (page 0), show start button
+                    if (currentPageIndex === 0) {
+                        globalNavButtons.innerHTML = '<a href="Leiden-L1-singel-mm-1vraag.html" class="nav-button next" id="startTimerButton">Start de tijd</a>';
+                        const startBtn = globalNavButtons.querySelector('#startTimerButton');
+                        if (startBtn) {
+                            startBtn.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                localStorage.removeItem('timerStart');
+                                localStorage.removeItem('timerEnd');
+                                navigateTo(1);
+                            });
+                        }
+                    } else {
+                        globalNavButtons.innerHTML = '';
+                    }
                 }
             }
             
