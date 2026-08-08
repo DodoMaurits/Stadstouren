@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     /*----- NOTE KNOP -----*/
-    const notesButton = document.querySelector(".notesButton");
+    const notesButton = document.getElementById("notesButton");
     if (notesButton) {
         notesButton.addEventListener("click", () => {
             openOverlay(`
@@ -201,8 +201,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             `);
             setTimeout(() => {
-                const notesArea = document.querySelector(".notesArea");
-                const notesSave = document.querySelector(".notesSave");
+                const notesArea = document.getElementById("notesArea");
+                const notesSave = document.getElementById("notesSave");
                 notesArea.value = localStorage.getItem("detectiveNotes") || "";
                 notesArea.addEventListener("input", () => {
                     localStorage.setItem("detectiveNotes", notesArea.value);
@@ -213,8 +213,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /* ----- TIMER ----- */
-    const timerEl = document.querySelector(".timer");
-    const startTimerButton = document.querySelector(".startTimerButton");
+    const timerEl = document.getElementById("timer");
+    const startTimerButton = document.getElementById("startTimerButton");
     if (startTimerButton) {
         startTimerButton.addEventListener("click", () => {
             localStorage.removeItem("timerEnd");
@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /*----- HOMEKNOP SPEL SLUITEN-----*/
-    const homeButton = document.querySelector(".homeButton");
+    const homeButton = document.getElementById("homeButton");
     if (homeButton) {
         homeButton.addEventListener("click", () => {
             openOverlay(`
