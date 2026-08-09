@@ -175,8 +175,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     answerInput.classList.remove('input-error');
                 }, 400);
             }
-        });
-    }
+        }
+    });
 
     /* ---------- TOP-ROW ---------- */
     if (document.body.classList.contains("spelpagina")) {
