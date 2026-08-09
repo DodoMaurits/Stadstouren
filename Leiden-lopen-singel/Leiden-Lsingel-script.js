@@ -223,13 +223,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const suspectCorrect = suspectIsCorrect();
             let targetPage = "";
             if (weaponCorrect && suspectCorrect) {
-                targetPage = "Leiden-L1-singel-mm-goed.html";
+                targetPage = "102";
             } else if (weaponCorrect && !suspectCorrect) {
-                targetPage = "Leiden-L1-singel-mm-foutwapen.html";
+                targetPage = "103";
             } else if (!weaponCorrect && suspectCorrect) {
-                targetPage = "Leiden-L1-singel-mm-goedwapen.html";
+                targetPage = "101";
             } else {
-                targetPage = "Leiden-L1-singel-mm-fout.html";
+                targetPage = "100";
             }
             localStorage.setItem("timerEnd", Date.now());
             window.location.href = targetPage;
