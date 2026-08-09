@@ -3,37 +3,35 @@ const isResultPage = !!localStorage.getItem("timeTravelResults");
 document.addEventListener("DOMContentLoaded", () => {
 
     /* ----- NAVIGATIEKNOPPEN ----- */
-        const pages = document.querySelectorAll('.page');
-        let currentPageId = "0";
-        // Navigeer naar een pagina
-        function navigateTo(pageId) {
-            const targetPage = document.getElementById(`page-${pageId}`);
-            if (!targetPage) return;
-            pages.forEach(page => page.classList.remove('active'));
-            targetPage.classList.add('active');
-            currentPageId = pageId;
-            window.location.hash = pageId;
-            window.scrollTo(0, 0);
-
-            setTimeout(() => {
-                buildVerdachtenGrid();
-                restoreVerdachtenState();
-                if (typeof updateButtonState === 'function') {
-                    updateButtonState(); // Update de knopstatus
-                }
-            }, 50);
-        }
-        // Klik op navigatieknooppen
-        document.addEventListener('click', (e) => {
-        const button = e.target.closest('[data-page]');
-        if (!button) return;
-        e.preventDefault();
-        navigateTo(button.getAttribute('data-page'));
-        });
-        // Start op de eerste pagina
-        const initialPage = window.location.hash.substring(1) || "0";
-        navigateTo(initialPage);
+    const pages = document.querySelectorAll('.page');
+    let currentPageId = "0";
+    // Navigeer naar een pagina
+    function navigateTo(pageId) {
+        const targetPage = document.getElementById(`page-${pageId}`);
+        if (!targetPage) return;
+        pages.forEach(page => page.classList.remove('active'));
+        targetPage.classList.add('active');
+        currentPageId = pageId;
+        window.location.hash = pageId;
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+            buildVerdachtenGrid();
+            restoreVerdachtenState();
+            if (typeof updateButtonState === 'function') {
+                updateButtonState(); // Update de knopstatus
+            }
+        }, 50);
     }
+    // Klik op navigatieknooppen
+    document.addEventListener('click', (e) => {
+    const button = e.target.closest('[data-page]');
+    if (!button) return;
+    e.preventDefault();
+    navigateTo(button.getAttribute('data-page'));
+    });
+    // Start op de eerste pagina
+    const initialPage = window.location.hash.substring(1) || "0";
+    navigateTo(initialPage);
     
     /* ----- VERDACHTENGRID ----- */
     function buildVerdachtenGrid() {
