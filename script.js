@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
     answerInputs.forEach(answerInput => {
         const answerError = answerInput.nextElementSibling;
         if (!answerInput || !answerError) return;
-        const correctAnswers = answerInput.dataset.answer;
+        const correctAnswers = answerInput.dataset.answer
             .toLowerCase()
             .split(',')
             .map(a => a.trim());
