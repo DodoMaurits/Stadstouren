@@ -34,7 +34,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (cityButtons.length > 0) {
         cityButtons.forEach(button => {
             button.addEventListener("click", () => {
+                const isAlreadyActive = button.classList.contains("active");
                 cityButtons.forEach(btn => btn.classList.remove("active"));
+                if (isAlreadyActive) {
+                    window.selectedPlace = null;
+                    disableButtons();
+                    return;
+                }
                 button.classList.add("active");
                 const cityName = button.getAttribute("data-city");
                 const selectedPlace = places.find(place => place.name === cityName);
