@@ -90,8 +90,21 @@ h1 {
     margin: 20px 0;
 }
 
-.city-button,
 .binnenkort-button {
+    display: inline-block;
+    padding: 14px 30px;
+    background: #1a3a5c;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    border: 2px solid #2a4a6c;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.city-button {
     display: inline-block;
     padding: 14px 30px;
     background: #1a3a5c;
