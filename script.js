@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!timerEl) return;
         if (timerInterval) clearInterval(timerInterval);
         startTime = Number(localStorage.getItem("timerStart"));
-        const endTime = localStorage.getItem("timerEnd");
+        const endTime = Number(localStorage.getItem("timerEnd"));
         function showTime(diff) {
             const hours = Math.floor(diff / 3600);
             const minutes = String(Math.floor((diff % 3600) / 60)).padStart(2, "0");
