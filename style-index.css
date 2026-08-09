@@ -110,6 +110,7 @@ h2 {
     margin-bottom: 10px;
     text-align: center;
     font-style: italic;
+    cursor: not-allowed;
 }
 
 .city-button {
