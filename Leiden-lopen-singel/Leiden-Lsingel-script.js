@@ -216,7 +216,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 targetPage = "100";
             }
             localStorage.setItem("timerEnd", Date.now());
-            navigateTo(targetPage);
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(`page-${targetPage}`)?.classList.add('active');
         });
         updateButtonState(); /* Direct check bij laden van pagina */
     }
