@@ -215,6 +215,10 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 targetPage = "100";
             }
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
             localStorage.setItem("timerEnd", Date.now());
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(`page-${targetPage}`)?.classList.add('active');
