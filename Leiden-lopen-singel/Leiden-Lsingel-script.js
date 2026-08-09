@@ -236,6 +236,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         updateButtonState(); /* Direct check bij laden van pagina */
     }
+    const targetPageElement = document.getElementById(`page-${targetPage}`);
+    if (targetPageElement) {
+        document.querySelectorAll('.page').forEach(page => {
+            page.classList.remove('active');
+        });
+        targetPageElement.classList.add('active');
+        window.location.hash = targetPage;
+        window.scrollTo(0, 0);
+    }
     const closeGameButton = document.getElementById("closeGameButton");
     if (closeGameButton) {
         closeGameButton.addEventListener("click", (e) => {
