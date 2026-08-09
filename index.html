@@ -8,25 +8,18 @@
 </head>
 <body>
     <div class="container">
+
         <h1>Stadsroute Speurtocht</h1>
-        
-        <div class="map-container">
-            <svg id="netherlandsMap" class="netherlands-map" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
-                <!-- Simplified outline of Netherlands -->
-                <path class="map-outline" d="M50,50 L80,40 L120,35 L160,40 L200,30 L240,35 L280,45 L320,50 L350,60 L360,100 L355,140 L340,180 L320,220 L290,260 L250,300 L200,340 L150,380 L100,420 L60,440 L40,420 L30,380 L40,340 L60,300 L80,260 L100,220 L120,180 L130,140 L120,100 L100,80 L80,70 Z" />
-                
-                <!-- City markers (balloons) -->
-                <g id="cityMarkers">
-                    <!-- Leiden balloon -->
-                    <g class="city-marker" data-city="Leiden" data-boat="leiden-vaarroutes.html" data-walk="leiden-wandelroutes.html">
-                        <circle class="balloon" cx="140" cy="240" r="12" fill="#ff4444" />
-                        <circle class="balloon-highlight" cx="140" cy="240" r="8" fill="#ff6666" />
-                        <text class="city-label" x="140" y="245" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Leiden</text>
-                        <circle class="marker-pin" cx="140" cy="255" r="3" fill="#888" />
-                        <line class="marker-string" x1="140" y1="252" x2="140" y2="255" stroke="#888" stroke-width="1" />
-                    </g>
-                </g>
-            </svg>
+        <p></p>
+
+        <div class="input-wrapper">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Selecteer een plaats..." 
+                autocomplete="off"
+            >
+            <div id="dropdown" class="dropdown"></div>
         </div>
 
         <p id="errorMessage" class="error"></p>
@@ -35,10 +28,11 @@
             <button id="boatBtn" class="route-btn">Vaarroutes</button>
             <button id="walkBtn" class="route-btn">Wandelroutes</button>
         </div>
-        
-        <p class="map-instructions">Klik op een ballonnetje om een stad te selecteren</p>
+
     </div>
 
     <script src="script.js"></script>
+    
 </body>
 </html>
+
