@@ -50,7 +50,7 @@ h1 {
     margin: 15px auto 20px auto;
     padding: 12px 14px;
     background-color: #cfe8ff;
-    color: white;
+    color: #0f2a44;
     font-size: 0.9rem;
     font-weight: 600;
     text-align: center;
@@ -90,7 +90,8 @@ h1 {
     margin: 20px 0;
 }
 
-.city-button {
+.city-button,
+.welkombutton {
     display: inline-block;
     padding: 14px 30px;
     background: #1a3a5c;
