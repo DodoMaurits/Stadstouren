@@ -150,9 +150,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /* ---------- ANTWOORD CONTROLE ---------- */
-    const answerInput = document.getElementById('answerInput');
-    const answerError = document.getElementById('answerError');
-    if (answerInput) {
+    const answerInputs = document.querySelectorAll('.answer-input');
+    answerInputs.forEach(answerInput => {
+        if (!answerInput || !answerError) return;
+
         const correctAnswers = answerInput.dataset.answer
             .toLowerCase()
             .split(',')
@@ -162,13 +163,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const userAnswer = answerInput.value.trim().toLowerCase();
             let isCorrect = correctAnswers.some(correct => levenshtein(userAnswer, correct) <= 1);
             if (isCorrect) {
-                if (answerError) answerError.style.display = "none";
+                answerError.style.display = "none";
                 const clue = document.getElementById("antwoordClue");
                 if (clue) {
                     openOverlay(clue.innerHTML);
                 }
             } else {
-                if (answerError) answerError.style.display = "block";
+                answerError.style.display = "block";
                 answerInput.classList.add('input-error');
                 setTimeout(() => {
                     answerInput.classList.remove('input-error');
