@@ -185,8 +185,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     
-    /* ---------- ONTKNOPING MOORDMYSTERIE ---------- */
-    const answerInputFinal = document.getElementById("answerInput");
+    /* ---------- ONTKNOPING MOORDMYSTERIE ---------- */    
+    const finalAnswerInput = document.getElementById("finalAnswerInput");
     const finalButton = document.getElementById("finalButton");
     
     if (answerInputFinal && finalButton) {
@@ -194,17 +194,22 @@ document.addEventListener("DOMContentLoaded", () => {
             .toLowerCase()
             .split(",")
             .map(a => a.trim());
-        const correctSuspectId = "eigenaar"; // pas aan per scenario
+        const correctSuspectId = "eigenaar";
         /* Check welke verdachten nog groen zijn */
         function getRemainingSuspects() {
             const activePage = document.querySelector('.page.active');
-            if (!activePage) return [];
-            return Array.from(activePage.querySelectorAll(".verdachte"))
-                .filter(v => !v.classList.contains("afgestreept"));
+            let verdachten = [];
+            if (activePage) {
+                verdachten = Array.from(activePage.querySelectorAll(".verdachte"));
+            }
+            if (verdachten.length === 0) {
+                verdachten = Array.from(document.querySelectorAll(".verdachte"));
+            }
+            return verdachten.filter(v => !v.classList.contains("afgestreept"));
         }
         /* Controleer of het wapen correct is */
         function weaponIsCorrect() {
-            const user = answerInputFinal.value.trim().toLowerCase();
+            const user = finalAnswerInput.value.trim().toLowerCase();
             if (!user) return false;
             return correctWeapon.some(correct => levenshtein(user, correct) <= 1);
         }
@@ -215,19 +220,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         /* Update de finale knop status */
         function updateButtonState() {
-            const hasInput = answerInputFinal.value.trim().length > 0;
+            const hasInput = finalAnswerInput.value.trim().length > 0;
             const oneSuspectLeft = getRemainingSuspects().length === 1;
             finalButton.disabled = !(hasInput && oneSuspectLeft);
         }
         /* Voeg click handlers toe aan bestaande verdachten (voor de eerste pagina) */
         document.querySelectorAll(".verdachte").forEach(el => {
             if (!el.hasClickHandler) {
-                el.addEventListener("click", () => setTimeout(updateButtonState, 10));
+                el.addEventListener("click", () => {
+                    setTimeout(updateButtonState, 10);
+                });
                 el.hasClickHandler = true;
             }
         });
         /* Listeners om knopstatus te updaten */
-        answerInputFinal.addEventListener("input", updateButtonState);
+        finalAnswerInput.addEventListener("input", updateButtonState);
         /* Klik op finale knop → juiste ontknopingspagina */
         finalButton.addEventListener("click", () => {
             const weaponCorrect = weaponIsCorrect();
