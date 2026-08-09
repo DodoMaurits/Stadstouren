@@ -26,6 +26,14 @@ body {
     display: flex;
 }
 
+.overlay {
+    display: none;
+}
+
+.overlay.visible {
+    display: flex;
+}
+
 /* ----- TITEL ----- */
 h1 {
     margin-bottom: 30px;
