@@ -289,6 +289,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <button id="cancelExit" class="back-button">Nee</button>
                 </div>
             `);
+            ;
                 setTimeout(() => {
                     const YesExitButton = document.getElementById("YesExit");
                     const cancelExitButton = document.getElementById("cancelExit");
