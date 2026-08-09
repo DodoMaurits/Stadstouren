@@ -269,13 +269,21 @@ document.addEventListener('DOMContentLoaded', function() {
                     <button id="cancelExit" class="back-button">Nee</button>
                 </div>
             `);
-            setTimeout(() => {
-                const YesExitButton = document.getElementById("YesExit");
+                setTimeout(() => {
+                    const YesExitButton = document.getElementById("YesExit");
+                    const cancelExitButton = document.getElementById("cancelExit");
                 if (YesExitButton) {
-                    YesExitButton.addEventListener("click", () => {
+                    YesExitButton.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        if (timerInterval) clearInterval(timerInterval);
+                        timerInterval = null;
+                        localStorage.clear();
+                        window.location.href = "../Leiden-L1-singel.html";
+                    });
+                }
+                if (cancelExitButton) {
+                    cancelExitButton.addEventListener("click", () => {
                         closeOverlay();
-                        restoreVerdachtenState();
-                        localStorage.removeItem("detectiveNotes");
                     });
                 }
             }, 0);
