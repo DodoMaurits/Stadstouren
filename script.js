@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function startTimer() {
         if (!timerEl) return;
         if (timerInterval) clearInterval(timerInterval);
-        const startTime = Number(localStorage.getItem("timerStart"));
+        startTime = Number(localStorage.getItem("timerStart"));
         const endTime = localStorage.getItem("timerEnd");
         function showTime(diff) {
             const hours = Math.floor(diff / 3600);
