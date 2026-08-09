@@ -112,6 +112,26 @@ h1 {
     background: rgba(0, 230, 118, 0.2);
 }
 
+.grid-item-disabled {
+    background: rgba(0, 0, 0, 0.5);
+    color: #666;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+    padding: 15px;
+    box-sizing: border-box;
+    font-style: italic;
+    cursor: not-allowed;
+}
+@media (max-width: 900px) {
+    .grid-item {
+        padding: 10px;
+    }
+}
+
 .number {
     font-size: 50px;
     font-weight: bold;
