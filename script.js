@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 400);
             }
         });
-    }
+    })
 
     /* ---------- TOP-ROW ---------- */
     if (document.body.classList.contains("spelpagina")) {
