@@ -152,8 +152,8 @@ document.addEventListener('DOMContentLoaded', function() {
     /* ---------- ANTWOORD CONTROLE ---------- */
     const answerInputs = document.querySelectorAll('.answer-input');
     answerInputs.forEach(answerInput => {
+        const answerError = answerInput.nextElementSibling;
         if (!answerInput || !answerError) return;
-
         const correctAnswers = answerInput.dataset.answer
             .toLowerCase()
             .split(',')
