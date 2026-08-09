@@ -186,7 +186,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const correctSuspectId = "eigenaar"; // pas aan per scenario
         /* Check welke verdachten nog groen zijn */
         function getRemainingSuspects() {
-            return Array.from(document.querySelectorAll(".verdachte"))
+            const activePage = document.querySelector('.page.active');
+            if (!activePage) return [];
+            return Array.from(activePage.querySelectorAll(".verdachte"))
                 .filter(v => !v.classList.contains("afgestreept"));
         }
         /* Controleer of het wapen correct is */
@@ -206,11 +208,15 @@ document.addEventListener("DOMContentLoaded", () => {
             const oneSuspectLeft = getRemainingSuspects().length === 1;
             finalButton.disabled = !(hasInput && oneSuspectLeft);
         }
+        /* Voeg click handlers toe aan bestaande verdachten (voor de eerste pagina) */
+        document.querySelectorAll(".verdachte").forEach(el => {
+            if (!el.hasClickHandler) {
+                el.addEventListener("click", () => setTimeout(updateButtonState, 10));
+                el.hasClickHandler = true;
+            }
+        });
         /* Listeners om knopstatus te updaten */
         answerInputFinal.addEventListener("input", updateButtonState);
-        document.querySelectorAll(".verdachte").forEach(el => {
-            el.addEventListener("click", () => setTimeout(updateButtonState, 10));
-        });
         /* Klik op finale knop → juiste ontknopingspagina */
         finalButton.addEventListener("click", () => {
             const weaponCorrect = weaponIsCorrect();
