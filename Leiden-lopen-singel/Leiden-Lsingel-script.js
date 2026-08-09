@@ -3,9 +3,8 @@ const isResultPage = !!localStorage.getItem("timeTravelResults");
 document.addEventListener("DOMContentLoaded", () => {
 
     /* ----- NAVIGATIEKNOPPEN ----- */
-    (function() {
         const pages = document.querySelectorAll('.page');
-        let currentPageId = "0";    
+        let currentPageId = "0";
         // Navigeer naar een pagina
         function navigateTo(pageId) {
             const targetPage = document.getElementById(`page-${pageId}`);
@@ -34,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Start op de eerste pagina
         const initialPage = window.location.hash.substring(1) || "0";
         navigateTo(initialPage);
-    })();
+    }
     
     /* ----- VERDACHTENGRID ----- */
     function buildVerdachtenGrid() {
