@@ -100,7 +100,7 @@ h2 {
     width: 150px;
     display: inline-block;
     padding: 14px 30px;
-    background: #616161;
+    background: rgba(0, 0, 0, 0.5);
     color: white;
     border-radius: 10px;
     font-size: 18px;
