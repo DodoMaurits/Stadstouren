@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 targetPage = "100";
             }
             localStorage.setItem("timerEnd", Date.now());
-            window.location.href = targetPage;
+            navigateTo(targetPage);
         });
         updateButtonState(); /* Direct check bij laden van pagina */
     }
