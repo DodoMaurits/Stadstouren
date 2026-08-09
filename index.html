@@ -8,18 +8,13 @@
 </head>
 <body>
     <div class="container">
-
         <h1>Stadsroute Speurtocht</h1>
-        <p></p>
 
-        <div class="input-wrapper">
-            <input 
-                type="text" 
-                id="searchInput" 
-                placeholder="Selecteer een plaats..." 
-                autocomplete="off"
-            >
-            <div id="dropdown" class="dropdown"></div>
+        <div class="city-selector">
+            <div class="city-button" data-city="Leiden" data-boat="leiden-vaarroutes.html" data-walk="leiden-wandelroutes.html">
+                Leiden
+            </div>
+            <p class="coming-soon">Binnenkort meer steden</p>
         </div>
 
         <p id="errorMessage" class="error"></p>
@@ -28,11 +23,8 @@
             <button id="boatBtn" class="route-btn">Vaarroutes</button>
             <button id="walkBtn" class="route-btn">Wandelroutes</button>
         </div>
-
     </div>
 
     <script src="script.js"></script>
-    
 </body>
 </html>
-
