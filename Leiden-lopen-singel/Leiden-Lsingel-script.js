@@ -249,9 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 targetPage = "100";
             }
-            localStorage.setItem("timerEnd", Date.now()); // Slaat de eindtijd op
-            if (timerInterval) clearInterval(timerInterval); // Stopt de interval
-            timerInterval = null; // Ruimt de variabele op
+            localStorage.setItem("timerEnd", Date.now());
             navigateTo(targetPage);
         });
         updateButtonState(); /* Direct check bij laden van pagina */
