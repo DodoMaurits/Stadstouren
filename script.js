@@ -24,60 +24,29 @@ function levenshtein(a, b) {
 document.addEventListener('DOMContentLoaded', function() {
 
     /* ----- INDEX ----- */
-    const searchInput = document.getElementById("searchInput");
-    const dropdown = document.getElementById("dropdown");
     const errorMessage = document.getElementById("errorMessage");
     const boatBtn = document.getElementById("boatBtn");
     const walkBtn = document.getElementById("walkBtn");
-    const places = [
-        { name: "Leiden", boat: "leiden-vaarroutes.html", walk: "leiden-wandelroutes.html" }
-    ];
-    if (searchInput) {
-        searchInput.addEventListener("focus", () => {
-            dropdown.innerHTML = "";
-            places.forEach(place => {
-                const item = document.createElement("div");
-                item.className = "dropdown-item";
-                item.textContent = place.name;
-                item.addEventListener("click", () => {
-                    selectPlace(place);
-                });
-                dropdown.appendChild(item);
-            });
-            dropdown.style.display = "block";
+    const cityButton = document.querySelector(".city-button");
+
+    // Handle city button click
+    if (cityButton) {
+        cityButton.addEventListener("click", () => {
+            // Add active class
+            cityButton.classList.add("active");
+
+            // Store selected place
+            selectedPlace = {
+                name: cityButton.getAttribute("data-city"),
+                boat: cityButton.getAttribute("data-boat"),
+                walk: cityButton.getAttribute("data-walk")
+            };
+
+            enableButtons();
         });
     }
+
     let selectedPlace = null;
-    function selectPlace(place) {
-        selectedPlace = place;
-        searchInput.value = place.name;
-        dropdown.style.display = "none";
-        enableButtons();
-    }
-    function disableButtons() {
-        if (boatBtn) boatBtn.disabled = true;
-        if (walkBtn) walkBtn.disabled = true;
-    }
-    function enableButtons() {
-        if (boatBtn) boatBtn.disabled = false;
-        if (walkBtn) walkBtn.disabled = false;
-    }
-    function showError() {
-        errorMessage.textContent = "Kies een plaats";
-    }
-    if (boatBtn) {
-        boatBtn.addEventListener("click", () => {
-            if (!selectedPlace) return showError();
-            window.location.href = selectedPlace.boat;
-        });
-    }
-    if (walkBtn) {
-        walkBtn.addEventListener("click", () => {
-            if (!selectedPlace) return showError();
-            window.location.href = selectedPlace.walk;
-        });
-    }
-    disableButtons();
 
     /* ----- OVERLAYFUNCTIE ----- */
     const overlayHTML = 
