@@ -229,9 +229,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (closeGameButton) {
         closeGameButton.addEventListener("click", (e) => {
             e.preventDefault();
-            if (timerInterval) clearInterval(timerInterval);
-            timerInterval = null;
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
             localStorage.clear();
+            const timerEl = document.getElementById("timer");
+            if (timerEl) {
+                timerEl.textContent = "0:00:00";
+            }
             window.location.href = closeGameButton.href;
         });
     }
