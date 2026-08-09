@@ -269,6 +269,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     <button id="cancelExit" class="back-button">Nee</button>
                 </div>
             `);
+            setTimeout(() => {
+                const cancelExitButton = document.getElementById("cancelExit");
+                if (cancelExitButton) {
+                    cancelExitButton.addEventListener("click", () => {
+                        closeOverlay();
+                        restoreVerdachtenState();
+                        localStorage.removeItem("detectiveNotes");
+                    });
+                }
+            }, 0);
         });
     }
 
