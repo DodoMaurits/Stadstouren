@@ -189,8 +189,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const finalAnswerInput = document.getElementById("finalAnswerInput");
     const finalButton = document.getElementById("finalButton");
     
-    if (answerInputFinal && finalButton) {
-        const correctWeapon = answerInputFinal.dataset.answer
+    if (finalAnswerInput && finalButton) {
+        const correctWeapon = finalAnswerInput.dataset.answer
             .toLowerCase()
             .split(",")
             .map(a => a.trim());
