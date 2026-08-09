@@ -43,6 +43,13 @@ h1 {
     margin-bottom: 30px;
 }
 
+h2 {
+    color: #0f2a44;
+    font-size: 1.2rem;
+    margin: 0 0 10px 0; 
+    font-weight: bold;
+}
+
 /* ----- WELKOMBOX ----- */
 .welkombox {
     width: 280px;
