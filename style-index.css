@@ -256,3 +256,42 @@ input::placeholder {
     animation: legSwing 0.5s ease-in-out infinite alternate;
 }
 
+.running-man-svg {
+    margin: 20px auto;
+    animation: moveForward 0.5s ease-in-out infinite;
+}
+
+.running-man-svg .arm {
+    transform-origin: center left;
+    animation: swingArm 0.5s ease-in-out infinite;
+}
+
+.running-man-svg .right-arm {
+    animation-delay: 0.25s;
+    transform-origin: center right;
+}
+
+.running-man-svg .leg {
+    transform-origin: top center;
+    animation: swingLeg 0.5s ease-in-out infinite;
+}
+
+.running-man-svg .right-leg {
+    animation-delay: 0.25s;
+}
+
+@keyframes moveForward {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+}
+
+@keyframes swingArm {
+    0%, 100% { transform: rotate(-30deg); }
+    50% { transform: rotate(30deg); }
+}
+
+@keyframes swingLeg {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-30deg); }
+}
+
