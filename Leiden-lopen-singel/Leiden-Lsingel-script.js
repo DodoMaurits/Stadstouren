@@ -15,6 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
             currentPageId = pageId;
             window.location.hash = pageId;
             window.scrollTo(0, 0);
+
+            setTimeout(() => {
+                buildVerdachtenGrid();
+                restoreVerdachtenState();
+                if (typeof updateButtonState === 'function') {
+                    updateButtonState(); // Update de knopstatus
+                }
+            }, 50);
         }
         // Klik op navigatieknooppen
         document.addEventListener('click', (e) => {
@@ -83,8 +91,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         } else {
                             localStorage.removeItem('verdachte-' + id);
                         }
+                        if (typeof updateButtonState === 'function') {
+                            setTimeout(updateButtonState, 10);
+                        }
                     });
-                    el.hasClickHandler = true; // Markeer als handler toegevoegd
+                    el.hasClickHandler = true;
                 }
             });
         });
