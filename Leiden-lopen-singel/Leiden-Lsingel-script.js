@@ -240,6 +240,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (closeGameButton) {
         closeGameButton.addEventListener("click", (e) => {
             e.preventDefault();
+            if (timerInterval) clearInterval(timerInterval);
+            timerInterval = null;
             localStorage.clear();
             window.location.href = closeGameButton.href;
         });
