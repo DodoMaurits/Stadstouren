@@ -24,43 +24,36 @@ function levenshtein(a, b) {
 document.addEventListener('DOMContentLoaded', function() {
 
     /* ----- INDEX ----- */
+    const searchInput = document.getElementById("searchInput");
+    const dropdown = document.getElementById("dropdown");
     const errorMessage = document.getElementById("errorMessage");
     const boatBtn = document.getElementById("boatBtn");
     const walkBtn = document.getElementById("walkBtn");
-    const cityMarkers = document.querySelectorAll(".city-marker");
-    
     const places = [
         { name: "Leiden", boat: "leiden-vaarroutes.html", walk: "leiden-wandelroutes.html" }
     ];
-    
-    // Handle map marker clicks
-    if (cityMarkers.length > 0) {
-        cityMarkers.forEach(marker => {
-            marker.addEventListener("click", () => {
-                const cityName = marker.getAttribute("data-city");
-                const boatUrl = marker.getAttribute("data-boat");
-                const walkUrl = marker.getAttribute("data-walk");
-                
-                // Remove selected class from all markers
-                cityMarkers.forEach(m => m.classList.remove("selected"));
-                
-                // Add selected class to clicked marker
-                marker.classList.add("selected");
-                
-                // Store selected place
-                selectedPlace = {
-                    name: cityName,
-                    boat: boatUrl,
-                    walk: walkUrl
-                };
-                
-                enableButtons();
+    if (searchInput) {
+        searchInput.addEventListener("focus", () => {
+            dropdown.innerHTML = "";
+            places.forEach(place => {
+                const item = document.createElement("div");
+                item.className = "dropdown-item";
+                item.textContent = place.name;
+                item.addEventListener("click", () => {
+                    selectPlace(place);
+                });
+                dropdown.appendChild(item);
             });
+            dropdown.style.display = "block";
         });
     }
-    
     let selectedPlace = null;
-    
+    function selectPlace(place) {
+        selectedPlace = place;
+        searchInput.value = place.name;
+        dropdown.style.display = "none";
+        enableButtons();
+    }
     function disableButtons() {
         if (boatBtn) boatBtn.disabled = true;
         if (walkBtn) walkBtn.disabled = true;
@@ -90,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const overlayHTML = 
     `<div id="overlay" class="overlay" aria-hidden="true">
         <div class="modal">
-            <button id="overlayClose" class="overlay-close">\u2715</button>
+            <button id="overlayClose" class="overlay-close">✕</button>
             <div id="overlayContent"></div>
         </div>
     </div>
@@ -240,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const container = document.querySelector(".container");
         container.insertAdjacentHTML("afterbegin", `
             <div class="top-row">
-                <button id="notesButton" class="notes-button">\u270f\ufe0f</button>
+                <button id="notesButton" class="notes-button">✏️</button>
                 <div id="timer" class="timer">0:00:00</div>
                 <button id="homeButton" class="home-button">x</button>
             </div>
