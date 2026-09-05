@@ -1,5 +1,3 @@
-const isResultPage = !!localStorage.getItem("timeTravelResults");
-
 document.addEventListener("DOMContentLoaded", () => {
     
     // Initialiseer
@@ -16,11 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
     /* ----- JAARTALLENGRID ----- */
     function buildJaartallenGrid() {
-        const jaartallenContainer = document.querySelectorAll(".jaartallen-grid");
-        if (!jaartallenContainer) return;
-        jaartallenContainer.innerHTML = "";
-        if (!isResultPage) {
-            for (let i = 1; i <= 12; i++) {
+        const containers = document.querySelectorAll(".jaartallen-grid");
+        containers.forEach(container => {
+            container.innerHTML = "";
+            if (!localStorage.getItem("timeTravelResults")) { 
+                for (let i = 1; i <= 12; i++) {
                 const input = document.createElement("input");
                 input.type = "text";
                 input.inputMode = "numeric";
