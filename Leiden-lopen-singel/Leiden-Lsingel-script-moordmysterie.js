@@ -177,4 +177,4 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = closeGameButton.href;
         });
     }
-}
+});
