@@ -179,8 +179,6 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.hash = pageId;
         window.scrollTo(0, 0);
         setTimeout(() => {
-            buildVerdachtenGrid();
-            restoreVerdachtenState();
             if (typeof updateButtonState === 'function') {
                 updateButtonState(); // Update de knopstatus
             }
