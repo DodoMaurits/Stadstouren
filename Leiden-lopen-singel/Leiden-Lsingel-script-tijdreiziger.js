@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     /* ----- JAARTALLENGRID ----- */
     function buildJaartallenGrid() {
-        const jaartallenContainer = document.getElementById("jaartallenGrid");
+        const jaartallenContainer = document.querySelectorAll(".jaartallen-grid");
         if (!jaartallenContainer) return;
         jaartallenContainer.innerHTML = "";
         if (!isResultPage) {
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const resultGrid = document.getElementById("jaartallenGrid");
+    const resultGrid = document.querySelectorAll(".jaartallen-grid");
     const resultsData = localStorage.getItem("timeTravelResults");
     if (resultGrid && resultsData) {
         resultGrid.innerHTML = ""; // voorkomt dubbele grids
