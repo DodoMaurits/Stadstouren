@@ -73,8 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     }
-    // Initialiseer
-    buildJaartallenGrid();
 
     /* ---------- ONTKNOPING TIJDREIZIGER ---------- */
     const correctYears = [
