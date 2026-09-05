@@ -77,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialiseer
     buildVerdachtenGrid();
     restoreVerdachtenState();
+    buildJaartallenGrid();
 
     // Luister naar navigatie
     document.addEventListener('click', (e) => {
