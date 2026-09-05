@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    /* ----- VERDACHTENGRID ----- */
+    /* ------ VERDACHTENGRID ------ */
     function buildVerdachtenGrid() {
         // Selecteer ALLE containers (niet alleen de eerste)
         const containers = document.querySelectorAll(".verdachten-grid-container");
