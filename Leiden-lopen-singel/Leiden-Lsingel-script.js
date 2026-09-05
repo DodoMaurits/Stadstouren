@@ -93,36 +93,54 @@ document.addEventListener("DOMContentLoaded", () => {
     
     /* ----- JAARTALLENGRID ----- */
     function buildJaartallenGrid() {
-        const jaartallenContainer = document.getElementById("jaartallenGrid");
-        if (!jaartallenContainer) return;
-        jaartallenContainer.innerHTML = "";
-        if (!isResultPage) {
-            for (let i = 1; i <= 12; i++) {
-                const input = document.createElement("input");
-                input.type = "text";
-                input.inputMode = "numeric";
-                input.maxLength = 4;
-                input.className = "jaartal-cirkel";
-                input.placeholder = "...";
-                const storageKey = `leiden-lsingel-jaartal-${i}`;
-                const savedValue = localStorage.getItem(storageKey);
-                if (savedValue) {
-                    input.value = savedValue;
-                    input.classList.add("filled");
-                }
-                input.addEventListener("input", () => {
-                    const value = input.value.replace(/\D/g, "").slice(0, 4);
-                    input.value = value;
-                    input.classList.remove("filled");
-                    if (value.length > 0) {
-                        input.classList.add("editing");
-                    } else {
-                        input.classList.remove("editing");
-                        localStorage.removeItem(storageKey);
+        // Selecteer ALLE containers met class "jaartallen-grid"
+        const containers = document.querySelectorAll(".jaartallen-grid");
+    
+        containers.forEach(container => {
+            container.innerHTML = "";
+            if (!isResultPage) {
+                for (let i = 1; i <= 12; i++) {
+                    const input = document.createElement("input");
+                    input.type = "text";
+                    input.inputMode = "numeric";
+                    input.maxLength = 4;
+                    input.className = "jaartal-cirkel";
+                    input.placeholder = "...";
+                    const storageKey = `leiden-lsingel-jaartal-${i}`;
+                    const savedValue = localStorage.getItem(storageKey);
+                    if (savedValue) {
+                        input.value = savedValue;
+                        input.classList.add("filled");
                     }
-                });
-                input.addEventListener("keydown", (e) => {
-                    if (e.key === "Enter") {
+    
+                    input.addEventListener("input", () => {
+                        const value = input.value.replace(/\D/g, "").slice(0, 4);
+                        input.value = value;
+                        input.classList.remove("filled");
+                        if (value.length > 0) {
+                            input.classList.add("editing");
+                        } else {
+                            input.classList.remove("editing");
+                            localStorage.removeItem(storageKey);
+                        }
+                    });
+    
+                    input.addEventListener("keydown", (e) => {
+                        if (e.key === "Enter") {
+                            const value = input.value.trim();
+                            input.classList.remove("editing");
+                            if (value) {
+                                localStorage.setItem(storageKey, value);
+                                input.classList.add("filled");
+                            } else {
+                                localStorage.removeItem(storageKey);
+                                input.classList.remove("filled");
+                            }
+                            input.blur();
+                        }
+                    });
+    
+                    input.addEventListener("blur", () => {
                         const value = input.value.trim();
                         input.classList.remove("editing");
                         if (value) {
@@ -132,26 +150,12 @@ document.addEventListener("DOMContentLoaded", () => {
                             localStorage.removeItem(storageKey);
                             input.classList.remove("filled");
                         }
-                        input.blur();
-                    }
-                });
-                input.addEventListener("blur", () => {
-                    const value = input.value.trim();
-                    input.classList.remove("editing");
-                    if (value) {
-                        localStorage.setItem(storageKey, value);
-                        input.classList.add("filled");
-                    } else {
-                        localStorage.removeItem(storageKey);
-                        input.classList.remove("filled");
-                    }
-                });
-                jaartallenContainer.appendChild(input);
+                    });
+                    container.appendChild(input);
+                }
             }
-        }
+        });
     }
-    // Initialiseer
-    buildJaartallenGrid();
     
     /* ---------- ONTKNOPING MOORDMYSTERIE ---------- */    
     const finalAnswerInput = document.getElementById("finalAnswerInput");
@@ -317,32 +321,25 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const resultGrid = document.getElementById("jaartallenGrid");
+    const resultGrids = document.querySelectorAll(".jaartallen-grid");
     const resultsData = localStorage.getItem("timeTravelResults");
-    if (resultGrid && resultsData) {
-        resultGrid.innerHTML = ""; // voorkomt dubbele grids
-        const results = JSON.parse(resultsData);
-        const selectedCircle = Number(
-            localStorage.getItem("selectedTimeCircle")
-        );
-        for (let i = 1; i <= 12; i++) {
-            const value =
-                localStorage.getItem(
-                    `leiden-lsingel-jaartal-${i}`
-                ) || "";
-            const circle =
-                document.createElement("div");
-            circle.className = "jaartal-result";
-            circle.textContent = value;
-            circle.classList.add(
-                results[i - 1].correct
-                    ? "correct"
-                    : "incorrect"
-            );
-            if (selectedCircle === (i - 1)) {
-                circle.classList.add("selected");
+    
+    if (resultsData) {
+        resultGrids.forEach(grid => {
+            grid.innerHTML = "";
+            const results = JSON.parse(resultsData);
+            const selectedCircle = Number(localStorage.getItem("selectedTimeCircle"));
+    
+            for (let i = 1; i <= 12; i++) {
+                const value = localStorage.getItem(`leiden-lsingel-jaartal-${i}`) || "";
+                const circle = document.createElement("div");
+                circle.className = "jaartal-result";
+                circle.textContent = value;
+                circle.classList.add(results[i - 1].correct ? "correct" : "incorrect");
+                if (selectedCircle === (i - 1)) {
+                    circle.classList.add("selected");
+                }
+                grid.appendChild(circle);
             }
-            resultGrid.appendChild(circle);
-        }
+        });
     }
-});
