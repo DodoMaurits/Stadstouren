@@ -157,6 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
                 document.getElementById('page-100').classList.add('active');
             }
+            buildJaartallenGrid();
         });
     }
 });
