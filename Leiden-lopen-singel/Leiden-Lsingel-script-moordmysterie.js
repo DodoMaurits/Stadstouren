@@ -3,11 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ------ VERDACHTENGRID ------ */
     function buildVerdachtenGrid() {
         // Selecteer ALLE containers (niet alleen de eerste)
-        const containers = document.querySelectorAll(".verdachten-grid-container");
+        const activePage = document.querySelector('.page.active');
+        if (!activePage) return;
+
+        const container = activePage.querySelector(".verdachten-grid-container");
+        if (!container) return;
     
-        containers.forEach(container => {
-            // Bouw de grid alleen als hij leeg is
-            container.innerHTML = `
+        container.innerHTML = `
                 <div class="verdachte" data-id="boomverzorger">
                     <img src="../icons/De_boomverzorger.png" alt="Verdachte">
                     <p><br>De boomverzorger</p>
@@ -40,28 +42,27 @@ document.addEventListener("DOMContentLoaded", () => {
                     <img src="../icons/De_schoonmaker.png" alt="Verdachte">
                     <p><br>De schoonmaker<br>van het zwanenbassin</p>
                 </div>
-            `;
+        `;
     
-            // Voeg click handlers toe (alleen als ze nog niet bestaan)
-            container.querySelectorAll(".verdachte").forEach(el => {
-                if (!el.hasClickHandler) { // Voorkom dubbele handlers
-                    el.addEventListener('click', () => {
-                        el.classList.toggle('afgestreept');
-                        const id = el.dataset.id;
-                        if (el.classList.contains('afgestreept')) {
-                            localStorage.setItem('verdachte-' + id, 'afgestreept');
-                        } else {
-                            localStorage.removeItem('verdachte-' + id);
-                        }
-                        if (typeof updateButtonState === 'function') {
-                            setTimeout(updateButtonState, 10);
-                        }
-                    });
-                    el.hasClickHandler = true;
-                }
-            });
+        // Voeg click handlers toe (alleen als ze nog niet bestaan)
+        container.querySelectorAll(".verdachte").forEach(el => {
+            if (!el.hasClickHandler) { 
+                el.addEventListener('click', () => {
+                    el.classList.toggle('afgestreept');
+                    const id = el.dataset.id;
+                    if (el.classList.contains('afgestreept')) {
+                        localStorage.setItem('verdachte-' + id, 'afgestreept');
+                    } else {
+                        localStorage.removeItem('verdachte-' + id);
+                    }
+                    if (typeof updateButtonState === 'function') {
+                        setTimeout(updateButtonState, 10);
+                    }
+                });
+                el.hasClickHandler = true;
+            }
         });
-    }
+    });
 
     // Herstel de state
     function restoreVerdachtenState() {
@@ -176,3 +177,4 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = closeGameButton.href;
         });
     }
+}
