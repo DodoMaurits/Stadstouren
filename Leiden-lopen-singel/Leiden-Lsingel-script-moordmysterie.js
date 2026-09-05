@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 el.hasClickHandler = true;
             }
         });
-    });
+    }
 
     // Herstel de state
     function restoreVerdachtenState() {
