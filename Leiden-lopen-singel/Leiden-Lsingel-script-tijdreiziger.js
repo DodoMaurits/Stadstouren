@@ -151,11 +151,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 Date.now()
             );
             if (chosenCircle.correct) {
-                window.location.href =
-                    "Leiden-Lsingel-tr-goed.html";
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                document.getElementById('page-101').classList.add('active');
             } else {
-                window.location.href =
-                    "Leiden-Lsingel-tr-fout.html";
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                document.getElementById('page-100').classList.add('active');
             }
         });
     }
