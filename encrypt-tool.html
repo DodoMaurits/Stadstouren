@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+<textarea id="in" rows="15" cols="80" placeholder="Plak hier de route-inhoud (HTML)"></textarea><br>
+<input id="key" placeholder="Geheim woord per route, bijv. singel-mm-xyz"><br>
+<button onclick="enc()">Versleutel</button>
+<textarea id="out" rows="8" cols="80" placeholder="Ciphertekst komt hier"></textarea>
+<script>
+async function enc() {
+  const data = new TextEncoder().encode(document.getElementById('in').value);
+  const keyBytes = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(document.getElementById('key').value));
+  const key = await crypto.subtle.importKey('raw', keyBytes, 'AES-GCM', false, ['encrypt']);
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const ct = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, data);
+  const b64 = btoa(String.fromCharCode(...iv) + String.fromCharCode(...new Uint8Array(ct)));
+  document.getElementById('out').value = b64;
+}
+</script>
+</body>
+</html>
